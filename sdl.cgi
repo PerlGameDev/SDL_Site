@@ -42,8 +42,18 @@ dispatch [
 sub layout_zoom {
   my $self = shift;
   $self->{layout_zoom} ||= do {
-    HTML::Zoom->from_string($self->_read_data)
+    HTML::Zoom->from_string($self->_layout_html)
   };
+}
+
+sub _layout_html {
+  my $self = shift;
+  my $file = $self->config->{pages_dir}.'/index.html';
+  if (-f $file) {
+    return do { local(@ARGV, $/) = ($file); <> }
+  } else {
+    return $self->_read_data
+  }
 }
 
 sub render_html {
