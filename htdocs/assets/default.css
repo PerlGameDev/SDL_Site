@@ -31,8 +31,8 @@ div#background
 {
 	padding:             0;
 	margin:              auto;
-	width:               1015;
-	height:              749;
+	width:               1015px;
+	height:              749px;
 	text-align:          left;
 	vertical-align:      top;
 }
@@ -63,7 +63,7 @@ td#upperRight
 {
 	width:               912px;
 	background-image:    url(cards1.jpg);
-	background-position: 550px 5px;
+	background-position: 530px 0px;
 	background-repeat:   no-repeat;
 	text-align:          right;
 	vertical-align:      bottom;
@@ -90,3 +90,12 @@ div#main
 	min-height:          601px;
 	overflow:            hidden;
 }
+
+td#footerRight
+{
+	height:              190px;
+	background-image:    url(credits.jpg);
+	background-position: center center;
+	background-repeat:   no-repeat;
+}
+
