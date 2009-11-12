@@ -28,7 +28,7 @@ sub page {
 dispatch [
   sub (GET + /) { redispatch_to '/index.html' },
   sub (GET + /**/) {
-    redispatch_to do { my $x = join('/','',$_[1],'index.html'); warn $x; $x };
+    redispatch_to join('/','',$_[1],'index.html');
   },
   sub (.html) {
     filter_response { $self->render_html($_[1]) }
