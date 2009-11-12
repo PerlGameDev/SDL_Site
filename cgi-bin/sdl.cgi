@@ -11,7 +11,8 @@ package SDL_Perl::WebSite;
 use HTML::Zoom;
 
 default_config(
-  pages_dir => $FindBin::RealBin.'/pages',
+  pages_dir => $FindBin::RealBin.'/../pages',
+  layout_file => $FindBin::RealBin.'/../layout.html',
 );
 
 sub page {
@@ -48,7 +49,7 @@ sub layout_zoom {
 
 sub _layout_html {
   my $self = shift;
-  my $file = $self->config->{pages_dir}.'/index.html';
+  my $file = $self->config->{layout_file};
   if (-f $file) {
     return do { local(@ARGV, $/) = ($file); <> }
   } else {
