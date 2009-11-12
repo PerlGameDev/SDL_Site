@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 use FindBin;
-use lib $FindBin::RealBin.'/code';
+use lib $FindBin::RealBin.'/../code';
 use Web::Simple 'SDL_Perl::WebSite';
 
 sub SDL_Perl::WebSite::Page::html { ${+shift} }
