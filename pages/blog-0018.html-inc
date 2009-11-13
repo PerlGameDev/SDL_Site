@@ -1,0 +1,6 @@
+<div class="blog">
+<h1 id="NAME">
+Code is not the only thing
+</h1>
+<div class="CONTENT">
+<div style="float: right;"><i><br />I did,<br />no one cared,<br />I spoke,<br />no one heard,<br />I wrote,<br />someone read.<br /></i><br /></div><br /><p style="clear: both;">After only several weeks of maintaining SDL perl, Today I have come to <a href="http://www.nntp.perl.org/group/perl.sdl.devel/2009/08/msg1405.html">noticed </a>how important it is to update README's, docs and so on. I will redouble my effort to do <a href="http://github.com/kthakore/SDL_perl/commit/e504c139e12e5592b5694292bb1882ee78b65b28">this</a>. </p><br /><p>However I am not sure where to start updating docs. Has anyone re-documented old modules before? Any advice? If anyone is interested in helping me to sort out documentation please contact me on sdl-devel@perl.org. For people wanting to learn the SDL base there is no better way.<br /></p><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-2082858297367668517?l=yapgh.blogspot.com'/></div></div>
