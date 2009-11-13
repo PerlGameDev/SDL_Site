@@ -1,172 +1,118 @@
-<DIV class="blog">
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>pages/index.pod-inc</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
+
+<body style="background-color: white">
 
 
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
 
-<h1><a class='u' href='#___top' title='click to go to top of document'
-name="Simple_DirectMedia_Library_Bindings_for_Perl"
->Simple DirectMedia Library Bindings for Perl</a></h1>
+<ul>
 
-<p>Welcome to the new SDL Perl pages,
-graciously hosted by Perl.org.</p>
+	<li><a href="#simple_directmedia_library_bindings_for_perl">Simple DirectMedia Library Bindings for Perl</a></li>
+	<ul>
 
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="Latest_News"
->Latest News</a></h2>
+		<li><a href="#welcome">Welcome</a></li>
+		<ul>
 
-<p><b>28 August 2009</b> SDL_Perl is at v2.3</p>
+			<li><a href="#getting_started">Getting Started</a></li>
+			<li><a href="#contribute">Contribute</a></li>
+		</ul>
 
-<p>The master branch is stable at v2.3 .
-This release is disable for windows for now.
-This version provides a lot of critical bugfixes from the previous release on cpan.
-Read the CHANGELOG.</p>
+	</ul>
 
-<p>Work is being done on v2.4 to add major over haul for memleaks.
-The bleeding edge code is available from <a href="http://github.com/kthakore/SDL_Perl/" class="podlinkurl"
->http://github.com/kthakore/SDL_Perl/</a>.
-The experimental branch is where the v2.4 will be developed.</p>
+	<li><a href="#latest_news">Latest News</a></li>
+	<ul>
 
-<p>Also <a href="http://frozen-bubble.org/" class="podlinkurl"
->http://frozen-bubble.org/</a> is being migrated to CPAN as Games::FrozenBubble.
-This is being tracked on our new tracker <a href="http://sdlperl.ath.cx/projects/SDLPerl/" class="podlinkurl"
->http://sdlperl.ath.cx/projects/SDLPerl/</a>.
-We have opened a ticket for it<a href="http://sdlperl.ath.cx/projects/SDLPerl/ticket/2" class="podlinkurl"
->http://sdlperl.ath.cx/projects/SDLPerl/ticket/2</a>.</p>
+		<li><a href="#november_13th_2009">November 13th 2009</a></li>
+		<ul>
 
-<p>Also the <a href="https://rt.cpan.org/Dist/Display.html?Queue=SDL_perl" class="podlinkurl"
->https://rt.cpan.org/Dist/Display.html?Queue=SDL_perl</a> is active again.
-We are cleaning up bugs and responding to reporters.
-See <a href="http://search.cpan.org/~kthakore/SDL_Perl-v2.2.2/lib/SDL.pm" class="podlinkurl"
->http://search.cpan.org/~kthakore/SDL_Perl-v2.2.2/lib/SDL.pm</a>.
-Please report any strange behavior to the bug tracker.
---Kartik</p>
+			<li><a href="#cpan_release">CPAN Release</a></li>
+			<li><a href="#active_development">Active Development</a></li>
+		</ul>
 
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="Tutorials_Online!"
->Tutorials Online!</a></h2>
+	</ul>
 
-<p>Updated and Working coming soon!!!</p>
+</ul>
 
-<p>Of course,
-if you grab a snapshot and install it,
-not only can you report successes (and probably a few bugs),
-but you can play with the demo program for each tutorial!
-It&#39;s very fun.</p>
+<hr name="index" />
+</div>
+<!-- INDEX END -->
 
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="Articles"
->Articles</a></h2>
-
-<p>Developing games with Perl and SDL on Ars Technica written by Andy Bakun <a href="http://arstechnica.com/gaming/news/2006/02/games-perl.ars" class="podlinkurl"
->http://arstechnica.com/gaming/news/2006/02/games-perl.ars</a></p>
-
-<p>Note this is old.</p>
-
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="A_Little_History"
->A Little History</a></h2>
-
-<p>Why are these pages new?
-In October,
-David G&#246;hrig,
-the creator and maintainer of SDL Perl,
-announced that he was quitting his job,
-selling all his stuff,
-and going backpacking in Europe for a few months.
-That left SDL Perl without a maintainer or a home.
-But SDL Perl is back and running with Kartik and David&#39;s help.</p>
-
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="Future_Plans"
->Future Plans</a></h2>
-
-<p>We&#39;re working on polishing the latest code available to make the v2.5 release.
-Here is the roadmap so far.
-
-<a href="http://wiki.github.com/cthulhuology/SDLPerl" class="podlinkurl"
->http://wiki.github.com/cthulhuology/SDLPerl</a></p>
-
-<p>Hopefully,
-Perl will soon be a wonderful language in which to write media applications -- including games.</p>
-
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="Mailing_list"
->Mailing list</a></h2>
-
-<p>Subscribe to the development list by sending an e-mail to <code>sdl-devel-subscribe@perl.org</code>.
-Subscribe to the source code changes list by sending an e-mail to <code>sdl-changes-subscribe@perl.org</code>.</p>
-
-<p>The archives of the mailing list is here <a href="http://www.nntp.perl.org/group/perl.sdl.devel/" class="podlinkurl"
->http://www.nntp.perl.org/group/perl.sdl.devel/</a>.</p>
-
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="IRC"
->IRC</a></h2>
-
-<p>The IRC channel used by the SDL Perl people is #sdl on irc.perl.org.
-If you have an IRC client use this link: <a href="irc://irc.perl.org/%23sdl" class="podlinkurl"
->irc://irc.perl.org/%23sdl</a> If you don&#39;t have an IRC client you can use the Mibbit web based IRC client by clicking here: <a href="http://widget.mibbit.com/?server=irc.perl.org&#38;channel=%23sdl" class="podlinkurl"
->http://widget.mibbit.com/?server=irc.perl.org&#38;channel=%23sdl</a></p>
-
-<p>Our IRC channel is logged here</p>
-
-<p><a href="http://irclog.perlgeek.de/sdl/today" class="podlinkurl"
->http://irclog.perlgeek.de/sdl/today</a></p>
-
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="Applications"
->Applications</a></h2>
-
-<p>App-Fotagger is an application to add tags to images.
-It was the first attempt of Thomas Klausner at SDL and it can be improved a lot: <a href="http://search.cpan.org/dist/App-Fotagger" class="podlinkurl"
->http://search.cpan.org/dist/App-Fotagger</a></p>
-
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="Games"
->Games</a></h2>
-
-<p>The original Frozen Bubble <a href="http://www.frozen-bubble.org/" class="podlinkurl"
->http://www.frozen-bubble.org/</a> is probably the most well known application written in SDL Perl.</p>
-
-<p>Thomas Klausner has started a Space Invaders clone in SDL Perl.
-You can find the code on Github <a href="http://github.com/domm/Game-PerlInvaders" class="podlinkurl"
->http://github.com/domm/Game-PerlInvaders</a>.</p>
-
-<p>Kartik Thakore has started a falling block game</p>
-
-<p>You can find the code on Github <a href="http://github.com/kthakore/TetrisPL" class="podlinkurl"
->http://github.com/kthakore/TetrisPL</a>.</p>
-
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="Related_Links"
->Related Links</a></h2>
-
+<p>
+</p>
+<hr />
+<h1><a name="simple_directmedia_library_bindings_for_perl">Simple DirectMedia Library Bindings for Perl</a></h1>
+<p>
+</p>
+<h2><a name="welcome">Welcome</a></h2>
+<p>SDL Perl is an active and exciting project with many facets. Explore this website to learn more.</p>
+<p>
+</p>
+<h3><a name="getting_started">Getting Started</a></h3>
+<p>To begin using SDL Perl read the tutorials and documentation.</p>
+<p>
+</p>
+<h3><a name="contribute">Contribute</a></h3>
 <dl>
-
-<dt><a name="http://www.libsdl.org/"
-><a href="http://www.libsdl.org/" class="podlinkurl"
->http://www.libsdl.org/</a></a></dt>
+<dt><strong><a name="irc" class="item">IRC</a></strong></dt>
 
 <dd>
-<p>The SDL Homepage</p>
-
-<dt><a name="http://wiki.github.com/kthakore/SDL_perl/dependencies"
-><a href="http://wiki.github.com/kthakore/SDL_perl/dependencies" class="podlinkurl"
->http://wiki.github.com/kthakore/SDL_perl/dependencies</a></a></dt>
+<p>Talk to us on channel #sdl.</p>
+</dd>
+<dt><strong><a name="mailing_list" class="item">Mailing List</a></strong></dt>
 
 <dd>
-<p>Where to find SDL dependencies</p>
-
-<dt><a name="http://yapgh.blogspot.com"
-><a href="http://yapgh.blogspot.com" class="podlinkurl"
->http://yapgh.blogspot.com</a></a></dt>
+<p>Send us an email at <a href="mailto:sdl-devel@perl.org.">sdl-devel@perl.org.</a></p>
+</dd>
+<dt><strong><a name="testing_and_development" class="item">Testing and Development</a></strong></dt>
 
 <dd>
-<p>Updated info from maintainer.
-=back</p>
+<p>Join us on the development wiki.</p>
+</dd>
+</dl>
+<p>
+</p>
+<hr />
+<h1><a name="latest_news">Latest News</a></h1>
+<p>
+</p>
+<h2><a name="november_13th_2009">November 13th 2009</a></h2>
+<p>
+</p>
+<h3><a name="cpan_release">CPAN Release</a></h3>
+<pre>
+
+SDL Perl is v2.2.6 on CPAN. The last of it's kind. This is the last release which will have the old API.</pre>
+<p>
+</p>
+<h3><a name="active_development">Active Development</a></h3>
+<p>SDL Perl is being actively developed to v3.0. The process is as below:</p>
+<dl>
+<dt><strong><a name="v2_3_100_core_of_sdl_c_api_migrated_without_multithreading" class="item">v2.3 100% Core of SDL C API migrated without MultiThreading</a></strong></dt>
+
+<dd>
+<p>MultiThreading is doable with this release but will be focused on later</p>
+</dd>
+<dt><strong><a name="v2_4_sdl_net_sdl_pango_sdl_ttf_sdl_mixer_support" class="item">v2.4 SDL_Net, SDL_Pango, SDL_TTF &amp; SDL_Mixer Support</a></strong></dt>
+
+<dd>
+<p>SDL_Net due to interest in bring POE/AnyEvent to SDL, SDL_Pango to support the new FrozenBubble migration.</p>
+</dd>
+<dt><strong><a name="v2_5_multithreading_and_other_third_party_libraries" class="item">v2.5 ??? MultiThreading and Other Third Party Libraries</a></strong></dt>
+
+<dd>
+<p>This release is undecided as of now. Please talk to us on the Channel or Make Tickets</p>
 </dd>
 </dl>
 
+</body>
 
-
-</DIV>
-
+</html>

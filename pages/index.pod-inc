@@ -1,0 +1,59 @@
+=pod
+
+=head1 Simple DirectMedia Library Bindings for Perl
+
+=head2 Welcome
+
+SDL Perl is an active and exciting project with many facets. Explore this website to learn more. 
+
+=head3 Getting Started
+
+To begin using SDL Perl read the tutorials and documentation. 
+
+=head3 Contribute
+
+=over
+
+=item IRC
+
+Talk to us on channel #sdl.
+
+=item Mailing List
+
+Send us an email at sdl-devel@perl.org.
+
+=item Testing and Development
+
+Join us on the development wiki. 
+
+=back
+
+=head1 Latest News
+
+=head2 November 13th 2009
+
+=head3 CPAN Release
+	
+SDL Perl is v2.2.6 on CPAN. The last of it's kind. This is the last release which will have the old API. 
+
+=head3 Active Development
+
+SDL Perl is being actively developed to v3.0. The process is as below:
+
+=over
+
+=item v2.3 100% Core of SDL C API migrated without MultiThreading 
+
+MultiThreading is doable with this release but will be focused on later
+
+=item v2.4 SDL_Net, SDL_Pango, SDL_TTF & SDL_Mixer Support
+
+SDL_Net due to interest in bring POE/AnyEvent to SDL, SDL_Pango to support the new FrozenBubble migration. 
+
+=item v2.5 ??? MultiThreading and Other Third Party Libraries
+
+This release is undecided as of now. Please talk to us on the Channel or Make Tickets
+
+=back
+
+=cut 
