@@ -68,6 +68,12 @@ td#upperRight
 	text-align:          right;
 	vertical-align:      bottom;
 	font-variant:        small-caps;
+	color:               #FFFFFF;
+}
+
+td#upperRight a
+{
+	color:               #FFFFFF;
 }
 
 td#lowerRight
