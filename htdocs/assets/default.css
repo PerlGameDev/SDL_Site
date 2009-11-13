@@ -27,6 +27,12 @@ a:hover
 	text-decoration:     underline;
 }
 
+.hover:hover
+{
+	cursor:              pointer;
+	background-color:    #F5CA78;
+}
+
 div#background
 {
 	padding:             0;
