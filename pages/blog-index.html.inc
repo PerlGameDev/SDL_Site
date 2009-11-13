@@ -1,1 +1,0 @@
-<a href="/blog-0025.html">SDL Perl Windows Status</a><br /><br />
