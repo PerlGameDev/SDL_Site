@@ -1,0 +1,80 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a>
+<ul><li><a href="#METHODS">METHODS </a></li>
+</ul>
+</li>
+<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+
+
+
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::SMPEG - a SDL perl extension</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>  $video = new SDL::SMPEG ( -name =&gt; 'pr0n.mpg' );
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p><code>SDL::SMPEG</code> adds support for MPEG video to your
+SDL Perl application.  SMPEGs are objects bound to
+surfaces, whose playback is controled through the
+object's interface.</p>
+
+</div>
+<h2 id="METHODS">METHODS </h2>
+<div id="METHODS_CONTENT">
+
+
+
+
+<ul>
+		<li><code>SDL::SMPEG::error()</code> returns any error messages associated with playback 	</li>
+		<li><code>SDL::SMPEG::audio(bool)</code> enables or disables audio playback, (on by default)	</li>
+		<li><code>SDL::SMPEG::video(bool)</code> enables or disable video playback, (on by default)	</li>
+		<li><code>SDL::SMPEG::loop(bool)</code> enables or disable playback looping (off by default) 	</li>
+		<li><code>SDL::SMPEG::volume(int)</code> set the volume as per the mixer volume	</li>
+		<li><code>SDL::SMPEG:display(surface)</code> binds the clip to a display surface	</li>
+		<li><code>SDL::SMPEG::scale([x,y]|[surface]|int)</code> scales the clip by either x,y
+factors, scales to the image dimensions, or a single scalar.	</li>
+		<li><code>SDL::SMPEG::play()</code> plays the video clip, call <code>SDL::SMPEG::display()</code> before playing	</li>
+		<li><code>SDL::SMPEG::pause()</code> pauses video playback	</li>
+		<li><code>SDL::SMPEG::stop()</code> stops video playback	</li>
+		<li><code>SDL::SMPEG::rewind()</code> resets the clip to the beginning 	</li>
+		<li><code>SDL::SMPEG::seek(offset)</code> seeks to a particular byte offset	</li>
+		<li><code>SDL::SMPEG::skip(time)</code> skips to a particular time	</li>
+		<li><code>SDL::SMPEG::region(rect)</code> takes a SDL::Rect and defines the display area	</li>
+		<li><code>SDL::SMPEG::frame(int)</code> renders a specific frame to the screen	</li>
+		<li><code>SDL::SMPEG::info()</code> returns a new <code>SDL::MPEG</code> object reflecting the current status	</li>
+		<li><code>SDL::SMPEG::status()</code> returns either SMPEG_PLAYING or SMPEG_STOPPED or SMPEG_ERROR</li>
+</ul>
+
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>David J. Goehrig</p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p>perl(1) SDL::Surface(3) SDL::MPEG(3)</p>
+
+</div>
+</div>
