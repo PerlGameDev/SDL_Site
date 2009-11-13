@@ -1,6 +1,172 @@
-<div class="blog">
-<h1 id="NAME">
-Once in a while .... (set_event_filter)
-</h1>
-<div class="CONTENT">
-<div style="text-align: right;"><i> <br />Once in a while <br />Things just work! <br /></i><br /></div><br /><br />So I have been hacking for a while on SDL::Events::set_event_filter. The code below is an example usage. The magic behind this is <a href="http://github.com/kthakore/SDL_perl/blob/1712fe42d62c2a3e382e6bf91366eb2ce9d2f5f4/src/Core/Events.xs">here</a> <br /><br /><pre><a href="" name="line1"> 1</a> <span style="color: #444444;">#!/usr/bin/perl -w<br /><a href="" name="line2"> 2</a> </span><b>use</b> strict;<br /><a href="" name="line3"> 3</a> <b>use</b> warnings;<br /><a href="" name="line4"> 4</a> <b>use</b> SDL v2.3; <span style="color: #444444;">#Require the redesign branch<br /><a href="" name="line5"> 5</a> </span><b>use</b> SDL::Video;<br /><a href="" name="line6"> 6</a> <b>use</b> SDL::Event;<br /><a href="" name="line7"> 7</a> <b>use</b> SDL::Events;<br /><a href="" name="line8"> 8</a> <br /><a href="" name="line9"> 9</a> SDL::init<span style="color: #4444ff;"><b>(</b></span>SDL_INIT_VIDEO<span style="color: #4444ff;"><b>)</b></span>;<br /><a href="" name="line10">10</a> <b>my</b> <span style="color: #2040a0;">$display</span> = SDL::Video::set_video_mode<span style="color: #4444ff;"><b>(</b></span>640,480,32, SDL_SWSURFACE <span style="color: #4444ff;"><b>)</b></span>;<br /><a href="" name="line11">11</a> <b>my</b>  <span style="color: #2040a0;">$event</span> = SDL::Event-&gt;<b>new</b><span style="color: #4444ff;"><b>(</b></span><span style="color: #4444ff;"><b>)</b></span>;<br /><a href="" name="line12">12</a> <br /><a href="" name="line13">13</a> <span style="color: #444444;">#This filters out all ActiveEvents<br /><a href="" name="line14">14</a> </span><b>my</b> <span style="color: #2040a0;">$filter</span> = sub <span style="color: #4444ff;"><b>{</b></span> <br /><a href="" name="line15">15</a>      <b>my</b> <span style="color: #4444ff;"><b>(</b></span><span style="color: #2040a0;">$e</span>, <span style="color: #2040a0;">$type</span><span style="color: #4444ff;"><b>)</b></span> = <span style="color: #4444ff;"><b>(</b></span><span style="color: #2040a0;">$_</span><span style="color: #4444ff;"><b>[</b></span>0<span style="color: #4444ff;"><b>]</b></span>, <span style="color: #2040a0;">$_</span><span style="color: #4444ff;"><b>[</b></span>0<span style="color: #4444ff;"><b>]</b></span>-&gt;type<span style="color: #4444ff;"><b>)</b></span>; <br /><a href="" name="line16">16</a>      <b>if</b><span style="color: #4444ff;"><b>(</b></span><span style="color: #2040a0;">$type</span> == SDL_ACTIVEEVENT<span style="color: #4444ff;"><b>)</b></span><span style="color: #4444ff;"><b>{</b></span> <b>return</b> 0 <span style="color: #4444ff;"><b>}</b></span> <br /><a href="" name="line17">17</a>      <b>elsif</b><span style="color: #4444ff;"><b>(</b></span><span style="color: #2040a0;">$type</span> == SDL_MOUSEBUTTONDOWN &amp;&amp; <span style="color: #2040a0;">$e</span>-&gt;button_button == 1<span style="color: #4444ff;"><b>)</b></span><span style="color: #4444ff;"><b>{</b></span> <b>return</b> 0 <span style="color: #4444ff;"><b>}</b></span><br /><a href="" name="line18">18</a>      <b>else</b> <span style="color: #4444ff;"><b>{</b></span> <b>return</b> 1; <span style="color: #4444ff;"><b>}</b></span><br /><a href="" name="line19">19</a>       <span style="color: #4444ff;"><b>}</b></span>;<br /><a href="" name="line20">20</a> <br /><a href="" name="line21">21</a> SDL::Events::set_event_filter<span style="color: #4444ff;"><b>(</b></span><span style="color: #2040a0;">$filter</span><span style="color: #4444ff;"><b>)</b></span>;<br /><a href="" name="line22">22</a> <br /><a href="" name="line23">23</a> <b>while</b><span style="color: #4444ff;"><b>(</b></span>1<span style="color: #4444ff;"><b>)</b></span><br /><a href="" name="line24">24</a> <span style="color: #4444ff;"><b>{</b></span><br /><a href="" name="line25">25</a> <br /><a href="" name="line26">26</a>   SDL::Events::pump_events<span style="color: #4444ff;"><b>(</b></span><span style="color: #4444ff;"><b>)</b></span>;<br /><a href="" name="line27">27</a>   <b>if</b><span style="color: #4444ff;"><b>(</b></span>SDL::Events::poll_event<span style="color: #4444ff;"><b>(</b></span><span style="color: #2040a0;">$event</span><span style="color: #4444ff;"><b>)</b></span><span style="color: #4444ff;"><b>)</b></span><br /><a href="" name="line28">28</a>   <span style="color: #4444ff;"><b>{</b></span><br /><a href="" name="line29">29</a> <br /><a href="" name="line30">30</a>   <b>if</b><span style="color: #4444ff;"><b>(</b></span>  <span style="color: #2040a0;">$event</span>-&gt;type == SDL_ACTIVEEVENT<span style="color: #4444ff;"><b>)</b></span><br /><a href="" name="line31">31</a>  <span style="color: #4444ff;"><b>{</b></span><br /><a href="" name="line32">32</a>  <span style="color: brown;"><b>print</b></span> <span style="color: green;">"Hello Mouse!!!<span style="color: #77dd77;">\n</span>"</span> <b>if</b> <span style="color: #4444ff;"><b>(</b></span><span style="color: #2040a0;">$event</span>-&gt;active_gain &amp;&amp; <span style="color: #4444ff;"><b>(</b></span><span style="color: #2040a0;">$event</span>-&gt;active_state == SDL_APPMOUSEFOCUS<span style="color: #4444ff;"><b>)</b></span> <span style="color: #4444ff;"><b>)</b></span>;<br /><a href="" name="line33">33</a>  <span style="color: brown;"><b>print</b></span> <span style="color: green;">"Bye Mouse!!!<span style="color: #77dd77;">\n</span>"</span> <b>if</b> <span style="color: #4444ff;"><b>(</b></span>!<span style="color: #2040a0;">$event</span>-&gt;active_gain &amp;&amp; <span style="color: #4444ff;"><b>(</b></span><span style="color: #2040a0;">$event</span>-&gt;active_state == SDL_APPMOUSEFOCUS<span style="color: #4444ff;"><b>)</b></span> <span style="color: #4444ff;"><b>)</b></span>;<br /><a href="" name="line34">34</a>         <span style="color: #4444ff;"><b>}</b></span><br /><a href="" name="line35">35</a>   <b>if</b><span style="color: #4444ff;"><b>(</b></span> <span style="color: #2040a0;">$event</span>-&gt;type == SDL_MOUSEBUTTONDOWN<span style="color: #4444ff;"><b>)</b></span><br /><a href="" name="line36">36</a>    <span style="color: #4444ff;"><b>{</b></span><br /><a href="" name="line37">37</a>  <b>my</b> <span style="color: #4444ff;"><b>(</b></span><span style="color: #2040a0;">$x</span>, <span style="color: #2040a0;">$y</span>, <span style="color: #2040a0;">$but</span> <span style="color: #4444ff;"><b>)</b></span> = <span style="color: #4444ff;"><b>(</b></span><span style="color: #2040a0;">$event</span>-&gt;button_x, <span style="color: #2040a0;">$event</span>-&gt;button_y, <span style="color: #2040a0;">$event</span>-&gt;button_button<span style="color: #4444ff;"><b>)</b></span>;<br /><a href="" name="line38">38</a>  <span style="color: brown;"><b>warn</b></span> <span style="color: green;">"<span style="color: #2040a0;">$but</span> CLICK!!! at <span style="color: #2040a0;">$x</span> and <span style="color: #2040a0;">$y</span> <span style="color: #77dd77;">\n</span>"</span>;<br /><a href="" name="line39">39</a>  <span style="color: #4444ff;"><b>}</b></span><br /><a href="" name="line40">40</a> <br /><a href="" name="line41">41</a>       <b>last</b> <b>if</b><span style="color: #4444ff;"><b>(</b></span><span style="color: #2040a0;">$event</span>-&gt;type == SDL_QUIT<span style="color: #4444ff;"><b>)</b></span>;<br /><a href="" name="line42">42</a>   <span style="color: #4444ff;"><b>}</b></span><br /><a href="" name="line43">43</a> <span style="color: #4444ff;"><b>}</b></span><br /><a href="" name="line44">44</a> SDL::quit<span style="color: #4444ff;"><b>(</b></span><span style="color: #4444ff;"><b>)</b></span>;&nbsp;</pre><pre>&nbsp;</pre><pre>&nbsp;</pre><pre>Tinker with $filter and look at perldoc lib/SDL/pods/Event.pod.&nbsp;</pre><pre>&nbsp;</pre><pre>Have fun,</pre><pre>--yapgh</pre><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-2301663122914111362?l=yapgh.blogspot.com'/></div></div>
+<DIV ID="MAIN">
+
+
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="Simple_DirectMedia_Library_Bindings_for_Perl"
+>Simple DirectMedia Library Bindings for Perl</a></h1>
+
+<p>Welcome to the new SDL Perl pages,
+graciously hosted by Perl.org.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="Latest_News"
+>Latest News</a></h2>
+
+<p><b>28 August 2009</b> SDL_Perl is at v2.3</p>
+
+<p>The master branch is stable at v2.3 .
+This release is disable for windows for now.
+This version provides a lot of critical bugfixes from the previous release on cpan.
+Read the CHANGELOG.</p>
+
+<p>Work is being done on v2.4 to add major over haul for memleaks.
+The bleeding edge code is available from <a href="http://github.com/kthakore/SDL_Perl/" class="podlinkurl"
+>http://github.com/kthakore/SDL_Perl/</a>.
+The experimental branch is where the v2.4 will be developed.</p>
+
+<p>Also <a href="http://frozen-bubble.org/" class="podlinkurl"
+>http://frozen-bubble.org/</a> is being migrated to CPAN as Games::FrozenBubble.
+This is being tracked on our new tracker <a href="http://sdlperl.ath.cx/projects/SDLPerl/" class="podlinkurl"
+>http://sdlperl.ath.cx/projects/SDLPerl/</a>.
+We have opened a ticket for it<a href="http://sdlperl.ath.cx/projects/SDLPerl/ticket/2" class="podlinkurl"
+>http://sdlperl.ath.cx/projects/SDLPerl/ticket/2</a>.</p>
+
+<p>Also the <a href="https://rt.cpan.org/Dist/Display.html?Queue=SDL_perl" class="podlinkurl"
+>https://rt.cpan.org/Dist/Display.html?Queue=SDL_perl</a> is active again.
+We are cleaning up bugs and responding to reporters.
+See <a href="http://search.cpan.org/~kthakore/SDL_Perl-v2.2.2/lib/SDL.pm" class="podlinkurl"
+>http://search.cpan.org/~kthakore/SDL_Perl-v2.2.2/lib/SDL.pm</a>.
+Please report any strange behavior to the bug tracker.
+--Kartik</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="Tutorials_Online!"
+>Tutorials Online!</a></h2>
+
+<p>Updated and Working coming soon!!!</p>
+
+<p>Of course,
+if you grab a snapshot and install it,
+not only can you report successes (and probably a few bugs),
+but you can play with the demo program for each tutorial!
+It&#39;s very fun.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="Articles"
+>Articles</a></h2>
+
+<p>Developing games with Perl and SDL on Ars Technica written by Andy Bakun <a href="http://arstechnica.com/gaming/news/2006/02/games-perl.ars" class="podlinkurl"
+>http://arstechnica.com/gaming/news/2006/02/games-perl.ars</a></p>
+
+<p>Note this is old.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="A_Little_History"
+>A Little History</a></h2>
+
+<p>Why are these pages new?
+In October,
+David G&#246;hrig,
+the creator and maintainer of SDL Perl,
+announced that he was quitting his job,
+selling all his stuff,
+and going backpacking in Europe for a few months.
+That left SDL Perl without a maintainer or a home.
+But SDL Perl is back and running with Kartik and David&#39;s help.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="Future_Plans"
+>Future Plans</a></h2>
+
+<p>We&#39;re working on polishing the latest code available to make the v2.5 release.
+Here is the roadmap so far.
+
+<a href="http://wiki.github.com/cthulhuology/SDLPerl" class="podlinkurl"
+>http://wiki.github.com/cthulhuology/SDLPerl</a></p>
+
+<p>Hopefully,
+Perl will soon be a wonderful language in which to write media applications -- including games.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="Mailing_list"
+>Mailing list</a></h2>
+
+<p>Subscribe to the development list by sending an e-mail to <code>sdl-devel-subscribe@perl.org</code>.
+Subscribe to the source code changes list by sending an e-mail to <code>sdl-changes-subscribe@perl.org</code>.</p>
+
+<p>The archives of the mailing list is here <a href="http://www.nntp.perl.org/group/perl.sdl.devel/" class="podlinkurl"
+>http://www.nntp.perl.org/group/perl.sdl.devel/</a>.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="IRC"
+>IRC</a></h2>
+
+<p>The IRC channel used by the SDL Perl people is #sdl on irc.perl.org.
+If you have an IRC client use this link: <a href="irc://irc.perl.org/%23sdl" class="podlinkurl"
+>irc://irc.perl.org/%23sdl</a> If you don&#39;t have an IRC client you can use the Mibbit web based IRC client by clicking here: <a href="http://widget.mibbit.com/?server=irc.perl.org&#38;channel=%23sdl" class="podlinkurl"
+>http://widget.mibbit.com/?server=irc.perl.org&#38;channel=%23sdl</a></p>
+
+<p>Our IRC channel is logged here</p>
+
+<p><a href="http://irclog.perlgeek.de/sdl/today" class="podlinkurl"
+>http://irclog.perlgeek.de/sdl/today</a></p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="Applications"
+>Applications</a></h2>
+
+<p>App-Fotagger is an application to add tags to images.
+It was the first attempt of Thomas Klausner at SDL and it can be improved a lot: <a href="http://search.cpan.org/dist/App-Fotagger" class="podlinkurl"
+>http://search.cpan.org/dist/App-Fotagger</a></p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="Games"
+>Games</a></h2>
+
+<p>The original Frozen Bubble <a href="http://www.frozen-bubble.org/" class="podlinkurl"
+>http://www.frozen-bubble.org/</a> is probably the most well known application written in SDL Perl.</p>
+
+<p>Thomas Klausner has started a Space Invaders clone in SDL Perl.
+You can find the code on Github <a href="http://github.com/domm/Game-PerlInvaders" class="podlinkurl"
+>http://github.com/domm/Game-PerlInvaders</a>.</p>
+
+<p>Kartik Thakore has started a falling block game</p>
+
+<p>You can find the code on Github <a href="http://github.com/kthakore/TetrisPL" class="podlinkurl"
+>http://github.com/kthakore/TetrisPL</a>.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="Related_Links"
+>Related Links</a></h2>
+
+<dl>
+
+<dt><a name="http://www.libsdl.org/"
+><a href="http://www.libsdl.org/" class="podlinkurl"
+>http://www.libsdl.org/</a></a></dt>
+
+<dd>
+<p>The SDL Homepage</p>
+
+<dt><a name="http://wiki.github.com/kthakore/SDL_perl/dependencies"
+><a href="http://wiki.github.com/kthakore/SDL_perl/dependencies" class="podlinkurl"
+>http://wiki.github.com/kthakore/SDL_perl/dependencies</a></a></dt>
+
+<dd>
+<p>Where to find SDL dependencies</p>
+
+<dt><a name="http://yapgh.blogspot.com"
+><a href="http://yapgh.blogspot.com" class="podlinkurl"
+>http://yapgh.blogspot.com</a></a></dt>
+
+<dd>
+<p>Updated info from maintainer.
+=back</p>
+</dd>
+</dl>
+
+
+
+</DIV>
+
