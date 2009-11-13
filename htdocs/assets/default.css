@@ -5,7 +5,7 @@ body
 	font-size:			 12px;
 	font-weight:		 normal;
 	color:				 #000000;
-	background-color:	 #212936;
+	background-color:	 #000033;
 	text-align:			 left;
 	padding:             0;
 	margin:              0;
@@ -78,7 +78,7 @@ td#upperRight a
 
 td#lowerRight
 {
-	background-color:	 #B4C0CF;
+	background-color:	 #99CCCC;
 	min-height:          603px;
 	text-align:          left;
 	vertical-align:      top;
