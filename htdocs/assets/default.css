@@ -17,13 +17,13 @@ a
 {
 	font-size:			 14px;
 	font-weight:         bold;
-	color:               #49241D;
+	color:               #FF6600;
 	text-decoration:     none;
 }
 
 a:hover
 {
-	color:               #864135;
+	color:               #FF0000;
 	text-decoration:     underline;
 }
 
