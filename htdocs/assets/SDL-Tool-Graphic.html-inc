@@ -1,0 +1,75 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#zoom_surface_xzoom_yzoom_smooth">zoom ( surface, xzoom, yzoom, smooth )</a></li>
+<li><a href="#rotoZoom_surface_angle_zoom_smooth">rotoZoom ( surface, angle, zoom, smooth )</a></li>
+<li><a href="#grayScale_surface">grayScale ( surface )</a></li>
+<li><a href="#invertColor_surface">invertColor ( surface )</a></li>
+</ul>
+</li>
+<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+
+
+
+
+
+
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::Tool::Graphic</p>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p><cite>SDL::Tool::Graphic</cite> is a module for zooming and rotating <cite>SDL::Surface</cite> objects.</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="zoom_surface_xzoom_yzoom_smooth">zoom ( surface, xzoom, yzoom, smooth )</h2>
+<div id="zoom_surface_xzoom_yzoom_smooth_CONT">
+<p><code>SDL::Tool::Graphic::zoom</code> scales a <cite>SDL::Surface</cite> along the two axis independently.</p>
+
+</div>
+<h2 id="rotoZoom_surface_angle_zoom_smooth">rotoZoom ( surface, angle, zoom, smooth )</h2>
+<div id="rotoZoom_surface_angle_zoom_smooth_C">
+<p><code>SDL::Tool::Graphic::rotoZoom</code> rotates and fixed axis zooms a <cite>SDL::Surface</cite>.</p>
+
+</div>
+<h2 id="grayScale_surface">grayScale ( surface )</h2>
+<div id="grayScale_surface_CONTENT">
+<p><code>SDL::Tool::Graphic::grayScale</code> rotates and fixed axis zooms a <cite>SDL::Surface</cite>.</p>
+
+</div>
+<h2 id="invertColor_surface">invertColor ( surface )</h2>
+<div id="invertColor_surface_CONTENT">
+<p><code>SDL::Tool::Graphic::invertColor</code> inverts the color of a &lt;SDL::Surface&gt;.</p>
+
+
+
+
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>Russell E. Valentine</p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><cite>perl</cite> <cite>SDL::Surface</cite></p>
+
+</div>
+</div>
