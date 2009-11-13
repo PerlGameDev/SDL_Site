@@ -1,118 +1,89 @@
-<?xml version="1.0" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>pages/index.pod-inc</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rev="made" href="mailto:root@localhost" />
-</head>
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
 
-<body style="background-color: white">
-
-
-<!-- INDEX BEGIN -->
-<div name="index">
-<p><a name="__index__"></a></p>
-
-<ul>
-
-	<li><a href="#simple_directmedia_library_bindings_for_perl">Simple DirectMedia Library Bindings for Perl</a></li>
-	<ul>
-
-		<li><a href="#welcome">Welcome</a></li>
-		<ul>
-
-			<li><a href="#getting_started">Getting Started</a></li>
-			<li><a href="#contribute">Contribute</a></li>
-		</ul>
-
-	</ul>
-
-	<li><a href="#latest_news">Latest News</a></li>
-	<ul>
-
-		<li><a href="#november_13th_2009">November 13th 2009</a></li>
-		<ul>
-
-			<li><a href="#cpan_release">CPAN Release</a></li>
-			<li><a href="#active_development">Active Development</a></li>
-		</ul>
-
-	</ul>
-
+<ul><li><a href="#Simple_DirectMedia_Library_Bindings_">Simple DirectMedia Library Bindings for Perl</a>
+<ul><li><a href="#Welcome">Welcome</a>
+<ul><li><a href="#Getting_Started">Getting Started</a></li>
+<li><a href="#Contribute">Contribute</a></li>
 </ul>
-
-<hr name="index" />
-</div>
+</li>
+</ul>
+</li>
+<li><a href="#Latest_News">Latest News</a>
+<ul><li><a href="#November_13th_2009">November 13th 2009</a>
+<ul><li><a href="#CPAN_Release">CPAN Release</a></li>
+<li><a href="#Active_Development">Active Development</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><hr />
 <!-- INDEX END -->
 
-<p>
-</p>
-<hr />
-<h1><a name="simple_directmedia_library_bindings_for_perl">Simple DirectMedia Library Bindings for Perl</a></h1>
-<p>
-</p>
-<h2><a name="welcome">Welcome</a></h2>
-<p>SDL Perl is an active and exciting project with many facets. Explore this website to learn more.</p>
-<p>
-</p>
-<h3><a name="getting_started">Getting Started</a></h3>
-<p>To begin using SDL Perl read the tutorials and documentation.</p>
-<p>
-</p>
-<h3><a name="contribute">Contribute</a></h3>
+<h1 id="Simple_DirectMedia_Library_Bindings_">Simple DirectMedia Library Bindings for Perl</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="Simple_DirectMedia_Library_Bindings_-2">
+
+</div>
+<h2 id="Welcome">Welcome</h2>
+<div id="Welcome_CONTENT">
+<p>SDL Perl is an active and exciting project with many facets. Explore this website to learn more. </p>
+
+</div>
+<h3 id="Getting_Started">Getting Started</h3>
+<div id="Getting_Started_CONTENT">
+<p>To begin using SDL Perl read the tutorials and documentation. </p>
+
+</div>
+<h3 id="Contribute">Contribute</h3>
+<div id="Contribute_CONTENT">
 <dl>
-<dt><strong><a name="irc" class="item">IRC</a></strong></dt>
-
-<dd>
-<p>Talk to us on channel #sdl.</p>
-</dd>
-<dt><strong><a name="mailing_list" class="item">Mailing List</a></strong></dt>
-
-<dd>
-<p>Send us an email at <a href="mailto:sdl-devel@perl.org.">sdl-devel@perl.org.</a></p>
-</dd>
-<dt><strong><a name="testing_and_development" class="item">Testing and Development</a></strong></dt>
-
-<dd>
-<p>Join us on the development wiki.</p>
-</dd>
+	<dt>IRC</dt>
+	<dd>
+		<p>Talk to us on channel #sdl.</p>
+	</dd>
+	<dt>Mailing List</dt>
+	<dd>
+		<p>Send us an email at sdl-devel@perl.org.</p>
+	</dd>
+	<dt>Testing and Development</dt>
+	<dd>
+		<p>Join us on the development wiki. </p>
+	</dd>
 </dl>
-<p>
-</p>
-<hr />
-<h1><a name="latest_news">Latest News</a></h1>
-<p>
-</p>
-<h2><a name="november_13th_2009">November 13th 2009</a></h2>
-<p>
-</p>
-<h3><a name="cpan_release">CPAN Release</a></h3>
-<pre>
 
-SDL Perl is v2.2.6 on CPAN. The last of it's kind. This is the last release which will have the old API.</pre>
-<p>
-</p>
-<h3><a name="active_development">Active Development</a></h3>
+</div>
+<h1 id="Latest_News">Latest News</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="Latest_News_CONTENT">
+
+</div>
+<h2 id="November_13th_2009">November 13th 2009</h2>
+<div id="November_13th_2009_CONTENT">
+
+</div>
+<h3 id="CPAN_Release">CPAN Release</h3>
+<div id="CPAN_Release_CONTENT">
+<p>SDL Perl is v2.2.6 on CPAN. The last of it's kind. This is the last release which will have the old API. </p>
+
+</div>
+<h3 id="Active_Development">Active Development</h3>
+<div id="Active_Development_CONTENT">
 <p>SDL Perl is being actively developed to v3.0. The process is as below:</p>
 <dl>
-<dt><strong><a name="v2_3_100_core_of_sdl_c_api_migrated_without_multithreading" class="item">v2.3 100% Core of SDL C API migrated without MultiThreading</a></strong></dt>
-
-<dd>
-<p>MultiThreading is doable with this release but will be focused on later</p>
-</dd>
-<dt><strong><a name="v2_4_sdl_net_sdl_pango_sdl_ttf_sdl_mixer_support" class="item">v2.4 SDL_Net, SDL_Pango, SDL_TTF &amp; SDL_Mixer Support</a></strong></dt>
-
-<dd>
-<p>SDL_Net due to interest in bring POE/AnyEvent to SDL, SDL_Pango to support the new FrozenBubble migration.</p>
-</dd>
-<dt><strong><a name="v2_5_multithreading_and_other_third_party_libraries" class="item">v2.5 ??? MultiThreading and Other Third Party Libraries</a></strong></dt>
-
-<dd>
-<p>This release is undecided as of now. Please talk to us on the Channel or Make Tickets</p>
-</dd>
+	<dt>v2.3 100% Core of SDL C API migrated without MultiThreading </dt>
+	<dd>
+		<p>MultiThreading is doable with this release but will be focused on later</p>
+	</dd>
+	<dt>v2.4 SDL_Net, SDL_Pango, SDL_TTF &amp; SDL_Mixer Support</dt>
+	<dd>
+		<p>SDL_Net due to interest in bring POE/AnyEvent to SDL, SDL_Pango to support the new FrozenBubble migration. </p>
+	</dd>
+	<dt>v2.5 ??? MultiThreading and Other Third Party Libraries</dt>
+	<dd>
+		<p>This release is undecided as of now. Please talk to us on the Channel or Make Tickets</p>
+	</dd>
 </dl>
 
-</body>
-
-</html>
+</div>
+</div>
