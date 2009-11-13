@@ -1,17 +1,17 @@
-Alien: blog-0021.html-inc
-CPAN: blog-0012.html-inc,blog-0013.html-inc,blog-0014.html-inc
-Design: blog-0004.html-inc,blog-0005.html-inc,blog-0009.html-inc,blog-0010.html-inc,blog-0011.html-inc
-Docs: blog-0008.html-inc
-Frozen Bubble: blog-0006.html-inc,blog-0013.html-inc
-HackFest: blog-0007.html-inc
-Perl: blog-0000.html-inc,blog-0001.html-inc,blog-0002.html-inc,blog-0003.html-inc,blog-0006.html-inc,blog-0007.html-inc,blog-0008.html-inc,blog-0009.html-inc,blog-0010.html-inc,blog-0011.html-inc,blog-0012.html-inc,blog-0013.html-inc,blog-0014.html-inc,blog-0015.html-inc,blog-0016.html-inc,blog-0017.html-inc,blog-0018.html-inc,blog-0019.html-inc,blog-0020.html-inc,blog-0021.html-inc,blog-0022.html-inc,blog-0023.html-inc,blog-0024.html-inc
-Questions: blog-0018.html-inc
-Releases: blog-0021.html-inc,blog-0022.html-inc
-SDL: blog-0000.html-inc,blog-0001.html-inc,blog-0002.html-inc,blog-0003.html-inc,blog-0004.html-inc,blog-0005.html-inc,blog-0006.html-inc,blog-0007.html-inc,blog-0008.html-inc,blog-0009.html-inc,blog-0010.html-inc,blog-0011.html-inc,blog-0012.html-inc,blog-0013.html-inc,blog-0014.html-inc,blog-0016.html-inc,blog-0017.html-inc,blog-0018.html-inc,blog-0019.html-inc,blog-0020.html-inc,blog-0021.html-inc,blog-0022.html-inc,blog-0023.html-inc,blog-0024.html-inc
-Sneak Preview: blog-0001.html-inc
-Strawberry: blog-0024.html-inc
-Tutorial: blog-0009.html-inc,blog-0015.html-inc
-Updates: blog-0002.html-inc,blog-0003.html-inc,blog-0004.html-inc,blog-0005.html-inc,blog-0011.html-inc,blog-0017.html-inc
-XS: blog-0000.html-inc,blog-0015.html-inc
-games: blog-0004.html-inc,blog-0016.html-inc
-personal: blog-0014.html-inc,blog-0023.html-inc
+Alien: blog-0022.html-inc
+CPAN: blog-0013.html-inc,blog-0014.html-inc,blog-0015.html-inc
+Design: blog-0005.html-inc,blog-0006.html-inc,blog-0010.html-inc,blog-0011.html-inc,blog-0012.html-inc
+Docs: blog-0009.html-inc
+Frozen Bubble: blog-0007.html-inc,blog-0014.html-inc
+HackFest: blog-0008.html-inc
+Perl: blog-0001.html-inc,blog-0002.html-inc,blog-0003.html-inc,blog-0004.html-inc,blog-0007.html-inc,blog-0008.html-inc,blog-0009.html-inc,blog-0010.html-inc,blog-0011.html-inc,blog-0012.html-inc,blog-0013.html-inc,blog-0014.html-inc,blog-0015.html-inc,blog-0016.html-inc,blog-0017.html-inc,blog-0018.html-inc,blog-0019.html-inc,blog-0020.html-inc,blog-0021.html-inc,blog-0022.html-inc,blog-0023.html-inc,blog-0024.html-inc,blog-0025.html-inc
+Questions: blog-0019.html-inc
+Releases: blog-0022.html-inc,blog-0023.html-inc
+SDL: blog-0001.html-inc,blog-0002.html-inc,blog-0003.html-inc,blog-0004.html-inc,blog-0005.html-inc,blog-0006.html-inc,blog-0007.html-inc,blog-0008.html-inc,blog-0009.html-inc,blog-0010.html-inc,blog-0011.html-inc,blog-0012.html-inc,blog-0013.html-inc,blog-0014.html-inc,blog-0015.html-inc,blog-0017.html-inc,blog-0018.html-inc,blog-0019.html-inc,blog-0020.html-inc,blog-0021.html-inc,blog-0022.html-inc,blog-0023.html-inc,blog-0024.html-inc,blog-0025.html-inc
+Sneak Preview: blog-0002.html-inc
+Strawberry: blog-0025.html-inc
+Tutorial: blog-0010.html-inc,blog-0016.html-inc
+Updates: blog-0003.html-inc,blog-0004.html-inc,blog-0005.html-inc,blog-0006.html-inc,blog-0012.html-inc,blog-0018.html-inc
+XS: blog-0001.html-inc,blog-0016.html-inc
+games: blog-0005.html-inc,blog-0017.html-inc
+personal: blog-0015.html-inc,blog-0024.html-inc
