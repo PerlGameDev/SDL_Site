@@ -93,9 +93,9 @@ div#main
 
 td#footerRight
 {
-	height:              190px;
-	background-image:    url(credits.jpg);
+	height:              30px;
+/*	background-image:    url(credits.jpg);
 	background-position: center center;
-	background-repeat:   no-repeat;
+	background-repeat:   no-repeat; */
 }
 
