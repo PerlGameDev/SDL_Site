@@ -17,7 +17,7 @@ a
 {
 	font-size:			 14px;
 	font-weight:         bold;
-	color:               #009933;
+	color:               #008029;
 	text-decoration:     none;
 }
 
@@ -30,7 +30,7 @@ a:hover
 .hover:hover
 {
 	cursor:              pointer;
-	background-color:    #D1D8E0;
+/*	background-color:    #D1D8E0; */
 }
 
 div#background
