@@ -24,11 +24,13 @@ Talk to us on channel #sdl.
 
 =item Mailing List
 
-Send us an email at sdl-devel@perl.org.
+Send us an email at L<mailing list| mailto:sdl-devel@perl.org>.
 
 =item Testing and Development
 
-Join us on the development wiki. 
+Join us on the trac L<site| http://sdlperl.ath.cx/projects/SDLPerl> to get started on making and grabing tickets. 
+
+To begin testing read L<this| http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testing>.
 
 =back
 
