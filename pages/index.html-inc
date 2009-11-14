@@ -28,6 +28,8 @@
 </div>
 <h2 id="Welcome">Welcome</h2>
 <div id="Welcome_CONTENT">
+<p>SDL Perl are a set of bindings to the Simple DirectMedia Library (SDL).</p>
+<p>'Simple DirectMedia Layer is a cross-platform multimedia library designed to provide low level access to audio, keyboard, mouse, joystick, 3D hardware via OpenGL, and 2D video framebuffer. It is used by MPEG playback software, emulators, and many popular games, including the award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>www.libsdl.org</cite></p>
 <p>SDL Perl is an active and exciting project with many facets. Explore this website to learn more. </p>
 
 </div>
@@ -73,11 +75,13 @@
 <dl>
 	<dt>v2.3 100% Core of SDL C API migrated without MultiThreading </dt>
 	<dd>
+		<p>Complete access to these functions <a href="http://www.libsdl.org/cgi/docwiki.cgi/SDL_API">SDL_API</a>.</p>
 		<p>MultiThreading is doable with this release but will be focused on later</p>
 	</dd>
-	<dt>v2.4 SDL_Net, SDL_Pango, SDL_TTF &amp; SDL_Mixer Support</dt>
+	<dt>v2.4 SDL_Image, SDL_Net, SDL_Pango, SDL_TTF, SDL_GFX &amp; SDL_Mixer Support</dt>
 	<dd>
-		<p>SDL_Net due to interest in bring POE/AnyEvent to SDL, SDL_Pango to support the new FrozenBubble migration. </p>
+		<p>Provide support for SDL + POE collaboration.</p>
+		<p>Provide dependecies for FrozenBubble migration to CPAN. </p>
 	</dd>
 	<dt>v2.5 ??? MultiThreading and Other Third Party Libraries</dt>
 	<dd>
