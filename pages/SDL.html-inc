@@ -198,24 +198,47 @@ it doesn't returns any values.</p>
 <div id="error_code_need_to_be_coded_CONTENT">
 <p>Sets the SDL error message to one of several predefined strings specified by code. </p>
 <p>code can be :</p>
-<pre>		SDL_errorcode  	The corresponding error string
+<dl>
+	<dt>SDL_errorcode</dt>
+	<dd>
+		<p>The corresponding error string</p>
+	</dd>
+	<dt>SDL_ENOMEM</dt>
+	<dd>
+		<p>Out of memory</p>
+	</dd>
+	<dt>SDL_EFREAD</dt>
+	<dd>
+		<p>Error reading from datastream</p>
+	</dd>
+	<dt>SDL_EFWRITE</dt>
+	<dd>
+		<p>Error writing to datastream</p>
+	</dd>
+	<dt>SDL_EFSEEK</dt>
+	<dd>
+		<p>Error seeking in datastream</p>
+	</dd>
+	<dt>SDL_UNSUPPORTED</dt>
+	<dd>
+		<p>Unknown SDL error</p>
+	</dd>
+	<dt>SDL_LASTERROR</dt>
+	<dd>
+		<p>Unknown SDL error</p>
+	</dd>
+	<dt>any other value</dt>
+	<dd>
+		<p>Unknown SDL error</p>
+	</dd>
+</dl>
 
-		SDL_ENOMEM     	Out of memory
-		SDL_EFREAD	Error reading from datastream
-		SDL_EFWRITE	Error writing to datastream
-		SDL_EFSEEK	Error seeking in datastream
-		SDL_UNSUPPORTED	Unknown SDL error
-		SDL_LASTERROR	Unknown SDL error
-		any other value	Unknown SDL error
 
 
 
-
-		Note 1: SDL_LASTERROR marks the highest numbered predefined error.
-		Note 2: SDL also defines SDL_OutOfMemory() and SDL_Unsupported() for internal use
-		which are equivalent to SDL_Error(SDL_ENOMEM) and SDL_Error(SDL_UNSUPPORTED) respectively. 
-
-</pre>
+<p>Note 1: SDL_LASTERROR marks the highest numbered predefined error.
+Note 2: SDL also defines SDL_OutOfMemory() and SDL_Unsupported() for internal use
+which are equivalent to SDL_Error(SDL_ENOMEM) and SDL_Error(SDL_UNSUPPORTED) respectively. </p>
 <p>SDL::Error doesn't returns any value.</p>
 
 

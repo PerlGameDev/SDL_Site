@@ -42,7 +42,9 @@
 <li><a href="#playing_music">playing_music ()</a></li>
 </ul>
 </li>
-<li><a href="#set_panning_channel_left_right">set_panning($channel, $left, $right)</a>
+<li><a href="#set_panning_channel_left_right">set_panning($channel, $left, $right)</a></li>
+<li><a href="#AUTHORS">AUTHORS </a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -277,6 +279,16 @@ values:</p>
 <h1 id="set_panning_channel_left_right">set_panning($channel, $left, $right)</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="set_panning_channel_left_right_CONTE">
 <p>Sets the volume for the left or right channels. To do true panning:</p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS </h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>David J. Goehrig, basic doc added by Tels &lt;http://bloodgate.com&gt;.</p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><cite>perl</cite>, <cite>SDL::Music</cite> and <cite>SDL::Sound</cite>.</p>
 
 </div>
 </div>
