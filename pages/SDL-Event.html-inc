@@ -9,15 +9,12 @@
 <ul><li><a href="#new">new</a></li>
 <li><a href="#type">type</a></li>
 <li><a href="#active">active</a>
-<ul><li><a href="#active_type">active_type</a></li>
-<li><a href="#active_gain">active_gain</a></li>
+<ul><li><a href="#active_gain">active_gain</a></li>
 <li><a href="#active_state">active_state</a></li>
 </ul>
 </li>
 <li><a href="#key">key</a>
-<ul><li><a href="#key_type">key_type</a></li>
-<li><a href="#key_state">key_state</a></li>
-<li><a href="#key_keysym">key_keysym</a></li>
+<ul><li><a href="#key_state">key_state</a></li>
 <li><a href="#key_scancode">key_scancode</a></li>
 <li><a href="#key_sym">key_sym</a></li>
 <li><a href="#key_mod">key_mod</a></li>
@@ -25,72 +22,57 @@
 </ul>
 </li>
 <li><a href="#motion">motion</a>
-<ul><li><a href="#motion_type">motion_type</a></li>
-<li><a href="#motion_state">motion_state</a></li>
+<ul><li><a href="#motion_state">motion_state</a></li>
 <li><a href="#motion_x_motion_y">motion_x, motion_y</a></li>
 <li><a href="#motion_xrel_motion_yrel">motion_xrel, motion_yrel</a></li>
 </ul>
 </li>
 <li><a href="#button">button</a>
-<ul><li><a href="#button_type">button_type</a></li>
-<li><a href="#button_which">button_which</a></li>
+<ul><li><a href="#button_which">button_which</a></li>
 <li><a href="#button_button">button_button</a></li>
 <li><a href="#button_state">button_state</a></li>
 <li><a href="#button_x_button_y">button_x, button_y</a></li>
 </ul>
 </li>
 <li><a href="#jaxis">jaxis</a>
-<ul><li><a href="#jaxis_type">jaxis_type</a></li>
-<li><a href="#jaxis_which">jaxis_which</a></li>
+<ul><li><a href="#jaxis_which">jaxis_which</a></li>
 <li><a href="#jaxis_axis">jaxis_axis</a></li>
 <li><a href="#jaxis_value">jaxis_value</a></li>
 </ul>
 </li>
 <li><a href="#jbutton">jbutton</a>
-<ul><li><a href="#jbutton_type">jbutton_type</a></li>
-<li><a href="#jbutton_which">jbutton_which</a></li>
+<ul><li><a href="#jbutton_which">jbutton_which</a></li>
 <li><a href="#jbutton_button">jbutton_button</a></li>
 <li><a href="#jbutton_state">jbutton_state</a></li>
 </ul>
 </li>
 <li><a href="#jhat">jhat</a>
-<ul><li><a href="#jhat_type">jhat_type</a></li>
-<li><a href="#jhat_which">jhat_which</a></li>
+<ul><li><a href="#jhat_which">jhat_which</a></li>
 <li><a href="#jhat_hat">jhat_hat</a></li>
 <li><a href="#jhat_value">jhat_value</a></li>
 </ul>
 </li>
 <li><a href="#jball">jball</a>
-<ul><li><a href="#jball_type">jball_type</a></li>
-<li><a href="#jball_which">jball_which</a></li>
+<ul><li><a href="#jball_which">jball_which</a></li>
 <li><a href="#jball_ball">jball_ball</a></li>
 <li><a href="#jball_xrel_jball_yrel">jball_xrel, jball_yrel</a></li>
 </ul>
 </li>
 <li><a href="#resize">resize</a>
-<ul><li><a href="#resize_type">resize_type</a></li>
-<li><a href="#resize_x_resize_y">resize_x, resize_y</a></li>
+<ul><li><a href="#resize_x_resize_y">resize_x, resize_y</a></li>
 </ul>
 </li>
-<li><a href="#expose">expose</a>
-<ul><li><a href="#expose_type">expose_type</a></li>
-</ul>
-</li>
+<li><a href="#expose">expose</a></li>
 <li><a href="#syswm">syswm</a>
-<ul><li><a href="#syswm_type">syswm_type</a></li>
-<li><a href="#syswm_msg">syswm_msg</a></li>
+<ul><li><a href="#syswm_msg">syswm_msg</a></li>
 </ul>
 </li>
 <li><a href="#user">user</a>
-<ul><li><a href="#user_type">user_type</a></li>
-<li><a href="#user_code">user_code</a></li>
+<ul><li><a href="#user_code">user_code</a></li>
 <li><a href="#user_data1_user_data2">user_data1, user_data2</a></li>
 </ul>
 </li>
-<li><a href="#quit">quit</a>
-<ul><li><a href="#quit_type">quit_type</a></li>
-</ul>
-</li>
+<li><a href="#quit">quit</a></li>
 </ul>
 </li>
 <li><a href="#AUTHOR">AUTHOR</a></li>
@@ -170,7 +152,7 @@ or by setting all the needed data manually in order to push the event to the que
 <div id="type_CONTENT">
 <p>SDL::Event is a union of all event structures used in SDL, using it is a simple matter of knowing 
 which union member relates to which event <code>type</code>.</p>
-<pre> print 'heureka' if $event-&gt;type = SDL_MOUSEBUTTONDOWN;
+<pre> print 'heureka' if $event-&gt;type == SDL_MOUSEBUTTONDOWN;
 
 </pre>
 <p>Available type constants:</p>
@@ -193,12 +175,47 @@ which union member relates to which event <code>type</code>.</p>
 		<li><a href="#active">SDL_SYSWMEVENT</a> - Platform-dependent window manager event. </li>
 </ul>
 
-<p>TODO: SDL_EVENTMASK()</p>
+<p>Event types are grouped by masks. <code>SDL_EVENTMASK($type)</code> will return the proper mask for the given <code>type</code>.</p>
+<p>Available event mask constants:</p>
+<ul>
+		<li>SDL_ACTIVEEVENTMASK	</li>
+		<li>SDL_KEYDOWNMASK	</li>
+		<li>SDL_KEYUPMASK	</li>
+		<li>SDL_KEYEVENTMASK	</li>
+		<li>SDL_MOUSEMOTIONMASK	</li>
+		<li>SDL_MOUSEBUTTONDOWNMASK	</li>
+		<li>SDL_MOUSEBUTTONUPMASK	</li>
+		<li>SDL_MOUSEEVENTMASK	</li>
+		<li>SDL_JOYAXISMOTIONMASK	</li>
+		<li>SDL_JOYBALLMOTIONMASK	</li>
+		<li>SDL_JOYHATMOTIONMASK	</li>
+		<li>SDL_JOYBUTTONDOWNMASK	</li>
+		<li>SDL_JOYBUTTONUPMASK	</li>
+		<li>SDL_JOYEVENTMASK	</li>
+		<li>SDL_VIDEORESIZEMASK	</li>
+		<li>SDL_VIDEOEXPOSEMASK	</li>
+		<li>SDL_QUITMASK	</li>
+		<li>SDL_SYSWMEVENTMASK</li>
+</ul>
+
+<p>This way you can check if a given <code>type</code> matches a mask:</p>
+<pre> (SDL_JOYBUTTONDOWN   &amp; SDL_MOUSEEVENTMASK) # is false
+ (SDL_MOUSEBUTTONDOWN &amp; SDL_MOUSEEVENTMASK) # is true
+ (SDL_MOUSEBUTTONUP   &amp; SDL_MOUSEEVENTMASK) # is true
+ (SDL_MOUSEMOTION     &amp; SDL_MOUSEEVENTMASK) # is true
+
+ # and also true is:
+
+ (SDL_MOUSEEVENTMASK == SDL_EVENTMASK(SDL_MOUSEBUTTONDOWN) 
+                      | SDL_EVENTMASK(SDL_MOUSEBUTTONUP) 
+                      | SDL_EVENTMASK(SDL_MOUSEMOTION))
+
+</pre>
 
 </div>
 <h2 id="active">active</h2>
 <div id="active_CONTENT">
-<p><code>active</code> is a member of the <code>SDL::Event</code> union and is used when an event of type <code>SDL_ACTIVEEVENT</code> is reported.</p>
+<p><code>active</code> is used when an event of type <code>SDL_ACTIVEEVENT</code> is reported.</p>
 <p>When the mouse leaves or enters the window area a <code>SDL_APPMOUSEFOCUS</code> type activation event occurs, 
 if the mouse entered the window then <strong>gain</strong> will be 1, otherwise <strong>gain</strong> will be 0. </p>
 <p>A <code>SDL_APPINPUTFOCUS</code> type activation event occurs when the application loses or gains keyboard focus. 
@@ -217,32 +234,33 @@ This usually occurs when another application is made active. </p>
 </pre>
 
 </div>
-<h3 id="active_type">active_type</h3>
-<div id="active_type_CONTENT">
-
-</div>
 <h3 id="active_gain">active_gain</h3>
 <div id="active_gain_CONTENT">
+<p>See <code>active</code>. 0 if the event is a loss or 1 if it is a gain.</p>
 
 </div>
 <h3 id="active_state">active_state</h3>
 <div id="active_state_CONTENT">
+<p>A bitmask of the following values: SDL_APPMOUSEFOCUS if mouse focus was gained or lost, 
+SDL_APPINPUTFOCUS if input focus was gained or lost, and SDL_APPACTIVE if the application was iconified (gain=0) or restored(gain=1).</p>
 
 </div>
 <h2 id="key">key</h2>
 <div id="key_CONTENT">
-
-</div>
-<h3 id="key_type">key_type</h3>
-<div id="key_type_CONTENT">
+<p><code>key</code> is used when an event of type <code>SDL_KEYDOWN</code> or <code>SDL_KEYUP</code> is reported.</p>
+<p>The type and state actually report the same information, they just use different values to do it. 
+A keyboard event generally occurs when a key is released (<code>type=SDL_KEYUP</code> or <code>key_state=SDL_RELEASED</code>) 
+and when a key is pressed (<code>type=SDL_KEYDOWN</code> or <code>key_state=SDL_PRESSED</code>). </p>
+<p>The <code>SDLK_CAPSLOCK</code> and <code>SDLK_NUMLOCK</code> keys are special cases and report an <code>SDL_KEYDOWN</code> when first pressed, 
+then an <code>SDL_RELEASED</code> when released and pressed again. For these keys <code>KEYUP</code> and <code>KEYDOWN</code> events are therefore 
+analogous to the state of the caps lock and num lock LEDs rather than the keys themselves. 
+These special cases are required for compatibility with Sun workstations.</p>
+<p><strong>Note:</strong> Repeating <code>SDL_KEYDOWN</code> events will occur if key repeat is enabled (see <code>SDL_EnableKeyRepeat</code>). </p>
 
 </div>
 <h3 id="key_state">key_state</h3>
 <div id="key_state_CONTENT">
-
-</div>
-<h3 id="key_keysym">key_keysym</h3>
-<div id="key_keysym_CONTENT">
+<p><code>SDL_PRESSED</code> or <code>SDL_RELEASED</code></p>
 
 </div>
 <h3 id="key_scancode">key_scancode</h3>
@@ -265,10 +283,6 @@ This usually occurs when another application is made active. </p>
 <div id="motion_CONTENT">
 
 </div>
-<h3 id="motion_type">motion_type</h3>
-<div id="motion_type_CONTENT">
-
-</div>
 <h3 id="motion_state">motion_state</h3>
 <div id="motion_state_CONTENT">
 
@@ -283,10 +297,6 @@ This usually occurs when another application is made active. </p>
 </div>
 <h2 id="button">button</h2>
 <div id="button_CONTENT">
-
-</div>
-<h3 id="button_type">button_type</h3>
-<div id="button_type_CONTENT">
 
 </div>
 <h3 id="button_which">button_which</h3>
@@ -309,10 +319,6 @@ This usually occurs when another application is made active. </p>
 <div id="jaxis_CONTENT">
 
 </div>
-<h3 id="jaxis_type">jaxis_type</h3>
-<div id="jaxis_type_CONTENT">
-
-</div>
 <h3 id="jaxis_which">jaxis_which</h3>
 <div id="jaxis_which_CONTENT">
 
@@ -327,10 +333,6 @@ This usually occurs when another application is made active. </p>
 </div>
 <h2 id="jbutton">jbutton</h2>
 <div id="jbutton_CONTENT">
-
-</div>
-<h3 id="jbutton_type">jbutton_type</h3>
-<div id="jbutton_type_CONTENT">
 
 </div>
 <h3 id="jbutton_which">jbutton_which</h3>
@@ -349,10 +351,6 @@ This usually occurs when another application is made active. </p>
 <div id="jhat_CONTENT">
 
 </div>
-<h3 id="jhat_type">jhat_type</h3>
-<div id="jhat_type_CONTENT">
-
-</div>
 <h3 id="jhat_which">jhat_which</h3>
 <div id="jhat_which_CONTENT">
 
@@ -367,10 +365,6 @@ This usually occurs when another application is made active. </p>
 </div>
 <h2 id="jball">jball</h2>
 <div id="jball_CONTENT">
-
-</div>
-<h3 id="jball_type">jball_type</h3>
-<div id="jball_type_CONTENT">
 
 </div>
 <h3 id="jball_which">jball_which</h3>
@@ -389,10 +383,6 @@ This usually occurs when another application is made active. </p>
 <div id="resize_CONTENT">
 
 </div>
-<h3 id="resize_type">resize_type</h3>
-<div id="resize_type_CONTENT">
-
-</div>
 <h3 id="resize_x_resize_y">resize_x, resize_y</h3>
 <div id="resize_x_resize_y_CONTENT">
 
@@ -401,16 +391,8 @@ This usually occurs when another application is made active. </p>
 <div id="expose_CONTENT">
 
 </div>
-<h3 id="expose_type">expose_type</h3>
-<div id="expose_type_CONTENT">
-
-</div>
 <h2 id="syswm">syswm</h2>
 <div id="syswm_CONTENT">
-
-</div>
-<h3 id="syswm_type">syswm_type</h3>
-<div id="syswm_type_CONTENT">
 
 </div>
 <h3 id="syswm_msg">syswm_msg</h3>
@@ -419,10 +401,6 @@ This usually occurs when another application is made active. </p>
 </div>
 <h2 id="user">user</h2>
 <div id="user_CONTENT">
-
-</div>
-<h3 id="user_type">user_type</h3>
-<div id="user_type_CONTENT">
 
 </div>
 <h3 id="user_code">user_code</h3>
@@ -435,10 +413,6 @@ This usually occurs when another application is made active. </p>
 </div>
 <h2 id="quit">quit</h2>
 <div id="quit_CONTENT">
-
-</div>
-<h3 id="quit_type">quit_type</h3>
-<div id="quit_type_CONTENT">
 <p>Create a new SDL::Event object.</p>
 
 </div>

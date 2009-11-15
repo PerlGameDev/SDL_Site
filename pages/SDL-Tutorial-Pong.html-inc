@@ -1,0 +1,166 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#PONG_TUTORIAL">PONG TUTORIAL</a>
+<ul><li><a href="#Part_1_We_start_with_a_Rect">Part 1: We start with a Rect</a></li>
+<li><a href="#Part_0_quot_The_Screen_quot">Part 0: &quot;The Screen&quot;</a>
+<ul><li><a href="#Creating_an_empty_event_loop">Creating an (empty) event loop</a></li>
+</ul>
+</li>
+<li><a href="#Part_1_cont_Drawing_our_Rect_on_the_">Part 1 (cont.) - Drawing our Rect on the screen</a></li>
+<li><a href="#Part_2_Our_first_event_tracking_user">Part 2 - Our first event: tracking user movement</a>
+<ul><li><a href="#Hey_don_t_move_away_from_the_court_O">Hey, don't move away from the court! Our first collision detection.</a></li>
+</ul>
+</li>
+<li><a href="#Part_3_Enter_quot_the_Ball_quot">Part 3 - Enter &quot;the Ball&quot;</a>
+<ul><li><a href="#Some_vetorial_background">Some vetorial background</a></li>
+</ul>
+</li>
+<li><a href="#Part_4_Collision_Detection">Part 4 - Collision Detection</a></li>
+<li><a href="#Part_5_Our_hero_s_nemesis_appears">Part 5 - Our hero's nemesis appears</a>
+<ul><li><a href="#really_basic_IA">(really) basic IA</a></li>
+</ul>
+</li>
+<li><a href="#Part_6_Counting_and_showing_the_scor">Part 6 - Counting (and showing) the score</a>
+</li>
+</ul>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="PONG_TUTORIAL">PONG TUTORIAL</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="PONG_TUTORIAL_CONTENT">
+<p>This tutorial is intended to help you build your very own version of the Pong game and/or variations of it, using SDL Perl.</p>
+<p>Just in case you live under a rock, Pong is one of the earliest arcade games, a true classic by Atari Inc. The game has two simple rectangles scrolling up and down trying to hit a (square) ball that bounces around, and could be thought of as a table tennis simulation.</p>
+
+</div>
+<h2 id="Part_1_We_start_with_a_Rect">Part 1: We start with a Rect</h2>
+<div id="Part_1_We_start_with_a_Rect_CONTENT">
+<p>In Pong, the player controls a rectangle that moves up and down, so creating the rectangle looks like a good place to start:</p>
+<p>&nbsp;</p>
+<pre>   my $player = SDL::Game::Rect-&gt;new({
+                       -top    =&gt; 10,
+                       -left   =&gt; 20,
+                       -width  =&gt; 6,
+                       -height =&gt; 32,
+                });
+
+</pre>
+<p>&nbsp;</p>
+<p>That creates a new <cite>SDL::Game::Rect</cite> object, a rectangle, with the given width/height dimensions and in the given top/left position of the screen.</p>
+<p>Wait. Did I say... <i>&lt;screen</i>&gt;?</p>
+
+</div>
+<h2 id="Part_0_quot_The_Screen_quot">Part 0: &quot;The Screen&quot;</h2>
+<div id="Part_0_quot_The_Screen_quot_CONTENT">
+<p>In SDL Perl, creating a window screen is very easy and straightforward:</p>
+<p>&nbsp;</p>
+<pre>  use SDL;
+  use SDL::App;
+
+  my $app = SDL::App-&gt;new(
+                 -title  =&gt; 'Pong',  # set window title
+                 -width  =&gt; 640,     # window width
+                 -height =&gt; 480,     # window height
+          );
+
+</pre>
+<p>&nbsp;</p>
+<p>That's it. If you run this code, you'll see a window appear and disappear almost instantly. Why doesn't it stay up? Well, the code is processed linearly, like usual programs are, and with no hidden magic. So, you basically said &quot;create a window&quot; and then the program ended - destroying the window. In order to keep it up and running, listening for events, you need an event loop. </p>
+
+</div>
+<h3 id="Creating_an_empty_event_loop">Creating an (empty) event loop</h3>
+<div id="Creating_an_empty_event_loop_CONTENT">
+<p>An event loop is a simple infinite loop that captures events (like a key pressed or released from the keyboard, mouse movement, etc) and either does something about it or dispatches it to any object that might.</p>
+<p>For this simple game we don't need a very sofisticated event loop, so let's create a simple one.</p>
+<p>&nbsp;</p>
+<pre>  event_loop() while 1;
+
+</pre>
+<p>&nbsp;</p>
+<p>Yay, an infinite loop! Now we are free to define our very own event loop any way we want. Let's make it an empty sub for starters:</p>
+<p>&nbsp;</p>
+<pre>  sub event_loop {
+  }
+
+</pre>
+<p>&nbsp;</p>
+<p>Ok. If you run it, you'll see your <code>$app</code> window displayed until you force to shutdown the program by typing <code>Ctrl-C</code> or something. Other than that, our event loop doesn't do anything, </p>
+
+</div>
+<h2 id="Part_1_cont_Drawing_our_Rect_on_the_">Part 1 (cont.) - Drawing our Rect on the screen</h2>
+<div id="Part_1_cont_Drawing_our_Rect_on_the_-2">
+<p># TODO</p>
+
+</div>
+<h2 id="Part_2_Our_first_event_tracking_user">Part 2 - Our first event: tracking user movement</h2>
+<div id="Part_2_Our_first_event_tracking_user-2">
+<p># TODO</p>
+<p>Now let's query some events!</p>
+<p>First, we need to use the <cite>SDL::Event</cite> module. Add this to the beginning of our code:</p>
+<p>&nbsp;</p>
+<pre>  use SDL::Event;
+  my $event = SDL::Event-&gt;new;
+
+</pre>
+<p>&nbsp;</p>
+ 
+
+
+
+<p>Now let's rewrite the <code>event_loop</code> subroutine to take advantage of our event object. The new subroutine should look like this:</p>
+<p>&nbsp;</p>
+<pre>  sub event_loop {
+      # first we poll if an event occurred...
+      while ($event-&gt;poll) {
+
+          # if there is an event, we check its type
+          my $type = $event-&gt;type
+
+          # handle window closing
+          exit if $type == SDL_QUIT;
+      }
+  }
+
+</pre>
+<p>&nbsp;</p>
+<p>#TODO</p>
+
+</div>
+<h3 id="Hey_don_t_move_away_from_the_court_O">Hey, don't move away from the court! Our first collision detection.</h3>
+<div id="Hey_don_t_move_away_from_the_court_O-2">
+
+</div>
+<h2 id="Part_3_Enter_quot_the_Ball_quot">Part 3 - Enter &quot;the Ball&quot;</h2>
+<div id="Part_3_Enter_quot_the_Ball_quot_CONT">
+<p>#TODO</p>
+
+</div>
+<h3 id="Some_vetorial_background">Some vetorial background</h3>
+<div id="Some_vetorial_background_CONTENT">
+<p>#TODO</p>
+
+</div>
+<h2 id="Part_4_Collision_Detection">Part 4 - Collision Detection</h2>
+<div id="Part_4_Collision_Detection_CONTENT">
+<p>#TODO</p>
+
+</div>
+<h2 id="Part_5_Our_hero_s_nemesis_appears">Part 5 - Our hero's nemesis appears</h2>
+<div id="Part_5_Our_hero_s_nemesis_appears_CO">
+<p>#TODO</p>
+
+</div>
+<h3 id="really_basic_IA">(really) basic IA</h3>
+<div id="really_basic_IA_CONTENT">
+<p>#TODO</p>
+
+</div>
+<h2 id="Part_6_Counting_and_showing_the_scor">Part 6 - Counting (and showing) the score</h2>
+<div id="Part_6_Counting_and_showing_the_scor-2">
+<p>#TODO
+</p>
+
+</div>
+</div>
