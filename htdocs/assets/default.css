@@ -113,3 +113,9 @@ td#footerRight
 	color:               #FFFFFF;
 }
 
+td#footerRight a
+{
+	font-size:			 12px;
+	color:		     	 #FFFFFF;
+}
+
