@@ -8,12 +8,12 @@
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#new">new</a></li>
 <li><a href="#type">type</a></li>
-<li><a href="#active">active</a>
+<li><a href="#Application_visibility_events">Application visibility events</a>
 <ul><li><a href="#active_gain">active_gain</a></li>
 <li><a href="#active_state">active_state</a></li>
 </ul>
 </li>
-<li><a href="#key">key</a>
+<li><a href="#Keyboard_events">Keyboard events</a>
 <ul><li><a href="#key_state">key_state</a></li>
 <li><a href="#key_scancode">key_scancode</a></li>
 <li><a href="#key_sym">key_sym</a></li>
@@ -21,58 +21,58 @@
 <li><a href="#key_unicode">key_unicode</a></li>
 </ul>
 </li>
-<li><a href="#motion">motion</a>
+<li><a href="#Mouse_motion_events">Mouse motion events</a>
 <ul><li><a href="#motion_state">motion_state</a></li>
 <li><a href="#motion_x_motion_y">motion_x, motion_y</a></li>
 <li><a href="#motion_xrel_motion_yrel">motion_xrel, motion_yrel</a></li>
 </ul>
 </li>
-<li><a href="#button">button</a>
+<li><a href="#Mouse_button_events">Mouse button events</a>
 <ul><li><a href="#button_which">button_which</a></li>
 <li><a href="#button_button">button_button</a></li>
 <li><a href="#button_state">button_state</a></li>
 <li><a href="#button_x_button_y">button_x, button_y</a></li>
 </ul>
 </li>
-<li><a href="#jaxis">jaxis</a>
+<li><a href="#Joystick_axis_events">Joystick axis events</a>
 <ul><li><a href="#jaxis_which">jaxis_which</a></li>
 <li><a href="#jaxis_axis">jaxis_axis</a></li>
 <li><a href="#jaxis_value">jaxis_value</a></li>
 </ul>
 </li>
-<li><a href="#jbutton">jbutton</a>
+<li><a href="#Joystick_button_events">Joystick button events</a>
 <ul><li><a href="#jbutton_which">jbutton_which</a></li>
 <li><a href="#jbutton_button">jbutton_button</a></li>
 <li><a href="#jbutton_state">jbutton_state</a></li>
 </ul>
 </li>
-<li><a href="#jhat">jhat</a>
+<li><a href="#Joystick_hat_events">Joystick hat events</a>
 <ul><li><a href="#jhat_which">jhat_which</a></li>
 <li><a href="#jhat_hat">jhat_hat</a></li>
 <li><a href="#jhat_value">jhat_value</a></li>
 </ul>
 </li>
-<li><a href="#jball">jball</a>
+<li><a href="#Joystrick_trackball_events">Joystrick trackball events</a>
 <ul><li><a href="#jball_which">jball_which</a></li>
 <li><a href="#jball_ball">jball_ball</a></li>
 <li><a href="#jball_xrel_jball_yrel">jball_xrel, jball_yrel</a></li>
 </ul>
 </li>
-<li><a href="#resize">resize</a>
+<li><a href="#Window_resize_events">Window resize events</a>
 <ul><li><a href="#resize_x_resize_y">resize_x, resize_y</a></li>
 </ul>
 </li>
-<li><a href="#expose">expose</a></li>
-<li><a href="#syswm">syswm</a>
+<li><a href="#Window_expose_events">Window expose events</a></li>
+<li><a href="#System_window_manager_events">System window manager events</a>
 <ul><li><a href="#syswm_msg">syswm_msg</a></li>
 </ul>
 </li>
-<li><a href="#user">user</a>
+<li><a href="#User_defined_events">User defined events</a>
 <ul><li><a href="#user_code">user_code</a></li>
 <li><a href="#user_data1_user_data2">user_data1, user_data2</a></li>
 </ul>
 </li>
-<li><a href="#quit">quit</a></li>
+<li><a href="#Quit_event">Quit event</a></li>
 </ul>
 </li>
 <li><a href="#AUTHOR">AUTHOR</a></li>
@@ -213,8 +213,8 @@ which union member relates to which event <code>type</code>.</p>
 </pre>
 
 </div>
-<h2 id="active">active</h2>
-<div id="active_CONTENT">
+<h2 id="Application_visibility_events">Application visibility events</h2>
+<div id="Application_visibility_events_CONTEN">
 <p><code>active</code> is used when an event of type <code>SDL_ACTIVEEVENT</code> is reported.</p>
 <p>When the mouse leaves or enters the window area a <code>SDL_APPMOUSEFOCUS</code> type activation event occurs, 
 if the mouse entered the window then <strong>gain</strong> will be 1, otherwise <strong>gain</strong> will be 0. </p>
@@ -245,8 +245,8 @@ This usually occurs when another application is made active. </p>
 SDL_APPINPUTFOCUS if input focus was gained or lost, and SDL_APPACTIVE if the application was iconified (gain=0) or restored(gain=1).</p>
 
 </div>
-<h2 id="key">key</h2>
-<div id="key_CONTENT">
+<h2 id="Keyboard_events">Keyboard events</h2>
+<div id="Keyboard_events_CONTENT">
 <p><code>key</code> is used when an event of type <code>SDL_KEYDOWN</code> or <code>SDL_KEYUP</code> is reported.</p>
 <p>The type and state actually report the same information, they just use different values to do it. 
 A keyboard event generally occurs when a key is released (<code>type=SDL_KEYUP</code> or <code>key_state=SDL_RELEASED</code>) 
@@ -265,58 +265,115 @@ These special cases are required for compatibility with Sun workstations.</p>
 </div>
 <h3 id="key_scancode">key_scancode</h3>
 <div id="key_scancode_CONTENT">
+<p>The <code>scancode</code> field should generally be left alone, it is the hardware-dependent scancode returned by the keyboard.</p>
 
 </div>
 <h3 id="key_sym">key_sym</h3>
 <div id="key_sym_CONTENT">
+<p>The <code>sym</code> field is extremely useful. It is the SDL-defined value of the key (see the keysym definitions in SDLKey). 
+This field is very useful when you are checking for certain key presses, like so: </p>
+<pre> while(poll_event($event))
+ {
+     switch($event-&gt;type)
+     {
+         case SDL_KEYDOWN:
+             move_left() if($event-&gt;key_sym == SDLK_LEFT);
+             break;
+         .
+         .
+         .
+     }
+ }
+
+</pre>
 
 </div>
 <h3 id="key_mod">key_mod</h3>
 <div id="key_mod_CONTENT">
+<p><code>mod</code> stores the current state of the keyboard modifiers as explained in SDL_GetModState.</p>
 
 </div>
 <h3 id="key_unicode">key_unicode</h3>
 <div id="key_unicode_CONTENT">
+<p>The <code>unicode</code> field is only used when UNICODE translation is enabled with SDL_EnableUNICODE. 
+If <code>unicode</code> is non-zero then this is the UNICODE character corresponding to the keypress. 
+If the high 9 bits of the character are 0, then this maps to the equivalent ASCII character:</p>
+<pre> my $char;
+ if(($event-&gt;key_unicode &amp; 0xFF80) == 0)
+ {
+     $char = $event-&gt;key_unicode &amp; 0x7F;
+ }
+ else
+ {
+     print(&quot;An International Character.\n&quot;);
+ }
+
+</pre>
+<p>UNICODE translation does create a slight overhead so don't enable it unless its needed.</p>
+<p>NOTE: Key release events (SDL_KEYUP) won't necessarily (ever?) contain unicode information. 
+See <a href="http://lists.libsdl.org/pipermail/sdl-libsdl.org/2005-January/048355.html">http://lists.libsdl.org/pipermail/sdl-libsdl.org/2005-January/048355.html</a></p>
 
 </div>
-<h2 id="motion">motion</h2>
-<div id="motion_CONTENT">
+<h2 id="Mouse_motion_events">Mouse motion events</h2>
+<div id="Mouse_motion_events_CONTENT">
+<p>Simply put, a SDL_MOUSEMOTION type event occurs when a user moves the mouse within the 
+application window or when SDL_WarpMouse is called. Both the absolute (<code>motion_x</code> and <code>motion_y</code>) 
+and relative (<code>motion_xrel</code> and <code>motion_yrel</code>) coordinates are reported along with the current 
+button states (<code>motion_state</code>).</p>
 
 </div>
 <h3 id="motion_state">motion_state</h3>
 <div id="motion_state_CONTENT">
+<p>The button state can be interpreted using the <code>SDL_BUTTON</code> macro (see SDL_GetMouseState). </p>
 
 </div>
 <h3 id="motion_x_motion_y">motion_x, motion_y</h3>
 <div id="motion_x_motion_y_CONTENT">
+<p>The X/Y coordinates of the mouse</p>
 
 </div>
 <h3 id="motion_xrel_motion_yrel">motion_xrel, motion_yrel</h3>
 <div id="motion_xrel_motion_yrel_CONTENT">
+<p>Relative motion in the X/Y direction.</p>
+<p>If the cursor is hidden (SDL_ShowCursor(0)) and the input is grabbed (SDL_WM_GrabInput(SDL_GRAB_ON)), 
+then the mouse will give relative motion events even when the cursor reaches the edge of the screen. 
+This is currently only implemented on Windows and Linux/Unix-alikes.</p>
 
 </div>
-<h2 id="button">button</h2>
-<div id="button_CONTENT">
+<h2 id="Mouse_button_events">Mouse button events</h2>
+<div id="Mouse_button_events_CONTENT">
+<p>When a mouse button press or release is detected the number of the button pressed (from 1 to 255, 
+with 1 usually being the left button and 2 the right) is placed into <code>button_button</code>, the position of the mouse 
+when this event occured is stored in the <code>button_x</code> and the <code>button_y</code> fields. Like SDL_KeyboardEvent, 
+information on whether the event was a press or a release event is stored in both the <code>button_type</code> 
+and <code>button_state</code> fields, but this should be obvious.</p>
+<p>Mouse wheel events are reported as buttons 4 (up) and 5 (down). Two events are generated i.e. you get 
+a <code>SDL_MOUSEBUTTONDOWN</code> followed by a <code>SDL_MOUSEBUTTONUP</code> event.</p>
 
 </div>
 <h3 id="button_which">button_which</h3>
 <div id="button_which_CONTENT">
+<p>The input device index</p>
 
 </div>
 <h3 id="button_button">button_button</h3>
 <div id="button_button_CONTENT">
+<p>The mouse button index (<code>SDL_BUTTON_LEFT</code>, <code>SDL_BUTTON_MIDDLE</code>, <code>SDL_BUTTON_RIGHT</code>, <code>SDL_BUTTON_WHEELUP</code>, 
+<code>SDL_BUTTON_WHEELDOWN</code>)</p>
 
 </div>
 <h3 id="button_state">button_state</h3>
 <div id="button_state_CONTENT">
+<p><code>SDL_PRESSED</code> or <code>SDL_RELEASED</code></p>
 
 </div>
 <h3 id="button_x_button_y">button_x, button_y</h3>
 <div id="button_x_button_y_CONTENT">
+<p>The X/Y coordinates of the mouse at press/release time</p>
 
 </div>
-<h2 id="jaxis">jaxis</h2>
-<div id="jaxis_CONTENT">
+<h2 id="Joystick_axis_events">Joystick axis events</h2>
+<div id="Joystick_axis_events_CONTENT">
 
 </div>
 <h3 id="jaxis_which">jaxis_which</h3>
@@ -331,8 +388,8 @@ These special cases are required for compatibility with Sun workstations.</p>
 <div id="jaxis_value_CONTENT">
 
 </div>
-<h2 id="jbutton">jbutton</h2>
-<div id="jbutton_CONTENT">
+<h2 id="Joystick_button_events">Joystick button events</h2>
+<div id="Joystick_button_events_CONTENT">
 
 </div>
 <h3 id="jbutton_which">jbutton_which</h3>
@@ -347,8 +404,8 @@ These special cases are required for compatibility with Sun workstations.</p>
 <div id="jbutton_state_CONTENT">
 
 </div>
-<h2 id="jhat">jhat</h2>
-<div id="jhat_CONTENT">
+<h2 id="Joystick_hat_events">Joystick hat events</h2>
+<div id="Joystick_hat_events_CONTENT">
 
 </div>
 <h3 id="jhat_which">jhat_which</h3>
@@ -363,8 +420,8 @@ These special cases are required for compatibility with Sun workstations.</p>
 <div id="jhat_value_CONTENT">
 
 </div>
-<h2 id="jball">jball</h2>
-<div id="jball_CONTENT">
+<h2 id="Joystrick_trackball_events">Joystrick trackball events</h2>
+<div id="Joystrick_trackball_events_CONTENT">
 
 </div>
 <h3 id="jball_which">jball_which</h3>
@@ -379,28 +436,28 @@ These special cases are required for compatibility with Sun workstations.</p>
 <div id="jball_xrel_jball_yrel_CONTENT">
 
 </div>
-<h2 id="resize">resize</h2>
-<div id="resize_CONTENT">
+<h2 id="Window_resize_events">Window resize events</h2>
+<div id="Window_resize_events_CONTENT">
 
 </div>
 <h3 id="resize_x_resize_y">resize_x, resize_y</h3>
 <div id="resize_x_resize_y_CONTENT">
 
 </div>
-<h2 id="expose">expose</h2>
-<div id="expose_CONTENT">
+<h2 id="Window_expose_events">Window expose events</h2>
+<div id="Window_expose_events_CONTENT">
 
 </div>
-<h2 id="syswm">syswm</h2>
-<div id="syswm_CONTENT">
+<h2 id="System_window_manager_events">System window manager events</h2>
+<div id="System_window_manager_events_CONTENT">
 
 </div>
 <h3 id="syswm_msg">syswm_msg</h3>
 <div id="syswm_msg_CONTENT">
 
 </div>
-<h2 id="user">user</h2>
-<div id="user_CONTENT">
+<h2 id="User_defined_events">User defined events</h2>
+<div id="User_defined_events_CONTENT">
 
 </div>
 <h3 id="user_code">user_code</h3>
@@ -411,8 +468,8 @@ These special cases are required for compatibility with Sun workstations.</p>
 <div id="user_data1_user_data2_CONTENT">
 
 </div>
-<h2 id="quit">quit</h2>
-<div id="quit_CONTENT">
+<h2 id="Quit_event">Quit event</h2>
+<div id="Quit_event_CONTENT">
 <p>Create a new SDL::Event object.</p>
 
 </div>
