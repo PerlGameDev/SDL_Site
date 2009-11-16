@@ -59,7 +59,7 @@
 </ul>
 </li>
 <li><a href="#Window_resize_events">Window resize events</a>
-<ul><li><a href="#resize_x_resize_y">resize_x, resize_y</a></li>
+<ul><li><a href="#resize_w_resize_h">resize_w, resize_h</a></li>
 </ul>
 </li>
 <li><a href="#Window_expose_events">Window expose events</a></li>
@@ -476,16 +476,34 @@ polled (last cycle of the event loop) and it is stored in <code>jball_xrel</code
 <div id="Window_resize_events_CONTENT">
 
 </div>
-<h3 id="resize_x_resize_y">resize_x, resize_y</h3>
-<div id="resize_x_resize_y_CONTENT">
+<h3 id="resize_w_resize_h">resize_w, resize_h</h3>
+<div id="resize_w_resize_h_CONTENT">
+<p>When <code>SDL_RESIZABLE</code> is passed as a flag to <code>SDL_SetVideoMode</code> the user is allowed to resize the 
+applications window. When the window is resized an <code>SDL_VIDEORESIZE</code> is reported, with the new 
+window width and height values stored in the resize structure's <code>resize_w</code> and <code>resize_h</code>. 
+When an <code>SDL_VIDEORESIZE</code> is received the window should be resized to the new dimensions using 
+SDL_SetVideoMode. </p>
 
 </div>
 <h2 id="Window_expose_events">Window expose events</h2>
 <div id="Window_expose_events_CONTENT">
+<p>A <code>VIDEOEXPOSE</code> event is triggered when the screen has been modified outside of the application, 
+usually by the window manager and needs to be redrawn.</p>
 
 </div>
 <h2 id="System_window_manager_events">System window manager events</h2>
 <div id="System_window_manager_events_CONTENT">
+<p>The system window manager event contains a system-specific information about unknown window manager 
+events. If you enable this event using <code>SDL_EventState</code>, it will be generated whenever unhandled 
+events are received from the window manager. This can be used, for example, to implement cut-and-paste 
+in your application.</p>
+<p>If you want to obtain system-specific information about the window manager, you can fill in the 
+version member of a SDL_SysWMinfo structure (details can be found in SDL_syswm.h, which must be included) 
+using the SDL_VERSION() macro found in SDL_version.h, and pass it to the function:</p>
+<pre> int SDL_GetWMInfo(SDL_SysWMinfo *info);
+
+</pre>
+<p>See <a href="http://www.libsdl.org/cgi/docwiki.cgi/SDL_SysWMEvent">http://www.libsdl.org/cgi/docwiki.cgi/SDL_SysWMEvent</a></p>
 
 </div>
 <h3 id="syswm_msg">syswm_msg</h3>
@@ -494,19 +512,36 @@ polled (last cycle of the event loop) and it is stored in <code>jball_xrel</code
 </div>
 <h2 id="User_defined_events">User defined events</h2>
 <div id="User_defined_events_CONTENT">
+<p>This event is unique, it is never created by SDL but only by the user. The event can be pushed onto
+the event queue using <code>SDL::Events::push_event</code>. The contents of the structure members are completely up to the 
+programmer, the only requirement is that type is a value from <code>SDL_USEREVENT</code> to <code>SDL_NUMEVENTS-1</code> (inclusive)</p>
+<pre> my $event = SDL::Event-&gt;new();
+    $event-&gt;type ( SDL_USEREVENT + 3 );
+    $event-&gt;event_code(10);
+    $event-&gt;data1('hello event');
+
+ SDL::Events::push_event($event);
+
+</pre>
 
 </div>
 <h3 id="user_code">user_code</h3>
 <div id="user_code_CONTENT">
+<p>User defined event code (integer).</p>
 
 </div>
 <h3 id="user_data1_user_data2">user_data1, user_data2</h3>
 <div id="user_data1_user_data2_CONTENT">
+<p>User defined data.</p>
 
 </div>
 <h2 id="Quit_event">Quit event</h2>
 <div id="Quit_event_CONTENT">
-<p>Create a new SDL::Event object.</p>
+<p>As can be seen, the <code>SDL_QuitEvent</code> structure serves no useful purpose. The event itself, on the other hand, 
+is very important. If you filter out or ignore a quit event then it is impossible for the user to close the 
+window. On the other hand, if you do accept a quit event then the application window will be closed, and 
+screen updates will still report success even though the application will no longer be visible.</p>
+<p><strong>Note</strong>: The macro SDL_QuitRequested will return non-zero if a quit event is pending </p>
 
 </div>
 <h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
