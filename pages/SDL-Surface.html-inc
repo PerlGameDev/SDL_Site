@@ -64,8 +64,10 @@
 <p>The constructor creates a new surface with the specified parameter values. </p>
 <pre>    my $surface = SDL::Surface-&gt;new_from( $old_surface, ... );
 
+
+
+
 </pre>
-<p>THIS WILL SEGFAULT!!! Read: http://sdlperl.ath.cx/projects/SDLPerl/ticket/53 </p>
 
 </div>
 <h3 id="Construtor_Parameters">Construtor Parameters</h3>

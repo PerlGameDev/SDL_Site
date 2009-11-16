@@ -32,9 +32,10 @@
 <li><a href="#version">version()</a></li>
 <li><a href="#linked_version">linked_version</a></li>
 <li><a href="#get_error-2">get_error()</a></li>
-<li><a href="#delay_ms">delay(ms)</a>
-</li>
+<li><a href="#delay_ms">delay(ms)</a></li>
 </ul>
+</li>
+<li><a href="#STUFF_TO_BE_DONE_for_the_documentati">STUFF TO BE DONE for the documentation</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -298,8 +299,25 @@ than the specified depending on the underlying OS.</p>
 
 
 
+</div>
+<h1 id="STUFF_TO_BE_DONE_for_the_documentati">STUFF TO BE DONE for the documentation</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="STUFF_TO_BE_DONE_for_the_documentati-2">
+<pre>
 
 
+	SDL:: to improve
+	SDL::Video add examples, need general improvement.
+	Event.pod need to be checked against Events.pod
+	SDL::Events need to be completed
+	SDL::Cdrom need some examples. 
+	SDL::MultiThread to be created( once implemented  ). 
+	SDL::Time to be completed.
+	SDL::RW to be created.
+	SDL::Mouse need to be created.
+	SDL::Joystick need to be created.
+	SDL::Audio need to be created.
+
+</pre>
 
 </div>
 </div>
