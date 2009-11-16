@@ -374,66 +374,102 @@ a <code>SDL_MOUSEBUTTONDOWN</code> followed by a <code>SDL_MOUSEBUTTONUP</code> 
 </div>
 <h2 id="Joystick_axis_events">Joystick axis events</h2>
 <div id="Joystick_axis_events_CONTENT">
+<p>A <code>SDL_JOYAXISMOTION</code> event occurs whenever a user moves an axis on the joystick.</p>
 
 </div>
 <h3 id="jaxis_which">jaxis_which</h3>
 <div id="jaxis_which_CONTENT">
+<p>The field <code>jaxis_which</code> is the index of the joystick that reported the event.</p>
 
 </div>
 <h3 id="jaxis_axis">jaxis_axis</h3>
 <div id="jaxis_axis_CONTENT">
+<p>The <code>jaxis_axis</code> is the index of the axis (for a more detailed explaination see the Joystick section).</p>
 
 </div>
 <h3 id="jaxis_value">jaxis_value</h3>
 <div id="jaxis_value_CONTENT">
+<p><code>jaxis_value</code> is the current position of the axis (range: -32768 to 32767).</p>
 
 </div>
 <h2 id="Joystick_button_events">Joystick button events</h2>
 <div id="Joystick_button_events_CONTENT">
+<p>A <code>SDL_JOYBUTTONDOWN</code> or <code>SDL_JOYBUTTONUP</code> event occurs when ever a user presses 
+or releases a button on a joystick.</p>
 
 </div>
 <h3 id="jbutton_which">jbutton_which</h3>
 <div id="jbutton_which_CONTENT">
+<p>The field <code>jbutton_which</code> is the index of the joystick that reported the event.</p>
 
 </div>
 <h3 id="jbutton_button">jbutton_button</h3>
 <div id="jbutton_button_CONTENT">
+<p>The <code>jbutton_button</code> is the index of the button (for a more detailed explanation see the Joystick section).</p>
 
 </div>
 <h3 id="jbutton_state">jbutton_state</h3>
 <div id="jbutton_state_CONTENT">
+<p><code>jbutton_state</code> is the current state of the button which is either <code>jbutton_SDL_PRESSED</code> 
+or <code>jbutton_SDL_RELEASED</code>. </p>
 
 </div>
 <h2 id="Joystick_hat_events">Joystick hat events</h2>
 <div id="Joystick_hat_events_CONTENT">
+<p>A <code>SDL_JOYHATMOTION</code> event occurs when ever a user moves a hat on the joystick. </p>
 
 </div>
 <h3 id="jhat_which">jhat_which</h3>
 <div id="jhat_which_CONTENT">
+<p>The field <code>jhat_which</code> is the index of the joystick that reported the event.</p>
 
 </div>
 <h3 id="jhat_hat">jhat_hat</h3>
 <div id="jhat_hat_CONTENT">
+<p><code>jhat_hat</code> is the index of the hat (for a more detailed explanation see the Joystick section).</p>
 
 </div>
 <h3 id="jhat_value">jhat_value</h3>
 <div id="jhat_value_CONTENT">
+<p><code>jhat_value</code> is the current position of the hat. It is a bitwise OR'd combination of the following 
+values (whose meanings should be pretty obvious):</p>
+<ul>
+		<li><code>SDL_HAT_CENTERED</code>	</li>
+		<li><code>SDL_HAT_UP</code>	</li>
+		<li><code>SDL_HAT_RIGHT</code>	</li>
+		<li><code>SDL_HAT_DOWN</code>	</li>
+		<li><code>SDL_HAT_LEFT</code></li>
+</ul>
+
+<p>The following defines are also provided:</p>
+<ul>
+		<li><code>SDL_HAT_RIGHTUP</code>	</li>
+		<li><code>SDL_HAT_RIGHTDOWN</code>	</li>
+		<li><code>SDL_HAT_LEFTUP</code>	</li>
+		<li><code>SDL_HAT_LEFTDOWN</code></li>
+</ul>
+
 
 </div>
 <h2 id="Joystrick_trackball_events">Joystrick trackball events</h2>
 <div id="Joystrick_trackball_events_CONTENT">
+<p>A <code>SDL_JOYBALLMOTION</code> event occurs when a user moves a trackball on the joystick.</p>
 
 </div>
 <h3 id="jball_which">jball_which</h3>
 <div id="jball_which_CONTENT">
+<p>The field <code>jball_which</code> is the index of the joystick that reported the event.</p>
 
 </div>
 <h3 id="jball_ball">jball_ball</h3>
 <div id="jball_ball_CONTENT">
+<p><code>jball_ball</code> is the index of the trackball (for a more detailed explanation see the Joystick section).</p>
 
 </div>
 <h3 id="jball_xrel_jball_yrel">jball_xrel, jball_yrel</h3>
 <div id="jball_xrel_jball_yrel_CONTENT">
+<p>Trackballs only return relative motion, this is the change in position on the ball since it was last 
+polled (last cycle of the event loop) and it is stored in <code>jball_xrel</code> and <code>jball_yrel</code>.</p>
 
 </div>
 <h2 id="Window_resize_events">Window resize events</h2>
