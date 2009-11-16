@@ -3,15 +3,18 @@
 use strict;
 use warnings;
 
-use File::Spec;
 use Pod::Xhtml;
+use File::Spec::Functions qw(rel2abs splitpath splitdir catpath catdir catfile canonpath);
 
-#system('git pull');
+my $input_path      = 'C:/SDL_perl/lib/pods';
 
-my $input_path   = 'C:/SDL_perl/lib/pods';
-my $output_path  = 'F:/htdocs/SDL-Site/pages';
-my $parser       = Pod::Xhtml->new(FragmentOnly => 1);
-my %module_names = ();
+my ($volume, $dirs) = splitpath(rel2abs(__FILE__));
+my @directories     = splitdir(canonpath($dirs));
+pop(@directories);
+my $parent_dir      = catpath($volume, catdir(@directories));
+my $output_path     = catdir($parent_dir, 'pages');
+my $parser          = Pod::Xhtml->new(FragmentOnly => 1);
+my %module_names    = ();
 my $fh;
 
 read_file($input_path);
