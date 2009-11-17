@@ -7,9 +7,10 @@ use File::Spec;
 use Pod::Xhtml;
 
 #system('git pull');
-
-my $input_path   = 'C:/SDL_perl/lib/pods';
+my $input_path   = 'C:/SDL_perl/lib/pods'; 
+   $input_path   = $ARGV[0] unless !$ARGV[0];
 my $output_path  = 'F:/htdocs/SDL-Site/pages';
+   $output_path   = $ARGV[0] unless !$ARGV[1];
 my $parser       = Pod::Xhtml->new(FragmentOnly => 1);
 my %module_names = ();
 my $fh;
