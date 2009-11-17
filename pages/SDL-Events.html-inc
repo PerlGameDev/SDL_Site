@@ -2,7 +2,10 @@
 <!-- INDEX START -->
 <h3 id="TOP">Index</h3>
 
-<ul><li><a href="#NAME">NAME</a></li>
+<ul><li><a href="#NAME">NAME</a>
+<ul><li><a href="#CATEGORY">CATEGORY</a></li>
+</ul>
+</li>
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
@@ -33,6 +36,11 @@
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
 <p>SDL::Events - Bindings to the Events Category in SDL API</p>
+
+</div>
+<h2 id="CATEGORY">CATEGORY</h2>
+<div id="CATEGORY_CONTENT">
+<p>Core, Events</p>
 
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -155,7 +163,8 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><cite>SDL::Event</cite>, <cite>SDL::Video</cite></p>
+<p><cite>SDL::Event</cite>, <cite>SDL::Video</cite>
+</p>
 
 </div>
 </div>

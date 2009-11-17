@@ -3,7 +3,8 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a>
-<ul><li><a href="#The_Overall_view">The Overall view</a>
+<ul><li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#The_Overall_view">The Overall view</a>
 <ul><li><a href="#The_Game_Loop">The Game Loop</a></li>
 <li><a href="#The_Game_Logic">The Game Logic</a>
 </li>
@@ -17,6 +18,11 @@
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
 <p>Let's Make Tetris</p>
+
+</div>
+<h2 id="CATEGORY">CATEGORY</h2>
+<div id="CATEGORY_CONTENT">
+<p>Tutorials</p>
 
 </div>
 <h2 id="The_Overall_view">The Overall view</h2>

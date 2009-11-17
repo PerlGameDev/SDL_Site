@@ -42,7 +42,7 @@ for my $key (sort keys %files)
 	{
 		print ($fh '</table>') if $last_section;
 		print ($fh '<br />')  if $last_section && !$#matches;
-		printf($fh '<table style="padding-left: %dpx"><tr><td colspan="3"><strong style="font-size: 14px">%s</strong></td></tr>', 
+		printf($fh '<table style="padding-left: %dpx; padding-top: 5px"><tr><td colspan="3"><strong style="font-size: 14px">%s</strong></td></tr>', 
 		           $#matches * 30, pop(@matches));
 		$last_section = $files{$key}{'section'};
 	}
@@ -81,6 +81,7 @@ sub read_file
 			$key                    = $parser->asString =~ /<div id="CATEGORY_CONTENT">\s*<p>\s*([^<>]+)\s*<\/p>\s*<\/div>/
 			                        ? "$1 $_"
 			                        : "UNCATEGORIZED/$_";
+			$key                    = " $key" if $key =~ /^Core/;
 			$files{$key}{'path'}    = $file_path;
 			$files{$key}{'name'}    = $module_name;
 			$files{$key}{'desc'}    = $parser->asString =~ /<div id="NAME_CONTENT">\s*<p>\s*[^<>\-]+\-([^<>]+)\s*<\/p>\s*<\/div>/

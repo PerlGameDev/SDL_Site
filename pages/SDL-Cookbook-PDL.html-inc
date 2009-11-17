@@ -2,7 +2,12 @@
 <!-- INDEX START -->
 <h3 id="TOP">Index</h3>
 
-<ul><li><a href="#Old_SDL_interface">Old SDL interface</a></li>
+<ul>
+<li>
+<ul><li><a href="#CATEGORY">CATEGORY</a></li>
+</ul>
+</li>
+<li><a href="#Old_SDL_interface">Old SDL interface</a></li>
 <li><a href="#Perl_s_SDL_in_a_nutshell">Perl's SDL in a nutshell</a></li>
 <li><a href="#SDL_power_through_simplicity">SDL - power through simplicity</a></li>
 <li><a href="#Example_1_Model_of_a_2_D_Noninteract">Example 1: Model of a 2-D Noninteracting Gas</a>
@@ -31,21 +36,18 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 <!-- INDEX END -->
 
 <p>PDL provides great number crunching capabilities to Perl and SDL provides game-developer quality real-time bitmapping and sound.  You can use PDL and SDL ''together'' to create real-time, responsive animations and simulations.  In this section we will go through the pleasures and pitfalls of working with both powerhouse libraries.</p>
+<h2 id="CATEGORY">CATEGORY</h2>
+<div id="CATEGORY_CONTENT">
+<p>Cookbook</p>
+
+</div>
 <h1 id="Old_SDL_interface">Old SDL interface</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="Old_SDL_interface_CONTENT">
-
-
-
-
 <p>Please be aware that much of the code in this example uses SDL Perl v 2.2.4.  The SDL Perl developers are hard at work rewriting SDL, to be released as SDL 3.0 soon.  The new version of SDL is not backwards compatible.  Check back with this page after SDL 3.0 has been released to get the updated commands.</p>
 
 </div>
 <h1 id="Perl_s_SDL_in_a_nutshell">Perl's SDL in a nutshell</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="Perl_s_SDL_in_a_nutshell_CONTENT">
-
-
-
-
 <p>SDL stands for Simple DirectMedia Layer.  It's a cross-platform library written in C that's meant to handle all of the low-level graphics and sound stuff.  You can read more about SDL here: http://www.libsdl.org/.  Because SDL is focused on game programming, it has a raw but clean feel to it.  We will focus for now on using SDL to handle images for us.  Handling sound may some day be the focus of another chapter.</p>
 <p>We will be using Perl's SDL module, not SDL directly.  Fortunately, Perl's SDL module has a small collection of very simple tutorials that perfectly introduce basic usage.  You can find them here: http://sdl.perl.org/tutorials/.  Another excellent and very substantial introduction can be found here: http://arstechnica.com/gaming/news/2006/02/games-perl.ars</p>
 <p>SDL is not a Perl core module, so you'll need to install it before moving forward.  Before moving on, go through some of the tutorials and play around with SDL a little bit.  Continue on once you think you've got the hang of it.</p>
