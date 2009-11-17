@@ -4,9 +4,15 @@ div.pod
 	padding:             10px;
 }
 
-pre
+div.pod pre
 {
 	border:              1px solid #FFFFFF;
 	background-color:	 #CAB680;
 	padding-top:         13px;
+}
+
+div.pod img
+{
+	padding-right:       13px;
+	border:              0;
 }

@@ -84,7 +84,7 @@
 </div>
 <h2 id="get_video_surface">get_video_surface</h2>
 <div id="get_video_surface_CONTENT">
-<p>It return the current SDL::Surface on succés or undef on error.
+<p>It return the current SDL::Surface on succÃ©s or undef on error.
 get_video_surface doesn't take any parameters.</p>
 
 </div>
@@ -115,7 +115,7 @@ It returns 0 if the mode is not supported at all, or the suggested bpp.</p>
 <h2 id="set_video_mode_width_height_bpp_flag">set_video_mode(width,height,bpp,flags)</h2>
 <div id="set_video_mode_width_height_bpp_flag-2">
 <p>Sets up a video mode with the specified width, height,  bits-per-pixel and flags. 
-set_video_mode returns a SDL::Surface on succés or it returns undef on error, the error message is retrieved using <code>SDL::get_error</code>.</p>
+set_video_mode returns a SDL::Surface on succÃ©s or it returns undef on error, the error message is retrieved using <code>SDL::get_error</code>.</p>
 
 </div>
 <h3 id="List_of_avalaibles_flags">List of avalaibles flags</h3>
@@ -220,7 +220,7 @@ The hardware will wait for vertical retrace, and then swap video buffers before 
 On hardware that doesn't support double-buffering or if SDL_SWSURFACE was set, this is equivalent to calling SDL::update_rect(screen, 0, 0, 0, 0)</p>
 <p>A software screen surface is also updated automatically when parts of a SDL window are redrawn, caused by overlapping windows or by restoring from an iconified state. As a result there is no proper double buffer behavior in windowed mode for a software screen, in contrast to a full screen software mode.</p>
 <p>The SDL_DOUBLEBUF flag must have been passed to SDL::set_video_mode, when setting the video mode for this function to perform hardware flipping.
-flip returns 0 on succés or -1 on error.</p>
+flip returns 0 on succÃ©s or -1 on error.</p>
 <p>Note : If you want to swap the buffers of an initialized OpenGL context, use the function SDL::gl_swap_buffers instead. </p>
 
 </div>
@@ -361,7 +361,7 @@ Between calls to SDL::lock_surface and SDL::unlock_surface, you can write to and
 Once you are done accessing the surface, you should use SDL::unlock_surface to release the lock.</p>
 <p>Not all surfaces require locking. If SDL::MUSTLOCK(surface) evaluates to 0, then reading and writing pixels to the surface can be performed at any time, and the pixel format of the surface will not change.
 No operating system or library calls should be made between the lock/unlock pairs, as critical system locks may be held during this time.
-SDL::lock_surface returns 0 on succés or -1 on error.</p>
+SDL::lock_surface returns 0 on succÃ©s or -1 on error.</p>
 <p>Note : Since SDL 1.1.8, the surface locks are recursive. This means that you can lock a surface multiple times, but each lock must have a matching unlock.</p>
 
 </div>
@@ -379,7 +379,7 @@ It is also useful for making a copy of a surface.</p>
 <p>The flags parameter is passed to SDL::create_RGB_surface and has those semantics.
 This function is used internally by SDL::display_format.
 This function can only be called after SDL::init. </p>
-<p>it returns a SDL::surface on succés or undef on error.</p>
+<p>it returns a SDL::surface on succÃ©s or undef on error.</p>
 
 </div>
 <h2 id="display_format">display_format</h2>
@@ -395,7 +395,7 @@ This function can only be called after SDL::init. </p>
 <h2 id="load_BMP_filename">load_BMP(filename)</h2>
 <div id="load_BMP_filename_CONTENT">
 <p>Loads a SDL::surface from a named Windows BMP file.
-SDL::load_BMP returns a SDL::surface on succés or undef on error.</p>
+SDL::load_BMP returns a SDL::surface on succÃ©s or undef on error.</p>
 <p>Note: When loading a 24-bit Windows BMP file, pixel data points are loaded as blue, green, red, and NOT red, green, blue (as one might expect). </p>
 
 
@@ -409,7 +409,7 @@ SDL::load_BMP returns a SDL::surface on succés or undef on error.</p>
 <h2 id="save_BMP_surface_filename">save_BMP(surface,filename)</h2>
 <div id="save_BMP_surface_filename_CONTENT">
 <p>Saves the given SDL::Surface surface as a Windows BMP file named filename. 
-it returns 0 on succés or -1 on error.</p>
+it returns 0 on succÃ©s or -1 on error.</p>
 
 </div>
 <h2 id="set_color_key_surface_flag_key">set_color_key(surface,flag,key)</h2>
@@ -421,7 +421,7 @@ If flag is SDL_SRCCOLORKEY then key is the transparent pixel value in the source
 <p>If flag is OR'd with SDL_RLEACCEL then the surface will be drawn using RLE acceleration when drawn with SDL::Blit_surface.
 The surface will actually be encoded for RLE acceleration the first time SDL::blit_surface or SDL::display_format is called on the surface.
 If flag is 0, this function clears any current color key. </p>
-<p>SDL::set_color_key returns 0 on succés or -1 on error.</p>
+<p>SDL::set_color_key returns 0 on succÃ©s or -1 on error.</p>
 
 
 
@@ -484,7 +484,7 @@ If SDL_SRCCOLORKEY is set, only the pixels not matching the colorkey value are c
 <p>Note: When blitting, the presence or absence of SDL_SRCALPHA is relevant only on the source surface, not the destination.
 Note: Note that RGBA-&gt;RGBA blits (with SDL_SRCALPHA set) keep the alpha of the destination surface. This means that you cannot compose two arbitrary RGBA surfaces this way and get the result you would expect from &quot;overlaying&quot; them; the destination alpha will work as a mask.</p>
 <p>Note: Also note that per-pixel and per-surface alpha cannot be combined; the per-pixel alpha is always used if available. </p>
-<p>SDL::set_alpha returns 0 on succés or -1 on error.</p>
+<p>SDL::set_alpha returns 0 on succÃ©s or -1 on error.</p>
 
 </div>
 <h2 id="set_clip_rect_surface_rect">set_clip_rect(surface,rect)</h2>
@@ -524,14 +524,14 @@ SDL::blit_surface doesn't returns anything.</p>
 If the color value contains an alpha value then the destination is simply &quot;filled&quot; with that alpha information, no blending takes place.</p>
 <p>If there is a clip rectangle set on the destination (set via SDL::set_clip_rect), then this function will clip based on the intersection of the clip rectangle and the dstrect rectangle, and the dstrect rectangle will be modified to represent the area actually filled.</p>
 <p>If you call this on the video surface (ie: the value of SDL::get_video_surface()) you may have to update the video surface to see the result. This can happen if you are using a shadowed surface that is not double buffered in Windows XP using build 1.2.9. </p>
-<p>SDL::fill_rect returns 0 on succés or -1 on error.</p>
+<p>SDL::fill_rect returns 0 on succÃ©s or -1 on error.</p>
 
 </div>
 <h2 id="GL_load_library_path">GL_load_library(path)</h2>
 <div id="GL_load_library_path_CONTENT">
 <p>If you wish, you may load the OpenGL library from the given path at runtime, this must be done before SDL::set_video_mode is called.
 The path of the GL library is passed to SDL::GL_load_library and it returns 0 on success, or -1 on an error. You must then use SDL::GL_get_proc_address to retrieve function pointers to GL functions. </p>
-<p>SDL::GL_load_library returns 0 on succés or -1 or error.</p>
+<p>SDL::GL_load_library returns 0 on succÃ©s or -1 or error.</p>
 
 </div>
 <h2 id="GL_get_proc_address_proc">GL_get_proc_address(proc)</h2>
@@ -552,7 +552,7 @@ SDL::GL_get_attribute returns undef if the attribute is not found.</p>
 <p>This function sets the given OpenGL attribute attr to value. The requested attributes will take effect after a call to SDL::set_video_mode.
 You should use SDL::GL_get_attribute to check the values after a SDL::set_video_mode call, since the values obtained can differ from the requested ones.
 See SDL_GLattr for the full list of available attributes. 
-SDL::GL_set_attribute returns 0 on succés or -1 on error.</p>
+SDL::GL_set_attribute returns 0 on succÃ©s or -1 on error.</p>
 <p>Note : The SDL_DOUBLEBUF flag is not required to enable double buffering when setting an OpenGL video mode. Double buffering is enabled or disabled using the SDL_GL_DOUBLEBUFFER attribute. </p>
 
 </div>
@@ -573,19 +573,19 @@ SDL::GL_swap_buffers doesn't returns any value.</p>
 <h2 id="lock_YUV_overlay_overlay">lock_YUV_overlay(overlay)</h2>
 <div id="lock_YUV_overlay_overlay_CONTENT">
 <p>Much the same as <code>SDL::lock_surface</code>, SDL::lock_YUV_overlay locks the overlay for direct access to pixel data.
-It returns 0 on succés or -1 on error.</p>
+It returns 0 on succÃ©s or -1 on error.</p>
 
 </div>
 <h2 id="unlock_YUV_overlay_overlay">unlock_YUV_overlay(overlay)</h2>
 <div id="unlock_YUV_overlay_overlay_CONTENT">
 <p>The opposite to <code>SDL::lock_YUV_overlay</code>. Unlocks a previously locked overlay. An overlay must be unlocked before it can be displayed. 
-It returns 0 on succés or -1 on error.</p>
+It returns 0 on succÃ©s or -1 on error.</p>
 
 </div>
 <h2 id="display_YUV_overlay_overlay_dstrect">display_YUV_overlay(overlay,dstrect)</h2>
 <div id="display_YUV_overlay_overlay_dstrect_">
 <p>Blit the overlay to the display surface specified when the overlay was created. The SDL::rect structure, dstrect, specifies a rectangle on the display where the overlay is drawn. The .x and .y fields of dstrect specify the upper left location in display coordinates. The overlay is scaled (independently in x and y dimensions) to the size specified by dstrect, and is optimized for 2x scaling</p>
-<p>It returns 0 on succés or -1 on error.</p>
+<p>It returns 0 on succÃ©s or -1 on error.</p>
 
 
 

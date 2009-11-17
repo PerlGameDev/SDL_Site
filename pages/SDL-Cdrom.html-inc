@@ -84,31 +84,31 @@ It takes a SDL::Cdrom as first parameter.</p>
 <h2 id="play_cd_start_length_fs_fl">play(cd,start,length,fs,fl) </h2>
 <div id="play_cd_start_length_fs_fl_CONTENT">
 <p>Play a track from the SDL::Cdrom given as first parameter, second parameter is the frame to start, the third is the lenght to play.
-It returns 1 on succés 0 on error.</p>
+It returns 1 on succÃ©s 0 on error.</p>
 
 </div>
 <h2 id="pause_cd">pause(cd)</h2>
 <div id="pause_cd_CONTENT">
 <p>Pause the playing of the SDL::Cdrom given as first parameter.
-It returns 1 on succés 0 on error.</p>
+It returns 1 on succÃ©s 0 on error.</p>
 
 </div>
 <h2 id="resume_cd">resume(cd)</h2>
 <div id="resume_cd_CONTENT">
 <p>Resume the playing of the SDL::Cdrom given as first parameter.
-It returns 1 on succés 0 on error.</p>
+It returns 1 on succÃ©s 0 on error.</p>
 
 </div>
 <h2 id="stop_cd">stop(cd)</h2>
 <div id="stop_cd_CONTENT">
 <p>Stop the playing of the SDL::Cdrom given as first parameter.
-It returns 1 on succés 0 on error.</p>
+It returns 1 on succÃ©s 0 on error.</p>
 
 </div>
 <h2 id="eject_cd">eject(cd)</h2>
 <div id="eject_cd_CONTENT">
 <p>Eject the medium in the SDL::Cdrom given as first parameter.
-It returns 1 on succés 0 on error.</p>
+It returns 1 on succÃ©s 0 on error.</p>
 
 </div>
 <h2 id="id_cd">id(cd)</h2>

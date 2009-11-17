@@ -102,7 +102,7 @@ However, you may always call SDL::push_event.</p>
 <h2 id="remove_timer_id">remove_timer( id )</h2>
 <div id="remove_timer_id_CONTENT">
 <p>Removes a timer callback previously added with SDL::add_timer. 
-It returns 0 on succés or -1 on error.</p>
+It returns 0 on succÃ©s or -1 on error.</p>
 
 </div>
 <h2 id="set_timer_interval_callback">set_timer( interval,callback )</h2>
