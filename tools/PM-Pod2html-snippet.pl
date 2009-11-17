@@ -19,6 +19,7 @@ my $assets_path     = catdir($parent_dir, 'htdocs/assets');
 my $parser          = Pod::Xhtml->new(FragmentOnly => 1, StringMode => 1);
 my %module_names    = ();
 my %thumbnails      = ();
+my %files           = ();
 my $fh;
 
 read_file($input_path);
@@ -26,26 +27,28 @@ read_file($input_path);
 # creating index file
 open($fh, '>', File::Spec->catfile($pages_path, 'documentation.html-inc'));
 binmode($fh, ":utf8");
-print($fh "<div class=\"pod\">\n<h1>Documentation (latest development branch)</h1><table>");
-for my $module_name (sort keys %module_names)
+print($fh "<div class=\"pod\">\n<h1>Documentation (latest development branch)</h1>");
+my $last_section = '';
+#for my $module_name (sort keys %module_names)
+for my $key (sort keys %files)
 {
-	my $icon = sprintf('<img src="assets/bubble-%d-mini.png" alt="thumb" />', int((rand() * 7) + 1));
-	my $name = $module_name;
-	my $desc = '';
+	my $icon = defined $files{$key}{'thumb'}
+	         ? sprintf('<img src="assets/%s" alt="thumb" />', $files{$key}{'thumb'})
+	         : sprintf('<img src="assets/bubble-%d-mini.png" alt="thumb" />', int((rand() * 7) + 1));
+	         
+	my @matches = ( $files{$key}{'section'} =~ m/\w+/xg );
 	
-	if($module_name =~ /^([^\-]+)\-(.+)$/)
+	if($last_section ne $files{$key}{'section'})
 	{
-		$name = $1;
-		$desc = $2;
-	}
-	
-	if(defined $thumbnails{$module_name})
-	{
-		$icon = sprintf('<img src="assets/%s" alt="thumb" />', $thumbnails{$module_name});
+		print ($fh '</table>') if $last_section;
+		print ($fh '<br />')  if $last_section && !$#matches;
+		printf($fh '<table style="padding-left: %dpx"><tr><td colspan="3"><strong style="font-size: 14px">%s</strong></td></tr>', 
+		           $#matches * 30, pop(@matches));
+		$last_section = $files{$key}{'section'};
 	}
 	
 	printf($fh '<tr><td>%s</td><td><a href="%s">%s</a></td><td>%s</td></tr>', 
-	           $icon, $module_names{$module_name}, $name, $desc);
+	           $icon, $files{$key}{'path'}, $files{$key}{'name'}, $files{$key}{'desc'});
 }
 print($fh "</table></div>\n");
 close($fh);
@@ -60,6 +63,7 @@ sub read_file
 		read_file($_) if(-d $_);
 		if($_ =~ /\.pod$/i)
 		{
+			my $key         = '';
 			my $file_name   = $_;
 			   $file_name   =~ s/^$input_path\/*//;
 			my $module_name = $file_name;
@@ -72,9 +76,19 @@ sub read_file
 			   $file_name   = File::Spec->catfile($pages_path, $file_name);
 			$parser->parse_from_file($_); #, $file_name);
 			
-			$module_name .= " - $1" if $parser->asString =~ /<div id="NAME_CONTENT">\s*<p>\s*[^<>\-]+\-([^<>]+)\s*<\/p>\s*<\/div>/;
 			
-			$module_names{$module_name} = $file_path;
+			
+			$key                    = $parser->asString =~ /<div id="CATEGORY_CONTENT">\s*<p>\s*([^<>]+)\s*<\/p>\s*<\/div>/
+			                        ? "$1 $_"
+			                        : "UNCATEGORIZED/$_";
+			$files{$key}{'path'}    = $file_path;
+			$files{$key}{'name'}    = $module_name;
+			$files{$key}{'desc'}    = $parser->asString =~ /<div id="NAME_CONTENT">\s*<p>\s*[^<>\-]+\-([^<>]+)\s*<\/p>\s*<\/div>/
+			                        ? $1
+			                        : '';
+			$files{$key}{'section'} = $parser->asString =~ /<div id="CATEGORY_CONTENT">\s*<p>\s*([^<>]+)\s*<\/p>\s*<\/div>/
+			                        ? $1
+			                        : 'UNCATEGORIZED';
 
 			# handling images
 			my $image_path  = $_;
@@ -91,7 +105,7 @@ sub read_file
 					
 					if($image_file_name =~ /_thumb\.(jpg|jpeg|png|gif)$/)
 					{
-						$thumbnails{$module_name} = $image_file_name;
+						$files{$key}{'thumb'} = $image_file_name;
 					}
 					else
 					{

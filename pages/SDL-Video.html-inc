@@ -3,7 +3,7 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#get_video_surface">get_video_surface</a></li>
@@ -65,9 +65,9 @@
 <p>SDL::Video - Bindings to the video category in SDL API</p>
 
 </div>
-<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="SYNOPSIS_CONTENT">
-<p>To be done.</p>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>Core, Video</p>
 
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
