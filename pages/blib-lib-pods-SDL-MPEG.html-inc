@@ -1,0 +1,62 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a>
+<ul><li><a href="#METHODS">METHODS </a></li>
+</ul>
+</li>
+<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::MPEG - a SDL perl extension</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>  $info = new SDL::MPEG -from =&gt; $mpeg;
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p><code>SDL::MPEG</code> provides an interface to quering the status
+of a SMPEG stream.  </p>
+
+</div>
+<h2 id="METHODS">METHODS </h2>
+<div id="METHODS_CONTENT">
+<ul>
+		<li><code>SDL::MPEG::has_audio</code> returns true if it has audio track	</li>
+		<li><code>SDL::MPEG::has_video</code> returns true if it has a video track	</li>
+		<li><code>SDL::MPEG::width</code> returns the width of the video in pixels	</li>
+		<li><code>SDL::MPEG::height</code> returns the height of the video in pixels	</li>
+		<li><code>SDL::MPEG::size</code> returns the total size of the clip in bytes	</li>
+		<li><code>SDL::MPEG::offset</code> returns the offset into the clip in bytes	</li>
+		<li><code>SDL::MPEG::frame</code> returns the offset into the clip in fames 	</li>
+		<li><code>SDL::MPEG::fps</code> returns the play rate in frames per second	</li>
+		<li><code>SDL::MPEG::time</code> returns the current play time in seconds	</li>
+		<li><code>SDL::MPEG::length</code> returns the total play time in seconds</li>
+</ul>
+
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>David J. Goehrig</p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p>perl(1) SDL::Video(3)</p>
+
+</div>
+</div>

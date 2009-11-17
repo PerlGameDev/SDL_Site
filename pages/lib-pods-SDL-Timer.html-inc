@@ -1,0 +1,49 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+
+
+
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::Timer - a SDL perl extension to handle timers</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>  $timer = new SDL::Timer { print &quot;tick&quot;; 4000; } -delay =&gt; 4000;
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p><code>SDL::Timer</code> provides an abstract interface to the SDL::Timer
+callback code.  SDL::Timer::new requires a subroutine and a delay
+at which is the initial interval between the creation of the
+timer until the first call to the subroutine.  The subroutine
+must return a value which is the delay until the it is called again.</p>
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>David J. Goehrig</p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><cite>perl</cite> <cite>SDL</cite></p>
+
+</div>
+</div>

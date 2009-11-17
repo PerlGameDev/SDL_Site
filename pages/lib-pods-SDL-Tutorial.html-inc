@@ -1,0 +1,130 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#SDL_BASICS">SDL BASICS</a>
+<ul><li><a href="#Surfaces">Surfaces</a></li>
+<li><a href="#Initialization">Initialization</a></li>
+<li><a href="#Working_With_The_App">Working With The App</a></li>
+</ul>
+</li>
+<li><a href="#SEE_ALSO">SEE ALSO</a></li>
+<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#COPYRIGHT">COPYRIGHT</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::Tutorial - introduction to Perl SDL</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>	# to read this tutorial
+	$ perldoc SDL::Tutorial
+
+	# to create a bare-bones SDL app based on this tutorial
+	$ perl -MSDL::Tutorial -e 1
+
+</pre>
+
+</div>
+<h1 id="SDL_BASICS">SDL BASICS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SDL_BASICS_CONTENT">
+<p>SDL, the Simple DirectMedia Layer, is a cross-platform multimedia library.
+These are the Perl 5 bindings.  You can find out more about SDL at
+<a href="http://www.libsdl.org/">http://www.libsdl.org/</a>.</p>
+<p>Creating an SDL application with Perl is easy.  You have to know a few basics,
+though.  Here's how to get up and running as quickly as possible.</p>
+
+</div>
+<h2 id="Surfaces">Surfaces</h2>
+<div id="Surfaces_CONTENT">
+<p>All graphics in SDL live on a surface.  You'll need at least one.  That's what
+<cite>SDL::App</cite> provides.</p>
+<p>Of course, before you can get a surface, you need to initialize your video
+mode.  SDL gives you several options, including whether to run in a window or
+take over the full screen, the size of the window, the bit depth of your
+colors, and whether to use hardware acceleration.  For now, we'll build
+something really simple.</p>
+
+</div>
+<h2 id="Initialization">Initialization</h2>
+<div id="Initialization_CONTENT">
+<p>SDL::App makes it easy to initialize video and create a surface.  Here's how to
+ask for a windowed surface with 640x480x16 resolution:</p>
+<pre>	use SDL::App;
+
+	my $app = SDL::App-&gt;new(
+		-width  =&gt; 640,
+		-height =&gt; 480,
+		-depth  =&gt; 16,
+	);
+
+</pre>
+<p>You can get more creative, especially if you use the <code>-title</code> and <code>-icon</code>
+attributes in a windowed application.  Here's how to set the window title of
+the application to <code>My SDL Program</code>:</p>
+<pre>	use SDL::App;
+
+	my $app = SDL::App-&gt;new(
+		-height =&gt; 640,
+		-width  =&gt; 480,
+		-depth  =&gt; 16,
+		-title  =&gt; 'My SDL Program',
+	);
+
+</pre>
+<p>Setting an icon is a little more involved -- you have to load an image onto a
+surface.  That's a bit more complicated, but see the <code>-name</code> parameter to
+<code>SDL::Surface-</code>new()&gt; if you want to skip ahead.</p>
+
+</div>
+<h2 id="Working_With_The_App">Working With The App</h2>
+<div id="Working_With_The_App_CONTENT">
+<p>Since <code>$app</code> from the code above is just an SDL surface with some extra sugar,
+it behaves much like <cite>SDL::Surface</cite>.  In particular, the all-important <code>blit</code>
+and <code>update</code> methods work.  You'll need to create <cite>SDL::Rect</cite> objects
+representing sources of graphics to draw onto the <code>$app</code>'s surface, <code>blit</code>
+them there, then <code>update</code> the <code>$app</code>.</p>
+<p><strong>Note:</strong>  &quot;blitting&quot; is copying a chunk of memory from one place to another.</p>
+<p>That, however, is another tutorial.</p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<dl>
+	<dt><cite>SDL::Tutorial::Drawing</cite></dt>
+	<dd>
+		<p>basic drawing with rectangles</p>
+	</dd>
+	<dt><cite>SDL::Tutorial::Animation</cite></dt>
+	<dd>
+		<p>basic rectangle animation</p>
+	</dd>
+	<dt><cite>SDL::Tutorial::Images</cite></dt>
+	<dd>
+		<p>image loading and animation</p>
+	</dd>
+</dl>
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>chromatic, &lt;chromatic@wgz.org&gt;.  </p>
+<p>Written for and maintained by the Perl SDL project, <a href="http://sdl.perl.org/">http://sdl.perl.org/</a>.</p>
+
+</div>
+<h1 id="COPYRIGHT">COPYRIGHT</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="COPYRIGHT_CONTENT">
+<p>Copyright (c) 2003 - 2004, chromatic.  All rights reserved.  This module is
+distributed under the same terms as Perl itself, in the hope that it is useful
+but certainly under no guarantee.
+</p>
+
+</div>
+</div>

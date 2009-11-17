@@ -1,0 +1,104 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#new_x_y_w_h">new ( $x, $y, $w, $h )</a></li>
+<li><a href="#x">x</a></li>
+<li><a href="#y">y</a></li>
+<li><a href="#w">w</a></li>
+<li><a href="#h">h</a></li>
+</ul>
+</li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::Rect - Defines a rectangular area</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>  my $rect = SDL::Rect-&gt;new( 0, 0, 0, 0 );
+  $rect-&gt;x(1);
+  $rect-&gt;y(2);
+  $rect-&gt;w(3);
+  $rect-&gt;h(4);
+  my $x = $rect-&gt;x; # 1
+  my $y = $rect-&gt;y; # 2
+  my $w = $rect-&gt;w; # 3
+  my $h = $rect-&gt;h; # 4
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p>An <code>SDL_Rect</code> defines a rectangular area of pixels.</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="new_x_y_w_h">new ( $x, $y, $w, $h )</h2>
+<div id="new_x_y_w_h_CONTENT">
+<p>The constructor creates a new rectangle with the specified x, y, w, h
+values:</p>
+<pre>    my $rect = SDL::Rect-&gt;new( 0, 0, 0, 0 );
+
+</pre>
+
+</div>
+<h2 id="x">x</h2>
+<div id="x_CONTENT">
+<p>If passed a value, this method sets the x component of the rectangle;
+if not, it returns the x component of the rectangle:</p>
+<pre>  my $x = $rect-&gt;x; # 255
+  $rect-&gt;x(128);
+
+</pre>
+
+</div>
+<h2 id="y">y</h2>
+<div id="y_CONTENT">
+<p>If passed a value, this method sets the y component of the rectangle;
+if not, it returns the y component of the rectangle:</p>
+<pre>  my $y = $rect-&gt;y; # 255
+  $rect-&gt;y(128);
+
+</pre>
+
+</div>
+<h2 id="w">w</h2>
+<div id="w_CONTENT">
+<p>If passed a value, this method sets the w component of the rectangle;
+if not, it returns the w component of the rectangle:</p>
+<pre>  my $w = $rect-&gt;w; # 255
+  $rect-&gt;w(128);
+
+</pre>
+
+</div>
+<h2 id="h">h</h2>
+<div id="h_CONTENT">
+<p>If passed a value, this method sets the h component of the rectangle;
+if not, it returns the h component of the rectangle:</p>
+<pre>  my $h = $rect-&gt;h; # 255
+  $rect-&gt;h(128);
+
+</pre>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><cite>SDL::Surface</cite></p>
+
+</div>
+</div>

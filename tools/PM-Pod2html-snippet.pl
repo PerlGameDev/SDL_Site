@@ -2,17 +2,20 @@
 
 use strict;
 use warnings;
-
-use File::Spec;
+use Carp;
 use Pod::Xhtml;
+use File::Spec::Functions qw(rel2abs splitpath splitdir catpath catdir catfile canonpath);
 
-#system('git pull');
-my $input_path   = 'C:/SDL_perl/lib/pods'; 
-   $input_path   = $ARGV[0] unless !$ARGV[0];
-my $output_path  = 'F:/htdocs/SDL-Site/pages';
-   $output_path   = $ARGV[0] unless !$ARGV[1];
-my $parser       = Pod::Xhtml->new(FragmentOnly => 1);
-my %module_names = ();
+my $input_path      = 'C:/SDL_perl/lib/pods';
+   $input_path   = $ARGV[0] if $ARGV[0];
+
+my ($volume, $dirs) = splitpath(rel2abs(__FILE__));
+my @directories     = splitdir(canonpath($dirs));
+pop(@directories);
+my $parent_dir      = catpath($volume, catdir(@directories));
+my $output_path     = catdir($parent_dir, 'pages');
+my $parser          = Pod::Xhtml->new(FragmentOnly => 1);
+my %module_names    = ();
 my $fh;
 
 read_file($input_path);
@@ -39,7 +42,7 @@ sub read_file
 	foreach(@files)
 	{
 		read_file($_) if(-d $_);
-
+		carp "Invalid directory $_" if !(-d $_);
 		if($_ =~ /\.pod$/i)
 		{
 			my $file_name   = $_;

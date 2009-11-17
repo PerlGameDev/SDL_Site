@@ -1,0 +1,166 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#hw_available">hw_available</a></li>
+<li><a href="#wm_available">wm_available</a></li>
+<li><a href="#blit_hw">blit_hw</a></li>
+<li><a href="#blit_hw_CC">blit_hw_CC</a></li>
+<li><a href="#blit_hw_A">blit_hw_A</a></li>
+<li><a href="#blit_sw">blit_sw</a></li>
+<li><a href="#blit_sw_CC">blit_sw_CC</a></li>
+<li><a href="#blit_sw_A">blit_sw_A	</a></li>
+<li><a href="#blit_fill">blit_fill</a></li>
+<li><a href="#video_mem">video_mem</a></li>
+<li><a href="#vfmt">vfmt</a></li>
+<li><a href="#current_w_current_h">current_w, current_h</a></li>
+</ul>
+</li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::VideoInfo - Video Target Information </p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>	my $video_info = SDL::Video::get_video_info();
+
+</pre>
+<p>VideoInfo is only accessible <code>SDL::Video::get_video_info</code>. This module only provides getters to the struct <code>SDL_VideoInfo</code>.</p>
+
+
+
+
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p>This object is a read-only structure and is returned by <code>SDL::Video::get_video_info</code>. It contains information on either the best available mode if called before <code>SDL::Video::set_video_mode</code> or the current video mode if called after <code>SDL::Video::set_video_mode</code>. </p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+
+
+
+
+</div>
+<h2 id="hw_available">hw_available</h2>
+<div id="hw_available_CONTENT">
+<pre>	$video_info-&gt;hw_available() # 1 if Hardware Accelerated Surfaces available	
+
+</pre>
+<p>Is it possible to create hardware surfaces ?</p>
+
+</div>
+<h2 id="wm_available">wm_available</h2>
+<div id="wm_available_CONTENT">
+<pre>	$video_info-&gt;wm_available() # 1 if Window Manager available	
+
+</pre>
+<p>Is there a window manager available ?</p>
+
+</div>
+<h2 id="blit_hw">blit_hw</h2>
+<div id="blit_hw_CONTENT">
+<pre>	$video_info-&gt;blit_hw() 
+
+</pre>
+<p>Are hardware to hardware blits accelerated ?</p>
+
+</div>
+<h2 id="blit_hw_CC">blit_hw_CC</h2>
+<div id="blit_hw_CC_CONTENT">
+<pre>	$video_info-&gt;blit_hw_CC()	
+
+</pre>
+<p>Are hardware to hardware colorkey blits accelerated ?</p>
+
+</div>
+<h2 id="blit_hw_A">blit_hw_A</h2>
+<div id="blit_hw_A_CONTENT">
+<pre>	$video_info-&gt;blit_hw_A()	
+
+</pre>
+<p>Are hardware to hardware alpha blits accelerated ?</p>
+
+</div>
+<h2 id="blit_sw">blit_sw</h2>
+<div id="blit_sw_CONTENT">
+<pre>	$video_info-&gt;blit_sw()
+
+</pre>
+<p>Are software to hardware blits accelerated ?</p>
+
+</div>
+<h2 id="blit_sw_CC">blit_sw_CC</h2>
+<div id="blit_sw_CC_CONTENT">
+<pre>	$video_info-&gt;blit_sw_CC()
+
+
+
+
+</pre>
+<p>Are software to hardware colorkey blits accelerated ?</p>
+
+</div>
+<h2 id="blit_sw_A">blit_sw_A	</h2>
+<div id="blit_sw_A_CONTENT">
+<pre>	$video_info-&gt;blit_sw_A()
+
+</pre>
+<p>Are software to hardware alpha blits accelerated ?</p>
+
+</div>
+<h2 id="blit_fill">blit_fill</h2>
+<div id="blit_fill_CONTENT">
+<pre>	$video_info-&gt;blit_fill()	
+
+</pre>
+<p>Are color fills accelerated ?</p>
+
+</div>
+<h2 id="video_mem">video_mem</h2>
+<div id="video_mem_CONTENT">
+<pre>	my $video_mem = $video_info-&gt;video_mem();
+
+</pre>
+<p>Total amount of video memory in Kilobytes, should be accessed only if hw_available == 1, otherwise it is equal to 0</p>
+
+</div>
+<h2 id="vfmt">vfmt</h2>
+<div id="vfmt_CONTENT">
+<pre>	my $vd_pixel_format = $video_info-&gt;vfmt();
+
+
+
+
+</pre>
+<p><code>SDL::PixelFormat</code> of the video device</p>
+
+</div>
+<h2 id="current_w_current_h">current_w, current_h</h2>
+<div id="current_w_current_h_CONTENT">
+<pre>	$video_info-&gt;current_w();
+	$video_info-&gt;current_h();	
+
+</pre>
+<p>Width and height of the current video mode, or of the desktop mode if <code>SDL_GetVideoInfo</code> was called before <code>SDL::Video::set_video_mode</code> (available since SDL 1.2.10)</p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><cite>SDL::Video</cite>, <cite>SDL::PixelFormat</cite></p>
+
+</div>
+</div>

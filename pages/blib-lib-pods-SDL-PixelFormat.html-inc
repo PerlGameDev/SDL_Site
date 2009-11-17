@@ -1,0 +1,140 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#palette">palette</a></li>
+<li><a href="#BitsPerPixel">BitsPerPixel </a></li>
+<li><a href="#BytesPerPixel">BytesPerPixel</a></li>
+<li><a href="#RGBA_loss">[RGBA]loss</a></li>
+<li><a href="#RGBA_shift">[RGBA]shift</a></li>
+<li><a href="#RGBA_mask">[RGBA]mask</a></li>
+<li><a href="#colorkey">colorkey</a></li>
+<li><a href="#alpha">alpha</a></li>
+</ul>
+</li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::PixelFormat - Stores surface format information</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>	my $surface = SDL::Surface-&gt;new( ...
+	$surface-&gt;format; #this returns the PixelFormat object attached to this surface
+
+</pre>
+<p>PixelFormat is only created in a <code>SDL::Surface</code>. This module only provides getters to the surface's pixelformat. Later on we will provide setting capability.</p>
+
+
+
+
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p>An <code>SDL::PixelFormat </code> stores surface format information</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="palette">palette</h2>
+<div id="palette_CONTENT">
+<pre>	$surface-&gt;format-&gt;palette;
+
+</pre>
+<p>Returns the <code>SDL_Palette</code> and <cite>SDL::Palette</cite> of the format of the surface.</p>
+
+</div>
+<h2 id="BitsPerPixel">BitsPerPixel </h2>
+<div id="BitsPerPixel_CONTENT">
+<pre>	$surface-&gt;format-&gt;BitsPerPixel;
+
+</pre>
+<p>The number of bits used to represent each pixel in a surface. Usually 8, 16, 24 or 32. (1 to 7 are not allowed when creating a surface or open a video mode</p>
+
+</div>
+<h2 id="BytesPerPixel">BytesPerPixel</h2>
+<div id="BytesPerPixel_CONTENT">
+<pre>	$surface-&gt;format-&gt;BytesPerPixel;
+
+</pre>
+<p>The number of bytes used to represent each pixel in a surface. Usually one to four.</p>
+
+</div>
+<h2 id="RGBA_loss">[RGBA]loss</h2>
+<div id="RGBA_loss_CONTENT">
+<pre>	$surface-&gt;format-&gt;Rloss; #red   loss
+	$surface-&gt;format-&gt;Bloss; #blue  loss
+	$surface-&gt;format-&gt;Gloss; #green loss	
+	$surface-&gt;format-&gt;Aloss; #alpha loss
+
+</pre>
+<p>Precision loss of each color component (2[RGBA]loss)</p>
+
+</div>
+<h2 id="RGBA_shift">[RGBA]shift</h2>
+<div id="RGBA_shift_CONTENT">
+<pre>	$surface-&gt;format-&gt;Rshift; #red   shift
+	$surface-&gt;format-&gt;Bshift; #blue  shift
+	$surface-&gt;format-&gt;Gshift; #green shift	
+	$surface-&gt;format-&gt;Ashift; #alpha shift
+
+</pre>
+<p>Binary left shift of each color component in the pixel value</p>
+
+
+
+
+
+</div>
+<h2 id="RGBA_mask">[RGBA]mask</h2>
+<div id="RGBA_mask_CONTENT">
+<pre>	$surface-&gt;format-&gt;Rmask; #red   mask
+	$surface-&gt;format-&gt;Bmask; #blue  mask
+	$surface-&gt;format-&gt;Gmask; #green mask	
+	$surface-&gt;format-&gt;Amask; #alpha mask
+
+</pre>
+<p>Binary left shift of each color component in the pixel value</p>
+
+</div>
+<h2 id="colorkey">colorkey</h2>
+<div id="colorkey_CONTENT">
+<pre>	$surface-&gt;format-&gt;colorkey;
+
+</pre>
+<p>Pixel value of transparent pixels.	</p>
+
+</div>
+<h2 id="alpha">alpha</h2>
+<div id="alpha_CONTENT">
+<pre>	$surface-&gt;format-&gt;alpha;
+
+</pre>
+<p>Overall surface alpha value</p>
+
+
+
+
+
+
+
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><cite>SDL::Surface</cite></p>
+
+</div>
+</div>

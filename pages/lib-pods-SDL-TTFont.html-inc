@@ -1,0 +1,200 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#new">new</a>
+<ul><li><a href="#name">-name</a></li>
+<li><a href="#n">-n</a></li>
+<li><a href="#size">-size</a></li>
+<li><a href="#s">-s</a></li>
+<li><a href="#foreground">-foreground</a></li>
+<li><a href="#fg">-fg</a></li>
+<li><a href="#background">-background</a></li>
+<li><a href="#bg">-bg</a></li>
+<li><a href="#mode">-mode</a></li>
+<li><a href="#m">-m</a></li>
+</ul>
+</li>
+<li><a href="#Text_Modes">Text Modes</a></li>
+<li><a href="#Text_Style">Text Style</a></li>
+<li><a href="#Ascent_Descent_values">Ascent/Descent values</a></li>
+<li><a href="#height">height</a></li>
+<li><a href="#width_text">width(@text)</a></li>
+<li><a href="#print_surface_top_left_text">print ($surface, $top, $left, @text)</a></li>
+</ul>
+</li>
+<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::TTFont - a SDL perl extension</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>  $font = SDL::TTFont-&gt;new( -name =&gt; &quot;Utopia.ttf&quot;, -size =&gt; 18 );
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p><cite>SDL::TTFont</cite> is a module for applying true type fonts to <cite>SDL::Surface</cite>.</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="new">new</h2>
+<div id="new_CONTENT">
+<p>Instanciates a new font surface. It accepts the following parameters:</p>
+
+</div>
+<h3 id="name">-name</h3>
+<div id="name_CONTENT">
+
+</div>
+<h3 id="n">-n</h3>
+<div id="n_CONTENT">
+<p>The font filename (possibly with proper path) to be used. <strong>This options is mandatory</strong>.</p>
+
+</div>
+<h3 id="size">-size</h3>
+<div id="size_CONTENT">
+
+</div>
+<h3 id="s">-s</h3>
+<div id="s_CONTENT">
+<p>The font size (height, in pixels) to be used. <strong>This option is mandatory</strong>.</p>
+
+</div>
+<h3 id="foreground">-foreground</h3>
+<div id="foreground_CONTENT">
+
+</div>
+<h3 id="fg">-fg</h3>
+<div id="fg_CONTENT">
+<p>Foreground color for the font surface (i.e. the actual font color). It expects a 
+SDL::Color value. If omitted, black is used as font color.</p>
+
+</div>
+<h3 id="background">-background</h3>
+<div id="background_CONTENT">
+
+</div>
+<h3 id="bg">-bg</h3>
+<div id="bg_CONTENT">
+<p>Background color for the font surface (i.e. the font background color). It expects 
+a SDL::Color value. If omitted , white is used for the background.</p>
+
+</div>
+<h3 id="mode">-mode</h3>
+<div id="mode_CONTENT">
+
+</div>
+<h3 id="m">-m</h3>
+<div id="m_CONTENT">
+<p>Font mode. If omitted, SDL::TEXT_SHADED is used. Note that this class provides 
+human friendly accessors for setting different modes, so you should probably use 
+them instead. See below for further details.</p>
+
+</div>
+<h2 id="Text_Modes">Text Modes</h2>
+<div id="Text_Modes_CONTENT">
+<p>The SDL::TTFont accepts three different types (shaded, solid, blended) for 
+three different encodings (text, utf8, unicode).</p>
+<pre>  $font-&gt;text_shaded;       # sets mode to SDL::TEXT_SHADED
+  $font-&gt;text_solid;        # sets mode to SDL::TEXT_SOLID
+  $font-&gt;text_blended;      # sets mode to SDL::TEXT_BLENDED
+
+  $font-&gt;utf8_shaded;       # sets mode to SDL::UTF8_SHADED
+  $font-&gt;utf8_solid;        # sets mode to SDL::UTF8_SOLID
+  $font-&gt;utf8_blended;      # sets mode to SDL::UTF8_BLENDED
+
+  $font-&gt;unicode_shaded;    # sets mode to SDL::UNICODE_SHADED
+  $font-&gt;unicode_solid;     # sets mode to SDL::UNICODE_SOLID
+  $font-&gt;unicode_blended;   # sets mode to SDL::UNICODE_BLENDED
+
+</pre>
+
+</div>
+<h2 id="Text_Style">Text Style</h2>
+<div id="Text_Style_CONTENT">
+<p>You may also smoothly change your font style by calling any of the following 
+methods:</p>
+<pre>  $font-&gt;normal;       # resets font styling, making text &quot;normal&quot;
+  $font-&gt;bold;         # sets bold style for font
+  $font-&gt;italic;       # sets italic style for font
+  $font-&gt;underline;    # sets underline style for font
+
+
+
+
+</pre>
+
+</div>
+<h2 id="Ascent_Descent_values">Ascent/Descent values</h2>
+<div id="Ascent_Descent_values_CONTENT">
+<p>Ascent is the number of pixels from the font baseline to the top of the font, while 
+descent is the number of pixels from the font baseline to the bottom of the font.</p>
+<pre>  $font-&gt;ascent;      # height in pixels of the font ascent
+  $font-&gt;descent;     # height in pixels of the font descent
+
+</pre>
+
+</div>
+<h2 id="height">height</h2>
+<div id="height_CONTENT">
+<pre>  my $height = $font-&gt;height;
+
+</pre>
+<p>Returns the height, in pixels, of the actual rendered text. This is the 
+average size for each glyph in the font.</p>
+
+</div>
+<h2 id="width_text">width(@text)</h2>
+<div id="width_text_CONTENT">
+<pre>  my $width = $font-&gt;width(&quot;Choose your destiny&quot;);
+
+</pre>
+<p>Returns the dimensions needed to render the text. This can be used to help 
+determine the positioning needed for text before it is rendered. It can also 
+be used for wordwrapping and other layout effects.</p>
+<p>Be aware that most fonts - notably, non-monospaced (&quot;ms&quot;) ones - use kerning 
+which adjusts the widths for specific letter pairs. For example, the width 
+for &quot;ae&quot; will not always match the width for &quot;a&quot; + &quot;e&quot;.</p>
+
+</div>
+<h2 id="print_surface_top_left_text">print ($surface, $top, $left, @text)</h2>
+<div id="print_surface_top_left_text_CONTENT">
+<p>Directly draws text to an existing surface. Receives the target <cite>SDL::Surface</cite> 
+object and the relative top (y) and left (x) coordinates to put the text in. 
+The last parameter may be a string or an array or strings with the text to be 
+written.</p>
+
+
+
+
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>David J. Goehrig</p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><cite>perl</cite>, <cite>SDL</cite>, <cite>SDL::Surface</cite>
+</p>
+
+</div>
+</div>

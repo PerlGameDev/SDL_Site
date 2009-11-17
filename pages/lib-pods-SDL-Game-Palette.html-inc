@@ -1,0 +1,71 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#blue_index_value">blue ( index, [value] )</a></li>
+<li><a href="#green_index_value">green ( index, [value] )</a></li>
+<li><a href="#red_index_value">red ( index, [value] )</a></li>
+<li><a href="#color_index_r_g_b">color ( index, [ r, g, b ] )</a></li>
+<li><a href="#size">size</a></li>
+</ul>
+</li>
+<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::Palette - a perl extension</p>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p><cite>SDL::Palette</cite> provides an interface to the SDL_Palette structures,
+and can be used to set the color values of an existing palette's indexes.</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="blue_index_value">blue ( index, [value] )</h2>
+<div id="blue_index_value_CONTENT">
+<p>Fetches and sets the blue component of the color at index.</p>
+
+</div>
+<h2 id="green_index_value">green ( index, [value] )</h2>
+<div id="green_index_value_CONTENT">
+<p>Fetches and sets the green component of the color at index.</p>
+
+</div>
+<h2 id="red_index_value">red ( index, [value] )</h2>
+<div id="red_index_value_CONTENT">
+<p>Fetches and sets the red component of the color at index.</p>
+
+</div>
+<h2 id="color_index_r_g_b">color ( index, [ r, g, b ] )</h2>
+<div id="color_index_r_g_b_CONTENT">
+<p>Fetches and sets the RGB, returns an SDL_Color *.</p>
+
+</div>
+<h2 id="size">size</h2>
+<div id="size_CONTENT">
+<p>Returns the size of the palette.</p>
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>David J. Goehrig</p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><cite>perl</cite> <cite>SDL::Color</cite> <cite>SDL::Surface</cite></p>
+
+</div>
+</div>
