@@ -42,7 +42,6 @@ sub read_file
 	foreach(@files)
 	{
 		read_file($_) if(-d $_);
-		carp "Invalid directory $_" if !(-d $_);
 		if($_ =~ /\.pod$/i)
 		{
 			my $file_name   = $_;
