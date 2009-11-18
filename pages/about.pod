@@ -1,0 +1,36 @@
+=pod
+
+=head1 THE SECOND WAVE
+
+=head2 Teh Web Guy ( L<FROGGS | http://somewhere.com > ) 
+
+
+=head1 COMRADES IN ARMS
+
+=head2 El 'Loco' Jefe ( L<David J Goehrig | http://blog.dloh.org/> ) 
+
+SDL Perl has been around for a while and the crazy hacker to start this was David J Goehrig. So here is a picture of him with some lasers ... 
+
+=for html <img src="http://1.bp.blogspot.com/_XCDTVvEbBMU/ShwmC0FzfRI/AAAAAAAAABY/XhpRU6uX_tc/S220/Picture+1.png" />
+
+=head2 Mysterious Ninja ( L<TELS | http://bloodgate.com/> )
+
+So surfing the mailing list of SDL Perl we found a pretty active SDL Perl developer till 2005. He goes bye the name B<Tels>. We would but his picture up but he is a ninja. 
+
+=head2 Evil French Genuis ( L<Guillaume Cottenceau | http://www.frozen-bubble.org/> ) 
+
+After using his evil frozen bubble game to take of the minds of the worlds leaders, he has mostly disappeared (most likely to come up with his next evil plan).
+
+=head2 The Windower ( B<Wayne Keenan> )
+
+The windower turns you blue.  You don't know why. 
+
+=head2 mAd Yankee ( L<Chromatic | http://modernperlbooks.com>) 
+
+He is a yankee, but he likes parrots for some reason.
+
+=head2 Evil Horde 
+
+The horde is large, they have been identified on this L<super secret list.| http://cpansearch.perl.org/src/KTHAKORE/SDL_Perl-v2.2.6/CONTRIBUTORS> 
+
+=cut
