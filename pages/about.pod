@@ -2,7 +2,7 @@
 
 =head1 THE SECOND WAVE
 
-=head2 Frenching Monk ( L<magnet | http://sdl.perl.org/documentation.html> 
+=head2 Frenching Monk ( L<magnet | http://sdl.perl.org/documentation.html> )
 
 Likes doing docs for some reason. 
 
