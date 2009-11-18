@@ -2,8 +2,19 @@
 
 =head1 THE SECOND WAVE
 
+=head2 Bellowing Brazilian ( L<garu | http://onionstand.blogspot.com/ )
+
+Oddly enough he sells onions. 
+
+=head2 Tipsy Orange ( L<acme | http://www.astray.com/> )
+
+He is tipsy and fast.  
+
+=for html <img src="http://farm4.static.flickr.com/3227/2780920117_fd53e607a4_m_d.jpg" />
+
 =head2 Teh Web Guy ( L<FROGGS | http://somewhere.com > ) 
 
+He breaks things and does web stuff. 
 
 =head1 COMRADES IN ARMS
 
@@ -15,7 +26,7 @@ SDL Perl has been around for a while and the crazy hacker to start this was Davi
 
 =head2 Mysterious Ninja ( L<TELS | http://bloodgate.com/> )
 
-So surfing the mailing list of SDL Perl we found a pretty active SDL Perl developer till 2005. He goes bye the name B<Tels>. We would but his picture up but he is a ninja. 
+So surfing the mailing list of SDL Perl we found a pretty active SDL Perl developer till 2005. He goes bye the name B<Tels>. We would put his picture up but he is a ninja. 
 
 =head2 Evil French Genuis ( L<Guillaume Cottenceau | http://www.frozen-bubble.org/> ) 
 
