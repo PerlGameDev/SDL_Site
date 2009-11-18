@@ -42,7 +42,7 @@ for my $key (sort keys %files)
 	{
 		print ($fh '</table>') if $last_section;
 		print ($fh '<br />')  if $last_section && !$#matches;
-		printf($fh '<table style="padding-left: %dpx; padding-top: 5px"><tr><td colspan="3"><strong style="font-size: 14px">%s</strong></td></tr>', 
+		printf($fh '<table style="margin-left: %dpx; margin-top: 5px"><tr><td colspan="3"><strong style="font-size: 14px">%s</strong></td></tr>', 
 		           $#matches * 30, pop(@matches));
 		$last_section = $files{$key}{'section'};
 	}
