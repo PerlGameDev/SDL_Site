@@ -2,6 +2,10 @@
 
 =head1 THE SECOND WAVE
 
+=head2 Frenching Monk ( L<magnet | http://sdl.perl.org/documentation.html> 
+
+Likes doing docs for some reason. 
+
 =head2 Bellowing Brazilian ( L<garu | http://onionstand.blogspot.com/ )
 
 Oddly enough he sells onions. 
