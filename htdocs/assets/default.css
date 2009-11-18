@@ -13,13 +13,6 @@ body
 	vertical-align:      middle;
 }
 
-td
-{
-	font-family:		 Arial, Helvetica, sans-serif;
-	font-size:			 12px;
-	font-weight:		 normal;
-}
-
 a
 {
 	font-size:			 14px;
@@ -86,6 +79,9 @@ td#upperRight
 
 td#upperRight a
 {
+	font-family:		 Arial, Helvetica, sans-serif;
+	font-size:			 12px;
+	font-weight:		 bold;
 	color:               #FFFFFF;
 }
 
