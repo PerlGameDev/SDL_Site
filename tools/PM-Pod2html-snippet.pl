@@ -38,6 +38,35 @@ for my $key (sort keys %files)
 	         
 	my @matches = ( $files{$key}{'section'} =~ m/\w+/xg );
 	
+	if($#matches)
+	{
+		my $section_path = '';
+		my $doit = 1;
+		
+		for my $section (@matches)
+		{
+			last if $section eq $matches[$#matches];
+			
+			$section_path .= (length($section_path) ? ', ' : '') . $section;
+			
+			if($last_section =~ /^$section_path/)
+			{
+				$doit = 0;
+			}
+		}
+	
+		if($doit)
+		{
+			my @this_matches = ( $section_path =~ m/\w+/xg );
+			my $i = 0;
+			for my $this_section (@this_matches)
+			{
+				printf($fh '<table style="margin-left: %dpx; margin-top: 5px"><tr><td colspan="3"><strong style="font-size: 14px">%s</strong></td></tr>', 
+						   $i++ * 30, $this_section);
+			}
+		}
+	}
+	
 	if($last_section ne $files{$key}{'section'})
 	{
 		print ($fh '</table>') if $last_section;

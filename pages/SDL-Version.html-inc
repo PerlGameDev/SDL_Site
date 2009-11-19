@@ -10,12 +10,12 @@
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::CDROM -- SDL Bindings for the CDROM device</p>
+<p>SDL::Version -- SDL Bindings for structure SDL_Version</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, Core, CDROM</p>
+<p>TODO, Core, Structure</p>
 
 </div>
 </div>
