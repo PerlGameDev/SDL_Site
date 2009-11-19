@@ -2,6 +2,14 @@
 
 =head1 THE SECOND WAVE
 
+=head2 Teh Handy MAn Plumber ( L<kthakore | http://yapgh.blogspot.com > )
+
+You may mistaken this guy for the project lead, but he just goes around duct taping stuff together. Sometimes it works some times it doesn't ...
+
+=head2 Teh Web Guy ( L<FROGGS | http://somewhere.com > ) 
+
+He breaks things and does web stuff. 
+
 =head2 Frenching Monk ( L<magnet | http://sdl.perl.org/documentation.html> )
 
 Likes doing docs for some reason. 
@@ -15,10 +23,6 @@ Oddly enough he sells onions.
 He is tipsy and fast.  
 
 =for html <img src="http://farm4.static.flickr.com/3227/2780920117_fd53e607a4_m_d.jpg" />
-
-=head2 Teh Web Guy ( L<FROGGS | http://somewhere.com > ) 
-
-He breaks things and does web stuff. 
 
 =head1 COMRADES IN ARMS
 
