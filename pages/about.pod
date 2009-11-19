@@ -22,7 +22,7 @@ Oddly enough he sells onions.
 
 He is tipsy and fast.  
 
-=for html <img src="http://farm4.static.flickr.com/3227/2780920117_fd53e607a4_m_d.jpg" />
+=for html <img src="assets/about_acme.jpg" />
 
 =head1 COMRADES IN ARMS
 
@@ -30,17 +30,17 @@ He is tipsy and fast.
 
 SDL Perl has been around for a while and the crazy hacker to start this was David J Goehrig. So here is a picture of him with some lasers ... 
 
-=for html <img src="http://1.bp.blogspot.com/_XCDTVvEbBMU/ShwmC0FzfRI/AAAAAAAAABY/XhpRU6uX_tc/S220/Picture+1.png" />
+=for html <img src="assets/about_dg.png" />
 
 =head2 Mysterious Ninja ( L<TELS | http://bloodgate.com/> )
 
-So surfing the mailing list of SDL Perl we found a pretty active SDL Perl developer till 2005. He goes bye the name B<Tels>. We would put his picture up but he is a ninja. 
+So surfing the mailing list of SDL Perl we found a pretty active SDL Perl developer till 2005. He goes by the name B<Tels>. We would put his picture up but he is a ninja. 
 
 =head2 Evil French Genuis ( L<Guillaume Cottenceau | http://www.frozen-bubble.org/> ) 
 
 After using his evil frozen bubble game to take of the minds of the worlds leaders, he has mostly disappeared (most likely to come up with his next evil plan).
 
-=for html <img src="http://profile.ak.fbcdn.net/v228/584/40/n820022617_244.jpg" />
+=for html <img src="assets/about_gc.jpg" />
 
 =head2 The Windower ( B<Wayne Keenan> )
 
@@ -55,3 +55,4 @@ He is a yankee, but he likes parrots for some reason.
 The horde is large, they have been identified on this L<super secret list.| http://cpansearch.perl.org/src/KTHAKORE/SDL_Perl-v2.2.6/CONTRIBUTORS> 
 
 =cut
+
