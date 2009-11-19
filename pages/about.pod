@@ -40,6 +40,8 @@ So surfing the mailing list of SDL Perl we found a pretty active SDL Perl develo
 
 After using his evil frozen bubble game to take of the minds of the worlds leaders, he has mostly disappeared (most likely to come up with his next evil plan).
 
+=for html <img src="http://profile.ak.fbcdn.net/v228/584/40/n820022617_244.jpg" />
+
 =head2 The Windower ( B<Wayne Keenan> )
 
 The windower turns you blue.  You don't know why. 
