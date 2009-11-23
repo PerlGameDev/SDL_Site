@@ -3,19 +3,113 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#CATEGORY">CATEGORY</a>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCIPTION">DESCIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#freq">freq</a></li>
+<li><a href="#format">format</a></li>
+<li><a href="#channels">channels</a></li>
+<li><a href="#samples">samples</a>
+</li>
+</ul>
 </li>
 </ul><hr />
 <!-- INDEX END -->
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::AudioSpec -- SDL Bindings for structure SDL_AudioSpec</p>
+<p>SDL::AudioSpec -- SDL Bindings for structure SDL::AudioSpec</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, Core, Audio, Structure</p>
+<p>Core, Audio, Structure</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre> use SDL;
+ use SDL::AudioSpec;
+
+ SDL::init(SDL_INIT_AUDIO);
+
+ my $audio_spec = SDL::AudioSpec-&gt;new();
+
+    $audio_spec-&gt;freq(22050);          # 22050Hz - FM Radio quality
+    $audio_spec-&gt;format(AUDIO_S16SYS); # 16-bit signed audio
+    $audio_spec-&gt;samples(8192);        # Large audio buffer reduces risk of dropouts but increases response time
+    $audio_spec-&gt;channels(1);          # Mono
+
+</pre>
+
+</div>
+<h1 id="DESCIPTION">DESCIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCIPTION_CONTENT">
+<p>The <code>SDL::AudioSpec</code> structure is used to describe the format of some audio data. This structure is used by <code>SDL::Audio::open_audio</code> 
+and <code>SDL::Audio::load_wav</code>. 
+While all fields are used by <code>SDL::Audio::open_audio</code>, only <code>freq</code>, <code>format</code>, <code>samples</code> and <code>channels</code> are used by <code>SDL::Audio::load_wav</code>. 
+We will detail these common members here.</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="freq">freq</h2>
+<div id="freq_CONTENT">
+<p>The number of samples sent to the sound device every second. Common values are 11025, 22050 and 44100. The higher the better.</p>
+
+</div>
+<h2 id="format">format</h2>
+<div id="format_CONTENT">
+<p>Specifies the size and type of each sample element. Values it can take are:</p>
+<dl>
+	<dt>AUDIO_U8</dt>
+	<dd>
+		<p>Unsigned 8-bit samples.</p>
+	</dd>
+	<dt>AUDIO_S8</dt>
+	<dd>
+		<p>Signed 8-bit samples.</p>
+	</dd>
+	<dt>AUDIO_U16 or AUDIO_U16LSB</dt>
+	<dd>
+		<p>not supported by all hardware (unsigned 16-bit little-endian)</p>
+	</dd>
+	<dt>AUDIO_S16 or AUDIO_S16LSB</dt>
+	<dd>
+		<p>not supported by all hardware (signed 16-bit little-endian)</p>
+	</dd>
+	<dt>AUDIO_U16MSB</dt>
+	<dd>
+		<p>not supported by all hardware (unsigned 16-bit big-endian)</p>
+	</dd>
+	<dt>AUDIO_S16MSB</dt>
+	<dd>
+		<p>not supported by all hardware (signed 16-bit big-endian)</p>
+	</dd>
+	<dt>AUDIO_U16SYS</dt>
+	<dd>
+		<p>Either AUDIO_U16LSB or AUDIO_U16MSB depending on hardware CPU endianness</p>
+	</dd>
+	<dt>AUDIO_S16SYS</dt>
+	<dd>
+		<p>Either AUDIO_S16LSB or AUDIO_S16MSB depending on hardware CPU endianness</p>
+	</dd>
+</dl>
+
+</div>
+<h2 id="channels">channels</h2>
+<div id="channels_CONTENT">
+<p>The number of separate sound channels. 1 is mono (single channel), 2 is stereo (dual channel).</p>
+
+</div>
+<h2 id="samples">samples</h2>
+<div id="samples_CONTENT">
+<p>When used with <code>SDL::Audio::open_audio</code> this refers to the size of the audio buffer in samples. A sample is a chunk of audio data of the 
+size specified in format multiplied by the number of channels. When the <code>SDL::AudioSpec</code> is used with <code>SDL::Audio::load_wav</code> samples is 
+set to 4096.</p>
 
 </div>
 </div>

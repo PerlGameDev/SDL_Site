@@ -3,7 +3,23 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#CATEGORY">CATEGORY</a>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#open_audio">open_audio</a></li>
+<li><a href="#PauseAudio">PauseAudio </a></li>
+<li><a href="#GetAudioStatus">GetAudioStatus </a></li>
+<li><a href="#LoadWAV">LoadWAV </a></li>
+<li><a href="#FreeWAV">FreeWAV </a></li>
+<li><a href="#AudioCVT">AudioCVT </a></li>
+<li><a href="#BuildAudioCVT">BuildAudioCVT </a></li>
+<li><a href="#ConvertAudio">ConvertAudio  </a></li>
+<li><a href="#MixAudio">MixAudio </a></li>
+<li><a href="#LockAudio">LockAudio</a></li>
+<li><a href="#UnlockAudio">UnlockAudio</a></li>
+<li><a href="#CloseAudio">CloseAudio </a>
+</li>
+</ul>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -16,6 +32,78 @@
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
 <p>TODO, Core, Audio</p>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+
+
+
+
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="open_audio">open_audio</h2>
+<div id="open_audio_CONTENT">
+<p>Opens the audio device with the desired parameters.</p>
+
+</div>
+<h2 id="PauseAudio">PauseAudio </h2>
+<div id="PauseAudio_CONTENT">
+<p>Pauses and unpauses the audio callback processing</p>
+
+</div>
+<h2 id="GetAudioStatus">GetAudioStatus </h2>
+<div id="GetAudioStatus_CONTENT">
+<p>Gets the current audio state</p>
+
+</div>
+<h2 id="LoadWAV">LoadWAV </h2>
+<div id="LoadWAV_CONTENT">
+<p>Loads a WAVE file</p>
+
+</div>
+<h2 id="FreeWAV">FreeWAV </h2>
+<div id="FreeWAV_CONTENT">
+<p>Frees previously opened WAV data</p>
+
+</div>
+<h2 id="AudioCVT">AudioCVT </h2>
+<div id="AudioCVT_CONTENT">
+<p>Audio Conversion Structure</p>
+
+</div>
+<h2 id="BuildAudioCVT">BuildAudioCVT </h2>
+<div id="BuildAudioCVT_CONTENT">
+<p>Initializes a SDL_AudioCVT - structure for conversion</p>
+
+</div>
+<h2 id="ConvertAudio">ConvertAudio  </h2>
+<div id="ConvertAudio_CONTENT">
+<p>Converts audio data to a desired audio format.</p>
+
+</div>
+<h2 id="MixAudio">MixAudio </h2>
+<div id="MixAudio_CONTENT">
+<p>Mixes audio data</p>
+
+</div>
+<h2 id="LockAudio">LockAudio</h2>
+<div id="LockAudio_CONTENT">
+<p>Locks out the callback function</p>
+
+</div>
+<h2 id="UnlockAudio">UnlockAudio</h2>
+<div id="UnlockAudio_CONTENT">
+<p>Unlocks the callback function</p>
+
+</div>
+<h2 id="CloseAudio">CloseAudio </h2>
+<div id="CloseAudio_CONTENT">
+<p>Shuts down audio processing and closes the audio device.  </p>
 
 </div>
 </div>
