@@ -3,7 +3,26 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#CATEGORY">CATEGORY</a>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#num_joysticks">num_joysticks</a></li>
+<li><a href="#name">name</a></li>
+<li><a href="#open">open</a></li>
+<li><a href="#opened">opened</a></li>
+<li><a href="#index">index</a></li>
+<li><a href="#num_axes">num_axes</a></li>
+<li><a href="#num_balls">num_balls</a></li>
+<li><a href="#num_hats">num_hats</a></li>
+<li><a href="#num_buttons">num_buttons</a></li>
+<li><a href="#update">update</a></li>
+<li><a href="#get_axis">get_axis</a></li>
+<li><a href="#get_hat">get_hat</a></li>
+<li><a href="#get_button">get_button</a></li>
+<li><a href="#get_ball">get_ball</a></li>
+<li><a href="#close">close</a>
+</li>
+</ul>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -15,7 +34,241 @@
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, Core, Joystick</p>
+<p>Core, Joystick</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre> use SDL;
+ use SDL::Joystick;
+
+ SDL::init_sub_system(SDL_INIT_JOYSTICK);
+
+ die('no joystick found') unless(SDL::Joystick::num_joysticks());
+
+ my $joystick = SDL::Joystick-&gt;new(0);
+
+</pre>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="num_joysticks">num_joysticks</h2>
+<div id="num_joysticks_CONTENT">
+<pre> int SDL::Joystick::num_joysticks( void );
+
+</pre>
+<p>Counts and returns available joysticks.</p>
+
+</div>
+<h2 id="name">name</h2>
+<div id="name_CONTENT">
+<pre> string SDL::Joystick::name( index );
+
+</pre>
+<p>Get the implementation dependent name of joystick. The <code>index</code> parameter refers to the N'th joystick on the system. </p>
+<pre> my $num_joysticks = SDL::Joystick::num_joysticks();
+
+ printf(&quot;%d joysticks found\n&quot;, $num_joysticks);
+
+ for($i = 0; i &lt; $num_joysticks; $i++)
+ {
+     printf(&quot;%s\n&quot;, SDL::Joystick::name($i));
+ }
+
+</pre>
+
+</div>
+<h2 id="open">open</h2>
+<div id="open_CONTENT">
+<pre> object SDL::Joystick::open( index );
+
+</pre>
+<p>Opens a joystick for use within SDL. The <code>index</code> refers to the N'th joystick in the system. 
+A joystick must be opened before it can be used.</p>
+<pre> # Initialize the joystick subsystem
+ SDL::init_sub_system(SDL_INIT_JOYSTICK);
+
+ # Check for joystick
+ if(SDL::Joystick::num_joysticks() &gt; 0)
+ {
+     # Open joystick
+     my $joystick = SDL::Joystick::open(0);
+
+     if($joystick)
+     {
+         printf(&quot;Opened Joystick 0\n&quot;);
+         printf(&quot;Name: %s\n&quot;,              SDL::Joystick::name(0));
+         printf(&quot;Number of Axes: %d\n&quot;,    SDL::Joystick::num_axes($joystick));
+         printf(&quot;Number of Buttons: %d\n&quot;, SDL::Joystick::num_buttons($joystick));
+         printf(&quot;Number of Balls: %d\n&quot;,   SDL::Joystick::num_balls($joystick));
+     }
+     else
+     {
+         printf(&quot;Couldn't open Joystick 0\n&quot;);
+     }
+
+     # Close if opened
+     SDL::Joystick::close($joystick) if SDL::Joystick::opened(0);
+ }
+
+</pre>
+
+</div>
+<h2 id="opened">opened</h2>
+<div id="opened_CONTENT">
+<pre> int SDL::Joystick::opened( index );
+
+</pre>
+<p>Determines whether a joystick has already been opened within the application. <code>index</code> refers to the N'th joystick on the system.</p>
+<p>Returns 1 if the joystick has been opened, or 0 if it has not.</p>
+
+</div>
+<h2 id="index">index</h2>
+<div id="index_CONTENT">
+<pre> int SDL::Joystick::index( object );
+
+</pre>
+<p>Returns the <code>index</code> of a given <code>SDL_Joystick</code> structure. See <a href="#open">SDL::Joystick::open</a></p>
+
+</div>
+<h2 id="num_axes">num_axes</h2>
+<div id="num_axes_CONTENT">
+<pre> int SDL::Joystick::num_axes( object );
+
+</pre>
+<p>Return the number of axes available from a previously opened joystick. See <a href="#open">SDL::Joystick::open</a></p>
+
+</div>
+<h2 id="num_balls">num_balls</h2>
+<div id="num_balls_CONTENT">
+<pre> int SDL::Joystick::num_balls( object );
+
+</pre>
+<p>Return the number of trackballs available from a previously opened joystick. See <a href="#open">SDL::Joystick::open</a></p>
+
+</div>
+<h2 id="num_hats">num_hats</h2>
+<div id="num_hats_CONTENT">
+<pre> int SDL::Joystick::num_hats( object );
+
+</pre>
+<p>Gets the number of joystick hats from a previously opened joystick. See <a href="#open">SDL::Joystick::open</a></p>
+
+</div>
+<h2 id="num_buttons">num_buttons</h2>
+<div id="num_buttons_CONTENT">
+<pre> int SDL::Joystick::num_buttons( object );
+
+</pre>
+<p>Gets the number of joystick buttons from a previously opened joystick. See <cite>SDL::Joystick::open</cite></p>
+
+</div>
+<h2 id="update">update</h2>
+<div id="update_CONTENT">
+<pre> void SDL::Joystick::update();
+
+</pre>
+<p>Updates the state(position, buttons, etc.) of all open joysticks. If joystick events have been enabled 
+with <code>SDL::Joystick::event_state</code> then this is called automatically in the event loop. </p>
+
+</div>
+<h2 id="get_axis">get_axis</h2>
+<div id="get_axis_CONTENT">
+<p><code>get_axis</code> returns the current state of the given axis on the given joystick.</p>
+<p>On most modern joysticks the X axis is usually represented by axis 0 and the Y axis by axis 1. 
+The value returned by <code>get_axis</code> is a signed integer (-32768 to 32767) representing the current position of the axis, 
+it may be necessary to impose certain tolerances on these values to account for jitter.</p>
+<p><strong>Note</strong>: Some joysticks use axes 2 and 3 for extra buttons. </p>
+<p>Returns a 16-bit signed integer representing the current position of the axis.</p>
+<pre> my $joystick = SDL::Joystick::open(0);
+
+ my $x_move   = SDL::Joystick::get_axis($joystick, 0);
+ my $y_move   = SDL::Joystick::get_axis($joystick, 1);
+
+</pre>
+
+</div>
+<h2 id="get_hat">get_hat</h2>
+<div id="get_hat_CONTENT">
+<pre> int SDL::Joystick::get_hat( object, int );
+
+</pre>
+<p><code>get_hat</code> returns the current state of the given <code>hat</code> on the given <code>joystick</code>. </p>
+<p>The current state is returned which is an OR'd combination of one or more of the following:</p>
+<ul>
+		<li><code>SDL_HAT_CENTERED</code>	</li>
+		<li><code>SDL_HAT_UP</code>	</li>
+		<li><code>SDL_HAT_RIGHT</code>	</li>
+		<li><code>SDL_HAT_DOWN</code>	</li>
+		<li><code>SDL_HAT_LEFT</code>	</li>
+		<li><code>SDL_HAT_RIGHTUP</code>	</li>
+		<li><code>SDL_HAT_RIGHTDOWN</code>	</li>
+		<li><code>SDL_HAT_LEFTUP</code>	</li>
+		<li><code>SDL_HAT_LEFTDOWN</code></li>
+</ul>
+
+<pre> my $joystick = SDL::Joystick::open(0);
+
+ my $position = SDL::Joystick::get_hat($joystick, 0);
+
+ print(&quot;hat is in position UP\n&quot;) if $position &amp; SDL_HAT_UP;
+
+</pre>
+
+</div>
+<h2 id="get_button">get_button</h2>
+<div id="get_button_CONTENT">
+<pre> int SDL::Joystick::get_button( object, int );
+
+</pre>
+<p><code>get_button</code> returns the current state of the given button on the given joystick.</p>
+<p>Returns 1 if the button is pressed. Otherwise, 0. </p>
+<pre> my $joystick    = SDL::Joystick::open(0);
+
+ my $num_buttons = SDL::Joystick::num_buttons($joystick);
+
+ for(my $i = 0; $i &lt; $num_buttons; $i++)
+ {
+     printf(&quot;button %d is %s\n&quot;, $i, SDL::Joystick::get_button($joystick, $i) ? 'pressed' : 'not pressed');
+ }
+
+ SDL::Joystick::close($joystick) if SDL::Joystick::opened(0);
+
+</pre>
+
+</div>
+<h2 id="get_ball">get_ball</h2>
+<div id="get_ball_CONTENT">
+<pre> int SDL::Joystick::get_ball(SDL_Joystick $joystick, int $ball, int $dx, int $dy);
+
+</pre>
+<p>Get the ball axis change.</p>
+<p>Trackballs can only return relative motion since the last call to SDL::Joystick::get_ball, these motion deltas are placed into <code>dx</code> and <code>dy</code>.</p>
+<p>Returns 0 on success or -1 on failure</p>
+<pre> my $delta_x  = 0;
+ my $delta_y  = 0;
+ my $joystick = SDL::Joystick::open(0);
+
+ SDL::Joystick::update();
+
+ printf(&quot;TrackBall Read Error!\n&quot;) if(SDL::JoystickGetBall($joystick, 0, $delta_x, $delta_y) == -1);
+ printf(&quot;Trackball Delta- X:%d, Y:%d\n&quot;, delta_x, delta_y);
+
+</pre>
+
+</div>
+<h2 id="close">close</h2>
+<div id="close_CONTENT">
+<pre> void SDL::Joystick::close( object );
+
+</pre>
+<p>Closes a previously opened joystick. See <a href="#open">SDL::Joystick::open</a></p>
+<pre> SDL::Joystick::close($joystick) if SDL::Joystick::opened(0);
+
+</pre>
 
 </div>
 </div>
