@@ -1,0 +1,211 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#rw_from_file_file_mode">rw_from_file(file,mode) </a></li>
+<li><a href="#rw_from_fp_fp_autoclose">rw_from_fp(fp,autoclose)</a></li>
+<li><a href="#rw_from_mem_mem_size">rw_from_mem(mem,size)</a></li>
+<li><a href="#rw_from_const_mem_mem_size">rw_from_const_mem(mem,size)</a></li>
+<li><a href="#alloc_rw">alloc_rw()</a></li>
+<li><a href="#free_rw_context">free_rw(context)</a></li>
+<li><a href="#rw_seek_ctx_offset_whence">rw_seek(ctx,offset,whence)</a></li>
+<li><a href="#rw_tell_ctx">rw_tell(ctx)</a></li>
+<li><a href="#rw_read_ctx_ptr_size_n">rw_read(ctx,ptr,size,n)</a></li>
+<li><a href="#rw_write_ctx_ptr_size_n">rw_write(ctx,ptr,size,n)</a></li>
+<li><a href="#rw_close_ctx">rw_close(ctx)</a>
+</li>
+</ul>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::RWOps -- SDL Bindings to SDL_RWOPs</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>TODO, Core, Structure</p>
+
+
+
+
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<p>use SDL::RW;</p>
+
+
+
+
+<p>SDL::RWOps is an &quot;undocumented&quot; feature of SDL, allowing you to use pointers to memory instead of files (though it can handle files too) for things such as images or samples. The primary advantage of this feature is that many libraries load files from the filesystem themselves, leaving you a bit stuck if you want to implement your own special file access, such as an archive format. Fortunately many libraries, such as SDL_image, provide additional methods designed to read from an SDL_RWops, so that you can provide the data in whatever way you like.</p>
+<p>An example usage would be to put a bunch of resources in a zip file and use Zziplib to access them easily.</p>
+
+
+
+
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+
+
+
+
+</div>
+<h2 id="rw_from_file_file_mode">rw_from_file(file,mode) </h2>
+<div id="rw_from_file_file_mode_CONTENT">
+<p>rw_from_file creates a new SDL::RWops structure for reading from and/or writing to a named file. 
+The mode string is treated the same as in a call to the C library's fopen().
+SDL::rw_from_file() returns a SDL::RWops structure on succÃ©s or undef on failure. </p>
+<pre>	Mode Strings:
+
+	&quot;r&quot;	Open a file for reading. The file must exist.
+
+	&quot;w&quot;	Create an empty file for writing. If a file with the same name already exists its content is erased and the file is treated as a new empty file.
+
+	&quot;a&quot;	Append to a file. Writing operations append data at the end of the file. The file is created if it does not exist.
+
+	&quot;r+&quot;	Open a file for update both reading and writing. The file must exist.
+
+	&quot;w+&quot;	Create an empty file for both reading and writing. 
+		If a file with the same name already exists its content is erased and the file is treated as a new empty file.
+
+	&quot;a+&quot;	Open a file for reading and appending. All writing operations are performed at the end of the file, protecting the previous content to be overwritten.
+		You can reposition (fseek, rewind) the internal pointer to anywhere in the file for reading, but writing operations will move it back to the end of file.		 The file is created if it does not exist.
+
+
+
+
+</pre>
+<p>NOTE: In order to open a file as a binary file, a &quot;b&quot; character has to be included in the mode string. 
+This additional &quot;b&quot; character can either be appended at the end of the string (thus making the following compound modes: &quot;rb&quot;, &quot;wb&quot;, &quot;ab&quot;, &quot;r+b&quot;, &quot;w+b&quot;, &quot;a+b&quot;) or be inserted between the letter and the &quot;+&quot; sign for the mixed modes (&quot;rb+&quot;, &quot;wb+&quot;, &quot;ab+&quot;). Additional characters may follow the sequence, although they should have no effect. For example, &quot;t&quot; is sometimes appended to make explicit the file is a text file.</p>
+
+
+
+
+
+
+
+
+</div>
+<h2 id="rw_from_fp_fp_autoclose">rw_from_fp(fp,autoclose)</h2>
+<div id="rw_from_fp_fp_autoclose_CONTENT">
+<p>SDL::rw_from_fp creates a new SDL::RWops structure from a file pointer, opened with stdio. If autoclose is nonzero, the file will be automatically closed when the SDL::RWops structure is closed.
+It returns a SDL::RWops on succÃ©s or undef on error.</p>
+<p>Note: This is not available under Win32, since files opened in an application on that platform cannot be used by a dynamically linked library. </p>
+
+
+
+
+
+</div>
+<h2 id="rw_from_mem_mem_size">rw_from_mem(mem,size)</h2>
+<div id="rw_from_mem_mem_size_CONTENT">
+<p>SDL::rw_from_mem sets up a SDL::RWops struct based on a chunk of memory of a certain size.
+It returns a SDL::Rwops on succÃ©s or undef on error. </p>
+<p>Note: If the memory is not writable, use SDL::rw_from_const_mem instead. </p>
+
+
+
+
+
+</div>
+<h2 id="rw_from_const_mem_mem_size">rw_from_const_mem(mem,size)</h2>
+<div id="rw_from_const_mem_mem_size_CONTENT">
+<p>rw_from_const_mem sets up a SDL::RWops struct based on a memory area of a certain size. It assumes the memory area is not writable. 
+It returns a SDL::RWops on succÃ©s on undef on error.</p>
+
+</div>
+<h2 id="alloc_rw">alloc_rw()</h2>
+<div id="alloc_rw_CONTENT">
+<p>alloc_rw allocates an empty, unpopulated SDL::RWops structure. You must fill out the fields yourself. 
+It returns a SDL::RWops structure on succÃ©s or undef on error. </p>
+<p>Note: You must free any memory allocated with SDL::alloc_rw with SDL::free_rw.</p>
+
+
+
+
+
+</div>
+<h2 id="free_rw_context">free_rw(context)</h2>
+<div id="free_rw_context_CONTENT">
+<p>SDL::free_rw frees an SDL::RWops structure previously allocated by SDL::alloc_rw. Only use it on memory allocated by SDL::alloc_rw. 
+It doesn't returns anything.</p>
+
+
+
+
+
+</div>
+<h2 id="rw_seek_ctx_offset_whence">rw_seek(ctx,offset,whence)</h2>
+<div id="rw_seek_ctx_offset_whence_CONTENT">
+<p>SDL::rw_seek calls the seek function pointer in an SDL::RWOps structure. It takes the same 3 parameters as the function pointer:</p>
+<pre>	1. A pointer to an SDL::rwops structure
+   	2. An offset in bytes. This can be a negative value.
+   	3.SEEK_SET, SEEK_CUR, or SEEK_END. SEEK_SET seeks from the beginning of the file, SEEK_CUR from the current position, and SEEK_END from the end of the file. 
+
+</pre>
+<p>SDL::rw_seek returns the final offset in the data source.</p>
+
+</div>
+<h2 id="rw_tell_ctx">rw_tell(ctx)</h2>
+<div id="rw_tell_ctx_CONTENT">
+<p>SDL::rw_tell performs a do-nothing seek to get the current offset in an SDL::RWOps stream ctx. It takes one parameter, a pointer to an SDL::RWOps structure.
+It returns the offset in the stream. </p>
+
+</div>
+<h2 id="rw_read_ctx_ptr_size_n">rw_read(ctx,ptr,size,n)</h2>
+<div id="rw_read_ctx_ptr_size_n_CONTENT">
+<p>SDL_RWread calls the function pointed to by an SDL::RWOps structure's read member. It takes the same 4 parameters as the function pointer:</p>
+<pre>   1. A pointer to an SDL::RWOps structure
+   2. A pointer to an area of memory to read data into
+   3. The size of each block of memory to read
+   4. The maxinum number of memory blocks to read(it may read less) 
+
+</pre>
+<p>It returns the number of memory blocks read, or -1 if the read failed. </p>
+
+
+
+
+
+</div>
+<h2 id="rw_write_ctx_ptr_size_n">rw_write(ctx,ptr,size,n)</h2>
+<div id="rw_write_ctx_ptr_size_n_CONTENT">
+<p>SDL_RWwrite calls the write function in an SDL::RWOps structure. It takes the same parameters as the write function given in the SDL::RWOps structure:</p>
+<pre>   1. A pointer to an SDL::RWOps structure
+   2. A pointer to an area in memory to read data from
+   3. The size of the memory blocks to write
+   4. The exact number of memory blocks to write 
+
+</pre>
+<p>0n success, it returns the number of memory blocks you told it to write. 
+If it couldn't write that exact number of blocks, or the write didn't work at all, it returns -1.</p>
+
+
+
+
+
+</div>
+<h2 id="rw_close_ctx">rw_close(ctx)</h2>
+<div id="rw_close_ctx_CONTENT">
+<p>SDL::rw_close calls the close function in an SDL::RWOps structure. It only takes one parameter, an  SDL::RWOps structure. 
+Returns 0 on success, -1 on error. </p>
+
+
+
+
+
+
+
+
+</div>
+</div>
