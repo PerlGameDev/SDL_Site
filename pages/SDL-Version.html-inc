@@ -3,7 +3,15 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#CATEGORY">CATEGORY</a>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#major">major</a></li>
+<li><a href="#minor">minor</a></li>
+<li><a href="#patch">patch</a>
+</li>
+</ul>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -15,7 +23,50 @@
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, Core, Structure</p>
+<p>Core, Structure</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre> use SDL;
+ use SDL::Version;
+
+ # print compile-time version
+ printf(&quot;SDL::version is %d.%d.%d\n&quot;, SDL::version-&gt;major, 
+                                      SDL::version-&gt;minor,
+                                      SDL::version-&gt;patch); 
+
+ # print linked version
+ printf(&quot;SDL::linked_version is %d.%d.%d\n&quot;, SDL::linked_version-&gt;major, 
+                                             SDL::linked_version-&gt;minor, 
+                                             SDL::linked_version-&gt;patch);
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p>The <code>SDL::Version</code> structure is used by the <code>SDL::linked_version</code> function and the <code>SDL::version</code> macro. The <code>SDL::linked_version</code> function 
+returns the link-time SDL version whereas the <code>SDL::version</code> macro returns the compile-time SDL version. </p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="major">major</h2>
+<div id="major_CONTENT">
+<p>Major version number</p>
+
+</div>
+<h2 id="minor">minor</h2>
+<div id="minor_CONTENT">
+<p>Minor version number</p>
+
+</div>
+<h2 id="patch">patch</h2>
+<div id="patch_CONTENT">
+<p>Patch version number</p>
 
 </div>
 </div>
