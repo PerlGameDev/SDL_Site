@@ -3,7 +3,16 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#CATEGORY">CATEGORY</a>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#METHOD">METHOD</a>
+<ul><li><a href="#id">id</a></li>
+<li><a href="#type">type</a></li>
+<li><a href="#length">length</a></li>
+<li><a href="#offset">offset </a></li>
+</ul>
+</li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -15,7 +24,81 @@
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, Core, CDROM, Structure</p>
+<p>Core, CDROM, Structure</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre> use SDL;
+ use SDL::CDROM;
+ use SDL::CD;
+ use SDL::CDTrack;
+
+ SDL::init( SDL_INIT_CDROM );
+
+ my $drives = SDL::CDROM::num_drives(); 
+
+ if( $drives &gt; 0 )
+ {
+  my $CD = SDL::CD-&gt;new(0); #first drive's CD
+
+  if( $CD != NULL)
+  {
+	if( $CD-&gt;status != CD_TRAYEMPTY )
+	{
+	my $track = SDL::CD-&gt;track(0);
+	}
+  }
+
+ }
+
+ SDL::quit();
+
+
+
+
+</pre>
+
+</div>
+<h1 id="METHOD">METHOD</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHOD_CONTENT">
+
+</div>
+<h2 id="id">id</h2>
+<div id="id_CONTENT">
+<pre> $track-&gt;id() # 0-99 
+
+</pre>
+<p>Track number</p>
+
+</div>
+<h2 id="type">type</h2>
+<div id="type_CONTENT">
+<pre> $track-&gt;type() # SDL_AUDIO_TRACK or SDL_DATA_TRACK 
+
+</pre>
+<p>Type of track</p>
+
+</div>
+<h2 id="length">length</h2>
+<div id="length_CONTENT">
+<pre> $track-&gt;length() 
+
+</pre>
+<p>Length, in frames, of this track </p>
+
+</div>
+<h2 id="offset">offset </h2>
+<div id="offset_CONTENT">
+<pre> $track-&gt;offset()
+
+</pre>
+<p>Frame offset to the beginning of this track </p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><cite>SDL::CDROM</cite>, <cite>SDL::CD</cite></p>
 
 </div>
 </div>

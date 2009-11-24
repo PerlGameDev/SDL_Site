@@ -3,7 +3,45 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#CATEGORY">CATEGORY</a>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#METHOD">METHOD</a>
+<ul><li><a href="#new_drive">new( $drive )</a></li>
+<li><a href="#status">status</a>
+<ul><li><a href="#returns">returns</a></li>
+</ul>
+</li>
+<li><a href="#play_tracks">play_tracks</a>
+<ul><li><a href="#Returns">Returns</a></li>
+</ul>
+</li>
+<li><a href="#play">play</a>
+<ul><li><a href="#Returns-2">Returns</a></li>
+</ul>
+</li>
+<li><a href="#pause">pause </a>
+<ul><li><a href="#Returns-3">Returns</a></li>
+</ul>
+</li>
+<li><a href="#resume">resume</a>
+<ul><li><a href="#Returns-4">Returns</a></li>
+</ul>
+</li>
+<li><a href="#stop">stop</a>
+<ul><li><a href="#Returns-5">Returns</a></li>
+</ul>
+</li>
+<li><a href="#eject">eject</a>
+<ul><li><a href="#Returns-6">Returns</a></li>
+</ul>
+</li>
+<li><a href="#id">id</a></li>
+<li><a href="#num_tracks">num_tracks</a></li>
+<li><a href="#cur_track">cur_track </a></li>
+<li><a href="#track">track</a></li>
+</ul>
+</li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -15,7 +53,189 @@
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, Core, CDROM, Structure</p>
+<p>Core, CDROM, Structure</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre> use SDL;
+ use SDL::CDROM;
+ use SDL::CD;
+
+ SDL::init(SDL_INIT_CDROM);
+
+ my $drives = SDL::CDROM::num_drives;
+
+ if( $drives &gt; 0 )
+ {
+  my $CD = SDL::CD-&gt;new( 0 );
+
+   if($CD != NULL)
+   {
+	... 
+   }
+
+ }
+
+ SDL::quit();
+
+</pre>
+
+</div>
+<h1 id="METHOD">METHOD</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHOD_CONTENT">
+
+</div>
+<h2 id="new_drive">new( $drive )</h2>
+<div id="new_drive_CONTENT">
+<pre> my $CD = SDL::CD-&gt;new( $drive )
+
+</pre>
+<p>Makes a new SDL::CD object. Returns NULL if the drive is busy or inaccessible. </p>
+
+</div>
+<h2 id="status">status</h2>
+<div id="status_CONTENT">
+<pre> my $status = $CD-&gt;status(); 
+
+</pre>
+<p>Returns the current status of the CD tray </p>
+
+</div>
+<h3 id="returns">returns</h3>
+<div id="returns_CONTENT">
+<dl>
+	<dt>CD_TRAYEMPTY</dt>
+	<dt>CD_STOPPED</dt>
+	<dt>CD_PLAYING</dt>
+	<dt>CD_PAUSED</dt>
+	<dt>CD_ERROR = -1 </dt>
+</dl>
+
+
+
+
+
+</div>
+<h2 id="play_tracks">play_tracks</h2>
+<div id="play_tracks_CONTENT">
+<pre> $CD-&gt;play_tracks($start_track, $start_frame, $ntracks, $nframes)
+
+</pre>
+<p>Plays the given SDL::CD starting at track $start_track, for $ntracks tracks.  </p>
+<p>$start_frame is the frame offset, from the beginning of the $start_track, at which to start. $nframes is the frame offset, from the beginning of the last track ($start_track+$ntracks), at which to end playing.</p>
+<p>play_tracks() should only be called after calling SDL_CDStatus to get track information about the CD use $CD-&gt;status().</p>
+<p><strong>Note: Data tracks are ignored.</strong></p>
+
+</div>
+<h3 id="Returns">Returns</h3>
+<div id="Returns_CONTENT">
+<p>0, or -1 if there was an error.  </p>
+
+</div>
+<h2 id="play">play</h2>
+<div id="play_CONTENT">
+<pre> $CD-&gt;play($start, $length );
+
+</pre>
+<p>Plays the given SDL::CD , starting a frame $start for $length frames. </p>
+
+</div>
+<h3 id="Returns-2">Returns</h3>
+<div id="Returns_CONTENT-2">
+<p>0 on success, -1 on error</p>
+
+</div>
+<h2 id="pause">pause </h2>
+<div id="pause_CONTENT">
+<pre> $CD-&gt;pause();
+
+</pre>
+<p>Pauses play on CD</p>
+
+</div>
+<h3 id="Returns-3">Returns</h3>
+<div id="Returns_CONTENT-3">
+<p>Returns 0 on success, or -1 on an error.  </p>
+
+</div>
+<h2 id="resume">resume</h2>
+<div id="resume_CONTENT">
+<pre> $CD-&gt;resume();
+
+</pre>
+
+</div>
+<h3 id="Returns-4">Returns</h3>
+<div id="Returns_CONTENT-4">
+<p>Returns 0 on success, or -1 on an error.  </p>
+
+</div>
+<h2 id="stop">stop</h2>
+<div id="stop_CONTENT">
+<pre> $CD-&gt;stop();
+
+</pre>
+<p>Stops play on the CD.  </p>
+
+</div>
+<h3 id="Returns-5">Returns</h3>
+<div id="Returns_CONTENT-5">
+<p>Returns 0 on success, or -1 on an error.  </p>
+
+</div>
+<h2 id="eject">eject</h2>
+<div id="eject_CONTENT">
+<pre> $CD-&gt;eject();
+
+</pre>
+<p>Ejects the CD.</p>
+
+</div>
+<h3 id="Returns-6">Returns</h3>
+<div id="Returns_CONTENT-6">
+<p>Returns 0 on success, or -1 on an error.  </p>
+
+</div>
+<h2 id="id">id</h2>
+<div id="id_CONTENT">
+<pre> $CD-&gt;id();
+
+</pre>
+<p>Private drive identifier</p>
+
+</div>
+<h2 id="num_tracks">num_tracks</h2>
+<div id="num_tracks_CONTENT">
+<pre> $CD-&gt;num_tracks();
+
+</pre>
+<p>Number of tracks on the CD</p>
+
+</div>
+<h2 id="cur_track">cur_track </h2>
+<div id="cur_track_CONTENT">
+<pre> $CD-&gt;cur_track();
+
+</pre>
+<p>Current track on the CD;</p>
+
+</div>
+<h2 id="track">track</h2>
+<div id="track_CONTENT">
+<pre> my $track =  $CD-&gt;track($number);
+
+</pre>
+<p>Retrives track description of track $number in CD. See <cite>SDL::CDTrack</cite>.</p>
+
+
+
+
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><cite>SDL::CDROM</cite>, <cite>SDL::CDTrack</cite></p>
 
 </div>
 </div>
