@@ -3,7 +3,15 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#CATEGORY">CATEGORY</a>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#warp_mouse">warp_mouse</a></li>
+<li><a href="#free_cursor">free_cursor</a></li>
+<li><a href="#set_cursor">set_cursor</a></li>
+<li><a href="#get_cursor">get_cursor</a></li>
+<li><a href="#show_cursor">show_cursor</a>
+</li>
+</ul>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -15,7 +23,75 @@
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, Core, Mouse</p>
+<p>Core, Mouse</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="warp_mouse">warp_mouse</h2>
+<div id="warp_mouse_CONTENT">
+<pre> void warp_mouse( int $x, int $y );
+
+</pre>
+<p>Set the position of the mouse cursor (generates a mouse motion event).</p>
+
+</div>
+<h2 id="free_cursor">free_cursor</h2>
+<div id="free_cursor_CONTENT">
+<pre> void free_cursor( object );
+
+</pre>
+<p>Frees a cursor that was created using <code>SDL::Cursor-</code>new()&gt;. </p>
+
+</div>
+<h2 id="set_cursor">set_cursor</h2>
+<div id="set_cursor_CONTENT">
+<pre> void set_cursor( object );
+
+</pre>
+<p>Sets the currently active cursor to the specified one. If the cursor is currently visible, the change will be immediately represented 
+on the display. <code>set_cursor()</code> can be used to force cursor redraw, if this is desired for any reason. </p>
+
+</div>
+<h2 id="get_cursor">get_cursor</h2>
+<div id="get_cursor_CONTENT">
+<pre> object get_cursor();
+
+</pre>
+<p>Gets the currently active mouse cursor.</p>
+
+</div>
+<h2 id="show_cursor">show_cursor</h2>
+<div id="show_cursor_CONTENT">
+<pre> int show_cursor( int toggle );
+
+</pre>
+<p>Toggle whether or not the cursor is shown on the screen. Passing <code>SDL_ENABLE</code> displays the cursor and passing <code>SDL_DISABLE</code> hides it. 
+The current state of the mouse cursor can be queried by passing <code>SDL_QUERY</code>, either <code>SDL_DISABLE</code> or <code>SDL_ENABLE</code> will be returned.</p>
+<pre> use SDL;
+ use SDL::Mouse;
+ use SDL::Video;
+
+ SDL::init(SDL_INIT_VIDEO);
+ SDL::Video::set_video_mode( 640, 480, 16, SDL_SWSURFACE);
+
+ printf(&quot;Cursor is %s\n&quot;, SDL::Mouse::show_cursor(SDL_QUERY) ? 'visible' : 'not visible');
+
+ sleep(3);
+
+ SDL::Mouse::show_cursor(SDL_DISABLE);
+ printf(&quot;Cursor is %s\n&quot;, SDL::Mouse::show_cursor(SDL_QUERY) ? 'visible' : 'not visible');
+
+ sleep(3);
+
+ SDL::Mouse::show_cursor(SDL_ENABLE);
+ printf(&quot;Cursor is %s\n&quot;, SDL::Mouse::show_cursor(SDL_QUERY) ? 'visible' : 'not visible');
+
+ sleep(3);
+
+</pre>
 
 </div>
 </div>
