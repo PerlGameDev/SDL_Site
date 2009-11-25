@@ -50,34 +50,32 @@
 and in your main loop, when you draw graphics, also draw a <code>SDL::Surface</code> at the location of the mouse cursor. </p>
 <p>Example:</p>
 <pre> use SDL;
- use SDL::Cursor;
  use SDL::Mouse;
- use SDL::Surface;
  use SDL::Video;
 
  SDL::init(SDL_INIT_VIDEO);
  SDL::Video::set_video_mode( 640, 480, 16, SDL_SWSURFACE);
 
  my @data = (
-     bin2dec('00000000'),
-     bin2dec('00111100'),
-     bin2dec('01111110'),
-     bin2dec('01111110'),
-     bin2dec('01111110'),
-     bin2dec('01111110'),
-     bin2dec('00111100'),
-     bin2dec('00000000')
+     0b00000000,
+     0b00111100,
+     0b01111110,
+     0b01111110,
+     0b01111110,
+     0b01111110,
+     0b00111100,
+     0b00000000
  );
 
  my @mask = (
-     bin2dec('00111100'),
-     bin2dec('01111110'),
-     bin2dec('11100111'),
-     bin2dec('11000011'),
-     bin2dec('11000011'),
-     bin2dec('11100111'),
-     bin2dec('01111110'),
-     bin2dec('00111100')
+     0b00111100,
+     0b01111110,
+     0b11100111,
+     0b11000011,
+     0b11000011,
+     0b11100111,
+     0b01111110,
+     0b00111100
  );
 
  my $cursor = SDL::Mouse::create_cursor( \@data, \@mask, 8, 8, 0, 0 );
@@ -86,16 +84,6 @@ and in your main loop, when you draw graphics, also draw a <code>SDL::Surface</c
  SDL::Mouse::set_cursor($cursor);
 
  sleep(5);
-
- sub dec2bin {
-     my $str = unpack(&quot;B64&quot;, pack(&quot;N&quot;, shift));
-     $str =~ s/^0+(?=\d)//;   # otherwise you'll get leading zeros
-     return $str;
- }
-
- sub bin2dec {
-     return unpack(&quot;N&quot;, pack(&quot;B64&quot;, substr(&quot;0&quot; x 32 . shift, -32)));
- }
 
 </pre>
 

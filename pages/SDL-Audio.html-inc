@@ -9,7 +9,7 @@
 <ul><li><a href="#open_audio">open_audio</a></li>
 <li><a href="#PauseAudio">PauseAudio </a></li>
 <li><a href="#GetAudioStatus">GetAudioStatus </a></li>
-<li><a href="#load_wav">load_wav </a></li>
+<li><a href="#LoadWAV">LoadWAV </a></li>
 <li><a href="#FreeWAV">FreeWAV </a></li>
 <li><a href="#AudioCVT">AudioCVT </a></li>
 <li><a href="#BuildAudioCVT">BuildAudioCVT </a></li>
@@ -61,8 +61,8 @@
 <p>Gets the current audio state</p>
 
 </div>
-<h2 id="load_wav">load_wav </h2>
-<div id="load_wav_CONTENT">
+<h2 id="LoadWAV">LoadWAV </h2>
+<div id="LoadWAV_CONTENT">
 <p>Loads a WAVE file</p>
 
 </div>
