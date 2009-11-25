@@ -6,11 +6,7 @@
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
-<ul><li><a href="#new_data_gt_surface_data_mask_gt_sur">new( -data =&gt; $surface_data, -mask =&gt; $surface_mask, x =&gt; $x, y =&gt; $y)</a></li>
-<li><a href="#warp_cursor_x_y">warp(cursor,x, y)</a></li>
-<li><a href="#use_cursor">use(cursor)</a></li>
-<li><a href="#get">get()</a></li>
-<li><a href="#show_toggle">show($toggle)</a></li>
+<ul><li><a href="#new">new</a></li>
 </ul>
 </li>
 <li><a href="#AUTHOR">AUTHOR</a></li>
@@ -26,18 +22,18 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<pre>  $cursor = SDL::Cursor-&gt;new(
-	-data =&gt; new SDL::Surface &quot;cursor.png&quot;,
-	-mask =&gt; new SDL::Surface &quot;mask.png&quot;,
-	-x    =&gt; 0, -y =&gt; 0 );
-  $cusor-&gt;use;
+<pre> my $cursor = SDL::Cursor-&gt;new(
+     SDL::Video::load_BMP(&quot;cursor.png&quot;),
+     SDL::Video::load_BMP(&quot;mask.png&quot;),
+	 0, 0 );
+ SDL::Mouse::set_cursor($cursor);
 
 </pre>
 
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p>the SDL::Cursor module handles mouse cursors, and provide the developer to
+<p>the <code>SDL::Cursor</code> module handles mouse cursors, and provide the developer to
 use custom made cursors. Note that the cursors can only be in black and
 white.</p>
 
@@ -46,44 +42,23 @@ white.</p>
 <div id="METHODS_CONTENT">
 
 </div>
-<h2 id="new_data_gt_surface_data_mask_gt_sur">new( -data =&gt; $surface_data, -mask =&gt; $surface_mask, x =&gt; $x, y =&gt; $y)</h2>
-<div id="new_data_gt_surface_data_mask_gt_sur-2">
-<p>Creates a new cursor. The &lt;C&gt;-data&lt;/C&gt; and &lt;C&gt;-mask&lt;/C&gt; parameters should be both black and white pictures. The height and width of these surfaces should be a multiple of 8. The &lt;C&gt;-x&lt;/C&gt; and &lt;C&gt;-y&lt;/C&gt; are the coordinates of the cursor 'hot spot'.</p>
+<h2 id="new">new</h2>
+<div id="new_CONTENT">
+<pre> object new( object $data, object $mask, int $x, int $y )
 
-</div>
-<h2 id="warp_cursor_x_y">warp(cursor,x, y)</h2>
-<div id="warp_cursor_x_y_CONTENT">
-<p>Set the position of the SDL::Cursor given as first parameter .
-the new postion is set to &lt;C&gt;x&lt;/C&gt;, &lt;C&gt;y&lt;/C&gt; coordinates in the application window.
-SDL::warp trigger a new mouse motion event.
-It doesn't returns anything.</p>
-
-</div>
-<h2 id="use_cursor">use(cursor)</h2>
-<div id="use_cursor_CONTENT">
-<p>Set the SDL::Cursor given as first parameter to the active cursor.</p>
-
-</div>
-<h2 id="get">get()</h2>
-<div id="get_CONTENT">
-<p>When used statically &lt;C&gt;SDL::Cursor::get()&lt;/C&gt;, it will return the instance of the current cursor in use. Called as a method, it will return itself.</p>
-<p>This method can be useful if you are dealing with several cursors.</p>
-
-</div>
-<h2 id="show_toggle">show($toggle)</h2>
-<div id="show_toggle_CONTENT">
-<p>Set the visibility of the cursor. A false value will make the cursor
-invisible in the Application window. A true value will show it back.</p>
+</pre>
+<p>Creates a new cursor. The <code>data</code> and <code>mask</code> parameters should be both black and white pictures. The height and width of these surfaces 
+should be a multiple of 8. The <code>x</code> and <code>y</code> are the coordinates of the cursor 'hot spot'.</p>
 
 </div>
 <h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHOR_CONTENT">
-<p>David J. Goehrig</p>
+<p>David J. Goehrig, Tobias Leich</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><cite>perl</cite> <cite>SDL::Surface</cite></p>
+<p><cite>perl</cite> <cite>SDL::Mouse</cite></p>
 
 </div>
 </div>

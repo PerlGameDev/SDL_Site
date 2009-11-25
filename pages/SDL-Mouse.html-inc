@@ -5,7 +5,8 @@
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#METHODS">METHODS</a>
-<ul><li><a href="#warp_mouse">warp_mouse</a></li>
+<ul><li><a href="#create_cursor">create_cursor</a></li>
+<li><a href="#warp_mouse">warp_mouse</a></li>
 <li><a href="#free_cursor">free_cursor</a></li>
 <li><a href="#set_cursor">set_cursor</a></li>
 <li><a href="#get_cursor">get_cursor</a></li>
@@ -28,6 +29,75 @@
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="METHODS_CONTENT">
+
+</div>
+<h2 id="create_cursor">create_cursor</h2>
+<div id="create_cursor_CONTENT">
+<pre> my $cursor = SDL::Mouse::create_cursor( \@data, \@mask, $width, $height, $hotspot_left, $hotspot_top );
+
+</pre>
+<p>Create a cursor using the specified data and mask (in MSB format). The cursor width must be a multiple of 8 bits.</p>
+<p>The cursor is created in black and white according to the following:</p>
+<pre> Data / Mask   Resulting pixel on screen
+    0 / 1      White
+    1 / 1      Black
+    0 / 0      Transparent
+    1 / 0      Inverted color if possible, black if not.
+
+</pre>
+<p>Cursors created with this function must be freed with SDL_FreeCursor.</p>
+<p>If you want to have color cursor, then this function is not for you; instead, you must hide normal system cursor with <code>SDL::Mouse::show_cursor</code>
+and in your main loop, when you draw graphics, also draw a <code>SDL::Surface</code> at the location of the mouse cursor. </p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Cursor;
+ use SDL::Mouse;
+ use SDL::Surface;
+ use SDL::Video;
+
+ SDL::init(SDL_INIT_VIDEO);
+ SDL::Video::set_video_mode( 640, 480, 16, SDL_SWSURFACE);
+
+ my @data = (
+     bin2dec('00000000'),
+     bin2dec('00111100'),
+     bin2dec('01111110'),
+     bin2dec('01111110'),
+     bin2dec('01111110'),
+     bin2dec('01111110'),
+     bin2dec('00111100'),
+     bin2dec('00000000')
+ );
+
+ my @mask = (
+     bin2dec('00111100'),
+     bin2dec('01111110'),
+     bin2dec('11100111'),
+     bin2dec('11000011'),
+     bin2dec('11000011'),
+     bin2dec('11100111'),
+     bin2dec('01111110'),
+     bin2dec('00111100')
+ );
+
+ my $cursor = SDL::Mouse::create_cursor( \@data, \@mask, 8, 8, 0, 0 );
+
+ sleep(1);
+ SDL::Mouse::set_cursor($cursor);
+
+ sleep(5);
+
+ sub dec2bin {
+     my $str = unpack(&quot;B64&quot;, pack(&quot;N&quot;, shift));
+     $str =~ s/^0+(?=\d)//;   # otherwise you'll get leading zeros
+     return $str;
+ }
+
+ sub bin2dec {
+     return unpack(&quot;N&quot;, pack(&quot;B64&quot;, substr(&quot;0&quot; x 32 . shift, -32)));
+ }
+
+</pre>
 
 </div>
 <h2 id="warp_mouse">warp_mouse</h2>
