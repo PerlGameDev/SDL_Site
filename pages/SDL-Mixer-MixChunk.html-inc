@@ -3,19 +3,59 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#CATEGORY">CATEGORY</a>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#alen">alen</a></li>
+<li><a href="#volume">volume</a>
+</li>
+</ul>
 </li>
 </ul><hr />
 <!-- INDEX END -->
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::MixChunk -- SDL Bindings for structure SDL_MixChunk</p>
+<p>SDL::Mixer::MixChunk -- SDL Bindings for structure SDL_MixChunk</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, Core, Mixer, Structure</p>
+<p>Core, Mixer, Structure</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre> use SDL;
+ use SDL::Mixer::MixChunk;
+
+ my $mix_chunk = SDL::MixLoadWAV('sample.wav');
+
+ printf(&quot;length of audio data is %d bytes\n&quot;, $mix_chunk-&gt;alen);
+ printf(&quot;volume is %d\n&quot;,                     $mix_chunk-&gt;volume);
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p>Stores audio data in memory.</p>
+<p><strong>Note:</strong> It's a bad idea to free a chunk that is still being played...</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="alen">alen</h2>
+<div id="alen_CONTENT">
+<p>length of audio data in bytes</p>
+
+</div>
+<h2 id="volume">volume</h2>
+<div id="volume_CONTENT">
+<p>Per-sample volume, 0-128 (normally <code>MIX_MAX_VOLUME</code> after loading)</p>
 
 </div>
 </div>
