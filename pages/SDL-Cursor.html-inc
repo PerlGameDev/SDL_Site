@@ -30,11 +30,11 @@
 <div id="SYNOPSIS_CONTENT">
 <pre> my $cursor = SDL::Cursor-&gt;new(
      \@data,
-	 \@mask,
-	 $width,
-	 $height,
-	 $hotspot_left,
-	 $hotspot_top );
+     \@mask,
+     $width,
+     $height,
+     $hotspot_left,
+     $hotspot_top );
 
  SDL::Mouse::set_cursor($cursor);
 
