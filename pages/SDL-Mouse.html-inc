@@ -6,7 +6,6 @@
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#warp_mouse">warp_mouse</a></li>
-<li><a href="#free_cursor">free_cursor</a></li>
 <li><a href="#set_cursor">set_cursor</a></li>
 <li><a href="#get_cursor">get_cursor</a></li>
 <li><a href="#show_cursor">show_cursor</a>
@@ -36,14 +35,6 @@
 
 </pre>
 <p>Set the position of the mouse cursor (generates a mouse motion event).</p>
-
-</div>
-<h2 id="free_cursor">free_cursor</h2>
-<div id="free_cursor_CONTENT">
-<pre> void free_cursor( object );
-
-</pre>
-<p>Frees a cursor that was created using <code>SDL::Cursor-</code>new()&gt;. </p>
 
 </div>
 <h2 id="set_cursor">set_cursor</h2>
