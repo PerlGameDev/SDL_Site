@@ -3,12 +3,12 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#ncolors">ncolors ( )</a></li>
 <li><a href="#colors_index">colors ( index )</a></li>
 <li><a href="#color_index_index">color_index ( index )</a></li>
-<li><a href="#size">size</a></li>
 </ul>
 </li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
@@ -18,13 +18,19 @@
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::Palette - a perl extension</p>
+<p>SDL::Palette -- Color palette for 8-bit pixel formats </p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>Core, Video, Structure</p>
 
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p><cite>SDL::Palette</cite> provides an interface to the <code>SDL_Palette</code> structures,
-and can be used to set the color values of an existing palette's indexes.</p>
+<p>Each pixel in an 8-bit surface is an index into the colors field of the <code>SDL::Palette</code> structure store in <code>SDL::PixelFormat</code>. A <code>SDL::Palette</code>
+should never need to be created manually. It is automatically created when SDL allocates a <code>SDL::PixelFormat</code> for a surface. The colors 
+values of a <code>SDL::Surface</code>'s palette can be set with the <code>SDL::Video::set_colors</code>.</p>
 
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -44,15 +50,6 @@ and can be used to set the color values of an existing palette's indexes.</p>
 <h2 id="color_index_index">color_index ( index )</h2>
 <div id="color_index_index_CONTENT">
 <p>Fetches the SDL_Color at the provide index in palette</p>
-
-</div>
-<h2 id="size">size</h2>
-<div id="size_CONTENT">
-<p>Returns the size of the palette.</p>
-
-
-
-
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

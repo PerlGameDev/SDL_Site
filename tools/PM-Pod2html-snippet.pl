@@ -76,6 +76,8 @@ for my $key (sort keys %files)
 		$last_section = $files{$key}{'section'};
 	}
 	
+	$files{$key}{'desc'} =~ s/^[\-\s]*/- / if $files{$key}{'desc'};
+	
 	printf($fh '<tr><td>%s</td><td><a href="%s">%s</a></td><td>%s</td></tr>', 
 	           $icon, $files{$key}{'path'}, $files{$key}{'name'}, $files{$key}{'desc'});
 }
