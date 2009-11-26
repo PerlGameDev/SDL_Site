@@ -4,19 +4,14 @@
 
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
-<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
-<ul><li><a href="#open">open</a>
-<ul><li><a href="#Synopsis">Synopsis</a></li>
-<li><a href="#Description">Description</a></li>
-</ul>
-</li>
+<ul><li><a href="#open">open</a></li>
 <li><a href="#pause">pause</a></li>
-<li><a href="#GetAudioStatus">GetAudioStatus </a></li>
-<li><a href="#load_WAV">load_WAV </a></li>
-<li><a href="#free_WAV">free_WAV </a></li>
+<li><a href="#get_status">get_status</a></li>
+<li><a href="#load_wav">load_wav </a></li>
+<li><a href="#free_wav">free_wav </a></li>
 <li><a href="#convert">convert</a></li>
-<li><a href="#MixAudio">MixAudio </a></li>
+<li><a href="#mix">mix</a></li>
 <li><a href="#lock">lock</a></li>
 <li><a href="#unlock">unlock</a></li>
 <li><a href="#close">close </a>
@@ -36,25 +31,12 @@
 <p>TODO, Core, Audio</p>
 
 </div>
-<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="DESCRIPTION_CONTENT">
-
-
-
-
-
-</div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="METHODS_CONTENT">
 
 </div>
 <h2 id="open">open</h2>
 <div id="open_CONTENT">
-<p>Opens the audio device with the desired parameters.</p>
-
-</div>
-<h3 id="Synopsis">Synopsis</h3>
-<div id="Synopsis_CONTENT">
 <pre>  use SDL;
   use SDL::Audio;
 
@@ -64,15 +46,11 @@
 
   my $obtained;
 
-  SDL::open_audio($desired, $obtained);
+  SDL::Audio::open( $desired, $obtained );
 
   # $obtained-&gt;... (A new SDL::AudioSpec now);
 
 </pre>
-
-</div>
-<h3 id="Description">Description</h3>
-<div id="Description_CONTENT">
 <p>This function opens the audio device with the desired parameters, and returns 0 if successful, placing the actual hardware parameters in the structure pointed to by obtained. If obtained is NULL, the audio data passed to the callback function will be guaranteed to be in the requested format, and will be automatically converted to the hardware audio format if necessary. This function returns -1 if it failed to open the audio device, or couldn't set up the audio thread.</p>
 <p>To open the audio device a desired SDL::AudioSpec must be created.</p>
 <pre>  my $desired = SDL::AudioSpec-&gt;new();
@@ -109,7 +87,7 @@
 		<p>THIS IS NOT READY YET</p>
 <pre>    $desired-&gt;callback
 
-    my $callback= sub{ my ($userdata, $stream, $len) = @_;  };
+    my $callback = sub{ my ($userdata, $stream, $len) = @_;  };
 
     $userdata is a reference stored in the userdata field of the SDL::AudioSpec. 
     $stream is a pointer to the audio buffer you want to fill with information and $len is the length of the audio buffer in bytes.
@@ -129,22 +107,81 @@
 </div>
 <h2 id="pause">pause</h2>
 <div id="pause_CONTENT">
-<p>Pauses and unpauses the audio callback processing</p>
+<pre> pause( $bool )
+
+</pre>
+<p>This function pauses and unpauses the audio callback processing. It should be called with <code>$bool = 0</code> after opening the audio device to 
+start playing sound. This is so you can safely initialize data for your callback function after opening the audio device. Silence will 
+be written to the audio device during the pause.</p>
 
 </div>
-<h2 id="GetAudioStatus">GetAudioStatus </h2>
-<div id="GetAudioStatus_CONTENT">
-<p>Gets the current audio state</p>
+<h2 id="get_status">get_status</h2>
+<div id="get_status_CONTENT">
+<pre> int get_status();
+
+</pre>
+<p>Returns either <code>SDL_AUDIO_STOPPED</code>, <code>SDL_AUDIO_PLAYING</code> or <code>SDL_AUDIO_PAUSED</code> depending on the current audio state. </p>
 
 </div>
-<h2 id="load_WAV">load_WAV </h2>
-<div id="load_WAV_CONTENT">
-<p>Loads a WAVE file</p>
+<h2 id="load_wav">load_wav </h2>
+<div id="load_wav_CONTENT">
+<pre> SDL::AudioSpec load_wav( $filename, $spec );
+
+</pre>
+<p>This function loads a WAVE file into memory.</p>
+<p>If this function succeeds, it returns the given <code>SDL::AudioSpec</code>, filled with the audio data format of the wave data, and sets <code>buf</code> 
+to a buffer containing the audio data, and sets <code>len</code> to the length of that audio buffer, in bytes. You need to free the audio buffer 
+with <code>SDL::Audio::free_wav</code> when you are done with it.</p>
+<p>This function returns NULL and sets the SDL error message if the wave file cannot be opened, uses an unknown data format, or is corrupt. 
+Currently raw, MS-ADPCM and IMA-ADPCM WAVE files are supported.</p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Audio;
+ use SDL::AudioSpec;
+
+ SDL::init(SDL_INIT_AUDIO);
+
+ # Converting some WAV data to hardware format
+
+ my $desired  = SDL::AudioSpec-&gt;new();
+ my $obtained = SDL::AudioSpec-&gt;new();
+
+ # Set desired format
+ $desired-&gt;freq(22050);
+ $desired-&gt;channels(1);
+ $desired-&gt;format(AUDIO_S16);
+ $desired-&gt;samples(8192);
+
+ # Open the audio device
+ if( SDL::Audio::open($desired, $obtained) &lt; 0 )
+ {
+     printf( STDERR &quot;Couldn't open audio: %s\n&quot;, SDL::get_error() );
+     exit(-1);
+ }
+
+ # Load the test.wav
+ my $wav_ref = SDL::Audio::load_wav('../../test/data/sample.wav', $obtained);
+
+ unless( $wav_ref )
+ {
+     warn( &quot;Could not open sample.wav: %s\n&quot;, SDL::get_error() );
+     SDL::Audio::close_audio();
+     SDL::quit;
+     exit(-1);
+ }
+
+ my ( $wav_spec, $wav_buf, $wav_len ) = @{$wav_ref};
+
+</pre>
 
 </div>
-<h2 id="free_WAV">free_WAV </h2>
-<div id="free_WAV_CONTENT">
-<p>Frees previously opened WAV data</p>
+<h2 id="free_wav">free_wav </h2>
+<div id="free_wav_CONTENT">
+<pre> free_wav( $buffer )
+
+</pre>
+<p>After a WAVE file has been opened with <code>load_wav</code> its data can eventually be freed with <code>free_wav</code>. <code>buffer</code> is the buffer created 
+by <code>load_wav</code>. </p>
 
 </div>
 <h2 id="convert">convert</h2>
@@ -194,7 +231,7 @@ audio data in the buffer is equal to <code>cvt-&gt;len*cvt-&gt;len_ratio</code>.
 
  unless( $wav_ref )
  {
-     warn(&quot;Could not open sample.wav: %s\n&quot;, SDL::get_error() );
+     warn( &quot;Could not open sample.wav: %s\n&quot;, SDL::get_error() );
      SDL::Audio::close_audio();
      SDL::quit;
      exit(-1);
@@ -209,7 +246,7 @@ audio data in the buffer is equal to <code>cvt-&gt;len*cvt-&gt;len_ratio</code>.
  # Check that the convert was built
  if( $wav_cvt == -1 )
  {
-     warn(&quot;Couldn't build converter!\n&quot; );
+     warn( &quot;Couldn't build converter!\n&quot; );
      SDL::Audio::close();
      SDL::Audio::free_wav($wav_buf);
      SDL::quit();
@@ -226,23 +263,34 @@ audio data in the buffer is equal to <code>cvt-&gt;len*cvt-&gt;len_ratio</code>.
 <p><strong>TODO</strong>: What to do with it? How to use callback? See http://www.libsdl.org/cgi/docwiki.cgi/SDL_ConvertAudio</p>
 
 </div>
-<h2 id="MixAudio">MixAudio </h2>
-<div id="MixAudio_CONTENT">
+<h2 id="mix">mix</h2>
+<div id="mix_CONTENT">
 <p>Mixes audio data</p>
+<p><strong>Not implemented yet</strong>. See: <a href="http://www.libsdl.org/cgi/docwiki.cgi/SDL_MixAudio">http://www.libsdl.org/cgi/docwiki.cgi/SDL_MixAudio</a></p>
 
 </div>
 <h2 id="lock">lock</h2>
 <div id="lock_CONTENT">
-<p>Locks out the callback function</p>
+<pre> lock();
+
+</pre>
+<p>The lock manipulated by these functions protects the callback function. During a <code>lock</code> period, you can be guaranteed that the callback 
+function is not running. Do not call this from the callback function or you will cause deadlock.</p>
 
 </div>
 <h2 id="unlock">unlock</h2>
 <div id="unlock_CONTENT">
-<p>Unlocks the callback function</p>
+<pre> unlock();
+
+</pre>
+<p>Unlocks a previous <code>lock</code> call.</p>
 
 </div>
 <h2 id="close">close </h2>
 <div id="close_CONTENT">
+<pre> close();
+
+</pre>
 <p>Shuts down audio processing and closes the audio device.  </p>
 
 </div>
