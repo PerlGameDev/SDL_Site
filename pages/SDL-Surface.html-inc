@@ -9,11 +9,26 @@
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#new_flags_width_height_depth_Rmask_G">new ( flags, width, height, depth, Rmask, Gmask, Bmask, Amask )</a></li>
 <li><a href="#new_from_surface_width_height_depth_">new_from ( surface, width, height, depth, Rmask, Gmask, Bmask, Amask )</a>
-<ul><li><a href="#Construtor_Parameters">Construtor Parameters</a></li>
+<ul><li><a href="#Construtor_Parameters">Construtor Parameters</a>
+<ul><li><a href="#flags">flags</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#w">w</a></li>
 <li><a href="#h">h</a></li>
+<li><a href="#format">format</a></li>
+<li><a href="#pitch">pitch</a></li>
+<li><a href="#clip_rect">clip_rect</a></li>
+</ul>
+</li>
+<li><a href="#Direct_Write_to_Surface_Pixel">Direct Write to Surface Pixel</a>
+<ul><li><a href="#get_pixels">get_pixels</a></li>
+<li><a href="#set_pixels">set_pixels</a>
+<ul><li><a href="#Usage">Usage</a></li>
+</ul>
+</li>
+<li><a href="#get_pixels_ptr">get_pixels_ptr</a></li>
 </ul>
 </li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
@@ -79,8 +94,71 @@
 <h3 id="Construtor_Parameters">Construtor Parameters</h3>
 <div id="Construtor_Parameters_CONTENT">
 
-
-
+</div>
+<h4 id="flags">flags</h4>
+<div id="flags_CONTENT">
+<dl>
+	<dt>SDL_ANYFORMAT</dt>
+	<dd>
+		<p>Allow any pixel-format *</p>
+	</dd>
+	<dt>SDL_ASYNCBLIT</dt>
+	<dd>
+		<p>Use asynchronous blit if possible</p>
+	</dd>
+	<dt>SDL_DOUBLEBUF</dt>
+	<dd>
+		<p>Double buffered *</p>
+	</dd>
+	<dt>SDL_HWACCEL</dt>
+	<dd>
+		<p>Use hardware acceleration blit</p>
+	</dd>
+	<dt>SDL_HWPALETTE</dt>
+	<dd>
+		<p>Have an exclusive palette</p>
+	</dd>
+	<dt>SDL_HWSURFACE</dt>
+	<dd>
+		<p>Stored in video memory</p>
+	</dd>
+	<dt>SDL_FULLSCREEN</dt>
+	<dd>
+		<p>Full screen surface *</p>
+	</dd>
+	<dt>SDL_OPENGL</dt>
+	<dd>
+		<p>Have an OpenGL context *</p>
+	</dd>
+	<dt>SDL_OPENGLBLIT</dt>
+	<dd>
+		<p>Support OpenGL blitting *. NOTE: This option is kept for compatibility only, and is not recommended for new code.</p>
+	</dd>
+	<dt>SDL_RESIZABLE</dt>
+	<dd>
+		<p>Resizable surface *</p>
+	</dd>
+	<dt>SDL_RLEACCEL</dt>
+	<dd>
+		<p>Accelerated colorkey blitting with RLE</p>
+	</dd>
+	<dt>SDL_SRCALPHA</dt>
+	<dd>
+		<p>Use alpha blending blit</p>
+	</dd>
+	<dt>SDL_SRCCOLORKEY</dt>
+	<dd>
+		<p>Use colorkey blitting</p>
+	</dd>
+	<dt>SDL_SWSURFACE</dt>
+	<dd>
+		<p>Stored in the system memory. SDL_SWSURFACE is not actually a flag (it is defined as 0). A lack of SDL_HWSURFACE implies SDL_SWSURFACE</p>
+	</dd>
+	<dt>SDL_PREALLOC</dt>
+	<dd>
+		<p>Use preallocated memory</p>
+	</dd>
+</dl>
 
 
 
@@ -103,9 +181,89 @@
 </pre>
 
 </div>
+<h2 id="format">format</h2>
+<div id="format_CONTENT">
+<p>The format of the pixels stored in the surface. See <a href="/SDL-PixelFormat.html">SDL::PixelFormat</a></p>
+<pre> my $format = $surface-&gt;format;
+
+</pre>
+
+</div>
+<h2 id="pitch">pitch</h2>
+<div id="pitch_CONTENT">
+<pre> my $pitch = $surface-&gt;pitch;
+
+</pre>
+<p>SDL::Surface's scanline length in bytes</p>
+
+</div>
+<h2 id="clip_rect">clip_rect</h2>
+<div id="clip_rect_CONTENT">
+<p>To get the surface's clip_rect we the following</p>
+<pre> my $clip_rect = SDL::Rect-&gt;new(0,0,0,0);
+ SDL::Video::get_clip_rect($surface, $clip_rect);
+
+</pre>
+<p>To set the surface's clip_rect use the following</p>
+<pre> my $clip_rect = SDL::Rect-&gt;new(2,23,23,542);
+ SDL::Video::set_clip_rect($surface, $clip_rect);
+
+</pre>
+
+</div>
+<h1 id="Direct_Write_to_Surface_Pixel">Direct Write to Surface Pixel</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="Direct_Write_to_Surface_Pixel_CONTEN">
+<p>Disclaimer: This can be very slow, it is suitable for creating surfaces one time and not for animations</p>
+
+</div>
+<h2 id="get_pixels">get_pixels</h2>
+<div id="get_pixels_CONTENT">
+<pre> $surface-&gt;get_pixels( $offset )  
+
+</pre>
+<p>Returns the current integer value at (surface-&gt;pixels)[offset] </p>
+
+</div>
+<h2 id="set_pixels">set_pixels</h2>
+<div id="set_pixels_CONTENT">
+<pre> $surface-&gt;set_pixels( $offset, $value );
+
+</pre>
+<p>Sets the current integer to $value at (surface-&gt;pixels)[offset]</p>
+
+</div>
+<h3 id="Usage">Usage</h3>
+<div id="Usage_CONTENT">
+<pre>  sub putpixel
+  {
+	my($x, $y, $color) = @_;
+	my $lineoffset = $y * ($screen-&gt;pitch / $depth_in_bytes); 
+	$screen-&gt;set_pixels( $lineoffset+ $x, $color);
+  }
+
+</pre>
+<p>Note: $depth_in_bytes for 32 is 4, 16 is 2, 8 is 1;</p>
+<p>See also examples/sols/ch02.pl</p>
+
+</div>
+<h2 id="get_pixels_ptr">get_pixels_ptr</h2>
+<div id="get_pixels_ptr_CONTENT">
+<pre> $surface-&gt;get_pixels_ptr();
+
+</pre>
+<p>Returns the C ptr to this surfaces's pixels</p>
+
+
+
+
+
+
+
+
+</div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="/SDL.html">SDL</a>, <a href="/SDL-PixelFormat.html">SDL::PixelFormat</a>, <a href="/SDL-Video.html">SDL::Video</a> </p>
+<p><a href="/SDL.html">SDL</a>, <a href="/SDL-PixelFormat.html">SDL::PixelFormat</a>, <a href="/SDL-Video.html">SDL::Video</a>, <a href="/SDL-Rect.html">SDL::Rect</a></p>
 
 </div>
 </div>

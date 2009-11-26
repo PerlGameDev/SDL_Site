@@ -204,7 +204,6 @@ audio data in the buffer is equal to <code>cvt-&gt;len*cvt-&gt;len_ratio</code>.
  use SDL::Audio;
  use SDL::AudioSpec;
  use SDL::AudioCVT;
- use Devel::Peek;
 
  SDL::init(SDL_INIT_AUDIO);
 
