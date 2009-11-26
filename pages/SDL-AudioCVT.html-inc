@@ -3,19 +3,114 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#CATEGORY">CATEGORY</a>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#new">new</a></li>
+<li><a href="#new-2">new</a></li>
+<li><a href="#needed">needed</a></li>
+<li><a href="#src_format">src_format</a></li>
+<li><a href="#dest_format">dest_format</a></li>
+<li><a href="#rate_incr">rate_incr</a></li>
+<li><a href="#len">len</a></li>
+<li><a href="#len_cvt">len_cvt</a></li>
+<li><a href="#len_mult">len_mult</a></li>
+<li><a href="#len_ratio">len_ratio</a></li>
+</ul>
+</li>
+<li><a href="#AUTHOR">AUTHOR</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::AudioCVT -- Bindings to SDL structure SDL_AudioCVT</p>
+<p>SDL::AudioCVT -- Audio Conversion Structure</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, Core, Audio</p>
+<p>Core, Audio, Structure</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p>The <code>SDL::AudioCVT</code> is used to convert audio data between different formats. A <code>SDL::AudioCVT</code> structure is created with the 
+<code>SDL::AudioCVT-</code>build&gt; function, while the actual conversion is done by the <code>SDL::Audio::convert_audio</code> function. </p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="new">new</h2>
+<div id="new_CONTENT">
+<p>This constructor returns an empty <code>SDL::AudioCVT</code> structure.</p>
+
+</div>
+<h2 id="new-2">new</h2>
+<div id="new_CONTENT-2">
+<pre> $cvt = SDL::AudioCVT-&gt;build( $src_format, $src_channels, $src_rate
+                              $dst_format, $dst_channels, $dst_rate );
+
+</pre>
+<p>Before an <code>SDL::AudioCVT</code> structure can be used to convert audio data it must be initialized with source and destination information.</p>
+<p><code>src_format</code> and <code>dst_format</code> are the source and destination format of the conversion. (For information on audio formats see 
+<code>SDL::AudioSpec</code>). <code>src_channels</code> and <code>dst_channels</code> are the number of channels in the source and destination formats. 
+Finally, <code>src_rate</code> and <code>dst_rate</code> are the frequency or samples-per-second of the source and destination formats. Once again, 
+see <code>SDL::AudioSpec</code>.</p>
+<p>Currently (SDL-1.2.11) only rate conversions of 2x and (1/2)x with x &gt; 0 are done, nearing the requested rate conversion. </p>
+<p>See <code>SDL::Audio::convert_audio</code>.</p>
+
+</div>
+<h2 id="needed">needed</h2>
+<div id="needed_CONTENT">
+<p>Set to one if the conversion is possible</p>
+
+</div>
+<h2 id="src_format">src_format</h2>
+<div id="src_format_CONTENT">
+<p>Audio format of the source</p>
+
+</div>
+<h2 id="dest_format">dest_format</h2>
+<div id="dest_format_CONTENT">
+<p>Audio format of the destination</p>
+
+</div>
+<h2 id="rate_incr">rate_incr</h2>
+<div id="rate_incr_CONTENT">
+<p>Rate conversion increment</p>
+
+</div>
+<h2 id="len">len</h2>
+<div id="len_CONTENT">
+<p>Length of the original audio buffer in bytes</p>
+
+</div>
+<h2 id="len_cvt">len_cvt</h2>
+<div id="len_cvt_CONTENT">
+<p>Length of converted audio buffer in bytes (calculated)</p>
+
+</div>
+<h2 id="len_mult">len_mult</h2>
+<div id="len_mult_CONTENT">
+<p><code>buf</code> must be <code>len*len_mult</code> bytes in size (calculated)</p>
+
+</div>
+<h2 id="len_ratio">len_ratio</h2>
+<div id="len_ratio_CONTENT">
+<p>Final audio size is <code>len*len_ratio</code></p>
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>Tobias Leich</p>
 
 </div>
 </div>
