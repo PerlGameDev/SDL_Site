@@ -97,6 +97,8 @@
 
  sleep(5); # just to have time to see it
 
+ SDL::quit();
+
 </pre>
 
 </div>
@@ -109,26 +111,99 @@
 <pre> my $surface = SDL::Video::get_video_surface();
 
 </pre>
-<p>This function returns the current display surface. If SDL is doing format conversion on the display surface, this 
+<p>This function returns the current display <a href="/SDL-Surface.html">SDL::Surface</a>. If SDL is doing format conversion on the display surface, this 
 function returns the publicly visible surface, not the real video surface.</p>
+<p>Example:</p>
+<pre> # somewhere after you set the video mode
+ my $surface = SDL::Video::get_video_surface();
+
+ printf( &quot;our screen is %d pixels wide and %d pixels high\n&quot;, $surface-&gt;w, $surface-&gt;h );
+
+</pre>
 
 </div>
 <h2 id="get_video_info">get_video_info</h2>
 <div id="get_video_info_CONTENT">
-<p>Returns a SDL::VideoInfo about the video hardware. 
-It doesn't take any parameters.</p>
+<pre> my $video_info = SDL::Video::get_video_info();
+
+</pre>
+<p>This function returns a read-only <a href="/SDL-VideoInfo.html">SDL::VideoInfo</a> containing information about the video hardware. If it is called before 
+<a href="#set_video_mode_width_height_bpp_flag">SDL::Video::set_video_mode</a>, the <code>vfmt</code> member of the returned structure will contain the pixel 
+format of the <strong>best</strong> video mode. </p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Video;
+ use SDL::VideoInfo;
+ use SDL::PixelFormat;
+
+ SDL::init(SDL_INIT_VIDEO);
+
+ my $video_info = SDL::Video::get_video_info();
+
+ printf( &quot;we can have %dbits per pixel\n&quot;, $video_info-&gt;vfmt-&gt;BitsPerPixel );
+
+ SDL::quit();
+
+</pre>
 
 </div>
 <h2 id="video_driver_name">video_driver_name</h2>
 <div id="video_driver_name_CONTENT">
-<p>Return the 1024 first char of name of the video driver. 
-It doesn't take any parameters.</p>
+<pre> my $driver_name = SDL::Video::video_driver_name();
+
+</pre>
+<p>This function will return the name of the initialized video driver up to a maximum of 1024 characters. The driver name is a simple one 
+word identifier like <code>&quot;x11&quot;</code>, <code>&quot;windib&quot;</code> or <code>&quot;directx&quot;</code>.</p>
+<p><strong>Note</strong>: Some platforms allow selection of the video driver through the <code>SDL_VIDEODRIVER</code> environment variable. </p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Video;
+
+ SDL::init(SDL_INIT_VIDEO);
+
+ print SDL::Video::video_driver_name() . &quot;\n&quot;;
+
+ SDL::quit();
+
+</pre>
 
 </div>
 <h2 id="list_modes_formats_flags">list_modes(formats,flags)</h2>
 <div id="list_modes_formats_flags_CONTENT">
+<pre> my @modes = @{ SDL::Video::list_modes($video_info-&gt;vfmt, SDL_NOFRAME) };
+
+</pre>
 <p>Returns a pointer to an array of available screen dimensions for the given format and video flags,
 or it return undef if no modes are avalaibles.</p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Video;
+ use SDL::VideoInfo;
+ use SDL::PixelFormat;
+ use SDL::Rect;
+
+ SDL::init(SDL_INIT_VIDEO);
+
+ my $video_info = SDL::Video::get_video_info();
+
+ my @modes = @{ SDL::Video::list_modes($video_info-&gt;vfmt, SDL_NOFRAME) };
+
+ if($#modes &gt; 0)
+ {
+     print(&quot;available modes:\n&quot;);
+     foreach my $index ( @modes )
+     {
+         printf(&quot;%03d: %d x %d\n&quot;, $index, $modes[$index]-&gt;w, $modes[$index]-&gt;h );
+     }
+ }
+ elsif($#modes == 0)
+ {
+     printf(&quot;%s video modes available\n&quot;, $modes[0]);
+ }
+
+ SDL::quit();
+
+</pre>
 
 </div>
 <h2 id="video_mode_ok_width_height_bpp_flags">video_mode_ok(width,height,bpp,flags)</h2>
