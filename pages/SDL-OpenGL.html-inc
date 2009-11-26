@@ -25,7 +25,7 @@
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p><cite>SDL::OpenGL</cite> is a perl module which when used by your application
+<p><a href="/SDL-OpenGL.html">SDL::OpenGL</a> is a perl module which when used by your application
 exports the gl* and glu* functions into your application's primary namespace.
 Most of the functions described in the OpenGL 1.3 specification are currently
 supported in this fashion.  As the implementation of the OpenGL bindings that
@@ -48,7 +48,7 @@ to types.</p>
 numbers, the Perl equivalent only takes a list of numbers.</p>
 		<p>Note that this is slow, since it needs to allocate memory and construct a
 list of numbers from the given scalars. For a faster version see
-<cite>glCallListsString</cite>.</p>
+<a href="http://search.cpan.org/perldoc?glCallListsString">glCallListsString</a>.</p>
 	</dd>
 </dl>
 <p>The following methods exist in addition to the normal OpenGL specification:</p>
@@ -58,7 +58,7 @@ list of numbers from the given scalars. For a faster version see
 <pre>        glCallListsString($string);
 
 </pre>
-		<p>Works like <cite>glCallLists</cite>(), except that it needs only one parameter, a scalar
+		<p>Works like <a href="http://search.cpan.org/perldoc?glCallLists()">glCallLists()</a>, except that it needs only one parameter, a scalar
 holding a string. The string is interpreted as a set of bytes, and each of
 these will be passed to glCallLists as GL_BYTE. This is faster than
 glCallLists, so you might want to pack your data like this:</p>
@@ -80,7 +80,7 @@ glCallLists, so you might want to pack your data like this:</p>
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><cite>perl</cite> <cite>SDL::App</cite></p>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="/SDL-App.html">SDL::App</a></p>
 
 </div>
 </div>

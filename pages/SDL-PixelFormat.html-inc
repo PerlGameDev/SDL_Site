@@ -61,7 +61,7 @@
 <pre>	$surface-&gt;format-&gt;palette;
 
 </pre>
-<p>Returns the <code>SDL_Palette</code> and <cite>SDL::Palette</cite> of the format of the surface.</p>
+<p>Returns the <code>SDL_Palette</code> and <a href="/SDL-Palette.html">SDL::Palette</a> of the format of the surface.</p>
 
 </div>
 <h2 id="BitsPerPixel">BitsPerPixel </h2>
@@ -142,7 +142,7 @@
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><cite>SDL::Surface</cite></p>
+<p><a href="/SDL-Surface.html">SDL::Surface</a></p>
 
 </div>
 </div>

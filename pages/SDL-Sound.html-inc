@@ -28,8 +28,8 @@
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p><cite>SDL::Sound</cite> is a module for loading WAV files for sound effects.
-The file can be loaded by creating a new <cite>SDL::Sound</cite> object by
+<p><a href="/SDL-Sound.html">SDL::Sound</a> is a module for loading WAV files for sound effects.
+The file can be loaded by creating a new <a href="/SDL-Sound.html">SDL::Sound</a> object by
 passing the filename to the constructor;</p>
 <pre>	my $sound = new SDL::Sound 'my_sfx.wav';
 
@@ -52,7 +52,7 @@ passing the filename to the constructor;</p>
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><cite>perl</cite> <cite>SDL::Mixer</cite></p>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="/SDL-Mixer.html">SDL::Mixer</a></p>
 
 </div>
 </div>

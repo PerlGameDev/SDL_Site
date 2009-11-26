@@ -558,7 +558,7 @@ screen updates will still report success even though the application will no lon
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><cite>perl</cite>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a>
 </p>
 
 </div>

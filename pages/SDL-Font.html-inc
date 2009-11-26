@@ -30,8 +30,8 @@
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p><cite>SDL::Font</cite> provides an interface to loading and using SFont style 
-fonts with <cite>SDL::Surface</cite> objects.  </p>
+<p><a href="/SDL-Font.html">SDL::Font</a> provides an interface to loading and using SFont style 
+fonts with <a href="/SDL-Surface.html">SDL::Surface</a> objects.  </p>
 
 </div>
 <h1 id="METHOD">METHOD</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -50,7 +50,7 @@ fonts with <cite>SDL::Surface</cite> objects.  </p>
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><cite>perl</cite> <cite>SDL::Surface</cite></p>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="/SDL-Surface.html">SDL::Surface</a></p>
 
 </div>
 </div>

@@ -598,9 +598,9 @@ It returns 0 on succÃ©s or -1 on error.</p>
 </div>
 <h2 id="Category_Objects">Category Objects</h2>
 <div id="Category_Objects_CONTENT">
-<p><cite>SDL::Surface</cite>, <cite>SDL::Overlay</cite>, <cite>SDL::Color</cite>,
-<cite>SDL::Rect</cite>, <cite>SDL::Palette</cite>, <cite>SDL::PixelFormat</cite>, 
-<cite>SDL::VideoInfo</cite></p>
+<p><a href="/SDL-Surface.html">SDL::Surface</a>, <a href="/SDL-Overlay.html">SDL::Overlay</a>, <a href="/SDL-Color.html">SDL::Color</a>,
+<a href="/SDL-Rect.html">SDL::Rect</a>, <a href="/SDL-Palette.html">SDL::Palette</a>, <a href="/SDL-PixelFormat.html">SDL::PixelFormat</a>, 
+<a href="/SDL-VideoInfo.html">SDL::VideoInfo</a></p>
 
 </div>
 </div>

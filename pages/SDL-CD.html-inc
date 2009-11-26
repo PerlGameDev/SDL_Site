@@ -226,7 +226,7 @@
 <pre> my $track =  $CD-&gt;track($number);
 
 </pre>
-<p>Retrives track description of track $number in CD. See <cite>SDL::CDTrack</cite>.</p>
+<p>Retrives track description of track $number in CD. See <a href="/SDL-CDTrack.html">SDL::CDTrack</a>.</p>
 
 
 
@@ -235,7 +235,7 @@
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><cite>SDL::CDROM</cite>, <cite>SDL::CDTrack</cite></p>
+<p><a href="/SDL-CDROM.html">SDL::CDROM</a>, <a href="/SDL-CDTrack.html">SDL::CDTrack</a></p>
 
 </div>
 </div>

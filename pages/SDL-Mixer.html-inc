@@ -294,7 +294,7 @@ values:</p>
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><cite>perl</cite>, <cite>SDL::Music</cite> and <cite>SDL::Sound</cite>.</p>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a>, <a href="/SDL-Music.html">SDL::Music</a> and <a href="/SDL-Sound.html">SDL::Sound</a>.</p>
 
 </div>
 </div>

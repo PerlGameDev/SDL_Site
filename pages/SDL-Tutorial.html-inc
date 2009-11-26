@@ -53,7 +53,7 @@ though.  Here's how to get up and running as quickly as possible.</p>
 <h2 id="Surfaces">Surfaces</h2>
 <div id="Surfaces_CONTENT">
 <p>All graphics in SDL live on a surface.  You'll need at least one.  That's what
-<cite>SDL::App</cite> provides.</p>
+<a href="/SDL-App.html">SDL::App</a> provides.</p>
 <p>Of course, before you can get a surface, you need to initialize your video
 mode.  SDL gives you several options, including whether to run in a window or
 take over the full screen, the size of the window, the bit depth of your
@@ -95,8 +95,8 @@ surface.  That's a bit more complicated, but see the <code>-name</code> paramete
 <h2 id="Working_With_The_App">Working With The App</h2>
 <div id="Working_With_The_App_CONTENT">
 <p>Since <code>$app</code> from the code above is just an SDL surface with some extra sugar,
-it behaves much like <cite>SDL::Surface</cite>.  In particular, the all-important <code>blit</code>
-and <code>update</code> methods work.  You'll need to create <cite>SDL::Rect</cite> objects
+it behaves much like <a href="/SDL-Surface.html">SDL::Surface</a>.  In particular, the all-important <code>blit</code>
+and <code>update</code> methods work.  You'll need to create <a href="/SDL-Rect.html">SDL::Rect</a> objects
 representing sources of graphics to draw onto the <code>$app</code>'s surface, <code>blit</code>
 them there, then <code>update</code> the <code>$app</code>.</p>
 <p><strong>Note:</strong>  &quot;blitting&quot; is copying a chunk of memory from one place to another.</p>
@@ -106,15 +106,15 @@ them there, then <code>update</code> the <code>$app</code>.</p>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
 <dl>
-	<dt><cite>SDL::Tutorial::Drawing</cite></dt>
+	<dt><a href="/SDL-Tutorial::Drawing.html">SDL::Tutorial::Drawing</a></dt>
 	<dd>
 		<p>basic drawing with rectangles</p>
 	</dd>
-	<dt><cite>SDL::Tutorial::Animation</cite></dt>
+	<dt><a href="/SDL-Tutorial::Animation.html">SDL::Tutorial::Animation</a></dt>
 	<dd>
 		<p>basic rectangle animation</p>
 	</dd>
-	<dt><cite>SDL::Tutorial::Images</cite></dt>
+	<dt><a href="/SDL-Tutorial::Images.html">SDL::Tutorial::Images</a></dt>
 	<dd>
 		<p>image loading and animation</p>
 	</dd>

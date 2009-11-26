@@ -68,8 +68,8 @@ An alternative to the manual Event processing is the L&lt;SDL::App::loop&gt; .
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p><cite>SDL::App</cite> controls the root window of the of your SDL based application.
-It extends the <cite>SDL::Surface</cite> class, and provides an interface to the window
+<p><a href="/SDL-App.html">SDL::App</a> controls the root window of the of your SDL based application.
+It extends the <a href="/SDL-Surface.html">SDL::Surface</a> class, and provides an interface to the window
 manager oriented functions.</p>
 
 </div>
@@ -195,7 +195,7 @@ Kartik Thakore</p>
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><cite>perl</cite> <cite>SDL::Surface</cite> <cite>SDL::Event</cite>  <cite>SDL::OpenGL</cite></p>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="/SDL-Surface.html">SDL::Surface</a> <a href="/SDL-Event.html">SDL::Event</a>  <a href="/SDL-OpenGL.html">SDL::OpenGL</a></p>
 
 </div>
 </div>

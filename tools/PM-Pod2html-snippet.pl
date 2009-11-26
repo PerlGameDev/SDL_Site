@@ -16,7 +16,7 @@ pop(@directories);
 my $parent_dir      = catpath($volume, catdir(@directories));
 my $pages_path      = catdir($parent_dir, 'pages');
 my $assets_path     = catdir($parent_dir, 'htdocs/assets');
-my $parser          = Pod::Xhtml->new(FragmentOnly => 1, StringMode => 1);
+my $parser          = Pod::Xhtml->new(FragmentOnly => 1, StringMode => 1, LinkParser => new LinkResolver());
 my %module_names    = ();
 my %thumbnails      = ();
 my %files           = ();
@@ -161,3 +161,52 @@ sub read_file
 		}
 	}
 }
+
+package LinkResolver;
+use Pod::ParseUtils;
+use base qw(Pod::Hyperlink);
+
+sub new
+{
+	my $class = shift;
+	my $css = shift;
+	my $self = $class->SUPER::new();
+	return $self;
+}
+
+sub node
+{
+	my $self = shift;
+	if($self->SUPER::type() eq 'page')
+	{
+		my $page = $self->SUPER::page();
+		
+		if($page =~ /^SDL::/)
+		{
+			$page =~ s/::/-/;
+			return "/$page.html";
+		}
+		else
+		{
+			return "http://search.cpan.org/perldoc?$page";
+		}
+	}
+	$self->SUPER::node(@_);
+}
+
+sub text
+{
+	my $self = shift;
+	return $self->SUPER::page() if($self->SUPER::type() eq 'page');
+	$self->SUPER::text(@_);
+}
+
+sub type
+{
+	my $self = shift;
+	return "hyperlink" if($self->SUPER::type() eq 'page');
+	$self->SUPER::type(@_);
+}
+
+1;
+

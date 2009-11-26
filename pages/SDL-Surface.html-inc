@@ -39,7 +39,7 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<p>The main surface (display) is provided by <cite>SDL::Video::set_video_mode</cite>.
+<p>The main surface (display) is provided by <a href="/SDL-Video::set_video_mode.html">SDL::Video::set_video_mode</a>.
   use SDL; #provides flags &amp; constants
   use SDL::Video; #provides access to set_video_mode
   use SDL::Surface; #provides access to SDL_Surface struct internals</p>
@@ -111,7 +111,7 @@
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><cite>SDL</cite>, <cite>SDL::PixelFormat</cite>, <cite>SDL::Video</cite> </p>
+<p><a href="http://search.cpan.org/perldoc?SDL">SDL</a>, <a href="/SDL-PixelFormat.html">SDL::PixelFormat</a>, <a href="/SDL-Video.html">SDL::Video</a> </p>
 
 </div>
 </div>
