@@ -153,20 +153,21 @@
 
 </pre>
 <p>Converts audio data to a desired audio format.</p>
-<p><code>convert_audio</code> takes as first parameter <code>cvt</code>, which was previously initialized. Initializing a <code>SDL::AudioCVT</code> is a two step process. 
-First of all, the structure must be created via <code>SDL::AudioCVT-</code>build&gt; along with source and destination format parameters. Secondly, 
+<p><code>convert</code> takes as first parameter <code>cvt</code>, which was previously initialized. Initializing a <code>SDL::AudioCVT</code> is a two step process. 
+First of all, the structure must be created via <code>SDL::AudioCVT-&gt;build</code> along with source and destination format parameters. Secondly, 
 the <code>data</code> and <code>len</code> fields must be setup. <code>data</code> should point to the audio data buffer beeing source and destination at 
 once and <code>len</code> should be set to the buffer length in bytes. Remember, the length of the buffer pointed to by buf should be 
 <code>len*len_mult</code> bytes in length.</p>
-<p>Once the <code>SDL::AudioCVT</code> structure is initialized, we can pass it to <code>convert_audio</code>, which will convert the audio data pointed to 
-by <code>data</code>. If <code>convert_audio</code> fails <code>undef</code> is returned, otherwise the converted <code>SDL::AudioCVT</code> structure.</p>
-<p>If the conversion completed successfully then the converted audio data can be read from <code>cvt-</code>buf&gt;. The amount of valid, converted, 
-audio data in the buffer is equal to <code>cvt-</code>len*cvt-&gt;len_ratio&gt;. </p>
+<p>Once the <code>SDL::AudioCVT</code> structure is initialized, we can pass it to <code>convert</code>, which will convert the audio data pointed to 
+by <code>data</code>. If <code>convert</code> fails <code>undef</code> is returned, otherwise the converted <code>SDL::AudioCVT</code> structure.</p>
+<p>If the conversion completed successfully then the converted audio data can be read from <code>cvt-&gt;buf</code>. The amount of valid, converted, 
+audio data in the buffer is equal to <code>cvt-&gt;len*cvt-&gt;len_ratio</code>. </p>
 <p>Example:</p>
 <pre> use SDL;
  use SDL::Audio;
  use SDL::AudioSpec;
  use SDL::AudioCVT;
+ use Devel::Peek;
 
  SDL::init(SDL_INIT_AUDIO);
 
@@ -218,17 +219,8 @@ audio data in the buffer is equal to <code>cvt-</code>len*cvt-&gt;len_ratio&gt;.
  # And now we're ready to convert
  SDL::Audio::convert($wav_cvt, $wav_buf, $wav_len);
 
-
-
-
  # We can freeto original WAV data now
  SDL::Audio::free_wav($wav_buf);
-
- 
-
-
- 
-
 
 </pre>
 <p><strong>TODO</strong>: What to do with it? How to use callback? See http://www.libsdl.org/cgi/docwiki.cgi/SDL_ConvertAudio</p>
