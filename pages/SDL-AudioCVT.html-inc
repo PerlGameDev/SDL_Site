@@ -8,7 +8,7 @@
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#new">new</a></li>
-<li><a href="#new-2">new</a></li>
+<li><a href="#build">build</a></li>
 <li><a href="#needed">needed</a></li>
 <li><a href="#src_format">src_format</a></li>
 <li><a href="#dest_format">dest_format</a></li>
@@ -53,8 +53,8 @@
 <p>This constructor returns an empty <code>SDL::AudioCVT</code> structure.</p>
 
 </div>
-<h2 id="new-2">new</h2>
-<div id="new_CONTENT-2">
+<h2 id="build">build</h2>
+<div id="build_CONTENT">
 <pre> $cvt = SDL::AudioCVT-&gt;build( $src_format, $src_channels, $src_rate
                               $dst_format, $dst_channels, $dst_rate );
 

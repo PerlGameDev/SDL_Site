@@ -6,16 +6,20 @@
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
-<ul><li><a href="#open_audio">open_audio</a></li>
-<li><a href="#PauseAudio">PauseAudio </a></li>
+<ul><li><a href="#open">open</a>
+<ul><li><a href="#Synopsis">Synopsis</a></li>
+<li><a href="#Description">Description</a></li>
+</ul>
+</li>
+<li><a href="#pause">pause</a></li>
 <li><a href="#GetAudioStatus">GetAudioStatus </a></li>
-<li><a href="#LoadWAV">LoadWAV </a></li>
-<li><a href="#FreeWAV">FreeWAV </a></li>
+<li><a href="#load_WAV">load_WAV </a></li>
+<li><a href="#free_WAV">free_WAV </a></li>
 <li><a href="#convert_audio">convert_audio</a></li>
 <li><a href="#MixAudio">MixAudio </a></li>
-<li><a href="#LockAudio">LockAudio</a></li>
-<li><a href="#UnlockAudio">UnlockAudio</a></li>
-<li><a href="#CloseAudio">CloseAudio </a>
+<li><a href="#lock">lock</a></li>
+<li><a href="#unlock">unlock</a></li>
+<li><a href="#close">close </a>
 </li>
 </ul>
 </li>
@@ -44,13 +48,87 @@
 <div id="METHODS_CONTENT">
 
 </div>
-<h2 id="open_audio">open_audio</h2>
-<div id="open_audio_CONTENT">
+<h2 id="open">open</h2>
+<div id="open_CONTENT">
 <p>Opens the audio device with the desired parameters.</p>
 
 </div>
-<h2 id="PauseAudio">PauseAudio </h2>
-<div id="PauseAudio_CONTENT">
+<h3 id="Synopsis">Synopsis</h3>
+<div id="Synopsis_CONTENT">
+<pre>  use SDL;
+  use SDL::Audio;
+
+  SDL::init(SDL_INIT_AUDIO);
+
+  my $desired = SDL::AudioSpec-&gt;new();
+
+  my $obtained;
+
+  SDL::open_audio($desired, $obtained);
+
+  # $obtained-&gt;... (A new SDL::AudioSpec now);
+
+</pre>
+
+</div>
+<h3 id="Description">Description</h3>
+<div id="Description_CONTENT">
+<p>This function opens the audio device with the desired parameters, and returns 0 if successful, placing the actual hardware parameters in the structure pointed to by obtained. If obtained is NULL, the audio data passed to the callback function will be guaranteed to be in the requested format, and will be automatically converted to the hardware audio format if necessary. This function returns -1 if it failed to open the audio device, or couldn't set up the audio thread.</p>
+<p>To open the audio device a desired SDL::AudioSpec must be created.</p>
+<pre>  my $desired = SDL::AudioSpec-&gt;new();
+
+</pre>
+<p>You must then fill this structure with your desired audio specifications.</p>
+<dl>
+	<dt>The desired audio frequency in samples-per-second. </dt>
+	<dd>
+<pre>    $desired-&gt;freq
+
+</pre>
+	</dd>
+	<dt>The desired audio format. See <cite>SDL::AudioSpec</cite></dt>
+	<dd>
+<pre>    $desired-&gt;format
+
+</pre>
+	</dd>
+	<dt>The desired channels (1 for mono, 2 for stereo, 4 for surround, 6 for surround with center and lfe). </dt>
+	<dd>
+<pre>    $desired-&gt;channels
+
+</pre>
+	</dd>
+	<dt>The desired size of the audio buffer in samples. This number should be a power of two, and may be adjusted by the audio driver to a value more suitable for the hardware. Good values seem to range between 512 and 8192 inclusive, depending on the application and CPU speed. Smaller values yield faster response time, but can lead to underflow if the application is doing heavy processing and cannot fill the audio buffer in time. A stereo sample consists of both right and left channels in LR ordering. Note that the number of samples is directly related to time by the following formula: ms = (samples*1000)/freq </dt>
+	<dd>
+<pre>    $desired-&gt;samples
+
+</pre>
+	</dd>
+	<dt>This should be set to a function that will be called when the audio device is ready for more data. It is passed a pointer to the audio buffer, and the length in bytes of the audio buffer. This function usually runs in a separate thread, and so you should protect data structures that it accesses by calling SDL::Audio::lock and SDL::Audio::unlock in your code. </dt>
+	<dd>
+		<p>THIS IS NOT READY YET</p>
+<pre>    $desired-&gt;callback
+
+    my $callback= sub{ my ($userdata, $stream, $len) = @_;  };
+
+    $userdata is a reference stored in the userdata field of the SDL::AudioSpec. 
+    $stream is a pointer to the audio buffer you want to fill with information and $len is the length of the audio buffer in bytes.
+
+    $desired-&gt;userdata
+
+    This pointer is passed as the first parameter to the callback function. 
+
+</pre>
+	</dd>
+</dl>
+<p>SDL::Audio::open reads these fields from the desired SDL::AudioSpec structure passed to the function and attempts to find an audio configuration matching your desired. As mentioned above, if the obtained parameter is NULL then SDL with convert from your desired audio settings to the hardware settings as it plays.</p>
+<p>If obtained is NULL then the desired SDL::AudioSpec is your working specification, otherwise the obtained SDL::AudioSpec becomes the working specification and the desired specification can be deleted. The data in the working specification is used when building <cite>SDL::AudioCVT</cite>'s for converting loaded data to the hardware format.</p>
+<p>SDL::Audio::open calculates the size and silence fields for both the $desired and $obtained specifications. The size field stores the total size of the audio buffer in bytes, while the silence stores the value used to represent silence in the audio buffer</p>
+<p>The audio device starts out playing silence when it's opened, and should be enabled for playing by calling SDL::Audio::pause(0) when you are ready for your audio callback function to be called. Since the audio driver may modify the requested size of the audio buffer, you should allocate any local mixing buffers after you open the audio device. </p>
+
+</div>
+<h2 id="pause">pause</h2>
+<div id="pause_CONTENT">
 <p>Pauses and unpauses the audio callback processing</p>
 
 </div>
@@ -59,13 +137,13 @@
 <p>Gets the current audio state</p>
 
 </div>
-<h2 id="LoadWAV">LoadWAV </h2>
-<div id="LoadWAV_CONTENT">
+<h2 id="load_WAV">load_WAV </h2>
+<div id="load_WAV_CONTENT">
 <p>Loads a WAVE file</p>
 
 </div>
-<h2 id="FreeWAV">FreeWAV </h2>
-<div id="FreeWAV_CONTENT">
+<h2 id="free_WAV">free_WAV </h2>
+<div id="free_WAV_CONTENT">
 <p>Frees previously opened WAV data</p>
 
 </div>
@@ -147,18 +225,18 @@ audio data in the buffer is equal to <code>cvt-</code>len*cvt-&gt;len_ratio&gt;.
 <p>Mixes audio data</p>
 
 </div>
-<h2 id="LockAudio">LockAudio</h2>
-<div id="LockAudio_CONTENT">
+<h2 id="lock">lock</h2>
+<div id="lock_CONTENT">
 <p>Locks out the callback function</p>
 
 </div>
-<h2 id="UnlockAudio">UnlockAudio</h2>
-<div id="UnlockAudio_CONTENT">
+<h2 id="unlock">unlock</h2>
+<div id="unlock_CONTENT">
 <p>Unlocks the callback function</p>
 
 </div>
-<h2 id="CloseAudio">CloseAudio </h2>
-<div id="CloseAudio_CONTENT">
+<h2 id="close">close </h2>
+<div id="close_CONTENT">
 <p>Shuts down audio processing and closes the audio device.  </p>
 
 </div>
