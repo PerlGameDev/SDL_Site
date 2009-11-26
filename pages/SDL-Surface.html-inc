@@ -111,7 +111,7 @@
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="http://search.cpan.org/perldoc?SDL">SDL</a>, <a href="/SDL-PixelFormat.html">SDL::PixelFormat</a>, <a href="/SDL-Video.html">SDL::Video</a> </p>
+<p><a href="/SDL.html">SDL</a>, <a href="/SDL-PixelFormat.html">SDL::PixelFormat</a>, <a href="/SDL-Video.html">SDL::Video</a> </p>
 
 </div>
 </div>

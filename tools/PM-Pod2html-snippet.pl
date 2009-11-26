@@ -181,7 +181,7 @@ sub node
 	{
 		my $page = $self->SUPER::page();
 		
-		if($page =~ /^SDL::/)
+		if($page =~ /^SDL\b/)
 		{
 			$page =~ s/::/-/;
 			return "/$page.html";

@@ -193,7 +193,7 @@ written.</p>
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="http://search.cpan.org/perldoc?perl">perl</a>, <a href="http://search.cpan.org/perldoc?SDL">SDL</a>, <a href="/SDL-Surface.html">SDL::Surface</a>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a>, <a href="/SDL.html">SDL</a>, <a href="/SDL-Surface.html">SDL::Surface</a>
 </p>
 
 </div>
