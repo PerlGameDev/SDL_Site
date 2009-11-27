@@ -51,7 +51,7 @@
 <li><a href="#GL_attr_to_be_coded">GL_attr *** to be coded</a></li>
 </ul>
 </li>
-<li><a href="#a_href_SDL_Overlay_html_SDL_Overlay_"><a href="/SDL-Overlay.html">SDL::Overlay</a> Functions</a>
+<li><a href="#Video_Overlay_Functions">Video Overlay Functions</a>
 <ul><li><a href="#lock_YUV_overlay_overlay">lock_YUV_overlay(overlay)</a></li>
 <li><a href="#unlock_YUV_overlay_overlay">unlock_YUV_overlay(overlay)</a></li>
 <li><a href="#display_YUV_overlay_overlay_dstrect">display_YUV_overlay(overlay,dstrect)</a></li>
@@ -917,12 +917,9 @@ SDL::GL_swap_buffers doesn't returns any value.</p>
 
 
 </div>
-<h1 id="a_href_SDL_Overlay_html_SDL_Overlay_"><a href="/SDL-Overlay.html">SDL::Overlay</a> Functions</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="a_href_SDL_Overlay_html_SDL_Overlay_-2">
-
-
-
-
+<h1 id="Video_Overlay_Functions">Video Overlay Functions</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="Video_Overlay_Functions_CONTENT">
+<p>see <a href="/SDL-Overlay.html">SDL::Overlay</a> </p>
 
 </div>
 <h2 id="lock_YUV_overlay_overlay">lock_YUV_overlay(overlay)</h2>
