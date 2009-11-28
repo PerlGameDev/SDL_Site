@@ -10,9 +10,15 @@
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#new_width_height_YUV_flag_display">new ( $width, $height, $YUV_flag, $display) </a>
-<ul><li><a href="#YUV_Flags">YUV_Flags</a>
-</li>
+<ul><li><a href="#YUV_Flags">YUV_Flags</a></li>
 </ul>
+</li>
+<li><a href="#format">format</a></li>
+<li><a href="#w_h">w, h</a></li>
+<li><a href="#planes">planes</a></li>
+<li><a href="#pitches">pitches</a></li>
+<li><a href="#pixels">pixels</a></li>
+<li><a href="#hw_overlay">hw_overlay</a>
 </li>
 </ul>
 </li>
@@ -42,11 +48,13 @@
 
 </pre>
 <p>Create a display to use.  </p>
-<pre>   my $display = SDL::SetVideoMore(640, 480, 32, SDL_SWSURFACE);
+<pre>   my $display = SDL::Video::set_video_mode(640, 480, 32, SDL_SWSURFACE);
 
 </pre>
-<p>Create and attach the display to a new overlay
-   my $overlay = SDL::Overlay-&gt;new( 100, 100, SDL_YV12_OVERLAY, $display);</p>
+<p>Create and attach the display to a new overlay</p>
+<pre>   my $overlay = SDL::Overlay-&gt;new( 100, 100, SDL_YV12_OVERLAY, $display);
+
+</pre>
 
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -82,6 +90,44 @@ SDL_YUY2_OVERLAY  0x32595559  /* Packed mode: Y0+U0+Y1+V0 */</dt>
 SDL_UYVY_OVERLAY  0x59565955  /* Packed mode: U0+Y0+V0+Y1 */</dt>
 	<dt>*
 SDL_YVYU_OVERLAY  0x55595659  /* Packed mode: Y0+V0+Y1+U0 */</dt>
+	<dd>
+
+
+
+
+
+</div>
+<h2 id="format">format</h2>
+<div id="format_CONTENT">
+		<p>Overlay format (see YUV_Flags)</p>
+
+</div>
+<h2 id="w_h">w, h</h2>
+<div id="w_h_CONTENT">
+		<p>Width and height of overlay</p>
+
+</div>
+<h2 id="planes">planes</h2>
+<div id="planes_CONTENT">
+		<p>Number of planes in the overlay. Usually either 1 or 3</p>
+
+</div>
+<h2 id="pitches">pitches</h2>
+<div id="pitches_CONTENT">
+		<p>An array of pitches, one for each plane. Pitch is the length of a row in bytes.</p>
+
+</div>
+<h2 id="pixels">pixels</h2>
+<div id="pixels_CONTENT">
+		<p>As of release 2.3 direct right to overlay is disable. </p>
+		<p>An array of pointers to the data of each plane. The overlay should be locked before these pointers are used.</p>
+		<p>see <a href="/SDL-Video::lock_YUV_overlay.html">SDL::Video::lock_YUV_overlay</a>, <a href="/SDL-Video::unload_YUV_overlay.html">SDL::Video::unload_YUV_overlay</a></p>
+
+</div>
+<h2 id="hw_overlay">hw_overlay</h2>
+<div id="hw_overlay_CONTENT">
+		<p>This will be set to 1 if the overlay is hardware accelerated.</p>
+	</dd>
 </dl>
 
 </div>
