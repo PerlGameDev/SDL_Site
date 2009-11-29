@@ -248,7 +248,7 @@ It returns <code>0</code> if the mode is not supported at all, otherwise the sug
 
  unless($video_mode_ok)
  {
-     printf(&quot;this video mode ist not supported\n&quot; );
+     printf( &quot;this video mode is not supported\n&quot; );
  }
 
  SDL::quit();
@@ -351,7 +351,7 @@ each call to <a href="#set_video_mode_width_height_bpp_flag">SDL::Video::set_vid
 </pre>
 <p>Creates a new SDL::surface of the specified <a href="/SDL-PixelFormat.html">SDL::PixelFormat</a>, and then copies and maps the given surface to it. 
 It is also useful for making a copy of a surface.</p>
-<p>The flags parameter is passed to <code>SDL::Surface-</code>new()&gt; and has those semantics.
+<p>The flags parameter is passed to <code>SDL::Surface-&gt;new()</code> and has those semantics.
 This function is used internally by <code>SDL::Video::display_format</code>.
 This function can only be called after <code>SDL::init</code>. </p>
 <p>it returns a <code>SDL::Surface</code> on success or <code>undef</code> on error.</p>
@@ -655,38 +655,66 @@ be unlocked as soon as possible.
 </div>
 <h2 id="set_clip_rect_surface_rect">set_clip_rect(surface,rect)</h2>
 <div id="set_clip_rect_surface_rect_CONTENT">
-<p>Sets the clipping rectangle for the given SDL::surface. When this surface is the destination of a blit, only the area within the clip 
+<pre> SDL::Video::set_clip_rect( $surface, $rect );
+
+</pre>
+<p>Sets the clipping rectangle for the given <a href="/SDL-Surface.html">SDL::Surface</a>. When this surface is the destination of a blit, only the area within the clip 
 rectangle will be drawn into.
 The rectangle pointed to by rect will be clipped to the edges of the surface so that the clip rectangle for a surface can never fall 
 outside the edges of the surface.
 If rect is NULL the clipping rectangle will be set to the full size of the surface. 
-SDL::set_clip_rect doesn't returns anything.</p>
+<code>SDL::Video::set_clip_rect</code> doesn't returns anything.</p>
 
 </div>
 <h2 id="get_clip_rect_surface_rect">get_clip_rect(surface,rect)</h2>
 <div id="get_clip_rect_surface_rect_CONTENT">
-<p>Gets the clipping rectangle for the given SDL::surface. When this surface is the destination of a blit, only the area within the clip 
+<pre> SDL::Video::get_clip_rect( $surface, $rect );
+
+</pre>
+<p>Gets the clipping rectangle for the given <a href="/SDL-Surface.html">SDL::Surface</a>. When this surface is the destination of a blit, only the area within the clip 
 rectangle is drawn into.
 The rectangle pointed to by rect will be filled with the clipping rectangle of the surface. 
-SDL::get_clip_rect doesn't returns anything;</p>
+<code>SDL::Video::get_clip_rect</code> doesn't returns anything;</p>
+<pre> use SDL;
+ use SDL::Video;
+ use SDL::Rect;
+ use SDL::Surface;
 
+ my $screen_width  = 640;
+ my $screen_height = 480;
 
+ SDL::init(SDL_INIT_VIDEO);
 
+ my $screen  = SDL::Video::set_video_mode($screen_width, $screen_height, 32, SDL_SWSURFACE);
 
+ my $rect = SDL::Rect-&gt;new(0, 0, 0, 0);
+
+ SDL::Video::get_clip_rect($screen, $rect);
+
+ printf( &quot;rect is %d, %d, %d, %d\n&quot;, $rect-&gt;x, $rect-&gt;y, $rect-&gt;w, $rect-&gt;h);
+
+ SDL::quit;
+
+</pre>
 
 </div>
 <h2 id="blit_surface_src_src_rect_dest_dest_">blit_surface(src,src_rect,dest,dest_rect)</h2>
 <div id="blit_surface_src_src_rect_dest_dest_-2">
-<p>This performs a fast blit from the given source SDL::surface to the given destination SDL::surface.
-The width and height in srcrect determine the size of the copied rectangle. Only the position is used in the dstrect (the width and height 
-are ignored). Blits with negative dstrect coordinates will be clipped properly.
-If srcrect is NULL, the entire surface is copied. If dstrect is NULL, then the destination position (upper left corner) is (0, 0).
-The final blit rectangle is saved in dstrect after all clipping is performed (srcrect is not modified).
+<pre> SDL::Video::blit_surface( $src_surface, $src_rect, $dest_surface, $dest_rect );
+
+</pre>
+<p>This performs a fast blit from the given source <a href="/SDL-Surface.html">SDL::Surface</a> to the given destination <a href="/SDL-Surface.html">SDL::Surface</a>.
+The width and height in <code>src_surface</code> determine the size of the copied rectangle. Only the position is used in the <code>dst_rect</code> 
+(the width and height are ignored). Blits with negative <code>dst_rect</code> coordinates will be clipped properly.
+If <code>src_rect</code> is NULL, the entire surface is copied. If <code>dst_rect</code> is NULL, then the destination position (upper left corner) is (0, 0).
+The final blit rectangle is saved in <code>dst_rect</code> after all clipping is performed (<code>src_rect</code> is not modified).
 The blit function should not be called on a locked surface. I.e. when you use your own drawing functions you may need to lock a surface, 
-but this is not the case with SDL::blit_surface. Like most surface manipulation functions in SDL, it should not be used together with OpenGL.</p>
-<p>The results of blitting operations vary greatly depending on whether SDL_SRCALPHA is set or not. See SDL::set_alpha for an explanation of 
-how this affects your results. Colorkeying and alpha attributes also interact with surface blitting.
-SDL::blit_surface doesn't returns anything.</p>
+but this is not the case with <code>SDL::Video::blit_surface</code>. Like most surface manipulation functions in SDL, it should not be used together 
+with OpenGL.</p>
+<p>The results of blitting operations vary greatly depending on whether <code>SDL_SRCALPHA</code> is set or not. See <code>SDL::Video::set_alpha</code> for an 
+explanation of how this affects your results. Colorkeying and alpha attributes also interact with surface blitting.
+<code>SDL::Video::blit_surface</code> doesn't returns anything.</p>
+<p>For an example see <a href="#load_BMP_filename">load_BMP</a>.</p>
 
 </div>
 <h2 id="update_rect_surface_x_y_width_height">update_rect(surface,x,y,width,height)</h2>
@@ -900,7 +928,7 @@ with SDL::set_gamma_ramp.</p>
 
 </pre>
 <p>Gets the gamma translation lookup tables currently used by the display. Each table is an array of 256 Uint16 values.
-SDL::get_gamma_ramp returns -1 on error.</p>
+<code>SDL::Video::get_gamma_ramp</code> returns -1 on error.</p>
 <pre> use SDL;
  use SDL::Video;
 
@@ -1054,9 +1082,8 @@ component (e.g., a completely white pixel in 16-bit RGB565 format would return [
 </div>
 <h2 id="GL_load_library_path">GL_load_library(path)</h2>
 <div id="GL_load_library_path_CONTENT">
-<p>If you wish, you may load the OpenGL library from the given path at runtime, this must be done before SDL::set_video_mode is called.
-The path of the GL library is passed to SDL::GL_load_library and it returns 0 on success, or -1 on an error. You must then use 
-SDL::GL_get_proc_address to retrieve function pointers to GL functions. </p>
+<p>If you wish, you may load the OpenGL library from the given path at runtime, this must be done before <code>SDL::Video::set_video_mode</code> is called.
+You must then use <code>SDL::Video::GL_get_proc_address</code> to retrieve function pointers to GL functions. </p>
 <p>SDL::GL_load_library returns 0 on success or -1 or error.</p>
 
 </div>
@@ -1134,26 +1161,136 @@ The overlay is scaled (independently in x and y dimensions) to the size specifie
 </div>
 <h2 id="wm_set_caption_title_icon">wm_set_caption(title,icon)</h2>
 <div id="wm_set_caption_title_icon_CONTENT">
+<pre> SDL::Video::wm_set_caption( $title, $icon );
+
+</pre>
+<p>Sets the title-bar and icon name of the display window.</p>
+<p><code>title</code> is a UTF-8 encoded null-terminated string which will serve as the window title (the text at the top of the window). The function 
+does not change the string. You may free the string after the function returns.</p>
+<p><code>icon</code> is a UTF-8 encoded null-terminated string which will serve as the iconified window title (the text which is displayed in the menu 
+bar or desktop when the window is minimized). As with title this string may be freed after the function returns. </p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Video;
+ use SDL::Surface;
+
+ SDL::init(SDL_INIT_VIDEO);
+
+ my $screen  = SDL::Video::set_video_mode(640, 480, 32, SDL_SWSURFACE);
+
+ SDL::Video::wm_set_caption( 'maximized title', 'minimized title' );
+
+ sleep(2);
+
+ SDL::quit;
+
+</pre>
 
 </div>
 <h2 id="wm_get_caption">wm_get_caption()</h2>
 <div id="wm_get_caption_CONTENT">
+<pre> SDL::Video::wm_get_caption( $title, $icon );
+
+</pre>
+<p>Retrieves the title-bar and icon name of the display window.</p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Video;
+ use SDL::Surface;
+
+ SDL::init(SDL_INIT_VIDEO);
+
+ my $screen  = SDL::Video::set_video_mode(640, 480, 32, SDL_SWSURFACE);
+
+ SDL::Video::wm_set_caption( 'maximized title', 'minimized title' );
+
+ my ($title, $icon) = @{ SDL::Video::wm_get_caption() };
+
+ printf( &quot;title is '%s' and icon is '%s'\n&quot;, $title, $icon );
+
+ SDL::quit;
+
+</pre>
 
 </div>
 <h2 id="wm_set_icon_icon">wm_set_icon(icon)</h2>
 <div id="wm_set_icon_icon_CONTENT">
+<pre> SDL::Video::wm_set_icon( $icon );
+
+</pre>
+<p>Sets the icon for the display window. Win32 icons must be 32x32.</p>
+<p>This function must be called before the first call to <code>SDL::Video::set_video_mode</code>. Note that this means <code>SDL::Image</code> cannot be used.</p>
+<p>The shape is determined by the colorkey or alpha channel of the icon, if any. If neither of those are present, the icon is made opaque 
+(no transparency).</p>
+<p>Example:</p>
+<pre> SDL::Video::wm_set_icon(SDL::Video::load_BMP(&quot;icon.bmp&quot;));
+
+</pre>
+<p>Another option, if your icon image does not have a colorkey set, is to use the SDL::Video::set_color_key to set the transparency.</p>
+<p>Example:</p>
+<pre> my $image = SDL::Video::load_BMP(&quot;icon.bmp&quot;);
+
+ my colorkey = SDL::Video::map_RGB($image-&gt;format, 255, 0, 255); # specify the color that will be transparent
+
+ SDL::Video::set_color_key($image, SDL_SRCCOLORKEY, $colorkey);              
+
+ SDL::Video::wm_set_icon($image);
+
+</pre>
 
 </div>
 <h2 id="wm_grab_input_mode">wm_grab_input(mode)</h2>
 <div id="wm_grab_input_mode_CONTENT">
+<pre> $grab_mode = SDL::Video::wm_grab_input($mode);
+
+</pre>
+<p>Grabbing means that the mouse is confined to the application window, and nearly all keyboard input is passed directly to the application, 
+and not interpreted by a window manager, if any.</p>
+<p>When mode is <code>SDL_GRAB_QUERY</code> the grab mode is not changed, but the current grab mode is returned.</p>
+<p><code>mode</code> and the return value of <code>wm_grab_input</code> can be one of the following:</p>
+<ul>
+		<li><code>SDL_GRAB_QUERY</code>	</li>
+		<li><code>SDL_GRAB_OFF</code>	</li>
+		<li><code>SDL_GRAB_ON</code></li>
+</ul>
+
 
 </div>
 <h2 id="wm_iconify_window">wm_iconify_window()</h2>
 <div id="wm_iconify_window_CONTENT">
+<pre> $iconify_window = SDL::Video::wm_iconify_window();
+
+</pre>
+<p>If the application is running in a window managed environment SDL attempts to iconify/minimise it. If <code>wm_iconify_window</code> is successful, 
+the application will receive a <code>SDL_APPACTIVE</code> loss event (see Application visibility events at <a href="/SDL-Event.html">SDL::Event</a>).</p>
+<p>Returns non-zero on success or 0 if iconification is not supported or was refused by the window manager. </p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Video;
+ use SDL::Surface;
+
+ SDL::init(SDL_INIT_VIDEO);
+
+ my $screen  = SDL::Video::set_video_mode(640, 480, 32, SDL_SWSURFACE);
+
+ sleep(2);
+
+ SDL::Video::wm_iconify_window();
+
+ sleep(2); 
+
+ SDL::quit;
+
+</pre>
 
 </div>
 <h2 id="wm_toggle_fullscreen_surface">wm_toggle_fullscreen(surface)</h2>
 <div id="wm_toggle_fullscreen_surface_CONTENT">
+<pre> $toggle = SDL::Video::wm_toggle_fullscreen( $surface );
+
+</pre>
+<p>Toggles the application between windowed and fullscreen mode, if supported. (X11 is the only target currently supported, BeOS support 
+is experimental).</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
