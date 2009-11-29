@@ -58,7 +58,6 @@
 <li><a href="#GL_get_attribute_attr">GL_get_attribute(attr)</a></li>
 <li><a href="#GL_set_attribute_attr_value">GL_set_attribute(attr,value)</a></li>
 <li><a href="#GL_swap_buffers">GL_swap_buffers</a></li>
-<li><a href="#GL_attr_to_be_coded">GL_attr *** to be coded</a></li>
 </ul>
 </li>
 <li><a href="#Video_Overlay_Functions">Video Overlay Functions</a>
@@ -76,6 +75,7 @@
 <li><a href="#wm_toggle_fullscreen_surface">wm_toggle_fullscreen(surface)</a></li>
 </ul>
 </li>
+<li><a href="#AUTHOR">AUTHOR</a></li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
 <ul><li><a href="#Category_Objects">Category Objects</a>
 </li>
@@ -1082,52 +1082,106 @@ component (e.g., a completely white pixel in 16-bit RGB565 format would return [
 </div>
 <h2 id="GL_load_library_path">GL_load_library(path)</h2>
 <div id="GL_load_library_path_CONTENT">
+<pre> $gl_load_lib = SDL::Video::GL_load_library( 'path/to/static/glfunctions.dll' );
+
+</pre>
 <p>If you wish, you may load the OpenGL library from the given path at runtime, this must be done before <code>SDL::Video::set_video_mode</code> is called.
 You must then use <code>SDL::Video::GL_get_proc_address</code> to retrieve function pointers to GL functions. </p>
-<p>SDL::GL_load_library returns 0 on success or -1 or error.</p>
+<p><code>GL_load_library</code> returns <code>0</code> on success or <code>-1</code> or error.</p>
 
 </div>
 <h2 id="GL_get_proc_address_proc">GL_get_proc_address(proc)</h2>
 <div id="GL_get_proc_address_proc_CONTENT">
+ 
+
+
+
+
+
+
 <p>Returns the address of the GL function proc, or NULL if the function is not found. If the GL library is loaded at runtime, with 
-SDL::GL_load_library, then all GL functions must be retrieved this way. Usually this is used to retrieve function pointers to OpenGL 
-extensions. Note that this function needs an OpenGL context to function properly, so it should be called after SDL::set_video_mode 
-has been called (with the SDL_OPENGL flag).</p>
-<p>OpenGL function pointers must be declared APIENTRY . This will ensure the proper calling convention is followed on platforms where this 
-matters (Win32) thereby avoiding stack corruption. In a Win32 build environment, APIENTRY should be defined as __stdcall. </p>
-<p>it returns undef if the function is not found.</p>
+<code>SDL::Video::GL_load_library</code>, then all GL functions must be retrieved this way. Usually this is used to retrieve function pointers to OpenGL 
+extensions. Note that this function needs an OpenGL context to function properly, so it should be called after <code>SDL::Video::set_video_mode</code>
+has been called (with the <code>SDL_OPENGL</code> flag).</p>
+<p>It returns undef if the function is not found.</p>
+<p>Example:</p>
+<pre> my $has_multitexture = 1;
+
+ # Get function pointer
+ $gl_active_texture_ARB_ptr = SDL::Video::GL_get_proc_address(&quot;glActiveTextureARB&quot;);
+
+ # Check for a valid function ptr
+ unless($gl_active_texture_ARB_ptr)
+ {
+     printf( STDERR &quot;Multitexture Extensions not present.\n&quot; );
+     $has_multitexture = 0;
+ }
+
+ $gl_active_texture_ARB_ptr(GL_TEXTURE0_ARB) if $has_multitexture;
+
+</pre>
 
 </div>
 <h2 id="GL_get_attribute_attr">GL_get_attribute(attr)</h2>
 <div id="GL_get_attribute_attr_CONTENT">
-<p>It returns  SDL/OpenGL attribute attr . This is useful after a call to SDL::set_video_mode to check whether your attributes have been set 
-as you expected. 
-SDL::GL_get_attribute returns undef if the attribute is not found.</p>
+<pre> $value = SDL::Video::GL_get_attribute( $attr );
+
+</pre>
+<p>It returns SDL/OpenGL attribute <code>attr</code>. This is useful after a call to <code>SDL::Video::set_video_mode</code> to check whether your attributes have 
+been set as you expected. 
+<code>SDL::Video::GL_get_attribute</code> returns undef if the attribute is not found.</p>
+<p>Example:</p>
+<pre> print( SDL::Video::GL_set_attribute(SDL_GL_RED_SIZE) );
+
+</pre>
 
 </div>
 <h2 id="GL_set_attribute_attr_value">GL_set_attribute(attr,value)</h2>
 <div id="GL_set_attribute_attr_value_CONTENT">
-<p>This function sets the given OpenGL attribute attr to value. The requested attributes will take effect after a call to SDL::set_video_mode.
-You should use SDL::GL_get_attribute to check the values after a SDL::set_video_mode call, since the values obtained can differ from the 
-requested ones.
-See SDL_GLattr for the full list of available attributes. 
-SDL::GL_set_attribute returns 0 on success or -1 on error.</p>
-<p>Note : The SDL_DOUBLEBUF flag is not required to enable double buffering when setting an OpenGL video mode. Double buffering is enabled 
-or disabled using the SDL_GL_DOUBLEBUFFER attribute. </p>
+<pre> $set_attr = SDL::Video::GL_set_attribute( $attr, $value );
+
+</pre>
+<p>This function sets the given OpenGL attribute <code>attr</code> to <code>value</code>. The requested attributes will take effect after a call to 
+<code>SDL::Video::set_video_mode</code>.
+You should use <code>GL_get_attribute</code> to check the values after a <code>set_video_mode</code> call, since the values obtained can differ from the 
+requested ones.</p>
+<p>Available attributes:</p>
+<ul>
+		<li><code>SDL_GL_RED_SIZE</code>	</li>
+		<li><code>SDL_GL_GREEN_SIZE</code>	</li>
+		<li><code>SDL_GL_BLUE_SIZE</code>	</li>
+		<li><code>SDL_GL_ALPHA_SIZE</code>	</li>
+		<li><code>SDL_GL_BUFFER_SIZE</code>	</li>
+		<li><code>SDL_GL_DOUBLEBUFFER</code>	</li>
+		<li><code>SDL_GL_DEPTH_SIZE</code>	</li>
+		<li><code>SDL_GL_STENCIL_SIZE</code>	</li>
+		<li><code>SDL_GL_ACCUM_RED_SIZE</code>	</li>
+		<li><code>SDL_GL_ACCUM_GREEN_SIZE</code>	</li>
+		<li><code>SDL_GL_ACCUM_BLUE_SIZE</code>	</li>
+		<li><code>SDL_GL_ACCUM_ALPHA_SIZE</code>	</li>
+		<li><code>SDL_GL_STEREO</code>	</li>
+		<li><code>SDL_GL_MULTISAMPLEBUFFERS</code>	</li>
+		<li><code>SDL_GL_MULTISAMPLESAMPLES</code>	</li>
+		<li><code>SDL_GL_ACCELERATED_VISUAL</code>	</li>
+		<li><code>SDL_GL_SWAP_CONTROL</code></li>
+</ul>
+
+<p><code>GL_set_attribute</code> returns <code>0</code> on success or <code>-1</code> on error.</p>
+<p><strong>Note</strong>: The <code>SDL_DOUBLEBUF</code> flag is not required to enable double buffering when setting an OpenGL video mode. Double buffering is enabled 
+or disabled using the <code>SDL_GL_DOUBLEBUFFER</code> attribute. </p>
+<p>Example:</p>
+<pre> SDL::Video::GL_set_attribute(SDL_GL_RED_SIZE, 5);
+
+</pre>
 
 </div>
 <h2 id="GL_swap_buffers">GL_swap_buffers</h2>
 <div id="GL_swap_buffers_CONTENT">
+<pre> SDL::Video::GL_swap_buffers();
+
+</pre>
 <p>Swap the OpenGL buffers, if double-buffering is supported.
-SDL::GL_swap_buffers doesn't returns any value.</p>
-
-</div>
-<h2 id="GL_attr_to_be_coded">GL_attr *** to be coded</h2>
-<div id="GL_attr_to_be_coded_CONTENT">
-
-
-
-
+<code>SDL::Video::GL_swap_buffers</code> doesn't returns any value.</p>
 
 </div>
 <h1 id="Video_Overlay_Functions">Video Overlay Functions</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -1137,22 +1191,31 @@ SDL::GL_swap_buffers doesn't returns any value.</p>
 </div>
 <h2 id="lock_YUV_overlay_overlay">lock_YUV_overlay(overlay)</h2>
 <div id="lock_YUV_overlay_overlay_CONTENT">
-<p>Much the same as <code>SDL::lock_surface</code>, SDL::lock_YUV_overlay locks the overlay for direct access to pixel data.
-It returns 0 on success or -1 on error.</p>
+<pre> $lock_overlay = SDL::Video::lock_YUV_overlay( $overlay );
+
+</pre>
+<p>Much the same as <code>SDL::Video::lock_surface</code>, <code>lock_YUV_overlay</code> locks the overlay for direct access to pixel data.
+It returns <code>0</code> on success or <code>-1</code> on error.</p>
 
 </div>
 <h2 id="unlock_YUV_overlay_overlay">unlock_YUV_overlay(overlay)</h2>
 <div id="unlock_YUV_overlay_overlay_CONTENT">
-<p>The opposite to <code>SDL::lock_YUV_overlay</code>. Unlocks a previously locked overlay. An overlay must be unlocked before it can be displayed. 
-It returns 0 on success or -1 on error.</p>
+<pre> SDL::Video::unlock_YUV_overlay( $overlay );
+
+</pre>
+<p>The opposite to <code>SDL::Video::lock_YUV_overlay</code>. Unlocks a previously locked overlay. An overlay must be unlocked before it can be displayed. 
+<code>unlock_YUV_overlay</code> does not return anything.</p>
 
 </div>
 <h2 id="display_YUV_overlay_overlay_dstrect">display_YUV_overlay(overlay,dstrect)</h2>
 <div id="display_YUV_overlay_overlay_dstrect_">
-<p>Blit the overlay to the display surface specified when the overlay was created. The SDL::rect structure, dstrect, specifies a rectangle 
-on the display where the overlay is drawn. The .x and .y fields of dstrect specify the upper left location in display coordinates. 
-The overlay is scaled (independently in x and y dimensions) to the size specified by dstrect, and is optimized for 2x scaling</p>
-<p>It returns 0 on success or -1 on error.</p>
+<pre> $display_overlay = SDL::Video::display_YUV_overlay( $overlay, $dstrect );
+
+</pre>
+<p>Blit the overlay to the display surface specified when the overlay was created. The <code>SDL::Rect</code> structure, <code>dstrect</code>, specifies a rectangle 
+on the display where the overlay is drawn. The <code>x</code> and <code>y</code> fields of <code>dstrect</code> specify the upper left location in display coordinates. 
+The overlay is scaled (independently in x and y dimensions) to the size specified by dstrect, and is <code>optimized</code> for 2x scaling</p>
+<p>It returns <code>0</code> on success or <code>-1</code> on error.</p>
 
 </div>
 <h1 id="Window_Management_Functions">Window Management Functions</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -1291,6 +1354,11 @@ the application will receive a <code>SDL_APPACTIVE</code> loss event (see Applic
 </pre>
 <p>Toggles the application between windowed and fullscreen mode, if supported. (X11 is the only target currently supported, BeOS support 
 is experimental).</p>
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>magnet, Tobias Leich (FROGGS)</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
