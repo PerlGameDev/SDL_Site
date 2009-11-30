@@ -13,12 +13,12 @@
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::Video - Bindings to the MultiThread category in SDL API</p>
+<p>SDL::MultiThread - Bindings to the MultiThread category in SDL API</p>
 
 </div>
 <h2 id="CATEGORY">CATEGORY</h2>
 <div id="CATEGORY_CONTENT">
-<p>Core, MultiThread</p>
+<p>TODO, Core, MultiThread</p>
 
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>

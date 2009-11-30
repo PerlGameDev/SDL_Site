@@ -2,8 +2,7 @@
 <!-- INDEX START -->
 <h3 id="TOP">Index</h3>
 
-<ul>
-<li>
+<ul><li><a href="#NAME">NAME</a>
 <ul><li><a href="#CATEGORY">CATEGORY</a></li>
 </ul>
 </li>
@@ -35,7 +34,16 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 </ul><hr />
 <!-- INDEX END -->
 
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::CookBook::PDL -- CookBook for SDL + PDL</p>
 <p>PDL provides great number crunching capabilities to Perl and SDL provides game-developer quality real-time bitmapping and sound.  You can use PDL and SDL ''together'' to create real-time, responsive animations and simulations.  In this section we will go through the pleasures and pitfalls of working with both powerhouse libraries.</p>
+
+
+
+
+
+</div>
 <h2 id="CATEGORY">CATEGORY</h2>
 <div id="CATEGORY_CONTENT">
 <p>Cookbook</p>

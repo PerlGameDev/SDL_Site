@@ -2,7 +2,8 @@
 <!-- INDEX START -->
 <h3 id="TOP">Index</h3>
 
-<ul><li><a href="#PONG_TUTORIAL">PONG TUTORIAL</a>
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#PONG_TUTORIAL">PONG TUTORIAL</a>
 <ul><li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#Part_1_We_start_with_a_Rect">Part 1: We start with a Rect</a></li>
 <li><a href="#Part_0_quot_The_Screen_quot">Part 0: &quot;The Screen&quot;</a>
@@ -30,6 +31,11 @@
 </ul><hr />
 <!-- INDEX END -->
 
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::Tutorial::Pong -- Get started pong</p>
+
+</div>
 <h1 id="PONG_TUTORIAL">PONG TUTORIAL</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="PONG_TUTORIAL_CONTENT">
 <p>This tutorial is intended to help you build your very own version of the Pong game and/or variations of it, using SDL Perl.</p>

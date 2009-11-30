@@ -9,70 +9,70 @@
 <ul><li><a href="#get_video_surface">get_video_surface</a></li>
 <li><a href="#get_video_info">get_video_info</a></li>
 <li><a href="#video_driver_name">video_driver_name</a></li>
-<li><a href="#list_modes_formats_flags">list_modes(formats,flags)</a></li>
-<li><a href="#video_mode_ok_width_height_bpp_flags">video_mode_ok(width,height,bpp,flags)</a></li>
-<li><a href="#set_video_mode_width_height_bpp_flag">set_video_mode(width,height,bpp,flags)</a>
+<li><a href="#list_modes">list_modes</a></li>
+<li><a href="#video_mode_ok">video_mode_ok</a></li>
+<li><a href="#set_video_mode">set_video_mode</a>
 <ul><li><a href="#List_of_avalaibles_flags">List of avalaibles flags</a></li>
 </ul>
 </li>
-<li><a href="#convert_surface_surface_format_flags">convert_surface(surface,format,flags)</a></li>
+<li><a href="#convert_surface">convert_surface</a></li>
 <li><a href="#display_format">display_format</a></li>
 <li><a href="#display_format_alpha">display_format_alpha</a></li>
-<li><a href="#load_BMP_filename">load_BMP(filename)</a></li>
-<li><a href="#save_BMP_surface_filename">save_BMP(surface,filename)</a></li>
-<li><a href="#set_color_key_surface_flag_key">set_color_key(surface,flag,key)</a></li>
-<li><a href="#set_alpha_surface_flag_key">set_alpha(surface,flag,key)</a></li>
-<li><a href="#fill_rect_dest_dest_rect_pixel">fill_rect(dest,dest_rect,pixel)</a></li>
+<li><a href="#load_BMP">load_BMP</a></li>
+<li><a href="#save_BMP">save_BMP</a></li>
+<li><a href="#set_color_key">set_color_key</a></li>
+<li><a href="#set_alpha">set_alpha</a></li>
+<li><a href="#fill_rect">fill_rect</a></li>
 </ul>
 </li>
-<li><a href="#Surface_locking_and_unlocking">Surface locking and unlocking</a>
-<ul><li><a href="#lock_surface_surface">lock_surface(surface)</a></li>
-<li><a href="#unlock_surface_surface">unlock_surface(surface)</a></li>
-<li><a href="#MUSTLOCK_surface">MUSTLOCK(surface)</a></li>
+<li><a href="#Surface_Locking_and_Unlocking">Surface Locking and Unlocking</a>
+<ul><li><a href="#lock_surface">lock_surface</a></li>
+<li><a href="#unlock_surface">unlock_surface</a></li>
+<li><a href="#MUSTLOCK">MUSTLOCK</a></li>
 </ul>
 </li>
 <li><a href="#Screen_Updating_Functions">Screen Updating Functions</a>
-<ul><li><a href="#set_clip_rect_surface_rect">set_clip_rect(surface,rect)</a></li>
-<li><a href="#get_clip_rect_surface_rect">get_clip_rect(surface,rect)</a></li>
-<li><a href="#blit_surface_src_src_rect_dest_dest_">blit_surface(src,src_rect,dest,dest_rect)</a></li>
-<li><a href="#update_rect_surface_x_y_width_height">update_rect(surface,x,y,width,height)</a></li>
-<li><a href="#update_rects_surface_rects">update_rects(surface,rects) </a></li>
-<li><a href="#flip_surface">flip(surface)</a></li>
+<ul><li><a href="#set_clip_rect">set_clip_rect</a></li>
+<li><a href="#get_clip_rect">get_clip_rect</a></li>
+<li><a href="#blit_surface">blit_surface</a></li>
+<li><a href="#update_rect">update_rect</a></li>
+<li><a href="#update_rects">update_rects</a></li>
+<li><a href="#flip">flip</a></li>
 </ul>
 </li>
 <li><a href="#Palette_Color_and_Pixel_Functions">Palette, Color and Pixel Functions</a>
-<ul><li><a href="#set_colors_surface_start_colors">set_colors(surface,start,colors)</a></li>
-<li><a href="#set_palette_surface_flags_start_colo">set_palette(surface,flags,start,colors)</a></li>
-<li><a href="#set_gamma_r_g_b">set_gamma(r,g,b)</a></li>
-<li><a href="#get_gamma_ramp_rt_gt_bt">get_gamma_ramp(rt,gt,bt)</a></li>
-<li><a href="#set_gamma_ramp_rt_gt_bt">set_gamma_ramp(rt,gt,bt)</a></li>
-<li><a href="#map_RGB_pixel_format_r_g_b">map_RGB(pixel_format,r,g,b)</a></li>
-<li><a href="#map_RGBA_pixel_format_r_g_b_a">map_RGBA(pixel_format,r,g,b,a)</a></li>
-<li><a href="#get_RGB_pixel_format_pixel">get_RGB(pixel_format,pixel)</a></li>
-<li><a href="#get_RGBA_pixel_format_pixel">get_RGBA(pixel_format,pixel)</a></li>
+<ul><li><a href="#set_colors">set_colors</a></li>
+<li><a href="#set_palette">set_palette</a></li>
+<li><a href="#set_gamma">set_gamma</a></li>
+<li><a href="#get_gamma_ramp">get_gamma_ramp</a></li>
+<li><a href="#set_gamma_ramp">set_gamma_ramp</a></li>
+<li><a href="#map_RGB">map_RGB</a></li>
+<li><a href="#map_RGBA">map_RGBA</a></li>
+<li><a href="#get_RGB">get_RGB</a></li>
+<li><a href="#get_RGBA">get_RGBA</a></li>
 </ul>
 </li>
 <li><a href="#GL_Methods">GL Methods</a>
-<ul><li><a href="#GL_load_library_path">GL_load_library(path)</a></li>
-<li><a href="#GL_get_proc_address_proc">GL_get_proc_address(proc)</a></li>
-<li><a href="#GL_get_attribute_attr">GL_get_attribute(attr)</a></li>
-<li><a href="#GL_set_attribute_attr_value">GL_set_attribute(attr,value)</a></li>
+<ul><li><a href="#GL_load_library">GL_load_library</a></li>
+<li><a href="#GL_get_proc_address">GL_get_proc_address</a></li>
+<li><a href="#GL_get_attribute">GL_get_attribute</a></li>
+<li><a href="#GL_set_attribute">GL_set_attribute</a></li>
 <li><a href="#GL_swap_buffers">GL_swap_buffers</a></li>
 </ul>
 </li>
 <li><a href="#Video_Overlay_Functions">Video Overlay Functions</a>
-<ul><li><a href="#lock_YUV_overlay_overlay">lock_YUV_overlay(overlay)</a></li>
-<li><a href="#unlock_YUV_overlay_overlay">unlock_YUV_overlay(overlay)</a></li>
-<li><a href="#display_YUV_overlay_overlay_dstrect">display_YUV_overlay(overlay,dstrect)</a></li>
+<ul><li><a href="#lock_YUV_overlay">lock_YUV_overlay</a></li>
+<li><a href="#unlock_YUV_overlay">unlock_YUV_overlay</a></li>
+<li><a href="#display_YUV_overlay">display_YUV_overlay</a></li>
 </ul>
 </li>
 <li><a href="#Window_Management_Functions">Window Management Functions</a>
-<ul><li><a href="#wm_set_caption_title_icon">wm_set_caption(title,icon)</a></li>
-<li><a href="#wm_get_caption">wm_get_caption()</a></li>
-<li><a href="#wm_set_icon_icon">wm_set_icon(icon)</a></li>
-<li><a href="#wm_grab_input_mode">wm_grab_input(mode)</a></li>
-<li><a href="#wm_iconify_window">wm_iconify_window()</a></li>
-<li><a href="#wm_toggle_fullscreen_surface">wm_toggle_fullscreen(surface)</a></li>
+<ul><li><a href="#wm_set_caption">wm_set_caption</a></li>
+<li><a href="#wm_get_caption">wm_get_caption</a></li>
+<li><a href="#wm_set_icon">wm_set_icon</a></li>
+<li><a href="#wm_grab_input">wm_grab_input</a></li>
+<li><a href="#wm_iconify_window">wm_iconify_window</a></li>
+<li><a href="#wm_toggle_fullscreen">wm_toggle_fullscreen</a></li>
 </ul>
 </li>
 <li><a href="#AUTHOR">AUTHOR</a></li>
@@ -152,7 +152,7 @@ function returns the publicly visible surface, not the real video surface.</p>
 
 </pre>
 <p>This function returns a read-only <a href="/SDL-VideoInfo.html">SDL::VideoInfo</a> containing information about the video hardware. If it is called before 
-<a href="#set_video_mode_width_height_bpp_flag">SDL::Video::set_video_mode</a>, the <code>vfmt</code> member of the returned structure will contain the pixel 
+<a href="#set_video_mode">SDL::Video::set_video_mode</a>, the <code>vfmt</code> member of the returned structure will contain the pixel 
 format of the <strong>best</strong> video mode. </p>
 <p>Example:</p>
 <pre> use SDL;
@@ -192,8 +192,8 @@ word identifier like <code>&quot;x11&quot;</code>, <code>&quot;windib&quot;</cod
 </pre>
 
 </div>
-<h2 id="list_modes_formats_flags">list_modes(formats,flags)</h2>
-<div id="list_modes_formats_flags_CONTENT">
+<h2 id="list_modes">list_modes</h2>
+<div id="list_modes_CONTENT">
 <pre> my @modes = @{ SDL::Video::list_modes( $pixel_format, $flags ) };
 
 </pre>
@@ -230,13 +230,13 @@ or it return undef if no modes are available.</p>
 </pre>
 
 </div>
-<h2 id="video_mode_ok_width_height_bpp_flags">video_mode_ok(width,height,bpp,flags)</h2>
-<div id="video_mode_ok_width_height_bpp_flags-2">
+<h2 id="video_mode_ok">video_mode_ok</h2>
+<div id="video_mode_ok_CONTENT">
 <pre> my $bpp_ok = SDL::Video::video_mode_ok( $width, $height, $bpp, $flags );
 
 </pre>
 <p>This function is used to check whether the requested mode is supported by the current video device. The arguments passed to this function 
-are the same as those you would pass to <a href="#set_video_mode_width_height_bpp_flag">SDL::Video::set_video_mode</a>. 
+are the same as those you would pass to <a href="#set_video_mode">SDL::Video::set_video_mode</a>. 
 It returns <code>0</code> if the mode is not supported at all, otherwise the suggested <code>bpp</code>.</p>
 <p>Example:</p>
 <pre> use SDL;
@@ -256,8 +256,8 @@ It returns <code>0</code> if the mode is not supported at all, otherwise the sug
 </pre>
 
 </div>
-<h2 id="set_video_mode_width_height_bpp_flag">set_video_mode(width,height,bpp,flags)</h2>
-<div id="set_video_mode_width_height_bpp_flag-2">
+<h2 id="set_video_mode">set_video_mode</h2>
+<div id="set_video_mode_CONTENT">
 <pre> my $surface = SDL::Video::set_video_mode( 800, 600, 32, SDL_SWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN);
 
 </pre>
@@ -293,11 +293,11 @@ Passing <code>SDL_ANYFORMAT</code> prevents this and causes SDL to use the video
 	</dd>
 	<dt><code>SDL_DOUBLEBUF</code></dt>
 	<dd>
-		<p>Enable hardware double buffering; only valid with <code>SDL_HWSURFACE</code>. Calling <a href="#flip_surface">SDL::Video::flip</a> will flip the buffers and update 
+		<p>Enable hardware double buffering; only valid with <code>SDL_HWSURFACE</code>. Calling <a href="#flip">SDL::Video::flip</a> will flip the buffers and update 
 the screen. 
 All drawing will take place on the surface that is not displayed at the moment. 
-If double buffering could not be enabled then <a href="#flip_surface">SDL::Video::flip</a> will just perform a 
-<a href="#update_rect_surface_x_y_width_height">SDL::Video::update_rect</a> on the entire screen.</p>
+If double buffering could not be enabled then <a href="#flip">SDL::Video::flip</a> will just perform a 
+<a href="#update_rect">SDL::Video::update_rect</a> on the entire screen.</p>
 	</dd>
 	<dt><code>SDL_FULLSCREEN</code></dt>
 	<dd>
@@ -307,7 +307,7 @@ the next higher resolution will be used and the display window centered on a bla
 	<dt><code>SDL_OPENGL</code></dt>
 	<dd>
 		<p>Create an OpenGL rendering context. You should have previously set OpenGL video attributes with 
-<a href="#GL_set_attribute_attr_value">SDL::Video::GL_set_attribute</a>.</p>
+<a href="#GL_set_attribute">SDL::Video::GL_set_attribute</a>.</p>
 	</dd>
 	<dt><code>SDL_OPENGLBLIT</code></dt>
 	<dd>
@@ -319,7 +319,7 @@ NOTE: This option is kept for compatibility only, and will be removed in next ve
 	<dd>
 		<p>Create a resizable window. 
 When the window is resized by the user a <code>SDL_VIDEORESIZE</code> event is generated and 
-<a href="#set_video_mode_width_height_bpp_flag">SDL::Video::set_video_mode</a> can be called again with the new size.</p>
+<a href="#set_video_mode">SDL::Video::set_video_mode</a> can be called again with the new size.</p>
 	</dd>
 	<dt><code>SDL_NOFRAME</code></dt>
 	<dd>
@@ -340,21 +340,21 @@ been set causes the application to simply ignore those attributes, while enablin
 <p><strong>User note 2</strong>: Also note that, in Windows, setting the video mode resets the current OpenGL context. You must execute again the OpenGL 
 initialization code (set the clear color or the shade model, or reload textures, for example) after calling SDL::set_video_mode. In Linux, 
 however, it works fine, and the initialization code only needs to be executed after the first call to 
-<a href="#set_video_mode_width_height_bpp_flag">SDL::Video::set_video_mode</a> (although there is no harm in executing the initialization code after 
-each call to <a href="#set_video_mode_width_height_bpp_flag">SDL::Video::set_video_mode</a>, for example for a multiplatform application). </p>
+<a href="#set_video_mode">SDL::Video::set_video_mode</a> (although there is no harm in executing the initialization code after 
+each call to <a href="#set_video_mode">SDL::Video::set_video_mode</a>, for example for a multiplatform application). </p>
 
 </div>
-<h2 id="convert_surface_surface_format_flags">convert_surface(surface,format,flags)</h2>
-<div id="convert_surface_surface_format_flags-2">
+<h2 id="convert_surface">convert_surface</h2>
+<div id="convert_surface_CONTENT">
 <pre> $converted_surface = SDL::Video::convert_surface( $surface, $format, $flags );
 
 </pre>
 <p>Creates a new SDL::surface of the specified <a href="/SDL-PixelFormat.html">SDL::PixelFormat</a>, and then copies and maps the given surface to it. 
 It is also useful for making a copy of a surface.</p>
-<p>The flags parameter is passed to <code>SDL::Surface-&gt;new()</code> and has those semantics.
-This function is used internally by <code>SDL::Video::display_format</code>.
+<p>The flags parameter is passed to <a href="/SDL-Surface.html">SDL::Surface</a><code>-&gt;new</code> and has those semantics.
+This function is used internally by <a href="#display_format">SDL::Video::display_format</a>.
 This function can only be called after <code>SDL::init</code>. </p>
-<p>it returns a <code>SDL::Surface</code> on success or <code>undef</code> on error.</p>
+<p>it returns a <a href="/SDL-Surface.html">SDL::Surface</a> on success or <code>undef</code> on error.</p>
 
 </div>
 <h2 id="display_format">display_format</h2>
@@ -363,7 +363,7 @@ This function can only be called after <code>SDL::init</code>. </p>
 
 </pre>
 <p>This function takes a surface and copies it to a new surface of the pixel format and colors of the video framebuffer, suitable for fast 
-blitting onto the display surface. It calls <code>SDL::Video::convert_surface</code>.</p>
+blitting onto the display surface. It calls <a href="#conver_surface">SDL::Video::convert_surface</a>.</p>
 <p>If you want to take advantage of hardware colorkey or alpha blit acceleration, you should set the colorkey and alpha value before calling 
 this function.</p>
 <p>If you want an alpha channel, see <code>SDL::Video::display_format_alpha</code>.
@@ -377,21 +377,22 @@ Return Value</p>
 
 </pre>
 <p>This function takes a surface and copies it to a new surface of the pixel format and colors of the video framebuffer plus an alpha channel, 
-suitable for fast blitting onto the display surface. It calls <code>SDL::Video::convert_surface</code>.</p>
+suitable for fast blitting onto the display surface. It calls <a href="#convert_surface">SDL::Video::convert_surface</a>.</p>
 <p>If you want to take advantage of hardware colorkey or alpha blit acceleration, you should set the colorkey and alpha value before calling 
 this function.</p>
 <p>This function can be used to convert a colorkey to an alpha channel, if the <code>SDL_SRCCOLORKEY</code> flag is set on the surface. The generated 
 surface will then be transparent (alpha=0) where the pixels match the colorkey, and opaque (alpha=255) elsewhere.</p>
-<p><strong>Note</strong>: The video surface must be initialised using <code>SDL::Video::set_video_mode</code> before this function is called, or it will segfault.</p>
+<p><strong>Note</strong>: The video surface must be initialised using <a href="#set_video_mode">SDL::Video::set_video_mode</a> before this function is called, or it will 
+segfault.</p>
 
 </div>
-<h2 id="load_BMP_filename">load_BMP(filename)</h2>
-<div id="load_BMP_filename_CONTENT">
+<h2 id="load_BMP">load_BMP</h2>
+<div id="load_BMP_CONTENT">
 <pre> $surface = SDL::Video::load_BMP( $filename );
 
 </pre>
-<p>Loads a <code>SDL::Surface</code> from a named Windows BMP file.
-<code>SDL::Video::load_BMP</code> returns a <code>SDL::Surface</code> on success or <code>undef</code> on error.</p>
+<p>Loads a <a href="/SDL-Surface.html">SDL::Surface</a> from a named Windows BMP file.
+<code>SDL::Video::load_BMP</code> returns a <a href="/SDL-Surface.html">SDL::Surface</a> on success or <code>undef</code> on error.</p>
 <p><strong>Note</strong>: When loading a 24-bit Windows BMP file, pixel data points are loaded as blue, green, red, and NOT red, green, blue (as one might expect). </p>
 <pre> use SDL;
  use SDL::Video;
@@ -423,34 +424,34 @@ surface will then be transparent (alpha=0) where the pixels match the colorkey, 
 </pre>
 
 </div>
-<h2 id="save_BMP_surface_filename">save_BMP(surface,filename)</h2>
-<div id="save_BMP_surface_filename_CONTENT">
+<h2 id="save_BMP">save_BMP</h2>
+<div id="save_BMP_CONTENT">
 <pre> $saved_BMP = SDL::Video::save_BMP( $surface, $filename );
 
 </pre>
-<p>Saves the given <code>SDL::Surface</code> as a Windows BMP file named filename. 
+<p>Saves the given <a href="/SDL-Surface.html">SDL::Surface</a> as a Windows BMP file named filename. 
 it returns 0 on success or -1 on error.</p>
 
 </div>
-<h2 id="set_color_key_surface_flag_key">set_color_key(surface,flag,key)</h2>
-<div id="set_color_key_surface_flag_key_CONTE">
+<h2 id="set_color_key">set_color_key</h2>
+<div id="set_color_key_CONTENT">
 <pre> $set_color_key = SDL::Video::set_color_key( $surface, $flag, $key );
 
 </pre>
 <p>Sets the color key (transparent pixel) in a blittable surface and enables or disables RLE blit acceleration.</p>
 <p>RLE acceleration can substantially speed up blitting of images with large horizontal runs of transparent pixels (i.e., pixels that match 
 the key value).
-The key must be of the same pixel format as the surface, <code>SDL::Video::map_RGB</code> is often useful for obtaining an acceptable value.
+The key must be of the same pixel format as the surface, <a href="#map_RGB">SDL::Video::map_RGB</a> is often useful for obtaining an acceptable value.
 If flag is <code>SDL_SRCCOLORKEY</code> then key is the transparent pixel value in the source image of a blit.</p>
 <p>If <code>flag</code> is OR'd with <code>SDL_RLEACCEL</code> then the surface will be drawn using RLE acceleration when drawn with SDL::Blit_surface.
-The surface will actually be encoded for RLE acceleration the first time <code>SDL::Video::blit_surface</code> or <code>SDL::Video::display_format</code> 
-is called on the surface.
+The surface will actually be encoded for RLE acceleration the first time <a href="#blit_surface">SDL::Video::blit_surface</a> or 
+<code>SDL::Video::display_format|/display_format</code> is called on the surface.
 If <code>flag</code> is <code>0</code>, this function clears any current color key. </p>
 <p><code>SDL::Video::set_color_key</code> returns <code>0</code> on success or <code>-1</code> on error.</p>
 
 </div>
-<h2 id="set_alpha_surface_flag_key">set_alpha(surface,flag,key)</h2>
-<div id="set_alpha_surface_flag_key_CONTENT">
+<h2 id="set_alpha">set_alpha</h2>
+<div id="set_alpha_CONTENT">
 <pre> $set_alpha = SDL::Video::set_alpha( $surface, $flag, $key );
 
 </pre>
@@ -465,43 +466,43 @@ still be accelerated with <code>SDL_RLEACCEL</code>.</p>
 <p><strong>Note</strong>: The per-surface alpha value of 128 is considered a special case and is optimised, so it's much faster than other per-surface values.</p>
 <p>Alpha affects surface blitting in the following ways: </p>
 <dl>
-	<dt>RGBA-&gt;RGB with SDL_SRCALPHA</dt>
+	<dt>RGBA-&gt;RGB with <code>SDL_SRCALPHA</code></dt>
 	<dd>
 		<p>The source is alpha-blended with the destination, using the alpha channel. 
 SDL_SRCCOLORKEY and the per-surface alpha are ignored.</p>
 	</dd>
-	<dt>RGBA-&gt;RGB without SDL_SRCALPHA</dt>
+	<dt>RGBA-&gt;RGB without <code>SDL_SRCALPHA</code></dt>
 	<dd>
 		<p>The RGB data is copied from the source. The source alpha channel and the per-surface alpha value are ignored. 
 If SDL_SRCCOLORKEY is set, only the pixels not matching the colorkey value are copied.</p>
 	</dd>
-	<dt>RGB-&gt;RGBA with SDL_SRCALPHA</dt>
+	<dt>RGB-&gt;RGBA with <code>SDL_SRCALPHA</code></dt>
 	<dd>
 		<p>The source is alpha-blended with the destination using the per-surface alpha value. 
 If SDL_SRCCOLORKEY is set, only the pixels not matching the colorkey value are copied. 
 The alpha channel of the copied pixels is set to opaque.</p>
 	</dd>
-	<dt>RGB-&gt;RGBA without SDL_SRCALPHA</dt>
+	<dt>RGB-&gt;RGBA without <code>SDL_SRCALPHA</code></dt>
 	<dd>
 		<p>The RGB data is copied from the source and the alpha value of the copied pixels is set to opaque. 
 If SDL_SRCCOLORKEY is set, only the pixels not matching the colorkey value are copied.</p>
 	</dd>
-	<dt>RGBA-&gt;RGBA with SDL_SRCALPHA</dt>
+	<dt>RGBA-&gt;RGBA with <code>SDL_SRCALPHA</code></dt>
 	<dd>
 		<p>The source is alpha-blended with the destination using the source alpha channel. 
 The alpha channel in the destination surface is left untouched. SDL_SRCCOLORKEY is ignored.</p>
 	</dd>
-	<dt>RGBA-&gt;RGBA without SDL_SRCALPHA</dt>
+	<dt>RGBA-&gt;RGBA without <code>SDL_SRCALPHA</code></dt>
 	<dd>
 		<p>The RGBA data is copied to the destination surface.
 If SDL_SRCCOLORKEY is set, only the pixels not matching the colorkey value are copied.</p>
 	</dd>
-	<dt>RGB-&gt;RGB with SDL_SRCALPHA</dt>
+	<dt>RGB-&gt;RGB with <code>SDL_SRCALPHA</code></dt>
 	<dd>
 		<p>The source is alpha-blended with the destination using the per-surface alpha value. 
 If SDL_SRCCOLORKEY is set, only the pixels not matching the colorkey value are copied.</p>
 	</dd>
-	<dt>RGB-&gt;RGB without SDL_SRCALPHA</dt>
+	<dt>RGB-&gt;RGB without <code>SDL_SRCALPHA</code></dt>
 	<dd>
 		<p>The RGB data is copied from the source. 
 If SDL_SRCCOLORKEY is set, only the pixels not matching the colorkey value are copied.</p>
@@ -514,38 +515,39 @@ two arbitrary RGBA surfaces this way and get the result you would expect from &q
 <p><code>SDL::Video::set_alpha</code> returns <code>0</code> on success or <code>-1</code> on error.</p>
 
 </div>
-<h2 id="fill_rect_dest_dest_rect_pixel">fill_rect(dest,dest_rect,pixel)</h2>
-<div id="fill_rect_dest_dest_rect_pixel_CONTE">
+<h2 id="fill_rect">fill_rect</h2>
+<div id="fill_rect_CONTENT">
 <pre> $fill_rect = SDL::Video::fill_rect( $dest, $dest_rect, $pixel );
 
 </pre>
 <p>This function performs a fast fill of the given <a href="/SDL-Rect.html">SDL::Rect</a> with the given <a href="/SDL-PixelFormat.html">SDL::PixelFormat</a>. If dest_rect is NULL, the whole surface 
 will be filled with color.</p>
-<p>The color should be a pixel of the format used by the surface, and can be generated by the <code>SDL::Video::map_RGB</code> or <code>SDL::Video::map_RGBA</code>
-functions. If the color value contains an alpha value then the destination is simply &quot;filled&quot; with that alpha information, no blending takes 
-place.</p>
-<p>If there is a clip rectangle set on the destination (set via <code>SDL::Video::set_clip_rect</code>), then this function will clip based on the 
-intersection of the clip rectangle and the dstrect rectangle, and the dstrect rectangle will be modified to represent the area actually filled.</p>
-<p>If you call this on the video surface (ie: the value of <code>SDL::Video::get_video_surface</code>) you may have to update the video surface to see the 
-result. This can happen if you are using a shadowed surface that is not double buffered in Windows XP using build 1.2.9. </p>
+<p>The color should be a pixel of the format used by the surface, and can be generated by the <a href="#map_RGB">SDL::Video::map_RGB</a> or 
+<code>SDL::Video::map_RGBA|/map_RGBA</code> functions. If the color value contains an alpha value then the destination is simply &quot;filled&quot; with that 
+alpha information, no blending takes place.</p>
+<p>If there is a clip rectangle set on the destination (set via <a href="#set_clip_rect">SDL::Video::set_clip_rect</a>), then this function will clip based 
+on the intersection of the clip rectangle and the dstrect rectangle, and the dstrect rectangle will be modified to represent the area actually 
+filled.</p>
+<p>If you call this on the video surface (ie: the value of <a href="#get_video_surface">SDL::Video::get_video_surface</a>) you may have to update the video 
+surface to see the result. This can happen if you are using a shadowed surface that is not double buffered in Windows XP using build 1.2.9. </p>
 <p><code>SDL::Video::fill_rect</code> returns <code>0</code> on success or <code>-1</code> on error.</p>
 <p>for an example see <a href="#SYNOPSIS">SYNOPSIS</a>.</p>
 
 </div>
-<h1 id="Surface_locking_and_unlocking">Surface locking and unlocking</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="Surface_locking_and_unlocking_CONTEN">
+<h1 id="Surface_Locking_and_Unlocking">Surface Locking and Unlocking</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="Surface_Locking_and_Unlocking_CONTEN">
 
 </div>
-<h2 id="lock_surface_surface">lock_surface(surface)</h2>
-<div id="lock_surface_surface_CONTENT">
+<h2 id="lock_surface">lock_surface</h2>
+<div id="lock_surface_CONTENT">
 <pre> int SDL::Video::lock_surface( $surface );
 
 </pre>
 <p><code>SDL::Video::lock_surface</code> sets up the given <a href="/SDL-Surface.html">SDL::Surface</a> for directly accessing the pixels.
 Between calls to SDL::lock_surface and SDL::unlock_surface, you can write to ( <code>surface-</code>set_pixels&gt;) and read from ( <code>surface-</code>get_pixels&gt; ), 
 using the pixel format stored in <code>surface-</code>format&gt;. 
-Once you are done accessing the surface, you should use <code>SDL::Video::unlock_surface</code> to release the lock.</p>
-<p>Not all surfaces require locking. If <code>SDL::Video::MUSTLOCK(surface)</code> evaluates to <code>0</code>, then reading and writing pixels to the surface can 
+Once you are done accessing the surface, you should use <a href="#unlock_surface">SDL::Video::unlock_surface</a> to release the lock.</p>
+<p>Not all surfaces require locking. If <a href="#MUSTLOCK">SDL::Video::MUSTLOCK</a> evaluates to <code>0</code>, then reading and writing pixels to the surface can 
 be performed at any time, and the pixel format of the surface will not change.
 No operating system or library calls should be made between the lock/unlock pairs, as critical system locks may be held during this time.
 <code>SDL::Video::lock_surface</code> returns <code>0</code> on success or <code>-1</code> on error.</p>
@@ -630,19 +632,19 @@ a matching unlock.</p>
 </pre>
 
 </div>
-<h2 id="unlock_surface_surface">unlock_surface(surface)</h2>
-<div id="unlock_surface_surface_CONTENT">
-<pre> void SDL::Video::unlock_surface( $surface );
+<h2 id="unlock_surface">unlock_surface</h2>
+<div id="unlock_surface_CONTENT">
+<pre> SDL::Video::unlock_surface( $surface );
 
 </pre>
-<p>Surfaces that were previously locked using <code>SDL::Video::lock_surface</code> must be unlocked with <code>SDL::Video::unlock_surface</code>. Surfaces should 
-be unlocked as soon as possible.
+<p>Surfaces that were previously locked using <a href="#lock_sruface">SDL::Video::lock_surface</a> must be unlocked with <code>SDL::Video::unlock_surface</code>. 
+Surfaces should be unlocked as soon as possible.
 <code>SDL::Video::unlock_surface</code> doesn't return anything.</p>
-<p><strong>Note</strong>: Since 1.1.8, the surface locks are recursive. See <code>SDL::Video::lock_surface</code> for more information. </p>
+<p><strong>Note</strong>: Since 1.1.8, the surface locks are recursive. See <a href="#lock_sruface">SDL::Video::lock_surface</a> for more information. </p>
 
 </div>
-<h2 id="MUSTLOCK_surface">MUSTLOCK(surface)</h2>
-<div id="MUSTLOCK_surface_CONTENT">
+<h2 id="MUSTLOCK">MUSTLOCK</h2>
+<div id="MUSTLOCK_CONTENT">
 <pre> int SDL::Video::MUSTLOCK( $surface );
 
 </pre>
@@ -653,8 +655,8 @@ be unlocked as soon as possible.
 <div id="Screen_Updating_Functions_CONTENT">
 
 </div>
-<h2 id="set_clip_rect_surface_rect">set_clip_rect(surface,rect)</h2>
-<div id="set_clip_rect_surface_rect_CONTENT">
+<h2 id="set_clip_rect">set_clip_rect</h2>
+<div id="set_clip_rect_CONTENT">
 <pre> SDL::Video::set_clip_rect( $surface, $rect );
 
 </pre>
@@ -666,8 +668,8 @@ If rect is NULL the clipping rectangle will be set to the full size of the surfa
 <code>SDL::Video::set_clip_rect</code> doesn't returns anything.</p>
 
 </div>
-<h2 id="get_clip_rect_surface_rect">get_clip_rect(surface,rect)</h2>
-<div id="get_clip_rect_surface_rect_CONTENT">
+<h2 id="get_clip_rect">get_clip_rect</h2>
+<div id="get_clip_rect_CONTENT">
 <pre> SDL::Video::get_clip_rect( $surface, $rect );
 
 </pre>
@@ -698,8 +700,8 @@ The rectangle pointed to by rect will be filled with the clipping rectangle of t
 </pre>
 
 </div>
-<h2 id="blit_surface_src_src_rect_dest_dest_">blit_surface(src,src_rect,dest,dest_rect)</h2>
-<div id="blit_surface_src_src_rect_dest_dest_-2">
+<h2 id="blit_surface">blit_surface</h2>
+<div id="blit_surface_CONTENT">
 <pre> SDL::Video::blit_surface( $src_surface, $src_rect, $dest_surface, $dest_rect );
 
 </pre>
@@ -711,34 +713,34 @@ The final blit rectangle is saved in <code>dst_rect</code> after all clipping is
 The blit function should not be called on a locked surface. I.e. when you use your own drawing functions you may need to lock a surface, 
 but this is not the case with <code>SDL::Video::blit_surface</code>. Like most surface manipulation functions in SDL, it should not be used together 
 with OpenGL.</p>
-<p>The results of blitting operations vary greatly depending on whether <code>SDL_SRCALPHA</code> is set or not. See <code>SDL::Video::set_alpha</code> for an 
-explanation of how this affects your results. Colorkeying and alpha attributes also interact with surface blitting.
+<p>The results of blitting operations vary greatly depending on whether <code>SDL_SRCALPHA</code> is set or not. See <a href="#set_alpha">SDL::Video::set_alpha</a> 
+for an explanation of how this affects your results. Colorkeying and alpha attributes also interact with surface blitting.
 <code>SDL::Video::blit_surface</code> doesn't returns anything.</p>
-<p>For an example see <a href="#load_BMP_filename">load_BMP</a>.</p>
+<p>For an example see <a href="#load_BMP">SDL::Video::load_BMP</a>.</p>
 
 </div>
-<h2 id="update_rect_surface_x_y_width_height">update_rect(surface,x,y,width,height)</h2>
-<div id="update_rect_surface_x_y_width_height-2">
+<h2 id="update_rect">update_rect</h2>
+<div id="update_rect_CONTENT">
 <pre> update_rect( $surface, $left, $top, $width, $height );
 
 </pre>
 <p>Makes sure the given area is updated on the given screen.  
 The rectangle must be confined within the screen boundaries because there's no clipping.
 update_rect doesn't returns any value.</p>
-<p><strong>Note</strong>: This function should not be called while screen is locked by <a href="#lock_surface_surface">SDL::Video::lock_surface</a></p>
+<p><strong>Note</strong>: This function should not be called while screen is locked by <a href="#lock_surface">SDL::Video::lock_surface</a></p>
 <p><strong>Note2</strong>: If <code>x</code>, <code>y</code>, <code>width</code> and <code>height</code> are all equal to 0, <code>update_rect</code> will update the entire screen. </p>
 <p>For an example see <a href="#SYNOPSIS">SYNOPSIS</a></p>
 
 </div>
-<h2 id="update_rects_surface_rects">update_rects(surface,rects) </h2>
-<div id="update_rects_surface_rects_CONTENT">
+<h2 id="update_rects">update_rects</h2>
+<div id="update_rects_CONTENT">
 <pre> update_rects( $surface, @rects );
 
 </pre>
 <p>Makes sure the given list of rectangles is updated on the given screen. 
 The rectangle must be confined within the screen boundaries because there's no clipping.
 <code>update_rects</code> doesn't returns any value.</p>
-<p><strong>Note</strong>: This function should not be called while screen is locked by <a href="#lock_surface_surface">SDL::Video::lock_surface</a>.</p>
+<p><strong>Note</strong>: This function should not be called while screen is locked by <a href="#lock_surface">SDL::Video::lock_surface</a>.</p>
 <p>Example:</p>
 <pre> use SDL;
  use SDL::Video;
@@ -774,8 +776,8 @@ The rectangle must be confined within the screen boundaries because there's no c
 </pre>
 
 </div>
-<h2 id="flip_surface">flip(surface)</h2>
-<div id="flip_surface_CONTENT">
+<h2 id="flip">flip</h2>
+<div id="flip_CONTENT">
 <pre> $flip = SDL::Video::flip( $screen_surface );
 
 </pre>
@@ -786,10 +788,11 @@ On hardware that doesn't support double-buffering or if <code>SDL_SWSURFACE</cod
 <p>A software screen surface is also updated automatically when parts of a SDL window are redrawn, caused by overlapping windows or by 
 restoring from an iconified state. As a result there is no proper double buffer behavior in windowed mode for a software screen, in 
 contrast to a full screen software mode.</p>
-<p>The <code>SDL_DOUBLEBUF</code> flag must have been passed to <code>SDL::Video::set_video_mode</code>, when setting the video mode for this function to 
-perform hardware flipping.</p>
+<p>The <code>SDL_DOUBLEBUF</code> flag must have been passed to <a href="#set_video_mode">SDL::Video::set_video_mode</a>, when setting the video mode for this function 
+to perform hardware flipping.</p>
 <p><code>flip</code> returns <code>0</code> on success or <code>-1</code> on error.</p>
-<p><strong>Note</strong>: If you want to swap the buffers of an initialized OpenGL context, use the function <code>SDL::Video::GL_swap_buffers</code> instead. </p>
+<p><strong>Note</strong>: If you want to swap the buffers of an initialized OpenGL context, use the function <a href="#GL_swap_buffers">SDL::Video::GL_swap_buffers</a> 
+instead. </p>
 <p>Example:</p>
 <pre> use SDL;
  use SDL::Video;
@@ -821,49 +824,49 @@ perform hardware flipping.</p>
 <div id="Palette_Color_and_Pixel_Functions_CO">
 
 </div>
-<h2 id="set_colors_surface_start_colors">set_colors(surface,start,colors)</h2>
-<div id="set_colors_surface_start_colors_CONT">
+<h2 id="set_colors">set_colors</h2>
+<div id="set_colors_CONTENT">
 <pre> $set_colors = SDL::Video::set_colors( $surface, $start, $color1, $color2, ... )
 
 </pre>
 <p>Sets a portion of the colormap for the given 8-bit surface. </p>
 <p>When surface is the surface associated with the current display, the display colormap will be updated with the requested colors. 
-If <code>SDL_HWPALETTE</code> was set in <code>SDL::Video::set_video_mode</code> flags, <code>SDL::Video::set_colors</code> will always return 1, and the palette is 
-guaranteed to be set the way you desire, even if the window colormap has to be warped or run under emulation.
+If <code>SDL_HWPALETTE</code> was set in <a href="#set_video_mode">SDL::Video::set_video_mode</a> flags, <code>SDL::Video::set_colors</code> will always return 1, and the 
+palette is guaranteed to be set the way you desire, even if the window colormap has to be warped or run under emulation.
 The color components of a <a href="/SDL-Color.html">SDL::Color</a> structure are 8-bits in size, giving you a total of 2563 = 16777216 colors.
 Palettized (8-bit) screen surfaces with the <code>SDL_HWPALETTE</code> flag have two palettes, a logical palette that is used for mapping blits to/from 
 the surface and a physical palette (that determines how the hardware will map the colors to the display). 
-<code>SDL::Video::set_colors</code> modifies both palettes (if present), and is equivalent to calling <code>SDL::Video::set_palette</code> with the flags set to 
-( <code>SDL_LOGPAL | SDL_PHYSPAL</code> ). </p>
+<code>SDL::Video::set_colors</code> modifies both palettes (if present), and is equivalent to calling <a href="#set_palette">SDL::Video::set_palette</a> with the 
+flags set to ( <code>SDL_LOGPAL | SDL_PHYSPAL</code> ). </p>
 <p>If <code>surface</code> is not a palettized surface, this function does nothing, returning 0. 
 If all of the colors were set as passed to <code>SDL::Video::set_colors</code>, it will return 1.
 If not all the color entries were set exactly as given, it will return 0, and you should look at the surface palette to determine the 
 actual color palette.</p>
 
 </div>
-<h2 id="set_palette_surface_flags_start_colo">set_palette(surface,flags,start,colors)</h2>
-<div id="set_palette_surface_flags_start_colo-2">
+<h2 id="set_palette">set_palette</h2>
+<div id="set_palette_CONTENT">
 <pre> $set_palette = set_palette( $surface, $flags, $start, $color1, $color2, ... );
 
 </pre>
 <p>Sets a portion of the palette for the given 8-bit surface.</p>
 <p>Palettized (8-bit) screen surfaces with the <code>SDL_HWPALETTE</code> flag have two palettes, a logical palette that is used for mapping blits to/from 
 the surface and a physical palette (that determines how the hardware will map the colors to the display). 
-Non screen surfaces have a logical palette only. <code>SDL::Video::blit</code> always uses the logical palette when blitting surfaces (if it has to 
+Non screen surfaces have a logical palette only. <a href="#blit">SDL::Video::blit</a> always uses the logical palette when blitting surfaces (if it has to 
 convert between surface pixel formats). Because of this, it is often useful to modify only one or the other palette to achieve various 
 special color effects (e.g., screen fading, color flashes, screen dimming).</p>
 <p>This function can modify either the logical or physical palette by specifying <code>SDL_LOGPAL</code> or <code>SDL_PHYSPAL</code> the in the flags parameter.</p>
 <p>When surface is the surface associated with the current display, the display colormap will be updated with the requested colors.
-If <code>SDL_HWPALETTE</code> was set in <code>SDL::Video::set_video_mode</code> flags, <code>SDL::Video::set_palette</code> will always return 1, and the palette is 
-guaranteed to be set the way you desire, even if the window colormap has to be warped or run under emulation.
+If <code>SDL_HWPALETTE</code> was set in <a href="#set_video_mode">SDL::Video::set_video_mode</a> flags, <code>SDL::Video::set_palette</code> will always return 1, and the 
+palette is guaranteed to be set the way you desire, even if the window colormap has to be warped or run under emulation.
 The color components of a <code>SDL::Color</code> structure are 8-bits in size, giving you a total of 2563 = 16777216 colors. </p>
 <p>If <code>surface</code> is not a palettized surface, this function does nothing, returning <code>0</code>. If all of the colors were set as passed to <code>set_palette</code>,
 it will return <code>1</code>. If not all the color entries were set exactly as given, it will return <code>0</code>, and you should look at the surface palette 
 to determine the actual color palette.</p>
 
 </div>
-<h2 id="set_gamma_r_g_b">set_gamma(r,g,b)</h2>
-<div id="set_gamma_r_g_b_CONTENT">
+<h2 id="set_gamma">set_gamma</h2>
+<div id="set_gamma_CONTENT">
 <pre> $set_gamma = SDL::Video::set_gamma( $red_gamma, $green_gamma, $blue_gamma );
 
 </pre>
@@ -922,8 +925,8 @@ with SDL::set_gamma_ramp.</p>
 </pre>
 
 </div>
-<h2 id="get_gamma_ramp_rt_gt_bt">get_gamma_ramp(rt,gt,bt)</h2>
-<div id="get_gamma_ramp_rt_gt_bt_CONTENT">
+<h2 id="get_gamma_ramp">get_gamma_ramp</h2>
+<div id="get_gamma_ramp_CONTENT">
 <pre> $get_gamma_ramp = SDL::Video::get_gamma_ramp( \@red_table, \@green_table, \@blue_table );
 
 </pre>
@@ -954,8 +957,8 @@ with SDL::set_gamma_ramp.</p>
 </pre>
 
 </div>
-<h2 id="set_gamma_ramp_rt_gt_bt">set_gamma_ramp(rt,gt,bt)</h2>
-<div id="set_gamma_ramp_rt_gt_bt_CONTENT">
+<h2 id="set_gamma_ramp">set_gamma_ramp</h2>
+<div id="set_gamma_ramp_CONTENT">
 <pre> $set_gamma_ramp = SDL::Video::set_gamma_ramp( \@red_table, \@green_table, \@blue_table );
 
 </pre>
@@ -964,7 +967,7 @@ mapping between the input and output for that channel.
 The input is the index into the array, and the output is the 16-bit gamma value at that index, scaled to the output color precision. 
 You may pass NULL to any of the channels to leave them unchanged.</p>
 <p>This function adjusts the gamma based on lookup tables, you can also have the gamma calculated based on a &quot;gamma function&quot; parameter 
-with <code>SDL::Video::set_gamma</code>.</p>
+with <a href="#set_gamma">SDL::Video::set_gamma</a>.</p>
 <p>Not all display hardware is able to change gamma. 
 <code>SDL::Video::set_gamma_ramp</code> returns <code>-1</code> on error (or if gamma adjustment is not supported).</p>
 <p>Example:</p>
@@ -999,8 +1002,8 @@ with <code>SDL::Video::set_gamma</code>.</p>
 </pre>
 
 </div>
-<h2 id="map_RGB_pixel_format_r_g_b">map_RGB(pixel_format,r,g,b)</h2>
-<div id="map_RGB_pixel_format_r_g_b_CONTENT">
+<h2 id="map_RGB">map_RGB</h2>
+<div id="map_RGB_CONTENT">
 <pre> $pixel = SDL::Video::map_RGB( $pixel_format, $r, $g, $b );
 
 </pre>
@@ -1041,8 +1044,8 @@ If the <a href="/SDL-PixelFormat.html">SDL::PixelFormat</a>'s  bpp (color depth)
 </pre>
 
 </div>
-<h2 id="map_RGBA_pixel_format_r_g_b_a">map_RGBA(pixel_format,r,g,b,a)</h2>
-<div id="map_RGBA_pixel_format_r_g_b_a_CONTEN">
+<h2 id="map_RGBA">map_RGBA</h2>
+<div id="map_RGBA_CONTENT">
 <pre> $pixel = SDL::Video::map_RGB( $pixel_format, $r, $g, $b, $a );
 
 </pre>
@@ -1054,19 +1057,19 @@ If the pixel format bpp (color depth) is less than 32-bpp then the unused upper 
 with a 16-bpp format the return value can be assigned to a Uint16, and similarly a Uint8 for an 8-bpp format).</p>
 
 </div>
-<h2 id="get_RGB_pixel_format_pixel">get_RGB(pixel_format,pixel)</h2>
-<div id="get_RGB_pixel_format_pixel_CONTENT">
+<h2 id="get_RGB">get_RGB</h2>
+<div id="get_RGB_CONTENT">
 <pre> $rgb_array_ref = SDL::Video::get_RGB( $pixel_format, $pixel );
 
 </pre>
 <p>Returns RGB values from a pixel in the specified pixel format. The pixel is an integer (e.g. 16bit RGB565, 24/32bit RGB888).
 This function uses the entire 8-bit [0..255] range when converting color components from pixel formats with less than 8-bits per RGB 
 component (e.g., a completely white pixel in 16-bit RGB565 format would return [0xff, 0xff, 0xff] not [0xf8, 0xfc, 0xf8]).</p>
-<p>For an example see <code>SDL::Video::map_RGB</code>.</p>
+<p>For an example see <a href="#map_RGB">SDL::Video::map_RGB</a>.</p>
 
 </div>
-<h2 id="get_RGBA_pixel_format_pixel">get_RGBA(pixel_format,pixel)</h2>
-<div id="get_RGBA_pixel_format_pixel_CONTENT">
+<h2 id="get_RGBA">get_RGBA</h2>
+<div id="get_RGBA_CONTENT">
 <pre> $rgba_array_ref = SDL::Video::get_RGBA( $pixel_format, $pixel );
 
 </pre>
@@ -1080,29 +1083,26 @@ component (e.g., a completely white pixel in 16-bit RGB565 format would return [
 <div id="GL_Methods_CONTENT">
 
 </div>
-<h2 id="GL_load_library_path">GL_load_library(path)</h2>
-<div id="GL_load_library_path_CONTENT">
+<h2 id="GL_load_library">GL_load_library</h2>
+<div id="GL_load_library_CONTENT">
 <pre> $gl_load_lib = SDL::Video::GL_load_library( 'path/to/static/glfunctions.dll' );
 
 </pre>
-<p>If you wish, you may load the OpenGL library from the given path at runtime, this must be done before <code>SDL::Video::set_video_mode</code> is called.
-You must then use <code>SDL::Video::GL_get_proc_address</code> to retrieve function pointers to GL functions. </p>
+<p>If you wish, you may load the OpenGL library from the given path at runtime, this must be done before 
+<a href="#set_video_mode">SDL::Video::set_video_mode</a> is called. You must then use <a href="#GL_get_proc_address">SDL::Video::GL_get_proc_address</a> to retrieve 
+function pointers to GL functions. </p>
 <p><code>GL_load_library</code> returns <code>0</code> on success or <code>-1</code> or error.</p>
 
 </div>
-<h2 id="GL_get_proc_address_proc">GL_get_proc_address(proc)</h2>
-<div id="GL_get_proc_address_proc_CONTENT">
- 
+<h2 id="GL_get_proc_address">GL_get_proc_address</h2>
+<div id="GL_get_proc_address_CONTENT">
+<pre> $proc_address = SDL::Video::GL_get_proc_address( $proc );
 
-
-
-
-
-
+</pre>
 <p>Returns the address of the GL function proc, or NULL if the function is not found. If the GL library is loaded at runtime, with 
-<code>SDL::Video::GL_load_library</code>, then all GL functions must be retrieved this way. Usually this is used to retrieve function pointers to OpenGL 
-extensions. Note that this function needs an OpenGL context to function properly, so it should be called after <code>SDL::Video::set_video_mode</code>
-has been called (with the <code>SDL_OPENGL</code> flag).</p>
+<a href="#GL_load_library">SDL::Video::GL_load_library</a>, then all GL functions must be retrieved this way. Usually this is used to retrieve function 
+pointers to OpenGL extensions. Note that this function needs an OpenGL context to function properly, so it should be called after 
+<a href="#set_video_mode">SDL::Video::set_video_mode</a> has been called (with the <code>SDL_OPENGL</code> flag).</p>
 <p>It returns undef if the function is not found.</p>
 <p>Example:</p>
 <pre> my $has_multitexture = 1;
@@ -1122,29 +1122,29 @@ has been called (with the <code>SDL_OPENGL</code> flag).</p>
 </pre>
 
 </div>
-<h2 id="GL_get_attribute_attr">GL_get_attribute(attr)</h2>
-<div id="GL_get_attribute_attr_CONTENT">
+<h2 id="GL_get_attribute">GL_get_attribute</h2>
+<div id="GL_get_attribute_CONTENT">
 <pre> $value = SDL::Video::GL_get_attribute( $attr );
 
 </pre>
-<p>It returns SDL/OpenGL attribute <code>attr</code>. This is useful after a call to <code>SDL::Video::set_video_mode</code> to check whether your attributes have 
-been set as you expected. 
-<code>SDL::Video::GL_get_attribute</code> returns undef if the attribute is not found.</p>
+<p>It returns SDL/OpenGL attribute <code>attr</code>. This is useful after a call to <a href="#set_video_mode">SDL::Video::set_video_mode</a> to check whether your 
+attributes have been set as you expected. 
+<code>SDL::Video::GL_get_attribute</code> returns <code>undef</code> if the attribute is not found.</p>
 <p>Example:</p>
 <pre> print( SDL::Video::GL_set_attribute(SDL_GL_RED_SIZE) );
 
 </pre>
 
 </div>
-<h2 id="GL_set_attribute_attr_value">GL_set_attribute(attr,value)</h2>
-<div id="GL_set_attribute_attr_value_CONTENT">
+<h2 id="GL_set_attribute">GL_set_attribute</h2>
+<div id="GL_set_attribute_CONTENT">
 <pre> $set_attr = SDL::Video::GL_set_attribute( $attr, $value );
 
 </pre>
 <p>This function sets the given OpenGL attribute <code>attr</code> to <code>value</code>. The requested attributes will take effect after a call to 
-<code>SDL::Video::set_video_mode</code>.
-You should use <code>GL_get_attribute</code> to check the values after a <code>set_video_mode</code> call, since the values obtained can differ from the 
-requested ones.</p>
+<a href="#set_video_mode">SDL::Video::set_video_mode</a>.
+You should use <code>SDL::Video::GL_get_attribute|/GL_get_attribute</code> to check the values after a <a href="#set_video_mode">SDL::Video::set_video_mode</a> call, 
+since the values obtained can differ from the requested ones.</p>
 <p>Available attributes:</p>
 <ul>
 		<li><code>SDL_GL_RED_SIZE</code>	</li>
@@ -1189,30 +1189,30 @@ or disabled using the <code>SDL_GL_DOUBLEBUFFER</code> attribute. </p>
 <p>see <a href="/SDL-Overlay.html">SDL::Overlay</a> </p>
 
 </div>
-<h2 id="lock_YUV_overlay_overlay">lock_YUV_overlay(overlay)</h2>
-<div id="lock_YUV_overlay_overlay_CONTENT">
+<h2 id="lock_YUV_overlay">lock_YUV_overlay</h2>
+<div id="lock_YUV_overlay_CONTENT">
 <pre> $lock_overlay = SDL::Video::lock_YUV_overlay( $overlay );
 
 </pre>
-<p>Much the same as <code>SDL::Video::lock_surface</code>, <code>lock_YUV_overlay</code> locks the overlay for direct access to pixel data.
+<p>Much the same as <a href="#lock_surface">SDL::Video::lock_surface</a>, <code>lock_YUV_overlay</code> locks the overlay for direct access to pixel data.
 It returns <code>0</code> on success or <code>-1</code> on error.</p>
 
 </div>
-<h2 id="unlock_YUV_overlay_overlay">unlock_YUV_overlay(overlay)</h2>
-<div id="unlock_YUV_overlay_overlay_CONTENT">
+<h2 id="unlock_YUV_overlay">unlock_YUV_overlay</h2>
+<div id="unlock_YUV_overlay_CONTENT">
 <pre> SDL::Video::unlock_YUV_overlay( $overlay );
 
 </pre>
-<p>The opposite to <code>SDL::Video::lock_YUV_overlay</code>. Unlocks a previously locked overlay. An overlay must be unlocked before it can be displayed. 
-<code>unlock_YUV_overlay</code> does not return anything.</p>
+<p>The opposite to <a href="#sock_YUV_overlay">SDL::Video::lock_YUV_overlay</a>. Unlocks a previously locked overlay. An overlay must be unlocked before it 
+can be displayed. <code>unlock_YUV_overlay</code> does not return anything.</p>
 
 </div>
-<h2 id="display_YUV_overlay_overlay_dstrect">display_YUV_overlay(overlay,dstrect)</h2>
-<div id="display_YUV_overlay_overlay_dstrect_">
+<h2 id="display_YUV_overlay">display_YUV_overlay</h2>
+<div id="display_YUV_overlay_CONTENT">
 <pre> $display_overlay = SDL::Video::display_YUV_overlay( $overlay, $dstrect );
 
 </pre>
-<p>Blit the overlay to the display surface specified when the overlay was created. The <code>SDL::Rect</code> structure, <code>dstrect</code>, specifies a rectangle 
+<p>Blit the overlay to the display surface specified when the overlay was created. The <a href="/SDL-Rect.html">SDL::Rect</a> structure, <code>dstrect</code>, specifies a rectangle 
 on the display where the overlay is drawn. The <code>x</code> and <code>y</code> fields of <code>dstrect</code> specify the upper left location in display coordinates. 
 The overlay is scaled (independently in x and y dimensions) to the size specified by dstrect, and is <code>optimized</code> for 2x scaling</p>
 <p>It returns <code>0</code> on success or <code>-1</code> on error.</p>
@@ -1222,8 +1222,8 @@ The overlay is scaled (independently in x and y dimensions) to the size specifie
 <div id="Window_Management_Functions_CONTENT">
 
 </div>
-<h2 id="wm_set_caption_title_icon">wm_set_caption(title,icon)</h2>
-<div id="wm_set_caption_title_icon_CONTENT">
+<h2 id="wm_set_caption">wm_set_caption</h2>
+<div id="wm_set_caption_CONTENT">
 <pre> SDL::Video::wm_set_caption( $title, $icon );
 
 </pre>
@@ -1250,7 +1250,7 @@ bar or desktop when the window is minimized). As with title this string may be f
 </pre>
 
 </div>
-<h2 id="wm_get_caption">wm_get_caption()</h2>
+<h2 id="wm_get_caption">wm_get_caption</h2>
 <div id="wm_get_caption_CONTENT">
 <pre> SDL::Video::wm_get_caption( $title, $icon );
 
@@ -1276,13 +1276,14 @@ bar or desktop when the window is minimized). As with title this string may be f
 </pre>
 
 </div>
-<h2 id="wm_set_icon_icon">wm_set_icon(icon)</h2>
-<div id="wm_set_icon_icon_CONTENT">
+<h2 id="wm_set_icon">wm_set_icon</h2>
+<div id="wm_set_icon_CONTENT">
 <pre> SDL::Video::wm_set_icon( $icon );
 
 </pre>
 <p>Sets the icon for the display window. Win32 icons must be 32x32.</p>
-<p>This function must be called before the first call to <code>SDL::Video::set_video_mode</code>. Note that this means <code>SDL::Image</code> cannot be used.</p>
+<p>This function must be called before the first call to <a href="#set_video_mode">SDL::Video::set_video_mode</a>. Note that this means <a href="/SDL-Image.html">SDL::Image</a> 
+cannot be used.</p>
 <p>The shape is determined by the colorkey or alpha channel of the icon, if any. If neither of those are present, the icon is made opaque 
 (no transparency).</p>
 <p>Example:</p>
@@ -1302,8 +1303,8 @@ bar or desktop when the window is minimized). As with title this string may be f
 </pre>
 
 </div>
-<h2 id="wm_grab_input_mode">wm_grab_input(mode)</h2>
-<div id="wm_grab_input_mode_CONTENT">
+<h2 id="wm_grab_input">wm_grab_input</h2>
+<div id="wm_grab_input_CONTENT">
 <pre> $grab_mode = SDL::Video::wm_grab_input($mode);
 
 </pre>
@@ -1319,7 +1320,7 @@ and not interpreted by a window manager, if any.</p>
 
 
 </div>
-<h2 id="wm_iconify_window">wm_iconify_window()</h2>
+<h2 id="wm_iconify_window">wm_iconify_window</h2>
 <div id="wm_iconify_window_CONTENT">
 <pre> $iconify_window = SDL::Video::wm_iconify_window();
 
@@ -1347,8 +1348,8 @@ the application will receive a <code>SDL_APPACTIVE</code> loss event (see Applic
 </pre>
 
 </div>
-<h2 id="wm_toggle_fullscreen_surface">wm_toggle_fullscreen(surface)</h2>
-<div id="wm_toggle_fullscreen_surface_CONTENT">
+<h2 id="wm_toggle_fullscreen">wm_toggle_fullscreen</h2>
+<div id="wm_toggle_fullscreen_CONTENT">
 <pre> $toggle = SDL::Video::wm_toggle_fullscreen( $surface );
 
 </pre>
