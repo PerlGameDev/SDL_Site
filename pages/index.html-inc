@@ -11,11 +11,9 @@
 </ul>
 </li>
 <li><a href="#Latest_News">Latest News</a>
-<ul><li><a href="#November_13th_2009">November 13th 2009</a>
+<ul><li><a href="#November_30th_2009">November 30th 2009</a>
 <ul><li><a href="#CPAN_Release">CPAN Release</a></li>
 <li><a href="#Active_Development">Active Development</a>
-</li>
-<li><a href="#Some_Eye_Candy">Some Eye Candy</a>
 </li>
 </ul>
 </li>
@@ -63,13 +61,22 @@
 <div id="Latest_News_CONTENT">
 
 </div>
-<h2 id="November_13th_2009">November 13th 2009</h2>
-<div id="November_13th_2009_CONTENT">
+<h2 id="November_30th_2009">November 30th 2009</h2>
+<div id="November_30th_2009_CONTENT">
 
 </div>
 <h3 id="CPAN_Release">CPAN Release</h3>
 <div id="CPAN_Release_CONTENT">
+
+
+
+
+<p>SDL 2.3_1 (Alpha) is on CPAN. The new API has many changes, read the <a href="http://sdl.perl.org/blog-0001.html">release notes</a>. </p>
 <p>SDL Perl is v2.2.6 on CPAN. The last of it's kind. This is the last release which will have the old API. </p>
+
+
+
+
 
 </div>
 <h3 id="Active_Development">Active Development</h3>
@@ -78,7 +85,7 @@
 <dl>
 	<dt>v2.3 100% Core of SDL C API migrated without MultiThreading </dt>
 	<dd>
-		<p>Complete access to these functions <a href="http://www.libsdl.org/cgi/docwiki.cgi/SDL_API">SDL_API</a>.</p>
+		<p>(80% done) Complete access to these functions <a href="http://www.libsdl.org/cgi/docwiki.cgi/SDL_API">SDL_API</a>.</p>
 		<p>MultiThreading is doable with this release but will be focused on later</p>
 	</dd>
 	<dt>v2.4 SDL_Image, SDL_Net, SDL_Pango, SDL_TTF, SDL_GFX &amp; SDL_Mixer Support</dt>
@@ -91,18 +98,6 @@
 		<p>This release is undecided as of now. Please talk to us on the Channel or Make Tickets</p>
 	</dd>
 </dl>
-
-<h3 id="Some_Eye_Candy">Some Eye Candy</h3>                                                 
-<div id="Some_Eye_Candy_CONTENT">                                                               
-<p>Here is a video of a game that works on the new API:</p>
-
-<object width="425" height="344"><param name="movie"                               
-                 value="http://www.youtube.com/v/W0wdkKB0lvg&hl=en_US&fs=1&"></param><param         
-                 name="allowFullScreen" value="true"></param><param name="allowscriptaccess"        
-                 value="always"></param><embed                                                      
-                 src="http://www.youtube.com/v/W0wdkKB0lvg&hl=en_US&fs=1&"                          
-                 type="application/x-shockwave-flash" allowscriptaccess="always"                    
-                 allowfullscreen="true" width="425" height="344"></embed></object>
 
 </div>
 </div>
