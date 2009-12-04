@@ -21,9 +21,10 @@
 </ul>
 </li>
 <li><a href="#set_error">set_error</a></li>
-<li><a href="#get_error">get_error</a>
-</li>
+<li><a href="#get_error">get_error</a></li>
 </ul>
+</li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -42,48 +43,57 @@
 <div id="SUPPORTED_FORMATS_CONTENT">
 <p>The following types are supported:</p>
 <dl>
-	<dt>*
-TGA
-    TrueVision Targa (MUST have .tga) </dt>
-	<dt>* 
-BMP
-    Windows Bitmap(.bmp) </dt>
-	<dt>*
-PNM
-    Portable Anymap (.pnm)
-    .pbm = Portable BitMap (mono)
-    .pgm = Portable GreyMap (256 greys)
-    .ppm = Portable PixMap (full color)</dt>
-	<dt>* 
-XPM
-    X11 Pixmap (.xpm) can be #included directly in code
-    This is NOT the same as XBM(X11 Bitmap) format, which is for monocolor images. </dt>
-	<dt>* 
-XCF
-    GIMP native (.xcf) (XCF = eXperimental Computing Facility?)
-    This format is always changing, and since there's no library supplied by the GIMP project to load XCF, the loader may frequently fail to load much of any image from an XCF file. It's better to load this in GIMP and convert to a better supported image format. </dt>
-	<dt>* 
-PCX
-    ZSoft IBM PC Paintbrush (.pcx) </dt>
-	<dt>*
-GIF
-    CompuServe Graphics Interchange Format (.gif) </dt>
-	<dt>*
-JPG
-    Joint Photographic Experts Group JFIF format (.jpg or .jpeg) </dt>
-	<dt>* 
-TIF
-    Tagged Image File Format (.tif or .tiff) </dt>
-	<dt>*
-LBM
-    Interleaved Bitmap (.lbm or .iff) FORM : ILBM or PBM(packed bitmap)
-    HAM6, HAM8, and 24bit types are not supported. </dt>
-	<dt>*
-PNG
-    Portable Network Graphics (.png) =item *</dt>
-	<dt>* 
-XV
-     ???</dt>
+	<dt>TGA</dt>
+	<dd>
+		<p>TrueVision Targa (MUST have .tga) </p>
+	</dd>
+	<dt>BMP</dt>
+	<dd>
+		<p>Windows Bitmap(.bmp) </p>
+	</dd>
+	<dt>PNM</dt>
+	<dd>
+		<p>Portable Anymap (.pnm)
+.pbm = Portable BitMap (mono)
+.pgm = Portable GreyMap (256 greys)
+.ppm = Portable PixMap (full color)</p>
+	</dd>
+	<dt>XPM</dt>
+	<dd>
+		<p>X11 Pixmap (.xpm) can be #included directly in code
+This is NOT the same as XBM(X11 Bitmap) format, which is for monocolor images. </p>
+	</dd>
+	<dt>XCF</dt>
+	<dd>
+		<p>GIMP native (.xcf) (XCF = eXperimental Computing Facility?)
+This format is always changing, and since there's no library supplied by the GIMP project to load XCF, the loader may frequently fail to load much of any image from an XCF file. It's better to load this in GIMP and convert to a better supported image format. </p>
+	</dd>
+	<dt>PCX</dt>
+	<dd>
+		<p>ZSoft IBM PC Paintbrush (.pcx) </p>
+	</dd>
+	<dt>GIF</dt>
+	<dd>
+		<p>CompuServe Graphics Interchange Format (.gif) </p>
+	</dd>
+	<dt>JPG</dt>
+	<dd>
+		<p>Joint Photographic Experts Group JFIF format (.jpg or .jpeg) </p>
+	</dd>
+	<dt>TIF</dt>
+	<dd>
+		<p>Tagged Image File Format (.tif or .tiff) </p>
+	</dd>
+	<dt>LBM</dt>
+	<dd>
+		<p>Interleaved Bitmap (.lbm or .iff) FORM : ILBM or PBM(packed bitmap)
+HAM6, HAM8, and 24bit types are not supported. </p>
+	</dd>
+	<dt>PNG</dt>
+	<dd>
+		<p>Portable Network Graphics (.png) </p>
+	</dd>
+	<dt>XV</dt>
 </dl>
 
 </div>
@@ -103,13 +113,13 @@ XV
 </pre>
 <p>$file Image file name to load a surface from. </p>
 <p>Load file for use as an image in a new <a href="/SDL-Surface.html">SDL::Surface</a>. This actually calls <code>IMG_LoadTyped_RW</code> the binded function to <a href="/SDL-Image::load_typed_rw.html">SDL::Image::load_typed_rw</a>, with the file extension used as the type string. This can load all supported image files, including TGA as long as the filename ends with &quot;.tga&quot;. It is best to call this outside of event loops, and rather keep the loaded images around until you are really done with them, as disk speed and image conversion to a surface is not that speedy.  
-Note: If the image format loader requires initialization, it will attempt to do that the first time it is needed if you have not already called IMG_Init to load support for your image format.
-Note: If the image format supports a transparent pixel, SDL_image will set the colorkey for the surface. You can enable RLE acceleration on the surface afterwards by calling:
-SDL::Video::set_color_key($image, SDL_RLEACCEL, $image-&gt;format-&gt;colorkey);</p>
+Note: If the image format loader requires initialization, it will attempt to do that the first time it is needed if you have not already called <a href="/SDL-Image::init.html">SDL::Image::init</a> to load support for your image format.
+Note: If the image format supports a transparent pixel, <a href="/SDL-Image.html">SDL::Image</a> will set the colorkey for the surface. You can enable RLE acceleration on the surface afterwards by calling:
+<a href="/SDL-Video::set_color_key.html">SDL::Video::set_color_key</a></p>
+<pre>  my $image = SDL::Image::load( $some_png_file );
+  SDL::Video::set_color_key($image, SDL_RLEACCEL, $image-&gt;format-&gt;colorkey);
 
-
-
-
+</pre>
 
 </div>
 <h2 id="Returns">Returns</h2>
@@ -158,12 +168,9 @@ SDL::Video::set_color_key($image, SDL_RLEACCEL, $image-&gt;format-&gt;colorkey);
 <div id="Flags_CONTENT">
 <p>bitwise OR'd set of image formats to support by loading a library now. The values you may OR together to pass in are: </p>
 <dl>
-	<dt>*
- IMG_INIT_JPG = 0x00000001</dt>
-	<dt>*
- IMG_INIT_PNG = 0x00000002</dt>
-	<dt>*
- IMG_INIT_TIF = 0x00000004  </dt>
+	<dt>IMG_INIT_JPG </dt>
+	<dt>IMG_INIT_PNG </dt>
+	<dt>IMG_INIT_TIF</dt>
 </dl>
 <p>Initialize by loading support as indicated by the flags, or at least return success if support is already loaded. You may call this multiple times, which will actually require you to call IMG_Quit just once to clean up. You may call this function with a 0 to retrieve whether support was built-in or not loaded yet.
 Note: to load JPG, PNG, and/or TIF images you can call IMG_Init with the right IMG_INIT_* flags OR'd together before you program gets busy, to prevent a later hiccup while it loads the library, and to check that you do have the support that you need before you try and use it.
@@ -182,9 +189,6 @@ Note: this function does not always set the error string, so do not depend on SD
   my $flags = IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_JPG;
   my $inited = SDL::Image::init($flags);
 
-
-
-
 </pre>
 
 </div>
@@ -194,6 +198,11 @@ Note: this function does not always set the error string, so do not depend on SD
 </div>
 <h2 id="get_error">get_error</h2>
 <div id="get_error_CONTENT">
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><a href="/SDL.html">SDL</a>, <a href="/SDL-Surface.html">SDL::Surface</a>, <a href="/SDL-Video.html">SDL::Video</a>, <a href="/SDL-RWOps.html">SDL::RWOps</a></p>
 
 </div>
 </div>
