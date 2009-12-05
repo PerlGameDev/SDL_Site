@@ -4,22 +4,41 @@
 
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
-<li><a href="#SUPPORTED_FORMATS">SUPPORTED FORMATS </a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
-<li><a href="#METHODS">METHODS</a>
+<li><a href="#SUPPORTED_FORMATS">SUPPORTED FORMATS </a></li>
+<li><a href="#LOADING_METHODS">LOADING METHODS</a>
 <ul><li><a href="#load">load</a></li>
 <li><a href="#Returns">Returns</a></li>
-<li><a href="#load_typed_rw">load_typed_rw</a></li>
-<li><a href="#is_TYPE">is_[TYPE]</a></li>
-<li><a href="#load_TYPE_rw">load_[TYPE]_rw</a></li>
-<li><a href="#read_XPM_from_array">read_XPM_from_array</a></li>
-<li><a href="#linked_version">linked_version</a></li>
-<li><a href="#init">init</a>
-<ul><li><a href="#Flags">Flags</a></li>
-<li><a href="#Return">Return</a></li>
+<li><a href="#load_typed_rw">load_typed_rw</a>
+<ul><li><a href="#RETURNS_The_image_as_a_new_a_href_SD">RETURNS
+The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors. </a></li>
+</ul>
+</li>
+<li><a href="#is_TYPE">is_[TYPE]</a>
+<ul><li><a href="#RETURN">RETURN</a></li>
+</ul>
+</li>
+<li><a href="#load_TYPE_rw">load_[TYPE]_rw</a>
+<ul><li><a href="#RETURN-2">RETURN</a></li>
 <li><a href="#Example">Example</a></li>
 </ul>
 </li>
+<li><a href="#read_XPM_from_array">read_XPM_from_array</a>
+<ul><li><a href="#RETURNS">RETURNS</a></li>
+<li><a href="#EXAMPLE">EXAMPLE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#MISC_METHODS">MISC METHODS</a>
+<ul><li><a href="#linked_version">linked_version</a></li>
+<li><a href="#init">init</a>
+<ul><li><a href="#Flags">Flags</a></li>
+<li><a href="#Return">Return</a></li>
+<li><a href="#Example-2">Example</a></li>
+</ul>
+</li>
+<li><a href="#quit">quit</a></li>
 <li><a href="#set_error">set_error</a></li>
 <li><a href="#get_error">get_error</a></li>
 </ul>
@@ -37,6 +56,11 @@
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
 <p>SDL::Image allows you to load many different format of images into memory as an SDL::Surface.</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>SDL, Image</p>
 
 </div>
 <h1 id="SUPPORTED_FORMATS">SUPPORTED FORMATS </h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -94,16 +118,17 @@ HAM6, HAM8, and 24bit types are not supported. </p>
 		<p>Portable Network Graphics (.png) </p>
 	</dd>
 	<dt>XV</dt>
+	<dt>ICO</dt>
+	<dt>CUR</dt>
 </dl>
 
-</div>
-<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="CATEGORY_CONTENT">
-<p>TODO, SDL, Image</p>
+
+
+
 
 </div>
-<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="METHODS_CONTENT">
+<h1 id="LOADING_METHODS">LOADING METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="LOADING_METHODS_CONTENT">
 
 </div>
 <h2 id="load">load</h2>
@@ -129,18 +154,205 @@ Note: If the image format supports a transparent pixel, <a href="/SDL-Image.html
 </div>
 <h2 id="load_typed_rw">load_typed_rw</h2>
 <div id="load_typed_rw_CONTENT">
+<pre>  SDL::Image::load_typed_rw($src, $freesrc, $type);
+
+</pre>
+<dl>
+	<dt>src</dt>
+	<dd>
+		<p>The source <a href="/SDL-RWops.html">SDL::RWops</a> as a pointer. The image is loaded from this. </p>
+	</dd>
+	<dt>freesrc</dt>
+	<dd>
+		<p>A non-zero value mean is will automatically close/free the src for you. Since SDL Perl cannot handle the memory inside this function you would most likely want 1 here.</p>
+	</dd>
+	<dt>type</dt>
+	<dd>
+		<p>A string that indicates which format type to interpret the image as.</p>
+		<p>Here is a list of the currently recognized strings (case is not important):</p>
+		<p>
+			<dl>
+				<dt>&quot;BMP&quot;</dt>
+				<dt>&quot;CUR&quot;</dt>
+				<dt>&quot;GIF&quot;</dt>
+				<dt>&quot;ICO&quot;</dt>
+				<dt>&quot;JPG&quot;</dt>
+				<dt>&quot;LBM&quot;</dt>
+				<dt>&quot;PCX&quot;</dt>
+				<dt>&quot;PNG&quot;</dt>
+				<dt>&quot;PNM&quot;</dt>
+				<dt>&quot;TGA&quot;</dt>
+				<dt>&quot;TIF&quot;</dt>
+				<dt>&quot;XCF&quot;</dt>
+				<dt>&quot;XPM&quot;</dt>
+				<dt>&quot;XV&quot;</dt>
+			</dl>
+		</p>
+	</dd>
+</dl>
+<p>Load src for use as a surface. This can load all supported image formats. This method does not guarantee that the format specified by type is the format of the loaded image, except in the case when TGA format is specified (or any other non-magicable format in the future). Using SDL_RWops is not covered here, but they enable you to load from almost any source.
+Note: If the image format loader requires initialization, it will attempt to do that the first time it is needed if you have not already called <a href="/SDL-Image::init.html">SDL::Image::init</a> to load support for your image format.
+Note: If the image format supports a transparent pixel, <a href="/SDL-Image.html">SDL::Image</a> will set the colorkey for the surface. You can enable RLE acceleration on the surface afterwards by calling:
+<a href="/SDL-Video::set_color_key.html">SDL::Video::set_color_key</a></p>
+<pre>  use SDL;
+  use SDL::RWOps;
+  use SDL::Image;
+
+  my $file2 = SDL::RWOps-&gt;new_file(&quot;test/data/menu.png&quot;, &quot;rb&quot;);
+  my $image = SDL::Image::load_typed_rw($file2, 1, &quot;PNG&quot;);
+
+  SDL::Video::set_color_key($image, SDL_RLEACCEL, $image-&gt;format-&gt;colorkey);
+
+</pre>
+
+</div>
+<h3 id="RETURNS_The_image_as_a_new_a_href_SD">RETURNS
+The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors. </h3>
+<div id="RETURNS_The_image_as_a_new_a_href_SD-2">
 
 </div>
 <h2 id="is_TYPE">is_[TYPE]</h2>
 <div id="is_TYPE_CONTENT">
+<p>Test for valid, supported image files:</p>
+<dl>
+	<dt>is_ICO</dt>
+	<dt>is_CUR</dt>
+	<dt>is_PNG</dt>
+	<dt>is_BMP</dt>
+	<dt>is_GIF</dt>
+	<dt>is_JPG</dt>
+	<dt>is_LBM</dt>
+	<dt>is_PCX</dt>
+	<dt>is_PNM </dt>
+	<dt>is_TIF</dt>
+	<dt>is_XCF</dt>
+	<dt>is_XPM</dt>
+	<dt>is_XV</dt>
+</dl>
+<p>These functions take a <a href="/SDL-RWOps.html">SDL::RWOps</a> as a parameter.</p>
+<pre> use SDL::RWOps;
+ use SDL::Image;
+
+ my $file = SDL::RWOps-&gt;new_file(&quot;file&quot;, &quot;rb&quot;);
+
+ print &quot;Image is BMP&quot; if ( SDL::is_BMP );
+
+
+
+
+</pre>
+
+</div>
+<h3 id="RETURN">RETURN</h3>
+<div id="RETURN_CONTENT">
+<p>1 if the image is a valid [TYPE]  and the [TYPE] format support is compiled into SDL_image. 0 is returned otherwise. </p>
 
 </div>
 <h2 id="load_TYPE_rw">load_[TYPE]_rw</h2>
 <div id="load_TYPE_rw_CONTENT">
+<p>Specific loader for known formats:</p>
+<dl>
+	<dt>load_ICO_rw</dt>
+	<dt>load_CUR_rw</dt>
+	<dt>load_PNG_rw</dt>
+	<dt>load_BMP_rw</dt>
+	<dt>load_GIF_rw</dt>
+	<dt>load_JPG_rw</dt>
+	<dt>load_LBM_rw</dt>
+	<dt>load_PCX_rw</dt>
+	<dt>load_PNM_rw </dt>
+	<dt>load_TIF_rw</dt>
+	<dt>load_XCF_rw</dt>
+	<dt>load_XPM_rw</dt>
+	<dt>load_XV_rw</dt>
+</dl>
+<p>These functions take a <a href="/SDL-RWop.html">SDL::RWop</a> as a parameter</p>
+
+</div>
+<h3 id="RETURN-2">RETURN</h3>
+<div id="RETURN_CONTENT-2">
+<p>The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors, like if the [TYPE] is not supported, or a read error.</p>
+
+</div>
+<h3 id="Example">Example</h3>
+<div id="Example_CONTENT">
+<pre> use SDL;
+ use SDL::RWOps;
+ use SDL::Image;
+
+ my $file = SDL::RWOps-&gt;new_file(&quot;file.png&quot;, &quot;rb&quot;);  
+
+ my $image = SDL::Image::load_PNG_rw($file);
+
+ die SDL::get_error if (!$image);  
+
+</pre>
 
 </div>
 <h2 id="read_XPM_from_array">read_XPM_from_array</h2>
 <div id="read_XPM_from_array_CONTENT">
+<pre> my $picture = SDL::Image::read_XPM_from_array(\@XPM, $width);
+
+</pre>
+<p>This functions takes the reference of an array in the valid @XPM format. Also the $width of the XPM image.</p>
+
+</div>
+<h3 id="RETURNS">RETURNS</h3>
+<div id="RETURNS_CONTENT">
+<p>The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors, like if XPM is not supported, or a read error. </p>
+
+</div>
+<h3 id="EXAMPLE">EXAMPLE</h3>
+<div id="EXAMPLE_CONTENT">
+<pre>	my @XPM= (
+	'30 30 9 1',
+	' 	c #FFFFFF',
+	'.	c #EFEFEF',
+	'+	c #CFCFCF',
+	'@	c #9F9F9F',
+	'#	c #808080',
+	'$	c #505050',
+	'%	c #202020',
+	'&amp;	c #000000',
+	'*	c #303030',
+	'                              ',
+	'                              ',
+	'                              ',
+	'                              ',
+	'                              ',
+	'                              ',
+	'                              ',
+	'                              ',
+	'                              ',
+	'           .+@##@+.           ',
+	'          .@$%&amp;&amp;%$@.          ',
+	'         .@*&amp;&amp;&amp;&amp;&amp;&amp;*@.         ',
+	'         +$&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;$+         ',
+	'         @%&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;%@         ',
+	'         #&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;#         ',
+	'         #&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;#         ',
+	'         @%&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;%@         ',
+	'         +$&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;$+         ',
+	'         .@*&amp;&amp;&amp;&amp;&amp;&amp;*@.         ',
+	'          .@$%&amp;&amp;%$@.          ',
+	'           .+@##@+.           ',
+	'                              ',
+	'                              ',
+	'                              ',
+	'                              ',
+	'                              ',
+	'                              ',
+	'                              ',
+	'                              ',
+	'                              ',);
+
+	my $picture = SDL::Image::read_XPM_from_array(\@XPM, 30);
+
+</pre>
+
+</div>
+<h1 id="MISC_METHODS">MISC METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="MISC_METHODS_CONTENT">
 
 </div>
 <h2 id="linked_version">linked_version</h2>
@@ -155,13 +367,6 @@ Note: If the image format supports a transparent pixel, <a href="/SDL-Image.html
 <h2 id="init">init</h2>
 <div id="init_CONTENT">
 <p><strong>For version SDL_image 1.2.10 and up</strong></p>
-
-
-
-
-
-
-
 
 </div>
 <h3 id="Flags">Flags</h3>
@@ -180,11 +385,11 @@ Note: this function does not always set the error string, so do not depend on SD
 </div>
 <h3 id="Return">Return</h3>
 <div id="Return_CONTENT">
-<p>A bitmask of all the currentl initted image loaders.</p>
+<p>A bitmask of all the currently inited image loaders.</p>
 
 </div>
-<h3 id="Example">Example</h3>
-<div id="Example_CONTENT">
+<h3 id="Example-2">Example</h3>
+<div id="Example_CONTENT-2">
 <pre>  use SDL::Image;
   my $flags = IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_JPG;
   my $inited = SDL::Image::init($flags);
@@ -192,12 +397,26 @@ Note: this function does not always set the error string, so do not depend on SD
 </pre>
 
 </div>
+<h2 id="quit">quit</h2>
+<div id="quit_CONTENT">
+<p><strong>For version SDL_image 1.2.10 and up</strong></p>
+<p>This function cleans up all dynamically loaded library handles, freeing memory. If support is required again it will be initialized again, either by <a href="/SDL-Image::init.html">SDL::Image::init</a> or loading an image with dynamic support required. You may call this function when <a href="/SDL-Image::load.html">SDL::Image::load</a> functions are no longer needed for the JPG, PNG, and TIF image formats. You only need to call this function once, no matter how many times <a href="/SDL-Image::init.html">SDL::Image::init</a> was called. </p>
+<pre> use SDL::Image;
+ SDL::Image::init(IMG_INIT_JPG); #loads JPG support
+ SDL::Image::load(&quot;file.png&quot;); #loads PNG support
+ SDL::Image::quit(); #unloads everything
+
+</pre>
+
+</div>
 <h2 id="set_error">set_error</h2>
 <div id="set_error_CONTENT">
+<p>Same as <a href="/SDL-set_error.html">SDL::set_error</a></p>
 
 </div>
 <h2 id="get_error">get_error</h2>
 <div id="get_error_CONTENT">
+<p>Same as <a href="/SDL-get_error.html">SDL::get_error</a></p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
