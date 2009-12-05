@@ -7,40 +7,46 @@
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#SUPPORTED_FORMATS">SUPPORTED FORMATS </a></li>
 <li><a href="#LOADING_METHODS">LOADING METHODS</a>
-<ul><li><a href="#load">load</a></li>
-<li><a href="#Returns">Returns</a></li>
+<ul><li><a href="#load">load</a>
+<ul><li><a href="#Return">Return</a></li>
+</ul>
+</li>
 <li><a href="#load_typed_rw">load_typed_rw</a>
 <ul><li><a href="#Transparency">Transparency </a></li>
-<li><a href="#Return">Return </a></li>
+<li><a href="#Return-2">Return </a></li>
 </ul>
 </li>
 <li><a href="#is_TYPE">is_[TYPE]</a>
-<ul><li><a href="#Return-2">Return</a></li>
+<ul><li><a href="#Return-3">Return</a></li>
 <li><a href="#Example">Example</a></li>
 </ul>
 </li>
 <li><a href="#load_TYPE_rw">load_[TYPE]_rw</a>
-<ul><li><a href="#Return-2">Return</a></li>
+<ul><li><a href="#Return-4">Return</a></li>
 <li><a href="#Example-2">Example</a></li>
 </ul>
 </li>
 <li><a href="#read_XPM_from_array">read_XPM_from_array</a>
-<ul><li><a href="#Return-2-2">Return</a></li>
+<ul><li><a href="#Return-5">Return</a></li>
 <li><a href="#Example-3">Example</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#MISC_METHODS">MISC METHODS</a>
-<ul><li><a href="#linked_version">linked_version</a></li>
-<li><a href="#init">init</a>
-<ul><li><a href="#Flags">Flags</a></li>
-<li><a href="#Return-2-3">Return</a></li>
+<ul><li><a href="#linked_version">linked_version</a>
+<ul><li><a href="#Return-6">Return</a></li>
 <li><a href="#Example-4">Example</a></li>
 </ul>
 </li>
+<li><a href="#init">init</a>
+<ul><li><a href="#Flags">Flags</a></li>
+<li><a href="#Return-7">Return</a></li>
+<li><a href="#Example-5">Example</a></li>
+</ul>
+</li>
 <li><a href="#quit">quit</a>
-<ul><li><a href="#Example-5">Example</a></li>
+<ul><li><a href="#Example-6">Example</a></li>
 </ul>
 </li>
 <li><a href="#set_error">set_error</a></li>
@@ -151,8 +157,8 @@ Note: If the image format supports a transparent pixel, <a href="/SDL-Image.html
 </pre>
 
 </div>
-<h2 id="Returns">Returns</h2>
-<div id="Returns_CONTENT">
+<h3 id="Return">Return</h3>
+<div id="Return_CONTENT">
 <p>An image as a <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors, such as no support built for the image, or a file reading error. Use <a href="/SDL-get_error.html">SDL::get_error</a> to get cause of error.</p>
 
 </div>
@@ -214,8 +220,8 @@ Note: If the image format supports a transparent pixel, <a href="/SDL-Image.html
 </pre>
 
 </div>
-<h3 id="Return">Return </h3>
-<div id="Return_CONTENT">
+<h3 id="Return-2">Return </h3>
+<div id="Return_CONTENT-2">
 <p>The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors. </p>
 
 </div>
@@ -240,8 +246,8 @@ Note: If the image format supports a transparent pixel, <a href="/SDL-Image.html
 <p>These functions take a <a href="/SDL-RWOps.html">SDL::RWOps</a> as a parameter.</p>
 
 </div>
-<h3 id="Return-2">Return</h3>
-<div id="Return_CONTENT-2">
+<h3 id="Return-3">Return</h3>
+<div id="Return_CONTENT-3">
 <p>1 if the image is a valid [TYPE]  and the [TYPE] format support is compiled into SDL_image. 0 is returned otherwise. </p>
 
 </div>
@@ -278,8 +284,8 @@ Note: If the image format supports a transparent pixel, <a href="/SDL-Image.html
 <p>These functions take a <a href="/SDL-RWop.html">SDL::RWop</a> as a parameter</p>
 
 </div>
-<h3 id="Return-2">Return</h3>
-<div id="Return_CONTENT-2">
+<h3 id="Return-4">Return</h3>
+<div id="Return_CONTENT-4">
 <p>The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors, like if the [TYPE] is not supported, or a read error.</p>
 
 </div>
@@ -306,8 +312,8 @@ Note: If the image format supports a transparent pixel, <a href="/SDL-Image.html
 <p>This functions takes the reference of an array in the valid @XPM format. Also the $width of the XPM image.</p>
 
 </div>
-<h3 id="Return-2-2">Return</h3>
-<div id="Return_CONTENT-2-2">
+<h3 id="Return-5">Return</h3>
+<div id="Return_CONTENT-5">
 <p>The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors, like if XPM is not supported, or a read error. </p>
 
 </div>
@@ -366,7 +372,16 @@ Note: If the image format supports a transparent pixel, <a href="/SDL-Image.html
 </div>
 <h2 id="linked_version">linked_version</h2>
 <div id="linked_version_CONTENT">
-<p>Provides the version of linked sdl_image library. see <a href="/SDL-Version.html">SDL::Version</a></p>
+<p>Provides the version of linked sdl_image library.</p>
+
+</div>
+<h3 id="Return-6">Return</h3>
+<div id="Return_CONTENT-6">
+<p>Returns a <a href="/SDL-Version.html">SDL::Version</a> object</p>
+
+</div>
+<h3 id="Example-4">Example</h3>
+<div id="Example_CONTENT-4">
 <pre>	my $version = SDL::Image::linked_version();
 	print $version-&gt;major.' '.$version-&gt;minor.' '.$version-&gt;patch;
 
@@ -392,13 +407,13 @@ Note: No initialization is needed nor performed when using the SDL::Image::is_JP
 Note: this function does not always set the error string, so do not depend on SDL::Image::get_error being meaningful all the time.  </p>
 
 </div>
-<h3 id="Return-2-3">Return</h3>
-<div id="Return_CONTENT-2-3">
+<h3 id="Return-7">Return</h3>
+<div id="Return_CONTENT-7">
 <p>A bitmask of all the currently inited image loaders.</p>
 
 </div>
-<h3 id="Example-4">Example</h3>
-<div id="Example_CONTENT-4">
+<h3 id="Example-5">Example</h3>
+<div id="Example_CONTENT-5">
 <pre>  use SDL::Image;
   my $flags = IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_JPG;
   my $inited = SDL::Image::init($flags);
@@ -412,8 +427,8 @@ Note: this function does not always set the error string, so do not depend on SD
 <p>This function cleans up all dynamically loaded library handles, freeing memory. If support is required again it will be initialized again, either by <a href="/SDL-Image::init.html">SDL::Image::init</a> or loading an image with dynamic support required. You may call this function when <a href="/SDL-Image::load.html">SDL::Image::load</a> functions are no longer needed for the JPG, PNG, and TIF image formats. You only need to call this function once, no matter how many times <a href="/SDL-Image::init.html">SDL::Image::init</a> was called. </p>
 
 </div>
-<h3 id="Example-5">Example</h3>
-<div id="Example_CONTENT-5">
+<h3 id="Example-6">Example</h3>
+<div id="Example_CONTENT-6">
 <pre> use SDL::Image;
  SDL::Image::init(IMG_INIT_JPG); #loads JPG support
  SDL::Image::load(&quot;file.png&quot;); #loads PNG support
