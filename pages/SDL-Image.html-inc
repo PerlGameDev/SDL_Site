@@ -10,22 +10,23 @@
 <ul><li><a href="#load">load</a></li>
 <li><a href="#Returns">Returns</a></li>
 <li><a href="#load_typed_rw">load_typed_rw</a>
-<ul><li><a href="#RETURNS_The_image_as_a_new_a_href_SD">RETURNS
-The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors. </a></li>
+<ul><li><a href="#Transparency">Transparency </a></li>
+<li><a href="#Return">Return </a></li>
 </ul>
 </li>
 <li><a href="#is_TYPE">is_[TYPE]</a>
-<ul><li><a href="#RETURN">RETURN</a></li>
-</ul>
-</li>
-<li><a href="#load_TYPE_rw">load_[TYPE]_rw</a>
-<ul><li><a href="#RETURN-2">RETURN</a></li>
+<ul><li><a href="#Return-2">Return</a></li>
 <li><a href="#Example">Example</a></li>
 </ul>
 </li>
+<li><a href="#load_TYPE_rw">load_[TYPE]_rw</a>
+<ul><li><a href="#Return-2">Return</a></li>
+<li><a href="#Example-2">Example</a></li>
+</ul>
+</li>
 <li><a href="#read_XPM_from_array">read_XPM_from_array</a>
-<ul><li><a href="#RETURNS">RETURNS</a></li>
-<li><a href="#EXAMPLE">EXAMPLE</a></li>
+<ul><li><a href="#Return-2-2">Return</a></li>
+<li><a href="#Example-3">Example</a></li>
 </ul>
 </li>
 </ul>
@@ -34,11 +35,14 @@ The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returne
 <ul><li><a href="#linked_version">linked_version</a></li>
 <li><a href="#init">init</a>
 <ul><li><a href="#Flags">Flags</a></li>
-<li><a href="#Return">Return</a></li>
-<li><a href="#Example-2">Example</a></li>
+<li><a href="#Return-2-3">Return</a></li>
+<li><a href="#Example-4">Example</a></li>
 </ul>
 </li>
-<li><a href="#quit">quit</a></li>
+<li><a href="#quit">quit</a>
+<ul><li><a href="#Example-5">Example</a></li>
+</ul>
+</li>
 <li><a href="#set_error">set_error</a></li>
 <li><a href="#get_error">get_error</a></li>
 </ul>
@@ -194,6 +198,10 @@ Note: If the image format supports a transparent pixel, <a href="/SDL-Image.html
 Note: If the image format loader requires initialization, it will attempt to do that the first time it is needed if you have not already called <a href="/SDL-Image::init.html">SDL::Image::init</a> to load support for your image format.
 Note: If the image format supports a transparent pixel, <a href="/SDL-Image.html">SDL::Image</a> will set the colorkey for the surface. You can enable RLE acceleration on the surface afterwards by calling:
 <a href="/SDL-Video::set_color_key.html">SDL::Video::set_color_key</a></p>
+
+</div>
+<h3 id="Transparency">Transparency </h3>
+<div id="Transparency_CONTENT">
 <pre>  use SDL;
   use SDL::RWOps;
   use SDL::Image;
@@ -206,9 +214,9 @@ Note: If the image format supports a transparent pixel, <a href="/SDL-Image.html
 </pre>
 
 </div>
-<h3 id="RETURNS_The_image_as_a_new_a_href_SD">RETURNS
-The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors. </h3>
-<div id="RETURNS_The_image_as_a_new_a_href_SD-2">
+<h3 id="Return">Return </h3>
+<div id="Return_CONTENT">
+<p>The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors. </p>
 
 </div>
 <h2 id="is_TYPE">is_[TYPE]</h2>
@@ -230,6 +238,15 @@ The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returne
 	<dt>is_XV</dt>
 </dl>
 <p>These functions take a <a href="/SDL-RWOps.html">SDL::RWOps</a> as a parameter.</p>
+
+</div>
+<h3 id="Return-2">Return</h3>
+<div id="Return_CONTENT-2">
+<p>1 if the image is a valid [TYPE]  and the [TYPE] format support is compiled into SDL_image. 0 is returned otherwise. </p>
+
+</div>
+<h3 id="Example">Example</h3>
+<div id="Example_CONTENT">
 <pre> use SDL::RWOps;
  use SDL::Image;
 
@@ -237,15 +254,7 @@ The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returne
 
  print &quot;Image is BMP&quot; if ( SDL::is_BMP );
 
-
-
-
 </pre>
-
-</div>
-<h3 id="RETURN">RETURN</h3>
-<div id="RETURN_CONTENT">
-<p>1 if the image is a valid [TYPE]  and the [TYPE] format support is compiled into SDL_image. 0 is returned otherwise. </p>
 
 </div>
 <h2 id="load_TYPE_rw">load_[TYPE]_rw</h2>
@@ -269,13 +278,13 @@ The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returne
 <p>These functions take a <a href="/SDL-RWop.html">SDL::RWop</a> as a parameter</p>
 
 </div>
-<h3 id="RETURN-2">RETURN</h3>
-<div id="RETURN_CONTENT-2">
+<h3 id="Return-2">Return</h3>
+<div id="Return_CONTENT-2">
 <p>The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors, like if the [TYPE] is not supported, or a read error.</p>
 
 </div>
-<h3 id="Example">Example</h3>
-<div id="Example_CONTENT">
+<h3 id="Example-2">Example</h3>
+<div id="Example_CONTENT-2">
 <pre> use SDL;
  use SDL::RWOps;
  use SDL::Image;
@@ -297,13 +306,13 @@ The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returne
 <p>This functions takes the reference of an array in the valid @XPM format. Also the $width of the XPM image.</p>
 
 </div>
-<h3 id="RETURNS">RETURNS</h3>
-<div id="RETURNS_CONTENT">
+<h3 id="Return-2-2">Return</h3>
+<div id="Return_CONTENT-2-2">
 <p>The image as a new <a href="/SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors, like if XPM is not supported, or a read error. </p>
 
 </div>
-<h3 id="EXAMPLE">EXAMPLE</h3>
-<div id="EXAMPLE_CONTENT">
+<h3 id="Example-3">Example</h3>
+<div id="Example_CONTENT-3">
 <pre>	my @XPM= (
 	'30 30 9 1',
 	' 	c #FFFFFF',
@@ -383,13 +392,13 @@ Note: No initialization is needed nor performed when using the SDL::Image::is_JP
 Note: this function does not always set the error string, so do not depend on SDL::Image::get_error being meaningful all the time.  </p>
 
 </div>
-<h3 id="Return">Return</h3>
-<div id="Return_CONTENT">
+<h3 id="Return-2-3">Return</h3>
+<div id="Return_CONTENT-2-3">
 <p>A bitmask of all the currently inited image loaders.</p>
 
 </div>
-<h3 id="Example-2">Example</h3>
-<div id="Example_CONTENT-2">
+<h3 id="Example-4">Example</h3>
+<div id="Example_CONTENT-4">
 <pre>  use SDL::Image;
   my $flags = IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_JPG;
   my $inited = SDL::Image::init($flags);
@@ -401,6 +410,10 @@ Note: this function does not always set the error string, so do not depend on SD
 <div id="quit_CONTENT">
 <p><strong>For version SDL_image 1.2.10 and up</strong></p>
 <p>This function cleans up all dynamically loaded library handles, freeing memory. If support is required again it will be initialized again, either by <a href="/SDL-Image::init.html">SDL::Image::init</a> or loading an image with dynamic support required. You may call this function when <a href="/SDL-Image::load.html">SDL::Image::load</a> functions are no longer needed for the JPG, PNG, and TIF image formats. You only need to call this function once, no matter how many times <a href="/SDL-Image::init.html">SDL::Image::init</a> was called. </p>
+
+</div>
+<h3 id="Example-5">Example</h3>
+<div id="Example_CONTENT-5">
 <pre> use SDL::Image;
  SDL::Image::init(IMG_INIT_JPG); #loads JPG support
  SDL::Image::load(&quot;file.png&quot;); #loads PNG support
