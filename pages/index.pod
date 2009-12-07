@@ -20,7 +20,7 @@ To begin using SDL Perl read the tutorials and documentation.
 
 =item IRC
 
-Talk to us on channel #sdl.
+Talk to us on channel L<#sdl|http://widget.mibbit.com/?settings=89f140215d60860684cee2f6a917607f&server=irc.perl.org&channel=%23sdl> .
 
 =item Mailing List
 
@@ -41,7 +41,7 @@ To begin testing read L<this| http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testin
 =head3 CPAN Release
 	
 
-L<SDL 2.3_2 (Alpha)|http://search.cpan.org/~kthakore> is on CPAN. The new API has many changes, read the L<release notes|http://sdl.perl.org/blog-0001.html>. 
+L<SDL 2.3_3(Alpha)|http://search.cpan.org/~kthakore> is on CPAN. The new API has many changes, read the L<release notes|http://sdl.perl.org/blog-0001.html>. 
 
 SDL Perl is v2.2.6 on CPAN. The last of it's kind. This is the last release which will have the old API. 
 
