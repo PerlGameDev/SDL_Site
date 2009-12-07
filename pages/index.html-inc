@@ -11,7 +11,7 @@
 </ul>
 </li>
 <li><a href="#Latest_News">Latest News</a>
-<ul><li><a href="#November_30th_2009">November 30th 2009</a>
+<ul><li><a href="#December_7th_2009">December 7th 2009</a>
 <ul><li><a href="#CPAN_Release">CPAN Release</a></li>
 <li><a href="#Active_Development">Active Development</a>
 </li>
@@ -43,7 +43,7 @@
 <dl>
 	<dt>IRC</dt>
 	<dd>
-		<p>Talk to us on channel #sdl at irc.perl.org</p>
+		<p>Talk to us on channel #sdl.</p>
 	</dd>
 	<dt>Mailing List</dt>
 	<dd>
@@ -61,8 +61,8 @@
 <div id="Latest_News_CONTENT">
 
 </div>
-<h2 id="November_30th_2009">November 30th 2009</h2>
-<div id="November_30th_2009_CONTENT">
+<h2 id="December_7th_2009">December 7th 2009</h2>
+<div id="December_7th_2009_CONTENT">
 
 </div>
 <h3 id="CPAN_Release">CPAN Release</h3>
@@ -71,7 +71,7 @@
 
 
 
-<p>SDL 2.3_1 (Alpha) is on CPAN. The new API has many changes, read the <a href="http://sdl.perl.org/blog-0001.html">release notes</a>. </p>
+<p><a href="http://search.cpan.org/~kthakore">SDL 2.3_2 (Alpha)</a> is on CPAN. The new API has many changes, read the <a href="http://sdl.perl.org/blog-0001.html">release notes</a>. </p>
 <p>SDL Perl is v2.2.6 on CPAN. The last of it's kind. This is the last release which will have the old API. </p>
 
 
@@ -83,14 +83,11 @@
 <div id="Active_Development_CONTENT">
 <p>SDL Perl is being actively developed to v3.0. The process is as below:</p>
 <dl>
-	<dt>v2.3 100% Core of SDL C API migrated without MultiThreading </dt>
-	<dd>
-		<p>(80% done) Complete access to these functions <a href="http://www.libsdl.org/cgi/docwiki.cgi/SDL_API">SDL_API</a>.</p>
-		<p>MultiThreading is doable with this release but will be focused on later</p>
-	</dd>
 	<dt>v2.4 SDL_Image, SDL_Net, SDL_Pango, SDL_TTF, SDL_GFX &amp; SDL_Mixer Support</dt>
 	<dd>
-		<p>Provide support for SDL + POE collaboration.</p>
+		<p>SDL_Image is done now at 2.3_2 (Dec 07th, 2009)</p>
+		<p>SDL_GFX is in the works</p>
+		<p>SDL_Net is up next</p>
 		<p>Provide dependecies for FrozenBubble migration to CPAN. </p>
 	</dd>
 	<dt>v2.5 ??? MultiThreading and Other Third Party Libraries</dt>
