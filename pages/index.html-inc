@@ -43,7 +43,7 @@
 <dl>
 	<dt>IRC</dt>
 	<dd>
-		<p>Talk to us on channel #sdl.</p>
+		<p>Talk to us on channel <a href="http://widget.mibbit.com/?settings=89f140215d60860684cee2f6a917607f&amp;server=irc.perl.org&amp;channel=%23sdl">#sdl</a> .</p>
 	</dd>
 	<dt>Mailing List</dt>
 	<dd>
@@ -71,7 +71,7 @@
 
 
 
-<p><a href="http://search.cpan.org/~kthakore">SDL 2.3_2 (Alpha)</a> is on CPAN. The new API has many changes, read the <a href="http://sdl.perl.org/blog-0001.html">release notes</a>. </p>
+<p><a href="http://search.cpan.org/~kthakore">SDL 2.3_3(Alpha)</a> is on CPAN. The new API has many changes, read the <a href="http://sdl.perl.org/blog-0001.html">release notes</a>. </p>
 <p>SDL Perl is v2.2.6 on CPAN. The last of it's kind. This is the last release which will have the old API. </p>
 
 
