@@ -1,18 +1,113 @@
 <div class="pod">
 <!-- INDEX START -->
 <h3 id="TOP">Index</h3>
-<hr />
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#new">new</a></li>
+<li><a href="#framecount">framecount</a></li>
+<li><a href="#rateticks">rateticks</a></li>
+<li><a href="#lastticks">lastticks</a></li>
+<li><a href="#rate">rate</a>
+</li>
+</ul>
+</li>
+</ul><hr />
 <!-- INDEX END -->
 
-<p>The Following are XS bindings to the SDL_gfx Library</p>
-<p>typedef struct {
-    Uint32 framecount;
-    float rateticks;
-    Uint32 lastticks;
-    Uint32 rate;
-    } FPSmanager;</p>
-<p>Described here:</p>
-<p>See: <a href="http://www.ferzkopp.net/joomla/content/view/19/14/">http://www.ferzkopp.net/joomla/content/view/19/14/</a></p>
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::GFX::FPSManager - blitting functions</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>TODO, GFX, FPSManager</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="new">new</h2>
+<div id="new_CONTENT">
+<pre> FPSmanager *
+ gfx_fps_new (CLASS, framecount, rateticks, lastticks, rate)
+ 	char *CLASS
+ 	Uint32 framecount
+ 	float rateticks
+ 	Uint32 lastticks
+	Uint32 rate
+ 	CODE:
+ 		RETVAL = (FPSmanager *) safemalloc(sizeof(FPSmanager));
+ 		RETVAL-&gt;framecount = framecount;
+ 		RETVAL-&gt;rateticks  = rateticks;
+ 		RETVAL-&gt;lastticks  = lastticks;
+ 		RETVAL-&gt;rate       = rate;
+ 	OUTPUT:
+ 		RETVAL
+
+</pre>
+
+</div>
+<h2 id="framecount">framecount</h2>
+<div id="framecount_CONTENT">
+<pre> Uint32
+ gfx_fps_framecount ( fps, ... )
+ 	FPSmanager *fps
+ 	CODE:
+ 		if (items &gt; 1 ) fps-&gt;framecount = SvIV(ST(1)); 
+ 		RETVAL = fps-&gt;framecount;
+ 	OUTPUT:
+ 		RETVAL
+
+</pre>
+
+</div>
+<h2 id="rateticks">rateticks</h2>
+<div id="rateticks_CONTENT">
+<pre> float
+ gfx_fps_rateticks ( fps, ... )
+ 	FPSmanager *fps
+ 	CODE:
+ 		if (items &gt; 1 ) fps-&gt;rateticks = SvNV(ST(1)); 
+ 		RETVAL = fps-&gt;rateticks;
+ 	OUTPUT:
+ 		RETVAL
+
+</pre>
+
+</div>
+<h2 id="lastticks">lastticks</h2>
+<div id="lastticks_CONTENT">
+<pre> Uint32
+ gfx_fps_lastticks ( fps, ... )
+ 	FPSmanager *fps
+ 	CODE:
+ 		if (items &gt; 1 ) fps-&gt;lastticks = SvIV(ST(1)); 
+ 		RETVAL = fps-&gt;lastticks;
+ 	OUTPUT:
+ 		RETVAL
+
+</pre>
+
+</div>
+<h2 id="rate">rate</h2>
+<div id="rate_CONTENT">
+<pre> Uint32
+ gfx_fps_rate ( fps, ... )
+ 	FPSmanager *fps
+ 	CODE:
+ 		if (items &gt; 1 ) fps-&gt;rate = SvIV(ST(1)); 
+ 		RETVAL = fps-&gt;rate;
+ 	OUTPUT:
+ 		RETVAL
 
 
+
+
+</pre>
+
+</div>
 </div>

@@ -1,12 +1,650 @@
 <div class="pod">
 <!-- INDEX START -->
 <h3 id="TOP">Index</h3>
-<hr />
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#MMX_detect">MMX_detect</a></li>
+<li><a href="#MMX_off">MMX_off</a></li>
+<li><a href="#MMX_on">MMX_on</a></li>
+<li><a href="#add">add</a></li>
+<li><a href="#mean">mean</a></li>
+<li><a href="#sub">sub</a></li>
+<li><a href="#abs_diff">abs_diff</a></li>
+<li><a href="#mult">mult</a></li>
+<li><a href="#mult_nor">mult_nor</a></li>
+<li><a href="#mult_div_by_2">mult_div_by_2</a></li>
+<li><a href="#mult_div_by_4">mult_div_by_4</a></li>
+<li><a href="#bit_and">bit_and</a></li>
+<li><a href="#bit_or">bit_or</a></li>
+<li><a href="#div">div</a></li>
+<li><a href="#bit_negation">bit_negation</a></li>
+<li><a href="#add_byte">add_byte</a></li>
+<li><a href="#add_uint">add_uint</a></li>
+<li><a href="#add_byte_to_half">add_byte_to_half</a></li>
+<li><a href="#sub_byte">sub_byte</a></li>
+<li><a href="#sub_uint">sub_uint</a></li>
+<li><a href="#shift_right">shift_right</a></li>
+<li><a href="#shift_right_uint">shift_right_uint</a></li>
+<li><a href="#mult_by_byte">mult_by_byte</a></li>
+<li><a href="#shift_right_and_mult_by_byte">shift_right_and_mult_by_byte</a></li>
+<li><a href="#shift_left_byte">shift_left_byte</a></li>
+<li><a href="#shift_left_uint">shift_left_uint</a></li>
+<li><a href="#shift_left">shift_left</a></li>
+<li><a href="#binarize_using_threshold">binarize_using_threshold</a></li>
+<li><a href="#clip_to_range">clip_to_range</a></li>
+<li><a href="#normalize_linear">normalize_linear</a></li>
+<li><a href="#convolve_kernel_3x3_divide">convolve_kernel_3x3_divide</a></li>
+<li><a href="#convolve_kernel_5x5_divide">convolve_kernel_5x5_divide</a></li>
+<li><a href="#convolve_kernel_7x7_divide">convolve_kernel_7x7_divide</a></li>
+<li><a href="#convolve_kernel_9x9_divide">convolve_kernel_9x9_divide</a></li>
+<li><a href="#convolve_kernel_3x3_shift_right">convolve_kernel_3x3_shift_right</a></li>
+<li><a href="#convolve_kernel_5x5_shift_right">convolve_kernel_5x5_shift_right</a></li>
+<li><a href="#convolve_kernel_7x7_shift_right">convolve_kernel_7x7_shift_right</a></li>
+<li><a href="#convolve_kernel_9x9_shift_right">convolve_kernel_9x9_shift_right</a></li>
+<li><a href="#sobel_x">sobel_x</a></li>
+<li><a href="#sobel_x_shift_right">sobel_x_shift_right</a></li>
+<li><a href="#align_stack">align_stack</a></li>
+<li><a href="#restore_stack">restore_stack</a>
+</li>
+</ul>
+</li>
+</ul><hr />
 <!-- INDEX END -->
 
-<p>The Following are XS bindings to the SDL_gfx Library</p>
-<p>Described here:</p>
-<p>See: <a href="http://www.ferzkopp.net/joomla/content/view/19/14/">http://www.ferzkopp.net/joomla/content/view/19/14/</a></p>
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::GFX::ImageFilter - image filtering functions</p>
 
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>TODO, GFX, ImageFilter</p>
 
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="MMX_detect">MMX_detect</h2>
+<div id="MMX_detect_CONTENT">
+<p>int
+gfx_image_MMX_detect()
+	CODE:
+		SDL_imageFilterMMXdetect();</p>
+
+</div>
+<h2 id="MMX_off">MMX_off</h2>
+<div id="MMX_off_CONTENT">
+<p>void
+gfx_image_MMX_off()
+	CODE:
+		SDL_imageFilterMMXoff();</p>
+
+</div>
+<h2 id="MMX_on">MMX_on</h2>
+<div id="MMX_on_CONTENT">
+<p>void
+gfx_image_MMX_on()
+	CODE:
+		SDL_imageFilterMMXon();</p>
+
+</div>
+<h2 id="add">add</h2>
+<div id="add_CONTENT">
+<p>int
+gfx_image_add(Src1, Src2, Dest, length)
+	unsigned char *Src1
+	unsigned char *Src2
+	unsigned char *Dest
+	int length
+	CODE:
+		RETVAL = SDL_imageFilterAdd(Src1, Src2, Dest, length);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="mean">mean</h2>
+<div id="mean_CONTENT">
+<p>int
+gfx_image_mean(Src1, Src2, Dest, length)
+	unsigned char *Src1
+	unsigned char *Src2
+	unsigned char *Dest
+	int length
+	CODE:
+		RETVAL = SDL_imageFilterMean(Src1, Src2, Dest, length);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="sub">sub</h2>
+<div id="sub_CONTENT">
+<p>int
+gfx_image_sub(Src1, Src2, Dest, length)
+	unsigned char *Src1
+	unsigned char *Src2
+	unsigned char *Dest
+	int length
+	CODE:
+		RETVAL = SDL_imageFilterSub(Src1, Src2, Dest, length);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="abs_diff">abs_diff</h2>
+<div id="abs_diff_CONTENT">
+<p>int
+gfx_image_abs_diff(Src1, Src2, Dest, length)
+	unsigned char *Src1
+	unsigned char *Src2
+	unsigned char *Dest
+	int length
+	CODE:
+		RETVAL = SDL_imageFilterAbsDiff(Src1, Src2, Dest, length);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="mult">mult</h2>
+<div id="mult_CONTENT">
+<p>int
+gfx_image_mult(Src1, Src2, Dest, length)
+	unsigned char *Src1
+	unsigned char *Src2
+	unsigned char *Dest
+	int length
+	CODE:
+		RETVAL = SDL_imageFilterMult(Src1, Src2, Dest, length);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="mult_nor">mult_nor</h2>
+<div id="mult_nor_CONTENT">
+<p>int
+gfx_image_mult_nor(Src1, Src2, Dest, length)
+	unsigned char *Src1
+	unsigned char *Src2
+	unsigned char *Dest
+	int length
+	CODE:
+		RETVAL = SDL_imageFilterMultNor(Src1, Src2, Dest, length);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="mult_div_by_2">mult_div_by_2</h2>
+<div id="mult_div_by_2_CONTENT">
+<p>int
+gfx_image_mult_div_by_2(Src1, Src2, Dest, length)
+	unsigned char *Src1
+	unsigned char *Src2
+	unsigned char *Dest
+	int length
+	CODE:
+		RETVAL = SDL_imageFilterMultDivby2(Src1, Src2, Dest, length);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="mult_div_by_4">mult_div_by_4</h2>
+<div id="mult_div_by_4_CONTENT">
+<p>int
+gfx_image_mult_div_by_4(Src1, Src2, Dest, length)
+	unsigned char *Src1
+	unsigned char *Src2
+	unsigned char *Dest
+	int length
+	CODE:
+		RETVAL = SDL_imageFilterMultDivby4(Src1, Src2, Dest, length);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="bit_and">bit_and</h2>
+<div id="bit_and_CONTENT">
+<p>int
+gfx_image_bit_and(Src1, Src2, Dest, length)
+	unsigned char *Src1
+	unsigned char *Src2
+	unsigned char *Dest
+	int length
+	CODE:
+		RETVAL = SDL_imageFilterBitAnd(Src1, Src2, Dest, length);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="bit_or">bit_or</h2>
+<div id="bit_or_CONTENT">
+<p>int
+gfx_image_bit_or(Src1, Src2, Dest, length)
+	unsigned char *Src1
+	unsigned char *Src2
+	unsigned char *Dest
+	int length
+	CODE:
+		RETVAL = SDL_imageFilterBitOr(Src1, Src2, Dest, length);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="div">div</h2>
+<div id="div_CONTENT">
+<p>int
+gfx_image_div(Src1, Src2, Dest, length)
+	unsigned char *Src1
+	unsigned char *Src2
+	unsigned char *Dest
+	int length
+	CODE:
+		RETVAL = SDL_imageFilterDiv(Src1, Src2, Dest, length);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="bit_negation">bit_negation</h2>
+<div id="bit_negation_CONTENT">
+<p>int
+gfx_image_bit_negation(Src1, Dest, length)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	CODE:
+		RETVAL = SDL_imageFilterBitNegation(Src1, Dest, length);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="add_byte">add_byte</h2>
+<div id="add_byte_CONTENT">
+<p>int
+gfx_image_add_byte(Src1, Dest, length, C)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	unsigned char C
+	CODE:
+		RETVAL = SDL_imageFilterAddByte(Src1, Dest, length, C);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="add_uint">add_uint</h2>
+<div id="add_uint_CONTENT">
+<p>int
+gfx_image_add_uint(Src1, Dest, length, C)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	unsigned int C
+	CODE:
+		RETVAL = SDL_imageFilterAddUint(Src1, Dest, length, C);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="add_byte_to_half">add_byte_to_half</h2>
+<div id="add_byte_to_half_CONTENT">
+<p>int
+gfx_image_add_byte_to_half(Src1, Dest, length, C)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	unsigned char C
+	CODE:
+		RETVAL = SDL_imageFilterAddByteToHalf(Src1, Dest, length, C);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="sub_byte">sub_byte</h2>
+<div id="sub_byte_CONTENT">
+<p>int
+gfx_image_sub_byte(Src1, Dest, length, C)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	unsigned char C
+	CODE:
+		RETVAL = SDL_imageFilterSubByte(Src1, Dest, length, C);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="sub_uint">sub_uint</h2>
+<div id="sub_uint_CONTENT">
+<p>int
+gfx_image_sub_uint(Src1, Dest, length, C)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	unsigned int C
+	CODE:
+		RETVAL = SDL_imageFilterSubUint(Src1, Dest, length, C);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="shift_right">shift_right</h2>
+<div id="shift_right_CONTENT">
+<p>int
+gfx_image_shift_right(Src1, Dest, length, N)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	unsigned char N
+	CODE:
+		RETVAL = SDL_imageFilterShiftRight(Src1, Dest, length, N);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="shift_right_uint">shift_right_uint</h2>
+<div id="shift_right_uint_CONTENT">
+<p>int
+gfx_image_shift_right_uint(Src1, Dest, length, N)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	unsigned char N
+	CODE:
+		RETVAL = SDL_imageFilterShiftRightUint(Src1, Dest, length, N);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="mult_by_byte">mult_by_byte</h2>
+<div id="mult_by_byte_CONTENT">
+<p>int
+gfx_image_mult_by_byte(Src1, Dest, length, C)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	unsigned char C
+	CODE:
+		RETVAL = SDL_imageFilterMultByByte(Src1, Dest, length, C);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="shift_right_and_mult_by_byte">shift_right_and_mult_by_byte</h2>
+<div id="shift_right_and_mult_by_byte_CONTENT">
+<p>int
+gfx_image_shift_right_and_mult_by_byte(Src1, Dest, length, N, C)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	unsigned char N
+	unsigned char C
+	CODE:
+		RETVAL = SDL_imageFilterShiftRightAndMultByByte(Src1, Dest, length, N, C);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="shift_left_byte">shift_left_byte</h2>
+<div id="shift_left_byte_CONTENT">
+<p>int
+gfx_image_shift_left_byte(Src1, Dest, length, N)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	unsigned char N
+	CODE:
+		RETVAL = SDL_imageFilterShiftLeftByte(Src1, Dest, length, N);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="shift_left_uint">shift_left_uint</h2>
+<div id="shift_left_uint_CONTENT">
+<p>int
+gfx_image_shift_left_uint(Src1, Dest, length, N)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	unsigned char N
+	CODE:
+		RETVAL = SDL_imageFilterShiftLeftUint(Src1, Dest, length, N);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="shift_left">shift_left</h2>
+<div id="shift_left_CONTENT">
+<p>int
+gfx_image_shift_left(Src1, Dest, length, N)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	unsigned char N
+	CODE:
+		RETVAL = SDL_imageFilterShiftLeft(Src1, Dest, length, N);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="binarize_using_threshold">binarize_using_threshold</h2>
+<div id="binarize_using_threshold_CONTENT">
+<p>int
+gfx_image_binarize_using_threshold(Src1, Dest, length, T)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	unsigned char T
+	CODE:
+		RETVAL = SDL_imageFilterBinarizeUsingThreshold(Src1, Dest, length, T);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="clip_to_range">clip_to_range</h2>
+<div id="clip_to_range_CONTENT">
+<p>int
+gfx_image_clip_to_range(Src1, Dest, length, Tmin, Tmax)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	unsigned char Tmin
+	unsigned char Tmax
+	CODE:
+		RETVAL = SDL_imageFilterClipToRange(Src1, Dest, length, Tmin, Tmax);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="normalize_linear">normalize_linear</h2>
+<div id="normalize_linear_CONTENT">
+<p>int
+gfx_image_normalize_linear(Src1, Dest, length, Cmin, Cmax, Nmin, Nmax)
+	unsigned char *Src1
+	unsigned char *Dest
+	int length
+	int Cmin
+	int Cmax
+	int Nmin
+	int Nmax
+	CODE:
+		RETVAL = SDL_imageFilterNormalizeLinear(Src1, Dest, length, Cmin, Cmax, Nmin, Nmax);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="convolve_kernel_3x3_divide">convolve_kernel_3x3_divide</h2>
+<div id="convolve_kernel_3x3_divide_CONTENT">
+<p>int
+gfx_image_convolve_kernel_3x3_divide(Src, Dest, rows, columns, Kernel, Divisor)
+	unsigned char *Src
+	unsigned char *Dest
+	int rows
+	int columns
+	Sint16 *Kernel
+	unsigned char Divisor
+	CODE:
+		RETVAL = SDL_imageFilterConvolveKernel3x3Divide(Src, Dest, rows, columns, Kernel, Divisor);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="convolve_kernel_5x5_divide">convolve_kernel_5x5_divide</h2>
+<div id="convolve_kernel_5x5_divide_CONTENT">
+<p>int
+gfx_image_convolve_kernel_5x5_divide(Src, Dest, rows, columns, Kernel, Divisor)
+	unsigned char *Src
+	unsigned char *Dest
+	int rows
+	int columns
+	Sint16 *Kernel
+	unsigned char Divisor
+	CODE:
+		RETVAL = SDL_imageFilterConvolveKernel5x5Divide(Src, Dest, rows, columns, Kernel, Divisor);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="convolve_kernel_7x7_divide">convolve_kernel_7x7_divide</h2>
+<div id="convolve_kernel_7x7_divide_CONTENT">
+<p>int
+gfx_image_convolve_kernel_7x7_divide(Src, Dest, rows, columns, Kernel, Divisor)
+	unsigned char *Src
+	unsigned char *Dest
+	int rows
+	int columns
+	Sint16 *Kernel
+	unsigned char Divisor
+	CODE:
+		RETVAL = SDL_imageFilterConvolveKernel7x7Divide(Src, Dest, rows, columns, Kernel, Divisor);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="convolve_kernel_9x9_divide">convolve_kernel_9x9_divide</h2>
+<div id="convolve_kernel_9x9_divide_CONTENT">
+<p>int
+gfx_image_convolve_kernel_9x9_divide(Src, Dest, rows, columns, Kernel, Divisor)
+	unsigned char *Src
+	unsigned char *Dest
+	int rows
+	int columns
+	Sint16 *Kernel
+	unsigned char Divisor
+	CODE:
+		RETVAL = SDL_imageFilterConvolveKernel9x9Divide(Src, Dest, rows, columns, Kernel, Divisor);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="convolve_kernel_3x3_shift_right">convolve_kernel_3x3_shift_right</h2>
+<div id="convolve_kernel_3x3_shift_right_CONT">
+<p>int
+gfx_image_convolve_kernel_3x3_shift_right(Src, Dest, rows, columns, Kernel, NRightShift)
+	unsigned char *Src
+	unsigned char *Dest
+	int rows
+	int columns
+	Sint16 *Kernel
+	unsigned char NRightShift
+	CODE:
+		RETVAL = SDL_imageFilterConvolveKernel3x3ShiftRight(Src, Dest, rows, columns, Kernel, NRightShift);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="convolve_kernel_5x5_shift_right">convolve_kernel_5x5_shift_right</h2>
+<div id="convolve_kernel_5x5_shift_right_CONT">
+<p>int
+gfx_image_convolve_kernel_5x5_shift_right(Src, Dest, rows, columns, Kernel, NRightShift)
+	unsigned char *Src
+	unsigned char *Dest
+	int rows
+	int columns
+	Sint16 *Kernel
+	unsigned char NRightShift
+	CODE:
+		RETVAL = SDL_imageFilterConvolveKernel5x5ShiftRight(Src, Dest, rows, columns, Kernel, NRightShift);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="convolve_kernel_7x7_shift_right">convolve_kernel_7x7_shift_right</h2>
+<div id="convolve_kernel_7x7_shift_right_CONT">
+<p>int
+gfx_image_convolve_kernel_7x7_shift_right(Src, Dest, rows, columns, Kernel, NRightShift)
+	unsigned char *Src
+	unsigned char *Dest
+	int rows
+	int columns
+	Sint16 *Kernel
+	unsigned char NRightShift
+	CODE:
+		RETVAL = SDL_imageFilterConvolveKernel7x7ShiftRight(Src, Dest, rows, columns, Kernel, NRightShift);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="convolve_kernel_9x9_shift_right">convolve_kernel_9x9_shift_right</h2>
+<div id="convolve_kernel_9x9_shift_right_CONT">
+<p>int
+gfx_image_convolve_kernel_9x9_shift_right(Src, Dest, rows, columns, Kernel, NRightShift)
+	unsigned char *Src
+	unsigned char *Dest
+	int rows
+	int columns
+	Sint16 *Kernel
+	unsigned char NRightShift
+	CODE:
+		RETVAL = SDL_imageFilterConvolveKernel9x9ShiftRight(Src, Dest, rows, columns, Kernel, NRightShift);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="sobel_x">sobel_x</h2>
+<div id="sobel_x_CONTENT">
+<p>int
+gfx_image_sobel_x(Src, Dest, rows, columns)
+	unsigned char *Src
+	unsigned char *Dest
+	int rows
+	int columns
+	CODE:
+		RETVAL = SDL_imageFilterSobelX(Src, Dest, rows, columns);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="sobel_x_shift_right">sobel_x_shift_right</h2>
+<div id="sobel_x_shift_right_CONTENT">
+<p>int
+gfx_image_sobel_x_shift_right(Src, Dest, rows, columns, NRightShift)
+	unsigned char *Src
+	unsigned char *Dest
+	int rows
+	int columns
+	unsigned char NRightShift
+	CODE:
+		RETVAL = SDL_imageFilterSobelXShiftRight(Src, Dest, rows, columns, NRightShift);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="align_stack">align_stack</h2>
+<div id="align_stack_CONTENT">
+<p>void
+gfx_image_align_stack()
+	CODE:
+		SDL_imageFilterAlignStack();</p>
+
+</div>
+<h2 id="restore_stack">restore_stack</h2>
+<div id="restore_stack_CONTENT">
+<p>void
+gfx_image_restore_stack()
+	CODE:
+		SDL_imageFilterRestoreStack();
+</p>
+
+</div>
 </div>

@@ -1,12 +1,174 @@
 <div class="pod">
 <!-- INDEX START -->
 <h3 id="TOP">Index</h3>
-<hr />
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#surface">surface</a></li>
+<li><a href="#surface_xy">surface_xy</a></li>
+<li><a href="#surface_size">surface_size</a></li>
+<li><a href="#surface_size_xy">surface_size_xy</a></li>
+<li><a href="#zoom_surface">zoom_surface</a></li>
+<li><a href="#zoom_surface_size">zoom_surface_size</a></li>
+<li><a href="#shrink_surface">shrink_surface</a></li>
+<li><a href="#rotate_surface_90_degrees">rotate_surface_90_degrees</a>
+</li>
+</ul>
+</li>
+</ul><hr />
 <!-- INDEX END -->
 
-<p>The Following are XS bindings to the SDL_gfx Library</p>
-<p>Described here:</p>
-<p>See: <a href="http://www.ferzkopp.net/joomla/content/view/19/14/">http://www.ferzkopp.net/joomla/content/view/19/14/</a></p>
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::GFX::Rotozoom - rotation and zooming functions for surfaces</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>TODO, GFX, Rotozoom</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="surface">surface</h2>
+<div id="surface_CONTENT">
+<pre> SDL_Surface *
+ gfx_roto_surface(src, angle, zoom, smooth)
+ 	SDL_Surface * src
+ 	double angle
+ 	double zoom
+ 	int smooth
+ 	PREINIT:
+ 		char *CLASS = &quot;SDL::Surface&quot;;
+ 	CODE:
+ 		RETVAL = rotozoomSurface(src, angle, zoom, smooth);
+ 	OUTPUT:
+ 		RETVAL
+
+</pre>
+
+</div>
+<h2 id="surface_xy">surface_xy</h2>
+<div id="surface_xy_CONTENT">
+<pre> SDL_Surface *
+ gfx_roto_surface_xy(src, angle, zoomx, zoomy, smooth)
+ 	SDL_Surface * src
+ 	double angle
+ 	double zoomx
+ 	double zoomy
+ 	int smooth
+ 	PREINIT:
+ 		char *CLASS = &quot;SDL::Surface&quot;;
+ 	CODE:
+ 		RETVAL = rotozoomSurfaceXY(src, angle, zoomx, zoomy, smooth);
+ 	OUTPUT:
+ 		RETVAL
+
+</pre>
+
+</div>
+<h2 id="surface_size">surface_size</h2>
+<div id="surface_size_CONTENT">
+<pre> void 
+ gfx_roto_surface_size(width, height, angle, zoom, dstwidth, dstheight)
+ 	int width
+ 	int height
+ 	double angle
+ 	double zoom
+ 	int *dstwidth
+ 	int *dstheight
+ 	CODE:
+ 		rotozoomSurfaceSize(width, height, angle, zoom, dstwidth, dstheight);
+
+</pre>
+
+</div>
+<h2 id="surface_size_xy">surface_size_xy</h2>
+<div id="surface_size_xy_CONTENT">
+<pre> void 
+ gfx_roto_surface_size_xy(width, height, angle, zoomx, zoomy, dstwidth, dstheight)
+ 	int width
+ 	int height
+ 	double angle
+ 	double zoomx
+ 	double zoomy
+ 	int *dstwidth
+ 	int *dstheight
+ 	CODE:
+ 		rotozoomSurfaceSizeXY(width, height, angle, zoomx, zoomy, dstwidth, dstheight);
+
+</pre>
+
+</div>
+<h2 id="zoom_surface">zoom_surface</h2>
+<div id="zoom_surface_CONTENT">
+<pre> SDL_Surface *
+ gfx_roto_zoom_surface(src, zoomx, zoomy, smooth)
+ 	SDL_Surface * src
+ 	double zoomx
+ 	double zoomy
+ 	int smooth
+ 	PREINIT:
+ 		char *CLASS = &quot;SDL::Surface&quot;;
+ 	CODE:
+ 		RETVAL = zoomSurface(src, zoomx, zoomy, smooth);
+ 	OUTPUT:
+ 		RETVAL
+
+</pre>
+
+</div>
+<h2 id="zoom_surface_size">zoom_surface_size</h2>
+<div id="zoom_surface_size_CONTENT">
+<pre> void
+ gfx_roto_zoom_surface_size(width, height, zoomx, zoomy, dstwidth, dstheight)
+ 	int width
+ 	int height
+ 	double zoomx
+ 	double zoomy
+ 	int *dstwidth
+ 	int *dstheight
+ 	CODE:
+ 		zoomSurfaceSize(width, height, zoomx, zoomy, dstwidth, dstheight);
+
+</pre>
+
+</div>
+<h2 id="shrink_surface">shrink_surface</h2>
+<div id="shrink_surface_CONTENT">
+<pre> SDL_Surface *
+ gfx_roto_shrink_surface(src, factorx, factory)
+ 	SDL_Surface * src
+ 	int factorx
+ 	int factory
+ 	PREINIT:
+ 		char *CLASS = &quot;SDL::Surface&quot;;
+ 	CODE:
+ 		RETVAL = shrinkSurface(src, factorx, factory);
+ 	OUTPUT:
+ 		RETVAL
+
+</pre>
+
+</div>
+<h2 id="rotate_surface_90_degrees">rotate_surface_90_degrees</h2>
+<div id="rotate_surface_90_degrees_CONTENT">
+<pre> SDL_Surface *
+ gfx_roto_rotate_surface_90_degrees(pSurf, numClockwiseTurns)
+ 	SDL_Surface* pSurf
+ 	int numClockwiseTurns
+ 	PREINIT:
+ 		char *CLASS = &quot;SDL::Surface&quot;;
+ 	CODE:
+ 		RETVAL = rotateSurface90Degrees(pSurf, numClockwiseTurns);
+ 	OUTPUT:
+ 		RETVAL
 
 
+</pre>
+
+</div>
 </div>
