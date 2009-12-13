@@ -1,0 +1,18 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+<hr />
+<!-- INDEX END -->
+
+<p>The Following are XS bindings to the SDL_gfx Library</p>
+<p>typedef struct {
+    Uint32 framecount;
+    float rateticks;
+    Uint32 lastticks;
+    Uint32 rate;
+    } FPSmanager;</p>
+<p>Described here:</p>
+<p>See: <a href="http://www.ferzkopp.net/joomla/content/view/19/14/">http://www.ferzkopp.net/joomla/content/view/19/14/</a></p>
+
+
+</div>

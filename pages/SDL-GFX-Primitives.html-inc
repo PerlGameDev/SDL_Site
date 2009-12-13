@@ -1,0 +1,343 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#pixel">pixel</a></li>
+<li><a href="#hline">hline</a></li>
+<li><a href="#vline">vline</a></li>
+<li><a href="#rectangle">rectangle</a></li>
+<li><a href="#box">box</a></li>
+<li><a href="#line">line</a></li>
+<li><a href="#aaline">aaline</a></li>
+<li><a href="#circle">circle</a></li>
+<li><a href="#arc">arc</a></li>
+<li><a href="#aacircle">aacircle</a></li>
+<li><a href="#filled_circle">filled_circle</a></li>
+<li><a href="#ellipse">ellipse</a></li>
+<li><a href="#aaellipse">aaellipse</a></li>
+<li><a href="#filled_ellipse">filled_ellipse</a></li>
+<li><a href="#pie">pie</a></li>
+<li><a href="#filled_pie">filled_pie</a></li>
+<li><a href="#trigon">trigon</a></li>
+<li><a href="#aatrigon">aatrigon</a></li>
+<li><a href="#filled_trigon">filled_trigon</a></li>
+<li><a href="#polygon">polygon</a></li>
+<li><a href="#aapolygon">aapolygon</a></li>
+<li><a href="#filled_polygon">filled_polygon</a></li>
+<li><a href="#textured_polygon">textured_polygon</a></li>
+<li><a href="#filled_polygon_MT">filled_polygon_MT</a></li>
+<li><a href="#textured_polygon_MT">textured_polygon_MT</a></li>
+<li><a href="#bezier">bezier</a></li>
+<li><a href="#character">character</a></li>
+<li><a href="#string">string</a></li>
+<li><a href="#set_font">set_font</a></li>
+</ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::GFX::Primitives - basic drawing functions</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>GFX, Primitives</p>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p>All <code>color</code> values for the <code>_color</code> functions are <code>0xRRGGBBAA</code> (32bit), even if the surface uses e. g. 8bit colors.</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="pixel">pixel</h2>
+<div id="pixel_CONTENT">
+<pre> int SDL::GFX::Primitives::pixel_color( $surface, $x, $y, $color );
+ int SDL::GFX::Primitives::pixel_RGBA(  $surface, $x, $y, $r, $g, $b, $a );
+
+</pre>
+<p>Draws a pixel at point <code>x</code>/<code>$y</code>. You can pass the color by <code>0xRRGGBBAA</code> or by passing 4 values. One for red, green, blue and alpha.</p>
+<pre> use SDL;
+ use SDL::Video;
+ use SDL::Surface;
+ use SDL::GFX::Primitives;
+
+ my $display = SDL::Video::set_video_mode(640, 480, 32, SDL_SWSURFACE);
+
+ SDL::GFX::Primitives::pixel_color($display, 2, 2, 0xFF0000FF);             # red pixcel
+ SDL::GFX::Primitives::pixel_RGBA( $display, 4, 4, 0x00, 0xFF, 0x00, 0xFF); # green pixel
+
+</pre>
+
+</div>
+<h2 id="hline">hline</h2>
+<div id="hline_CONTENT">
+<pre> int SDL::GFX::Primitives::hline_color( $surface, $x1, $x2, $y, $color );
+ int SDL::GFX::Primitives::hline_RGBA(  $surface, $x1, $x2, $y, $r, $g, $b, $a );
+
+</pre>
+<p>Draws a line horizontally from <code>$x1</code>/<code>$y</code> to <code>$x2</code>/<code>$y</code>.</p>
+
+</div>
+<h2 id="vline">vline</h2>
+<div id="vline_CONTENT">
+<pre> int SDL::GFX::Primitives::vline_color( $surface, $x, $y1, $y2, $color );
+ int SDL::GFX::Primitives::vline_RGBA(  $surface, $x, $y1, $y2, $r, $g, $b, $a );
+
+</pre>
+<p>Draws a line vertically from <code>$x</code>/<code>$y1</code> to <code>$x</code>/<code>$y2</code>.</p>
+
+</div>
+<h2 id="rectangle">rectangle</h2>
+<div id="rectangle_CONTENT">
+<pre> int SDL::GFX::Primitives::rectangle_color( $surface, $x1, $y1, $x2, $y2, $color );
+ int SDL::GFX::Primitives::rectangle_RGBA(  $surface, $x1, $y1, $x2, $y2, $r, $g, $b, $a );
+
+</pre>
+<p>Draws a rectangle. Upper left edge will be at <code>$x1</code>/<code>$y1</code> and lower right at <code>$x2</code>/<code>$y</code>. The colored border has a width of 1 pixel.</p>
+
+</div>
+<h2 id="box">box</h2>
+<div id="box_CONTENT">
+<pre> int SDL::GFX::Primitives::box_color( $surface, $x1, $y1, $x2, $y2, $color );
+ int SDL::GFX::Primitives::box_RGBA(  $surface, $x1, $y1, $x2, $y2, $r, $g, $b, $a );
+
+</pre>
+<p>Draws a filled rectangle.</p>
+
+</div>
+<h2 id="line">line</h2>
+<div id="line_CONTENT">
+<pre> int SDL::GFX::Primitives::line_color( $surface, $x1, $y1, $x2, $y2, $color );
+ int SDL::GFX::Primitives::line_RGBA(  $surface, $x1, $y1, $x2, $y2, $r, $g, $b, $a );
+
+</pre>
+<p>Draws a free line from <code>$x1</code>/<code>$y1</code> to <code>$x2</code>/<code>$y</code>.</p>
+
+</div>
+<h2 id="aaline">aaline</h2>
+<div id="aaline_CONTENT">
+<pre> int SDL::GFX::Primitives::aaline_color( $surface, $x1, $y1, $x2, $y2, $color );
+ int SDL::GFX::Primitives::aaline_RGBA(  $surface, $x1, $y1, $x2, $y2, $r, $g, $b, $a );
+
+</pre>
+<p>Draws a free line from <code>$x1</code>/<code>$y1</code> to <code>$x2</code>/<code>$y</code>. This line is anti aliased.</p>
+
+</div>
+<h2 id="circle">circle</h2>
+<div id="circle_CONTENT">
+<pre> int SDL::GFX::Primitives::circle_color( $surface, $x, $y, $r, $color );
+ int SDL::GFX::Primitives::circle_RGBA(  $surface, $x, $y, $rad, $r, $g, $b, $a );
+
+</pre>
+
+</div>
+<h2 id="arc">arc</h2>
+<div id="arc_CONTENT">
+<pre> int SDL::GFX::Primitives::arc_color( $surface, $x, $y, $r, $start, $end, $color );
+ int SDL::GFX::Primitives::arc_RGBA(  $surface, $x, $y, $rad, $start, $end, $r, $g, $b, $a );
+
+</pre>
+<p><strong>Note</strong>: You need lib SDL_gfx 2.0.17 or greater for this function.</p>
+
+</div>
+<h2 id="aacircle">aacircle</h2>
+<div id="aacircle_CONTENT">
+<pre> int SDL::GFX::Primitives::aacircle_color( $surface, $x, $y, $r, $color );
+ int SDL::GFX::Primitives::aacircle_RGBA(  $surface, $x, $y, $rad, $r, $g, $b, $a );
+
+</pre>
+<p><strong>Note</strong>: You need lib SDL_gfx 2.0.17 or greater for this function.</p>
+
+</div>
+<h2 id="filled_circle">filled_circle</h2>
+<div id="filled_circle_CONTENT">
+<pre> int SDL::GFX::Primitives::filled_circle_color( $surface, $x, $y, $r, $color );
+ int SDL::GFX::Primitives::filled_circle_RGBA(  $surface, $x, $y, $rad, $r, $g, $b, $a );
+
+</pre>
+
+</div>
+<h2 id="ellipse">ellipse</h2>
+<div id="ellipse_CONTENT">
+<pre> int SDL::GFX::Primitives::ellipse_color( $surface, $x, $y, $rx, $ry, $color );
+ int SDL::GFX::Primitives::ellipse_RGBA(  $surface, $x, $y, $rx, $ry, $r, $g, $b, $a );
+
+</pre>
+
+</div>
+<h2 id="aaellipse">aaellipse</h2>
+<div id="aaellipse_CONTENT">
+<pre> int SDL::GFX::Primitives::aaellipse_color( $surface, $xc, $yc, $rx, $ry, $color );
+ int SDL::GFX::Primitives::aaellipse_RGBA(  $surface, $x, $y, $rx, $ry, $r, $g, $b, $a );
+
+</pre>
+
+</div>
+<h2 id="filled_ellipse">filled_ellipse</h2>
+<div id="filled_ellipse_CONTENT">
+<pre> int SDL::GFX::Primitives::filled_ellipse_color( $surface, $x, $y, $rx, $ry, $color );
+ int SDL::GFX::Primitives::filled_ellipse_RGBA(  $surface, $x, $y, $rx, $ry, $r, $g, $b, $a );
+
+</pre>
+
+</div>
+<h2 id="pie">pie</h2>
+<div id="pie_CONTENT">
+<pre> int SDL::GFX::Primitives::pie_color( $surface, $x, $y, $rad, $start, $end, $color );
+ int SDL::GFX::Primitives::pie_RGBA(  $surface, $x, $y, $rad, $start, $end, $r, $g, $b, $a );
+
+</pre>
+<p>This draws an opened pie. <code>$start</code> and <code>$end</code> are degree values. <code>0</code> is at right, <code>90</code> at bottom, <code>180</code> at left and <code>270</code> degrees at top.</p>
+
+</div>
+<h2 id="filled_pie">filled_pie</h2>
+<div id="filled_pie_CONTENT">
+<pre> int SDL::GFX::Primitives::filled_pie_color( $surface, $x, $y, $rad, $start, $end, $color );
+ int SDL::GFX::Primitives::filled_pie_RGBA(  $surface, $x, $y, $rad, $start, $end, $r, $g, $b, $a );
+
+</pre>
+
+</div>
+<h2 id="trigon">trigon</h2>
+<div id="trigon_CONTENT">
+<pre> int SDL::GFX::Primitives::trigon_color( $surface, $x1, $y1, $x2, $y2, $x3, $y3, $color );
+ int SDL::GFX::Primitives::trigon_RGBA(  $surface, $x1, $y1, $x2, $y2, $x3, $y3, $r, $g, $b, $a );
+
+</pre>
+
+</div>
+<h2 id="aatrigon">aatrigon</h2>
+<div id="aatrigon_CONTENT">
+<pre> int SDL::GFX::Primitives::aatrigon_color( $surface, $x1, $y1, $x2, $y2, $x3, $y3, $color );
+ int SDL::GFX::Primitives::aatrigon_RGBA(  $surface, $x1, $y1, $x2, $y2, $x3, $y3, $r, $g, $b, $a );
+
+</pre>
+
+</div>
+<h2 id="filled_trigon">filled_trigon</h2>
+<div id="filled_trigon_CONTENT">
+<pre> int SDL::GFX::Primitives::filled_trigon_color( $surface, $x1, $y1, $x2, $y2, $x3, $y3, $color );
+ int SDL::GFX::Primitives::filled_trigon_RGBA(  $surface, $x1, $y1, $x2, $y2, $x3, $y3, $r, $g, $b, $a );
+
+</pre>
+
+</div>
+<h2 id="polygon">polygon</h2>
+<div id="polygon_CONTENT">
+<pre> int SDL::GFX::Primitives::polygon_color( $surface, $vx, $vy, $n, $color );
+ int SDL::GFX::Primitives::polygon_RGBA(  $surface, $vx, $vy, $n, $r, $g, $b, $a );
+
+</pre>
+<p>Example:</p>
+<pre> SDL::GFX::Primitives::polygon_color($display, [262, 266, 264, 266, 262], [243, 243, 245, 247, 247], 5, 0xFF0000FF);
+
+</pre>
+
+</div>
+<h2 id="aapolygon">aapolygon</h2>
+<div id="aapolygon_CONTENT">
+<pre> int SDL::GFX::Primitives::aapolygon_color( $surface, $vx, $vy, $n, $color );
+ int SDL::GFX::Primitives::aapolygon_RGBA(  $surface, $vx, $vy, $n, $r, $g, $b, $a );
+
+</pre>
+
+</div>
+<h2 id="filled_polygon">filled_polygon</h2>
+<div id="filled_polygon_CONTENT">
+<pre> int SDL::GFX::Primitives::filled_polygon_color( $surface, $vx, $vy, $n, $color );
+ int SDL::GFX::Primitives::filled_polygon_RGBA(  $surface, $vx, $vy, $n, $r, $g, $b, $a );
+
+</pre>
+
+</div>
+<h2 id="textured_polygon">textured_polygon</h2>
+<div id="textured_polygon_CONTENT">
+<pre> int SDL::GFX::Primitives::textured_polygon( $surface, $vx, $vy, $n, $texture, $texture_dx, $texture_dy );
+
+</pre>
+
+</div>
+<h2 id="filled_polygon_MT">filled_polygon_MT</h2>
+<div id="filled_polygon_MT_CONTENT">
+<pre> int SDL::GFX::Primitives::filled_polygon_color_MT( $surface, $vx, $vy, $n, $color, $polyInts, $polyAllocated );
+ int SDL::GFX::Primitives::filled_polygon_RGBA_MT(  $surface, $vx, $vy, $n, $r, $g, $b, $a, $polyInts, $polyAllocated );
+
+</pre>
+<p><strong>Note</strong>: You need lib SDL_gfx 2.0.17 or greater for this function.</p>
+
+</div>
+<h2 id="textured_polygon_MT">textured_polygon_MT</h2>
+<div id="textured_polygon_MT_CONTENT">
+<pre> int SDL::GFX::Primitives::textured_polygon_MT( $surface, $vx, $vy, $n, $texture, $texture_dx, $texture_dy, $polyInts, $polyAllocated );
+
+</pre>
+<p><strong>Note</strong>: You need lib SDL_gfx 2.0.17 or greater for this function.</p>
+
+</div>
+<h2 id="bezier">bezier</h2>
+<div id="bezier_CONTENT">
+<pre> int SDL::GFX::Primitives::bezier_color( $surface, $vx, $vy, $n, $s, $color );
+ int SDL::GFX::Primitives::bezier_RGBA(  $surface, $vx, $vy, $n, $s, $r, $g, $b, $a );
+
+</pre>
+<p><code>$n</code> is the number of elements in <code>$vx</code> and <code>$vy</code>, and <code>$s</code> is the number of steps. So the bigger <code>$s</code> is, the smother it becomes.</p>
+<p>Example:</p>
+<pre> SDL::GFX::Primitives::bezier_color($display, [390, 392, 394, 396], [243, 255, 235, 247], 4, 20, 0xFF00FFFF);
+
+</pre>
+
+</div>
+<h2 id="character">character</h2>
+<div id="character_CONTENT">
+<pre> int SDL::GFX::Primitives::character_color( $surface, $x, $y, $c, $color );
+ int SDL::GFX::Primitives::character_RGBA(  $surface, $x, $y, $c, $r, $g, $b, $a );
+
+</pre>
+<p><code>$c</code> is the character that will be drawn at <code>$x</code>,<code>$y</code>.</p>
+
+</div>
+<h2 id="string">string</h2>
+<div id="string_CONTENT">
+<pre> int SDL::GFX::Primitives::string_color( $surface, $x, $y, $c, $color );
+ int SDL::GFX::Primitives::string_RGBA(  $surface, $x, $y, $c, $r, $g, $b, $a );
+
+</pre>
+
+</div>
+<h2 id="set_font">set_font</h2>
+<div id="set_font_CONTENT">
+<pre> void SDL::GFX::Primitives::set_font(fontdata, $cw, $ch );
+
+</pre>
+<p>The fontsets are included in the SDL_gfx distribution. Check <a href="http://www.ferzkopp.net/joomla/content/view/19/14/">http://www.ferzkopp.net/joomla/content/view/19/14/</a> for more.</p>
+<p>Example:</p>
+<pre> my $font = '';
+ open(FH, '&lt;', 'data/5x7.fnt');
+ binmode(FH);
+ read(FH, $font, 4096);
+ close(FH);
+
+ SDL::GFX::Primitives::set_font($font, 5, 7);
+
+</pre>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>Tobias Leich [FROGGS]
+</p>
+
+</div>
+</div>
