@@ -22,6 +22,10 @@ Oddly enough he sells onions.
 
 He is tipsy and fast.  
 
+=head2 The artsy dadio ( L<ruoso | http://daniel.ruoso.com/> )
+
+He is an artist and a hacker. What more do ya want?
+
 =for html <img src="assets/about_acme.jpg" />
 
 =head1 COMRADES IN ARMS

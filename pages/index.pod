@@ -36,12 +36,12 @@ To begin testing read L<this| http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testin
 
 =head1 Latest News
 
-=head2 December 7th 2009
+=head2 Feb 01 2010 2009
 
 =head3 CPAN Release
 	
 
-L<SDL 2.3_3(Alpha)|http://search.cpan.org/~kthakore> is on CPAN. The new API has many changes, read the L<release notes|http://sdl.perl.org/blog-0001.html>. 
+L<SDL 2.3_5(Alpha)|http://search.cpan.org/~kthakore> is on CPAN. The new API has many changes, read the L<release notes|http://sdl.perl.org/blog-0001.html>. 
 
 SDL Perl is v2.2.6 on CPAN. The last of it's kind. This is the last release which will have the old API. 
 
@@ -65,6 +65,8 @@ Provide dependecies for FrozenBubble migration to CPAN.
 =item v2.5 ??? MultiThreading and Other Third Party Libraries
 
 This release is undecided as of now. Please talk to us on the Channel or Make Tickets
+
+2.3_5 adds more Threaded Timer support
 
 =back
 
