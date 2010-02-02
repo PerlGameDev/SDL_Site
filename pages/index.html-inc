@@ -11,7 +11,7 @@
 </ul>
 </li>
 <li><a href="#Latest_News">Latest News</a>
-<ul><li><a href="#December_7th_2009">December 7th 2009</a>
+<ul><li><a href="#Feb_01_2010_2009">Feb 01 2010 2009</a>
 <ul><li><a href="#CPAN_Release">CPAN Release</a></li>
 <li><a href="#Active_Development">Active Development</a>
 </li>
@@ -61,8 +61,8 @@
 <div id="Latest_News_CONTENT">
 
 </div>
-<h2 id="December_7th_2009">December 7th 2009</h2>
-<div id="December_7th_2009_CONTENT">
+<h2 id="Feb_01_2010_2009">Feb 01 2010 2009</h2>
+<div id="Feb_01_2010_2009_CONTENT">
 
 </div>
 <h3 id="CPAN_Release">CPAN Release</h3>
@@ -71,7 +71,7 @@
 
 
 
-<p><a href="http://search.cpan.org/~kthakore">SDL 2.3_3(Alpha)</a> is on CPAN. The new API has many changes, read the <a href="http://sdl.perl.org/blog-0001.html">release notes</a>. </p>
+<p><a href="http://search.cpan.org/~kthakore">SDL 2.3_5(Alpha)</a> is on CPAN. The new API has many changes, read the <a href="http://sdl.perl.org/blog-0001.html">release notes</a>. </p>
 <p>SDL Perl is v2.2.6 on CPAN. The last of it's kind. This is the last release which will have the old API. </p>
 
 
@@ -93,6 +93,7 @@
 	<dt>v2.5 ??? MultiThreading and Other Third Party Libraries</dt>
 	<dd>
 		<p>This release is undecided as of now. Please talk to us on the Channel or Make Tickets</p>
+		<p>2.3_5 adds more Threaded Timer support</p>
 	</dd>
 </dl>
 
