@@ -4,11 +4,9 @@
 
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
-<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
-<ul><li><a href="#new">new()</a></li>
-<li><a href="#query_spec">query_spec()</a></li>
+<ul><li><a href="#query_spec">query_spec()</a></li>
 <li><a href="#reserve_channels">reserve_channels</a></li>
 <li><a href="#allocate_channels">allocate_channels()</a></li>
 <li><a href="#group_channel_channel_group">group_channel(channel,group)</a></li>
@@ -26,13 +24,13 @@
 <li><a href="#halt_channel_channel">halt_channel(channel)</a></li>
 <li><a href="#halt_group_group">halt_group(group)</a></li>
 <li><a href="#halt_music">halt_music()</a></li>
-<li><a href="#channel_expire_channel_ticks">channel_expire(channel,ticks)</a></li>
+<li><a href="#expire_channel_channel_ticks">expire_channel(channel,ticks)</a></li>
 <li><a href="#fade_out_channel_channel_ms">fade_out_channel(channel,ms)</a></li>
 <li><a href="#fade_out_group_group_ms">fade_out_group(group,ms)</a></li>
 <li><a href="#fade_out_music_ms">fade_out_music(ms)</a></li>
 <li><a href="#fading_music">fading_music()</a></li>
 <li><a href="#fading_channel">fading_channel()</a></li>
-<li><a href="#pause_channel">pause( channel )</a></li>
+<li><a href="#pause_channel">pause(channel)</a></li>
 <li><a href="#resume_channel">resume(channel)</a></li>
 <li><a href="#paused">paused()</a></li>
 <li><a href="#pause_music">pause_music()</a></li>
@@ -60,16 +58,6 @@
 <p>Mixer</p>
 
 </div>
-<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="SYNOPSIS_CONTENT">
-<pre>  $mixer = new SDL::Mixer 	-frequency =&gt; MIX_DEFAULT_FREQUENCY,
-				-format =&gt; MIX_DEFAULT_FORMAT,
-				-channels =&gt; MIX_DEFAULT_CHANNELS,
-				-size =&gt; 4096;
-
-</pre>
-
-</div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
 <p>SDL::Mixer allows you access to the SDL mixer library, enablig sound and
@@ -79,17 +67,6 @@ the sound and music in and out.</p>
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="METHODS_CONTENT">
-
-</div>
-<h2 id="new">new()</h2>
-<div id="new_CONTENT">
-<pre>	$mixer = SDL::Mixer-&gt;new(	-frequency =&gt; MIX_DEFAULT_FREQUENCY,
-					-format    =&gt; MIX_DEFAULT_FORMAT,
-					-channels  =&gt; MIX_DEFAULT_CHANNELS,
-					-size      =&gt; 4096);
-
-</pre>
-<p>Creates a new SDL::Mixer object. <code>$size</code> is the buffer size in bytes.</p>
 
 </div>
 <h2 id="query_spec">query_spec()</h2>
@@ -207,8 +184,8 @@ values:</p>
 <p>Stops the music</p>
 
 </div>
-<h2 id="channel_expire_channel_ticks">channel_expire(channel,ticks)</h2>
-<div id="channel_expire_channel_ticks_CONTENT">
+<h2 id="expire_channel_channel_ticks">expire_channel(channel,ticks)</h2>
+<div id="expire_channel_channel_ticks_CONTENT">
 <p>Ignores the channel after <code>ticks</code> has expired</p>
 
 </div>
@@ -237,7 +214,7 @@ values:</p>
 <p>Return true when the channel number <code>$channel</code> is currently fading in or out.</p>
 
 </div>
-<h2 id="pause_channel">pause( channel )</h2>
+<h2 id="pause_channel">pause(channel)</h2>
 <div id="pause_channel_CONTENT">
 <p>Pause the channel <code>$channel</code>.</p>
 

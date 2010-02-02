@@ -1,0 +1,77 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#init">init</a></li>
+<li><a href="#set">set</a></li>
+<li><a href="#get">get</a></li>
+<li><a href="#delay">delay</a>
+</li>
+</ul>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::GFX::Primitives - framerate calculating functions</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>GFX, Framerate</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="init">init</h2>
+<div id="init_CONTENT">
+<p>void
+gfx_frame_init(manager)
+	FPSmanager * manager
+	CODE:
+		SDL_initFramerate(manager);</p>
+
+</div>
+<h2 id="set">set</h2>
+<div id="set_CONTENT">
+<p>int
+gfx_frame_set(manager, rate)
+	FPSmanager * manager
+	int rate
+	CODE:
+		RETVAL = SDL_setFramerate(manager, rate);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="get">get</h2>
+<div id="get_CONTENT">
+<p>int
+gfx_frame_get(manager)
+	FPSmanager * manager
+	CODE:
+		RETVAL = SDL_getFramerate(manager);
+	OUTPUT:
+		RETVAL</p>
+
+</div>
+<h2 id="delay">delay</h2>
+<div id="delay_CONTENT">
+<p>void
+gfx_frame_delay(manager)
+	FPSmanager * manager
+	CODE:
+		SDL_framerateDelay(manager);</p>
+
+
+
+
+
+</div>
+</div>

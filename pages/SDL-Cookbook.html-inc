@@ -3,7 +3,37 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a>
-<ul><li><a href="#CATEGORY">CATEGORY</a>
+<ul><li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#First_Steps">First Steps</a>
+<ul><li><a href="#Overview">Overview</a></li>
+<li><a href="#Installation">Installation</a></li>
+<li><a href="#Tutorial">Tutorial</a></li>
+</ul>
+</li>
+<li><a href="#Core_SDL_Layer">Core SDL Layer</a>
+<ul><li><a href="#Video">Video</a></li>
+<li><a href="#Events">Events</a></li>
+</ul>
+</li>
+<li><a href="#Audio">Audio </a>
+<ul><li><a href="#Mixer">Mixer</a></li>
+</ul>
+</li>
+<li><a href="#Images">Images </a>
+<ul><li><a href="#BMP">BMP</a></li>
+<li><a href="#Image_extensions">Image extensions</a></li>
+</ul>
+</li>
+<li><a href="#Text">Text</a>
+<ul><li><a href="#TTF">TTF</a></li>
+<li><a href="#Pango">Pango</a></li>
+</ul>
+</li>
+<li><a href="#Extras">Extras</a>
+<ul><li><a href="#GFX">GFX</a></li>
+<li><a href="#OpenGL">OpenGL</a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -18,6 +48,91 @@
 <h2 id="CATEGORY">CATEGORY</h2>
 <div id="CATEGORY_CONTENT">
 <p>Cookbook</p>
+
+</div>
+<h2 id="First_Steps">First Steps</h2>
+<div id="First_Steps_CONTENT">
+
+</div>
+<h3 id="Overview">Overview</h3>
+<div id="Overview_CONTENT">
+
+</div>
+<h3 id="Installation">Installation</h3>
+<div id="Installation_CONTENT">
+
+</div>
+<h3 id="Tutorial">Tutorial</h3>
+<div id="Tutorial_CONTENT">
+
+</div>
+<h2 id="Core_SDL_Layer">Core SDL Layer</h2>
+<div id="Core_SDL_Layer_CONTENT">
+
+</div>
+<h3 id="Video">Video</h3>
+<div id="Video_CONTENT">
+
+</div>
+<h3 id="Events">Events</h3>
+<div id="Events_CONTENT">
+
+</div>
+<h2 id="Audio">Audio </h2>
+<div id="Audio_CONTENT">
+
+</div>
+<h3 id="Mixer">Mixer</h3>
+<div id="Mixer_CONTENT">
+
+</div>
+<h2 id="Images">Images </h2>
+<div id="Images_CONTENT">
+
+</div>
+<h3 id="BMP">BMP</h3>
+<div id="BMP_CONTENT">
+
+</div>
+<h3 id="Image_extensions">Image extensions</h3>
+<div id="Image_extensions_CONTENT">
+
+</div>
+<h2 id="Text">Text</h2>
+<div id="Text_CONTENT">
+
+</div>
+<h3 id="TTF">TTF</h3>
+<div id="TTF_CONTENT">
+
+</div>
+<h3 id="Pango">Pango</h3>
+<div id="Pango_CONTENT">
+
+</div>
+<h2 id="Extras">Extras</h2>
+<div id="Extras_CONTENT">
+
+</div>
+<h3 id="GFX">GFX</h3>
+<div id="GFX_CONTENT">
+
+</div>
+<h3 id="OpenGL">OpenGL</h3>
+<div id="OpenGL_CONTENT">
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </div>
 </div>

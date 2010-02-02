@@ -26,6 +26,18 @@
 <ul><li><a href="#RETURN-4">RETURN</a></li>
 </ul>
 </li>
+<li><a href="#set_event_filter">set_event_filter</a></li>
+<li><a href="#get_key_state">get_key_state</a></li>
+<li><a href="#get_mod_state">get_mod_state</a></li>
+<li><a href="#set_mod_state">set_mod_state</a></li>
+<li><a href="#event_state">event_state </a></li>
+<li><a href="#get_key_name">get_key_name</a></li>
+<li><a href="#enable_unicode">enable_unicode </a></li>
+<li><a href="#enable_key_repeat">enable_key_repeat </a></li>
+<li><a href="#get_mouse_state">get_mouse_state </a></li>
+<li><a href="#get_relative_mouse_state">get_relative_mouse_state </a></li>
+<li><a href="#get_app_state">get_app_state </a></li>
+<li><a href="#joystick_event_state">joystick_event_state </a></li>
 </ul>
 </li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
@@ -159,6 +171,58 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 <h3 id="RETURN-4">RETURN</h3>
 <div id="RETURN_CONTENT-4">
 <p>0 if there was an error while waiting for events, 1 otherwise</p>
+
+</div>
+<h2 id="set_event_filter">set_event_filter</h2>
+<div id="set_event_filter_CONTENT">
+
+</div>
+<h2 id="get_key_state">get_key_state</h2>
+<div id="get_key_state_CONTENT">
+
+</div>
+<h2 id="get_mod_state">get_mod_state</h2>
+<div id="get_mod_state_CONTENT">
+
+</div>
+<h2 id="set_mod_state">set_mod_state</h2>
+<div id="set_mod_state_CONTENT">
+
+</div>
+<h2 id="event_state">event_state </h2>
+<div id="event_state_CONTENT">
+
+</div>
+<h2 id="get_key_name">get_key_name</h2>
+<div id="get_key_name_CONTENT">
+
+</div>
+<h2 id="enable_unicode">enable_unicode </h2>
+<div id="enable_unicode_CONTENT">
+
+</div>
+<h2 id="enable_key_repeat">enable_key_repeat </h2>
+<div id="enable_key_repeat_CONTENT">
+
+</div>
+<h2 id="get_mouse_state">get_mouse_state </h2>
+<div id="get_mouse_state_CONTENT">
+
+</div>
+<h2 id="get_relative_mouse_state">get_relative_mouse_state </h2>
+<div id="get_relative_mouse_state_CONTENT">
+
+</div>
+<h2 id="get_app_state">get_app_state </h2>
+<div id="get_app_state_CONTENT">
+
+</div>
+<h2 id="joystick_event_state">joystick_event_state </h2>
+<div id="joystick_event_state_CONTENT">
+
+
+
+
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

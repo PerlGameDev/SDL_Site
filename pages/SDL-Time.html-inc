@@ -1,0 +1,130 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#get_ticks">get_ticks()</a></li>
+<li><a href="#delay_ms">delay(ms)</a></li>
+<li><a href="#add_timer_interval_callback">add_timer(interval,callback)</a>
+<ul>
+<li>
+<ul><li><a href="#Parameters">Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#remove_timer_id">remove_timer( id )</a>
+</li>
+</ul>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::Time - a SDL perl extension for managing timers.</p>
+
+
+
+
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>	package foo;
+	use threads;
+	use threads::shared;
+
+	use SDL;
+	use SDL::Time;
+
+	SDL::init(SDL_INIT_TIMER);
+
+	my $tick :shared = 0;
+
+	sub ticker { $tick++; warn $tick; return 100 };
+
+	package main;
+
+	my $id = SDL::Time::add_timer(100, 'foo::ticker');
+
+	sleep(2);
+
+	SDL::Time::remove_timer($id);
+
+	SDL::quit();
+
+</pre>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+
+
+
+
+</div>
+<h2 id="get_ticks">get_ticks()</h2>
+<div id="get_ticks_CONTENT">
+<p>This will be move to SDL::Time.</p>
+
+
+
+
+<p>Returns the number of milliseconds since SDL library initialization. This value wraps around if the program runs for more than 49.7 days</p>
+
+
+
+
+
+</div>
+<h2 id="delay_ms">delay(ms)</h2>
+<div id="delay_ms_CONTENT">
+<p>This will be move to SDL::Time.</p>
+<p>This function waits a specified number of milliseconds before returning. It waits at least the specified time, but possible longer due to OS scheduling. The delay granularity is at least 10 ms. Some platforms have shorter clock ticks but this is the most common.
+SDL::delay doesn't returns anything. </p>
+
+</div>
+<h2 id="add_timer_interval_callback">add_timer(interval,callback)</h2>
+<div id="add_timer_interval_callback_CONTENT">
+<p>This runs in a seperate thread and a cloned perl thread.</p>
+<p>Adds a callback function to be run after the specified number of milliseconds has elapsed. 
+The callback function is passed the current timer interval and the user supplied parameter from the SDL::add_timer call and returns the next timer interval.
+If the returned value from the callback is the same as the one passed in, the timer continues at the same rate.
+If the returned value from the callback is 0, the timer is cancelled.</p>
+<p>Another way to cancel a currently-running timer is by calling SDL::remove_timer with the timer's ID (which was returned from SDL::add_timer).</p>
+<p>The timer callback function may run in a different thread than your main program, and so shouldn't call any functions from within itself. 
+However, you may always call SDL::push_event.</p>
+<p>SDL::add_timer returns the identifier value of the generated timer or undef on error. </p>
+<p>Note : If you use this function, you need to pass SDL_INIT_TIMER to SDL::init. </p>
+
+</div>
+<h4 id="Parameters">Parameters</h4>
+<div id="Parameters_CONTENT">
+<pre>	interval [in]   The desired interval of the timer, in milliseconds. 
+			The granularity of the timer is platform-dependent, but you should count on it being at least 10 ms as this is the most common number.
+			This means that if you request a 16 ms timer, your callback will run approximately 20 ms later on an unloaded system. 
+			If you wanted to set a flag signaling a frame update at 30 frames per second (every 33 ms), you might set a timer for 30 ms (see example below). 
+
+	callback [in]   The SDL timer callback function which is called when the specified interval elapses. 
+
+
+
+
+</pre>
+
+</div>
+<h2 id="remove_timer_id">remove_timer( id )</h2>
+<div id="remove_timer_id_CONTENT">
+<p>Removes a timer callback previously added with SDL::add_timer. 
+It returns 0 on succÃ©s or -1 on error.</p>
+
+
+
+
+
+</div>
+</div>
