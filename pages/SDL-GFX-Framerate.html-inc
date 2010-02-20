@@ -4,6 +4,7 @@
 
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#init">init</a></li>
 <li><a href="#set">set</a></li>
@@ -17,12 +18,17 @@
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::GFX::Primitives - framerate calculating functions</p>
+<p>SDL::GFX::Framerate - framerate calculating functions</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
 <p>GFX, Framerate</p>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p>The framerate functions are used to insert delays into the graphics loop to maintain a constant framerate.</p>
 
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -31,43 +37,41 @@
 </div>
 <h2 id="init">init</h2>
 <div id="init_CONTENT">
-<p>void
-gfx_frame_init(manager)
-	FPSmanager * manager
-	CODE:
-		SDL_initFramerate(manager);</p>
+<pre> use SDL;
+ use SDL::GFX::Framerate;
+ use SDL::GFX::FPSManager;
+
+ my $fps = SDL::GFX::FPSManager-&gt;new(0, 0, 0, 0);
+
+ SDL::GFX::Framerate::init($fps);
+
+</pre>
+<p>Initialize the framerate manager, set default framerate of 30Hz and reset delay interpolation.</p>
 
 </div>
 <h2 id="set">set</h2>
 <div id="set_CONTENT">
-<p>int
-gfx_frame_set(manager, rate)
-	FPSmanager * manager
-	int rate
-	CODE:
-		RETVAL = SDL_setFramerate(manager, rate);
-	OUTPUT:
-		RETVAL</p>
+<pre> SDL::GFX::Framerate::set($fps, 60);
+
+</pre>
+<p>Sets the new desired framerate to 60 frames per second.</p>
 
 </div>
 <h2 id="get">get</h2>
 <div id="get_CONTENT">
-<p>int
-gfx_frame_get(manager)
-	FPSmanager * manager
-	CODE:
-		RETVAL = SDL_getFramerate(manager);
-	OUTPUT:
-		RETVAL</p>
+<pre> my $rate = SDL::GFX::Framerate::get($fps);
+
+</pre>
+<p>Get the currently set framerate of the manager.</p>
 
 </div>
 <h2 id="delay">delay</h2>
 <div id="delay_CONTENT">
-<p>void
-gfx_frame_delay(manager)
-	FPSmanager * manager
-	CODE:
-		SDL_framerateDelay(manager);</p>
+<pre> SDL::GFX::Framerate::delay($fps);
+
+</pre>
+<p>Generate a delay to accomodate currently set framerate. Call once in thegraphics/rendering loop. 
+If the computer cannot keep up with the rate (i.e.drawing too slow), the delay is zero and the delay interpolation is reset.</p>
 
 
 
