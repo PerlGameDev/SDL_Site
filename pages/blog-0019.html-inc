@@ -1,6 +1,40 @@
 <div class="blog">
 <h1 id="NAME">
-Why I will be sticking to CPAN
+Design of SDL::Rect
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>sculpted in clay,</i></div><div style="text-align: right;"><i>then fired to glass.<br /></i><i><br /></i></div><br />Recently there was really long <a href="http://www.nntp.perl.org/group/perl.sdl.devel/2009/09/msg1424.html">discussion </a>on sdl-devel@perl.org about providing packages for SDL perl rather than focusing on CPAN releases. The gists of the argument was that SDL perl should be making platform specific packages for end users. I agree with this idea but I do have to face the truth. <br /><br />The truth is there are very few developers currently working on SDL Perl. The truth is CPAN provides several tools that which currently drives development for SDL Perl. There are people interested in packaging SDL Perl (<a href="http://rt.cpan.org/Ticket/Display.html?id=49003">kmx</a>, <a href="http://www.nntp.perl.org/group/perl.sdl.devel/2009/09/msg1433.html">jean</a> and Jerome Quelin). The truth is there are other very <a href="http://rt.cpan.org/Ticket/Display.html?id=49084">critical areas</a> we can focus on. <br /><br />If there are people looking to package SDL Perl for their platform please contact us at sdl-devel@perl.org.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-6565605958523853965?l=yapgh.blogspot.com' alt='' /></div></div></div>
+<div style="text-align: right;"><i><br />
+you say things,<br />
+I hear,<br />
+but don't listen,<br />
+<br />
+you show things,<br />
+I see,<br />
+but don't understand,<br />
+<br />
+you write things,<br />
+I read,<br />
+but don't know.<br />
+</i></div><br />
+Lately we have been working on cleaning up the XS name spaces of SDL perl. After some bumps and falls we came up with a separated Rect module. Rect is one of the most simple C struct as shown below. <br />
+<br />
+<script src="http://gist.github.com/185940.js">
+</script><br />
+<br />
+Using the awesome <a href="http://cpansearch.perl.org/src/DMR/CookBookB-19960430/perlobject.map">perlobject.map</a> as a reference I was able to create a <a href="http://github.com/kthakore/SDL_perl/blob/a1b835c168ec184abc01edbc01862ffa15624c26/lib/SDL/Rect.pm">blessed perl</a> object in <a href="http://github.com/kthakore/SDL_perl/blob/a1b835c168ec184abc01edbc01862ffa15624c26/src/Rect.xs">XS</a>. So now SDL::Rect-&gt;new(...) gave us a blessed reference ready to go. And as an icing it would destroy itself properly no matter where it was used. But once I brought it into our existing code base, garu pointed out the extending it was a little bit of a mess. So far to extend Rect we have to something like below. Any comment or advice would be much appreciated.<br />
+<br />
+<br />
+<script src="http://gist.github.com/185938.js">
+</script><br />
+<br />
+<br />
+Have at it I am a big boy. You can grab the code like this.<br />
+Only If you don't already have a local git repo:<br />
+<br />
+<blockquote>mkdir SDL<br />
+cd SDL<br />
+git init .</blockquote><br />
+Then do this or skip to this if you already have a local git repo<br />
+<blockquote>git pull git://github.com/kthakore/SDL_perl.git experimental</blockquote><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-3340771783563950133?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/KEhhydXQVOQIR77sDEUjV6-zh0M/0/da"><img src="http://feedads.g.doubleclick.net/~a/KEhhydXQVOQIR77sDEUjV6-zh0M/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/KEhhydXQVOQIR77sDEUjV6-zh0M/1/da"><img src="http://feedads.g.doubleclick.net/~a/KEhhydXQVOQIR77sDEUjV6-zh0M/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/6i-HmfODM5o" height="1" width="1"/></div></div>

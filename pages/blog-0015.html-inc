@@ -1,6 +1,34 @@
 <div class="blog">
 <h1 id="NAME">
-Updates, Falling Block Game, and Hack Fest
+Why and How Frozen Bubble is going to CPAN
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>Silent but active,<br />Small but deadly. <br /></i><br /></div><br /><br /><h3>Updates</h3>Ok so my blog posts have gone down a bit due to me using my fingers for coding. We have started to get some updates to SDL docs so that good. Also some of the tutorials are shaping up. This is what I have been hacking this past week.<br /><br /><br /><br /><div class="separator" style="clear: both; text-align: center;"><br /></div><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_NnqjAQEn1Xo/SrmNTm9UkKI/AAAAAAAAAA0/S0XNvXsp9u4/s1600-h/tetris.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_NnqjAQEn1Xo/SrmNTm9UkKI/AAAAAAAAAA0/S0XNvXsp9u4/s320/tetris.jpg" /></a><br /></div><br /><br /><br /><br />You can grab the <a href="http://github.com/kthakore/TetrisPL">code</a>. Note you will have to install deps yourself. Read the README file. It is not a tutorial yet, because it was hacked together in ~50 hours. But it playable now. During building this I found out that MacOSX (and Snow Leopard) has died again.<br /><br /><h3>Hackfest</h3>So with dngor's help this sunday (27/09/09) we will have a hackfest to fix MacOSX support. Anyone with a MacOSX and wants to help is welcome on <a href="http://widget.mibbit.com/?settings=89f140215d60860684cee2f6a917607f&amp;server=irc.perl.org&amp;channel=%23sdl">#sdl irc.perl.org</a>. We will also try to fix up a lot of docs and the tutorial for a early next week release. Also if we can we will migrate to the new site.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-7382145297295717151?l=yapgh.blogspot.com' alt='' /></div></div></div>
+<div style="text-align: right;"><i>A single drop,</i><br />
+</div><div style="text-align: right;"><i>causes the ocean to swell</i><br />
+</div><div style="text-align: left;"><br />
+</div><div style="text-align: left;">So 5 weeks ago, SDL Perl was broken. It had been for several years. After the last release SDL Perl works ... somewhat. The quick releases that you have seen have been work-arounds, fixes and refactoring. This is not bad for a few weeks of work but, there is a point where code smell and technical debt is too huge to fix with out redesigning. This is that point.<br />
+</div><div style="text-align: left;"><br />
+</div><div style="text-align: left;">Since the redesigning will take time and effort it will be good to have a leg up. This leg up is Frozen Bubble 2.20. Frozen Bubble employs a lot of C and Perl hacks to cover up for SDL Perl's lacking. This will help in a sense fast forward the code status to 2008. Since Frozen Bubble is helping us out, we can go one step forward and help it out! <br />
+</div><div style="text-align: left;"><br />
+</div><div style="text-align: left;">So Alias (Adam Kennedy) and I have started work on making Frozen Bubble CPAN accessible. Frozen Bubble is a well know game and making it cross-platform will bring lots of attention and hopefully contributions to SDL Perl.<br />
+</div><div style="text-align: left;"><br />
+</div><div style="text-align: left;">In Alias's <a href="http://use.perl.org/%7EAlias/journal/39701">earlier post</a> about this he mentioned about making a splash and some other stuff. I will talk about how and where we will be accomplishing this task. <br />
+</div><div style="text-align: left;"><br />
+</div><div style="text-align: left;">First we will be tracking Frozen Bubble on the new <a href="http://sdlperl.ath.cx/projects/SDLPerl/wiki">SDL Perl Trac website</a>. This site will be similar to Padre's Trac site. As a bonus for people looking to help out in SDL Perl I have separated tasks by <i>perceived </i>difficulty. This will help to breakdown harder task too.<br />
+</div><div style="text-align: left;"><br />
+</div><div style="text-align: left;">For example for Frozen Bubble the two major bumps we have run into so far are:<br />
+</div><div style="text-align: left;"><br />
+</div><div style="text-align: left;">Migrating the SDL Perl workarounds: <a href="http://sdlperl.ath.cx/projects/SDLPerl/ticket/3">Ticket #3</a><br />
+</div><div style="text-align: left;">Making the Build System Portable: <a href="http://sdlperl.ath.cx/projects/SDLPerl/ticket/7">Ticket #7</a><br />
+</div><div style="text-align: left;"><br />
+</div><div style="text-align: left;">The first one will be difficult as it involves XS. So I will break it down into easier tasks with specific instruction which can then hopefully be picked up by interested contributers. The second one there is sort of a forte of Adam so I will leave it up to him. This is the process I am proposing make hard tickets, break them down.<br />
+</div><div style="text-align: left;"><br />
+</div><div style="text-align: left;">This will generate a lot of easy tickets that will hopefully be synchronized.&nbsp; If you are interested in this please give me a shout on #sdl irc.perl.org or the mailing list at sdl-devel@perl.org and I will get you registered.<br />
+</div><div style="text-align: left;"><br />
+</div><div style="text-align: left;">--yapgh<br />
+</div><div style="text-align: left;"><br />
+</div><div style="text-align: left;"><br />
+</div><div style="text-align: left;"><br />
+</div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-1296050942449452224?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/jPyY3iooiTlYdpCXSBfDyyNO-1c/0/da"><img src="http://feedads.g.doubleclick.net/~a/jPyY3iooiTlYdpCXSBfDyyNO-1c/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/jPyY3iooiTlYdpCXSBfDyyNO-1c/1/da"><img src="http://feedads.g.doubleclick.net/~a/jPyY3iooiTlYdpCXSBfDyyNO-1c/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/oXhO0UG4Xwc" height="1" width="1"/></div></div>

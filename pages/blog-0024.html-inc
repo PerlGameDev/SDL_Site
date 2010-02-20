@@ -1,6 +1,14 @@
 <div class="blog">
 <h1 id="NAME">
-Updates on Plan for v2.4
+Can someone please point me to good XS documentation!
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>A fierce storm came,<br />With a crash,<br />Old oaks went lame.</i></div><p>After some hunting for memory leaks, it became obvious that some   rewrite of XS will be necessary. Since this will be a big undertaking   I asked for some help from <a href="http://modernperlbooks.com/mt/index.html">chromatic</a> and <a href="http://onionstand.blogspot.com/">garu</a>. We came up with the   following plan for v2.4.</p><br /><p>Currently all XS is mapped to the SDL_perl module. This does not reflect the modular nature of the sdl libs. So the plan is to gradually move SDL structs and their respective functions to their correct namespaces. We will start with SDL::Rect as garu has <a href="http://github.com/garu/SDL_perl/commit/68210590cb457b273ba0f1f891d378b876dc6cd7">added many tests</a>   for it. This way the build system will be a lot easier to hack since Module::Build was made for one XS per module. Moreover we will move the Build utilities to Alien::SDL, making it even simpler. The main idea is to adhere to single responsibility principle and encapsulation. </p><br /><p>Obviously this will take some time and effort, but it will pay off in the long run. Any help will be greatly appreciated. <br /></p><i>--yapgh</i><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-5293501082670630307?l=yapgh.blogspot.com' alt='' /></div></div></div>
+<i style="float:right;">A poor man begs,<br />
+A troubled man prays,<br />
+who shall answer? </i><br />
+<br />
+<br />
+<br />
+<p>This is the first time perldoc has disappointed me. The example on perlxs is wrong and fails. I do not wish to flame writers of perlxs but please check that your examples work! Ironically I know that broken tutorials is a problem with SDL perl too. </p><p>If anyone can point me to the simplest working exaple of XS with a c struct, it would be greatly appreciated.</p><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-9063382931575650771?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/OqmlCdavcUvVmIojmTNZgqkHEng/0/da"><img src="http://feedads.g.doubleclick.net/~a/OqmlCdavcUvVmIojmTNZgqkHEng/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/OqmlCdavcUvVmIojmTNZgqkHEng/1/da"><img src="http://feedads.g.doubleclick.net/~a/OqmlCdavcUvVmIojmTNZgqkHEng/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/yRju_PtFCUw" height="1" width="1"/></div></div>
