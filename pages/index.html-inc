@@ -13,7 +13,8 @@
 <li><a href="#Latest_News">Latest News</a>
 <ul><li><a href="#Feb_01_2010_2009">Feb 01 2010 2009</a>
 <ul><li><a href="#CPAN_Release">CPAN Release</a></li>
-<li><a href="#Active_Development">Active Development</a>
+<li><a href="#Active_Development">Active Development</a></li>
+<li><a href="#TODO">TODO</a>
 </li>
 </ul>
 </li>
@@ -82,18 +83,41 @@
 <h3 id="Active_Development">Active Development</h3>
 <div id="Active_Development_CONTENT">
 <p>SDL Perl is being actively developed to v3.0. The process is as below:</p>
+
+</div>
+<h3 id="TODO">TODO</h3>
+<div id="TODO_CONTENT">
 <dl>
-	<dt>v2.4 SDL_Image, SDL_Net, SDL_Pango, SDL_TTF, SDL_GFX &amp; SDL_Mixer Support</dt>
+	<dt>Release 2.3_7</dt>
 	<dd>
-		<p>SDL_Image is done now at 2.3_2 (Dec 07th, 2009)</p>
-		<p>SDL_GFX is in the works</p>
-		<p>SDL_Net is up next</p>
-		<p>Provide dependecies for FrozenBubble migration to CPAN. </p>
+<pre> Mixer Docs, tests, and XS
+
+</pre>
 	</dd>
-	<dt>v2.5 ??? MultiThreading and Other Third Party Libraries</dt>
+	<dt>Release 2.3_8</dt>
 	<dd>
-		<p>This release is undecided as of now. Please talk to us on the Channel or Make Tickets</p>
-		<p>2.3_5 adds more Threaded Timer support</p>
+<pre> TTF Docs, tests and XS
+
+</pre>
+	</dd>
+	<dt>Release 2.3_9</dt>
+	<dd>
+<pre> Pango Docs, tests and XS
+
+</pre>
+	</dd>
+	<dt>Release 2.4.5</dt>
+	<dd>
+<pre>  Sugar for Core SDL objects
+  Make SDL work with Frozen Bubble
+
+
+
+
+
+
+
+</pre>
 	</dd>
 </dl>
 
