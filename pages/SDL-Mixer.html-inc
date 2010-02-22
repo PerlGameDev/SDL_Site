@@ -6,42 +6,14 @@
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
-<ul><li><a href="#query_spec">query_spec()</a></li>
-<li><a href="#reserve_channels">reserve_channels</a></li>
-<li><a href="#allocate_channels">allocate_channels()</a></li>
-<li><a href="#group_channel_channel_group">group_channel(channel,group)</a></li>
-<li><a href="#group_channels_from_to_group">group_channels(from,to,group)</a></li>
-<li><a href="#group_available_group">group_available(group)</a></li>
-<li><a href="#group_count_group">group_count(group)</a></li>
-<li><a href="#group_oldest">group_oldest()</a></li>
-<li><a href="#group_newer">group_newer()</a></li>
-<li><a href="#play_channel">play_channel()</a></li>
-<li><a href="#play_music">play_music()</a></li>
-<li><a href="#fade_in_channel_channel_chunk_loops_">fade_in_channel(channel,chunk,loops,ms,ticks)</a></li>
-<li><a href="#fade_in_music_music_loops_ms">fade_in_music(music,loops,ms)</a></li>
-<li><a href="#channel_volume_channel_volume">channel_volume(channel,volume)</a></li>
-<li><a href="#mucis_volume_volume">mucis_volume(volume)</a></li>
-<li><a href="#halt_channel_channel">halt_channel(channel)</a></li>
-<li><a href="#halt_group_group">halt_group(group)</a></li>
-<li><a href="#halt_music">halt_music()</a></li>
-<li><a href="#expire_channel_channel_ticks">expire_channel(channel,ticks)</a></li>
-<li><a href="#fade_out_channel_channel_ms">fade_out_channel(channel,ms)</a></li>
-<li><a href="#fade_out_group_group_ms">fade_out_group(group,ms)</a></li>
-<li><a href="#fade_out_music_ms">fade_out_music(ms)</a></li>
-<li><a href="#fading_music">fading_music()</a></li>
-<li><a href="#fading_channel">fading_channel()</a></li>
-<li><a href="#pause_channel">pause(channel)</a></li>
-<li><a href="#resume_channel">resume(channel)</a></li>
-<li><a href="#paused">paused()</a></li>
-<li><a href="#pause_music">pause_music()</a></li>
-<li><a href="#resume_music">resume_music()</a></li>
-<li><a href="#rewind_music">rewind_music()</a></li>
-<li><a href="#music_paused">music_paused()</a></li>
-<li><a href="#playing">playing()</a></li>
-<li><a href="#playing_music">playing_music ()</a></li>
+<ul><li><a href="#init">init</a></li>
+<li><a href="#quit">quit</a></li>
+<li><a href="#linked_version">linked_version</a></li>
+<li><a href="#open_audio">open_audio</a></li>
+<li><a href="#close_audio">close_audio</a></li>
+<li><a href="#query_spec">query_spec</a></li>
 </ul>
 </li>
-<li><a href="#set_panning_channel_left_right">set_panning($channel, $left, $right)</a></li>
 <li><a href="#AUTHORS">AUTHORS </a></li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
 </li>
@@ -50,7 +22,7 @@
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::Mixer - a SDL perl extension</p>
+<p>SDL::Mixer - Sound and music functions</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -60,213 +32,72 @@
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p>SDL::Mixer allows you access to the SDL mixer library, enablig sound and
-music volume setting, playing, pausing and resuming, as well as fading
-the sound and music in and out.</p>
+<p>SDL::Mixer allows you to enable sound, alter music volume settings, and lets you play, pause and resume, as well as fading the sound and music 
+in and out.</p>
 
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="METHODS_CONTENT">
 
 </div>
-<h2 id="query_spec">query_spec()</h2>
+<h2 id="init">init</h2>
+<div id="init_CONTENT">
+<pre> int SDL::Mixer::init(flags)
+
+</pre>
+<p><strong>Note</strong>: Only available for SDL::Mixer &gt;= 1.2.10</p>
+
+</div>
+<h2 id="quit">quit</h2>
+<div id="quit_CONTENT">
+<pre> void SDL::Mixer::quit()
+
+</pre>
+<p><strong>Note</strong>: Only available for SDL::Mixer &gt;= 1.2.10</p>
+
+</div>
+<h2 id="linked_version">linked_version</h2>
+<div id="linked_version_CONTENT">
+<pre> const SDL_version * SDL::Mixer::linked_version ()
+
+</pre>
+
+</div>
+<h2 id="open_audio">open_audio</h2>
+<div id="open_audio_CONTENT">
+<pre> int SDL::Mixer::open_audio ( frequency, format, channels, chunksize )
+
+</pre>
+
+</div>
+<h2 id="close_audio">close_audio</h2>
+<div id="close_audio_CONTENT">
+<pre> void SDL::Mixer::close_audio ()
+
+</pre>
+
+</div>
+<h2 id="query_spec">query_spec</h2>
 <div id="query_spec_CONTENT">
-<pre>	my $specs = SDL::Mixer::query_spec();
+<pre> AV * SDL::Mixer::query_spec ()
+	CODE:
+		int freq, channels, status;
+		Uint16 format;
+		status = Mix_QuerySpec(&amp;freq,&amp;format,&amp;channels);
+		RETVAL = (AV*)sv_2mortal((SV*)newAV());
+		av_push(RETVAL,newSViv(status));
+		av_push(RETVAL,newSViv(freq));
+		av_push(RETVAL,newSViv(format));
+		av_push(RETVAL,newSViv(channels));
+	OUTPUT:
+		RETVAL
 
 </pre>
-<p>Returns a hash reference, containing the following keys and their respective
-values:</p>
-<pre>	-status
-	-frequency
-	-channels
-	-format
-
-</pre>
-
-</div>
-<h2 id="reserve_channels">reserve_channels</h2>
-<div id="reserve_channels_CONTENT">
-<pre>	$mixer-&gt;reserve_channels(4);
-
-</pre>
-<p>Reserve so many channels.</p>
-
-</div>
-<h2 id="allocate_channels">allocate_channels()</h2>
-<div id="allocate_channels_CONTENT">
-<pre>	$mixer-&gt;reserve_channels(2);
-
-</pre>
-<p>Allocate so many channels.</p>
-
-</div>
-<h2 id="group_channel_channel_group">group_channel(channel,group)</h2>
-<div id="group_channel_channel_group_CONTENT">
-<p>Group the channel number <code>$channel</code> into group <code>$group</code>.</p>
-
-</div>
-<h2 id="group_channels_from_to_group">group_channels(from,to,group)</h2>
-<div id="group_channels_from_to_group_CONTENT">
-<p>Groups a range of channels</p>
-
-</div>
-<h2 id="group_available_group">group_available(group)</h2>
-<div id="group_available_group_CONTENT">
-<p>Return true when the group is available.</p>
-
-</div>
-<h2 id="group_count_group">group_count(group)</h2>
-<div id="group_count_group_CONTENT">
-<p>Returns the number of channels in the group</p>
-
-</div>
-<h2 id="group_oldest">group_oldest()</h2>
-<div id="group_oldest_CONTENT">
-
-
-
-
-
-</div>
-<h2 id="group_newer">group_newer()</h2>
-<div id="group_newer_CONTENT">
-
-
-
-
-
-</div>
-<h2 id="play_channel">play_channel()</h2>
-<div id="play_channel_CONTENT">
-
-
-
-
-
-</div>
-<h2 id="play_music">play_music()</h2>
-<div id="play_music_CONTENT">
-<p>Play <code>$music</code> <code>$loop</code> times.</p>
-
-</div>
-<h2 id="fade_in_channel_channel_chunk_loops_">fade_in_channel(channel,chunk,loops,ms,ticks)</h2>
-<div id="fade_in_channel_channel_chunk_loops_-2">
-<p>Fades a channel in</p>
-
-</div>
-<h2 id="fade_in_music_music_loops_ms">fade_in_music(music,loops,ms)</h2>
-<div id="fade_in_music_music_loops_ms_CONTENT">
-<p>Fades the music in over a number of ms, looping as it does</p>
-
-</div>
-<h2 id="channel_volume_channel_volume">channel_volume(channel,volume)</h2>
-<div id="channel_volume_channel_volume_CONTEN">
-<p>Sets the volume for a single channel</p>
-
-</div>
-<h2 id="mucis_volume_volume">mucis_volume(volume)</h2>
-<div id="mucis_volume_volume_CONTENT">
-<p>Set the volume for the music.</p>
-
-</div>
-<h2 id="halt_channel_channel">halt_channel(channel)</h2>
-<div id="halt_channel_channel_CONTENT">
-<p>Stops a specific channel</p>
-
-</div>
-<h2 id="halt_group_group">halt_group(group)</h2>
-<div id="halt_group_group_CONTENT">
-<p>Stops a group of channels</p>
-
-</div>
-<h2 id="halt_music">halt_music()</h2>
-<div id="halt_music_CONTENT">
-<p>Stops the music</p>
-
-</div>
-<h2 id="expire_channel_channel_ticks">expire_channel(channel,ticks)</h2>
-<div id="expire_channel_channel_ticks_CONTENT">
-<p>Ignores the channel after <code>ticks</code> has expired</p>
-
-</div>
-<h2 id="fade_out_channel_channel_ms">fade_out_channel(channel,ms)</h2>
-<div id="fade_out_channel_channel_ms_CONTENT">
-<p>Fade the channel number <code>$channel</code> in <code>$ms</code> ms out.</p>
-
-</div>
-<h2 id="fade_out_group_group_ms">fade_out_group(group,ms)</h2>
-<div id="fade_out_group_group_ms_CONTENT">
-<p>Fade the channel group <code>$group</code> in <code>$ms</code> ms out.</p>
-
-</div>
-<h2 id="fade_out_music_ms">fade_out_music(ms)</h2>
-<div id="fade_out_music_ms_CONTENT">
-<p>Fade the music in <code>$ms</code> ms out.</p>
-
-</div>
-<h2 id="fading_music">fading_music()</h2>
-<div id="fading_music_CONTENT">
-<p>Return true when the music is currently fading in or out.</p>
-
-</div>
-<h2 id="fading_channel">fading_channel()</h2>
-<div id="fading_channel_CONTENT">
-<p>Return true when the channel number <code>$channel</code> is currently fading in or out.</p>
-
-</div>
-<h2 id="pause_channel">pause(channel)</h2>
-<div id="pause_channel_CONTENT">
-<p>Pause the channel <code>$channel</code>.</p>
-
-</div>
-<h2 id="resume_channel">resume(channel)</h2>
-<div id="resume_channel_CONTENT">
-<p>Resume the channel <code>$channel</code>.</p>
-
-</div>
-<h2 id="paused">paused()</h2>
-<div id="paused_CONTENT">
-<p>Return true when the channel is currently paused.</p>
-
-</div>
-<h2 id="pause_music">pause_music()</h2>
-<div id="pause_music_CONTENT">
-<p>Pause the music play.</p>
-
-</div>
-<h2 id="resume_music">resume_music()</h2>
-<div id="resume_music_CONTENT">
-<p>Resume the music play.</p>
-
-</div>
-<h2 id="rewind_music">rewind_music()</h2>
-<div id="rewind_music_CONTENT">
-<p>Resets the music file to the beginning</p>
-
-</div>
-<h2 id="music_paused">music_paused()</h2>
-<div id="music_paused_CONTENT">
-<p>Return true when the music is currently paused.</p>
-
-</div>
-<h2 id="playing">playing()</h2>
-<div id="playing_CONTENT">
-<p>Return true when the channel is currently playing.</p>
-
-</div>
-<h2 id="playing_music">playing_music ()</h2>
-<div id="playing_music_CONTENT">
-<p>Return true when the music is currently playing.</p>
-
-</div>
-<h1 id="set_panning_channel_left_right">set_panning($channel, $left, $right)</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="set_panning_channel_left_right_CONTE">
-<p>Sets the volume for the left or right channels. To do true panning:</p>
 
 </div>
 <h1 id="AUTHORS">AUTHORS </h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>David J. Goehrig, basic doc added by Tels &lt;http://bloodgate.com&gt;.</p>
+<p>Tobias Leich [FROGGS]</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

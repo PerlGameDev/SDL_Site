@@ -3,7 +3,30 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#CATEGORY">CATEGORY</a>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#PerlMixMusicHook">PerlMixMusicHook</a></li>
+<li><a href="#mix_audio">mix_audio</a></li>
+<li><a href="#load_WAV">load_WAV</a></li>
+<li><a href="#load_MUS">load_MUS</a></li>
+<li><a href="#free_music">free_music</a></li>
+<li><a href="#hook_music">hook_music</a></li>
+<li><a href="#hook_music_finished">hook_music_finished</a></li>
+<li><a href="#get_music_hook_data">get_music_hook_data</a></li>
+<li><a href="#play_music">play_music</a></li>
+<li><a href="#fade_in_music">fade_in_music</a></li>
+<li><a href="#volume_music">volume_music</a></li>
+<li><a href="#halt_music">halt_music</a></li>
+<li><a href="#fade_out_music">fade_out_music</a></li>
+<li><a href="#fading_music">fading_music</a></li>
+<li><a href="#pause_music">pause_music</a></li>
+<li><a href="#resume_music">resume_music</a></li>
+<li><a href="#rewind_music">rewind_music</a></li>
+<li><a href="#paused_music">paused_music</a></li>
+<li><a href="#playing_music">playing_music</a>
+</li>
+</ul>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -15,7 +38,93 @@
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, Mixer</p>
+<p>Mixer</p>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="PerlMixMusicHook">PerlMixMusicHook</h2>
+<div id="PerlMixMusicHook_CONTENT">
+
+</div>
+<h2 id="mix_audio">mix_audio</h2>
+<div id="mix_audio_CONTENT">
+<p>Same as SDL::Audio::mix()</p>
+
+</div>
+<h2 id="load_WAV">load_WAV</h2>
+<div id="load_WAV_CONTENT">
+<p>has to be implemented</p>
+
+</div>
+<h2 id="load_MUS">load_MUS</h2>
+<div id="load_MUS_CONTENT">
+
+</div>
+<h2 id="free_music">free_music</h2>
+<div id="free_music_CONTENT">
+
+</div>
+<h2 id="hook_music">hook_music</h2>
+<div id="hook_music_CONTENT">
+
+</div>
+<h2 id="hook_music_finished">hook_music_finished</h2>
+<div id="hook_music_finished_CONTENT">
+
+</div>
+<h2 id="get_music_hook_data">get_music_hook_data</h2>
+<div id="get_music_hook_data_CONTENT">
+
+</div>
+<h2 id="play_music">play_music</h2>
+<div id="play_music_CONTENT">
+
+</div>
+<h2 id="fade_in_music">fade_in_music</h2>
+<div id="fade_in_music_CONTENT">
+
+</div>
+<h2 id="volume_music">volume_music</h2>
+<div id="volume_music_CONTENT">
+
+</div>
+<h2 id="halt_music">halt_music</h2>
+<div id="halt_music_CONTENT">
+
+</div>
+<h2 id="fade_out_music">fade_out_music</h2>
+<div id="fade_out_music_CONTENT">
+
+</div>
+<h2 id="fading_music">fading_music</h2>
+<div id="fading_music_CONTENT">
+
+</div>
+<h2 id="pause_music">pause_music</h2>
+<div id="pause_music_CONTENT">
+
+</div>
+<h2 id="resume_music">resume_music</h2>
+<div id="resume_music_CONTENT">
+
+</div>
+<h2 id="rewind_music">rewind_music</h2>
+<div id="rewind_music_CONTENT">
+
+</div>
+<h2 id="paused_music">paused_music</h2>
+<div id="paused_music_CONTENT">
+
+</div>
+<h2 id="playing_music">playing_music</h2>
+<div id="playing_music_CONTENT">
 
 </div>
 </div>

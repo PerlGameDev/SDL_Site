@@ -3,19 +3,111 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#CATEGORY">CATEGORY</a>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#allocate_channels">allocate_channels</a></li>
+<li><a href="#volume">volume</a></li>
+<li><a href="#play_channel">play_channel</a></li>
+<li><a href="#play_channel_timed">play_channel_timed</a></li>
+<li><a href="#fade_in_channel">fade_in_channel</a></li>
+<li><a href="#fade_in_channel_timed">fade_in_channel_timed</a></li>
+<li><a href="#pause">pause</a></li>
+<li><a href="#resume">resume</a></li>
+<li><a href="#halt_channel">halt_channel</a></li>
+<li><a href="#expire_channel">expire_channel</a></li>
+<li><a href="#fade_out_channel">fade_out_channel</a></li>
+<li><a href="#channel_finished">channel_finished</a></li>
+<li><a href="#playing">playing</a></li>
+<li><a href="#paused">paused</a></li>
+<li><a href="#fading_channel">fading_channel</a></li>
+<li><a href="#get_chunk">get_chunk</a>
+</li>
+</ul>
 </li>
 </ul><hr />
 <!-- INDEX END -->
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::Mixer::Channels -- SDL_Mixer channel functions and bindings</p>
+<p>SDL::Mixer::Channels -- SDL::Mixer channel functions and bindings</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, Mixer</p>
+<p>Mixer</p>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="allocate_channels">allocate_channels</h2>
+<div id="allocate_channels_CONTENT">
+
+</div>
+<h2 id="volume">volume</h2>
+<div id="volume_CONTENT">
+
+</div>
+<h2 id="play_channel">play_channel</h2>
+<div id="play_channel_CONTENT">
+
+</div>
+<h2 id="play_channel_timed">play_channel_timed</h2>
+<div id="play_channel_timed_CONTENT">
+
+</div>
+<h2 id="fade_in_channel">fade_in_channel</h2>
+<div id="fade_in_channel_CONTENT">
+
+</div>
+<h2 id="fade_in_channel_timed">fade_in_channel_timed</h2>
+<div id="fade_in_channel_timed_CONTENT">
+
+</div>
+<h2 id="pause">pause</h2>
+<div id="pause_CONTENT">
+
+</div>
+<h2 id="resume">resume</h2>
+<div id="resume_CONTENT">
+
+</div>
+<h2 id="halt_channel">halt_channel</h2>
+<div id="halt_channel_CONTENT">
+
+</div>
+<h2 id="expire_channel">expire_channel</h2>
+<div id="expire_channel_CONTENT">
+
+</div>
+<h2 id="fade_out_channel">fade_out_channel</h2>
+<div id="fade_out_channel_CONTENT">
+
+</div>
+<h2 id="channel_finished">channel_finished</h2>
+<div id="channel_finished_CONTENT">
+
+</div>
+<h2 id="playing">playing</h2>
+<div id="playing_CONTENT">
+
+</div>
+<h2 id="paused">paused</h2>
+<div id="paused_CONTENT">
+
+</div>
+<h2 id="fading_channel">fading_channel</h2>
+<div id="fading_channel_CONTENT">
+
+</div>
+<h2 id="get_chunk">get_chunk</h2>
+<div id="get_chunk_CONTENT">
 
 </div>
 </div>

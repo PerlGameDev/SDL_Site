@@ -3,7 +3,20 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#CATEGORY">CATEGORY</a>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#reserve_channels">reserve_channels</a></li>
+<li><a href="#group_channel">group_channel</a></li>
+<li><a href="#group_channels">group_channels</a></li>
+<li><a href="#group_available">group_available</a></li>
+<li><a href="#group_count">group_count</a></li>
+<li><a href="#group_oldest">group_oldest</a></li>
+<li><a href="#group_newer">group_newer</a></li>
+<li><a href="#fade_out_group">fade_out_group</a></li>
+<li><a href="#halt_group">halt_group</a>
+</li>
+</ul>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -15,7 +28,51 @@
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, Mixer</p>
+<p>Mixer</p>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="reserve_channels">reserve_channels</h2>
+<div id="reserve_channels_CONTENT">
+
+</div>
+<h2 id="group_channel">group_channel</h2>
+<div id="group_channel_CONTENT">
+
+</div>
+<h2 id="group_channels">group_channels</h2>
+<div id="group_channels_CONTENT">
+
+</div>
+<h2 id="group_available">group_available</h2>
+<div id="group_available_CONTENT">
+
+</div>
+<h2 id="group_count">group_count</h2>
+<div id="group_count_CONTENT">
+
+</div>
+<h2 id="group_oldest">group_oldest</h2>
+<div id="group_oldest_CONTENT">
+
+</div>
+<h2 id="group_newer">group_newer</h2>
+<div id="group_newer_CONTENT">
+
+</div>
+<h2 id="fade_out_group">fade_out_group</h2>
+<div id="fade_out_group_CONTENT">
+
+</div>
+<h2 id="halt_group">halt_group</h2>
+<div id="halt_group_CONTENT">
 
 </div>
 </div>

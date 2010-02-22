@@ -3,7 +3,14 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#CATEGORY">CATEGORY</a>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#register_effect">register_effect()</a></li>
+<li><a href="#set_post_mix">set_post_mix</a></li>
+<li><a href="#set_panning">set_panning</a>
+</li>
+</ul>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -15,7 +22,28 @@
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, Mixer</p>
+<p>Mixer</p>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="register_effect">register_effect()</h2>
+<div id="register_effect_CONTENT">
+<p><strong>Note</strong>: &gt;= 1.2.10</p>
+
+</div>
+<h2 id="set_post_mix">set_post_mix</h2>
+<div id="set_post_mix_CONTENT">
+
+</div>
+<h2 id="set_panning">set_panning</h2>
+<div id="set_panning_CONTENT">
 
 </div>
 </div>

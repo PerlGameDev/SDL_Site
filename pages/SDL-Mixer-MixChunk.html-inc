@@ -30,7 +30,7 @@
 <pre> use SDL;
  use SDL::Mixer::MixChunk;
 
- my $mix_chunk = SDL::MixLoadWAV('sample.wav');
+ my $mix_chunk = SDL::Mixer::Music::load_WAV('sample.wav');
 
  printf(&quot;length of audio data is %d bytes\n&quot;, $mix_chunk-&gt;alen);
  printf(&quot;volume is %d\n&quot;,                     $mix_chunk-&gt;volume);
