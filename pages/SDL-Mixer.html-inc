@@ -42,55 +42,107 @@ in and out.</p>
 </div>
 <h2 id="init">init</h2>
 <div id="init_CONTENT">
-<pre> int SDL::Mixer::init(flags)
+<pre> my $init_flags = SDL::Mixer::init( $flags );
 
 </pre>
-<p><strong>Note</strong>: Only available for SDL::Mixer &gt;= 1.2.10</p>
+<p>Loads dynamic libraries and prepares them for use. Flags should be one or more flags from init flags OR'd together.
+It returns the flags successfully initialized, or 0 on failure.</p>
+<p>Example:</p>
+<pre> use SDL::Mixer;
+
+ my $init_flags = SDL::Mixer::init( MIX_INIT_MP3 | MIX_INIT_MOD | MIX_INIT_FLAC | MIX_INIT_OGG );
+
+ print(&quot;We have MP3 support!\n&quot;)  if $init_flags &amp; MIX_INIT_MP3;
+ print(&quot;We have MOD support!\n&quot;)  if $init_flags &amp; MIX_INIT_MOD;
+ print(&quot;We have FLAC support!\n&quot;) if $init_flags &amp; MIX_INIT_FLAC;
+ print(&quot;We have OGG support!\n&quot;)  if $init_flags &amp; MIX_INIT_OGG;
+
+</pre>
+<p>Flags:</p>
+<ul>
+		<li>MIX_INIT_MP3	</li>
+		<li>MIX_INIT_MOD	</li>
+		<li>MIX_INIT_FLAC	</li>
+		<li>MIX_INIT_OGG</li>
+</ul>
+
+<p><strong>Note</strong>: Only available for SDL_mixer &gt;= 1.2.10</p>
 
 </div>
 <h2 id="quit">quit</h2>
 <div id="quit_CONTENT">
-<pre> void SDL::Mixer::quit()
+<pre> SDL::Mixer::quit();
 
 </pre>
-<p><strong>Note</strong>: Only available for SDL::Mixer &gt;= 1.2.10</p>
+<p>This function unloads the liraries previously loaded with <a href="#init">init()</a>.</p>
+<p><strong>Note</strong>: Only available for SDL_mixer &gt;= 1.2.10</p>
 
 </div>
 <h2 id="linked_version">linked_version</h2>
 <div id="linked_version_CONTENT">
-<pre> const SDL_version * SDL::Mixer::linked_version ()
+<pre> $version = SDL::Mixer::linked_version();
+
+</pre>
+<p><code>linked_version</code> gives you the major-, minor-, and patchlevel for SDL_mixer. This way you can check if e.g. <a href="#init">init()</a> and <a href="#quit">quit()</a> 
+are available.</p>
+<p>Example:</p>
+<pre> use SDL::Mixer;
+ use SDL::Version;
+
+ my $version = SDL::Mixer::linked_version();
+
+ printf(&quot;%d.%d.%d\n&quot;, $version-&gt;major, $version-&gt;minor, $version-&gt;patch); # prints &quot;1.2.8&quot; for me
 
 </pre>
 
 </div>
 <h2 id="open_audio">open_audio</h2>
 <div id="open_audio_CONTENT">
-<pre> int SDL::Mixer::open_audio ( frequency, format, channels, chunksize )
+<pre> my $audio_opened = SDL::Mixer::open_audio( $frequency, $format, $channels, $chunksize );
+
+</pre>
+<p><code>open_audio</code> will initialize SDL_mixer if it is not yet initialized, see note. SDL_mixer may not be able to provide the exact specifications 
+your provided, however it will automatically translate between the expected format and the real one. You can retrieve the real format using 
+<a href="http://search.cpan.org/perldoc?query_spec">query_spec</a>. </p>
+<p>Returns 0 on success, -1 on error.</p>
+<p><strong>Note</strong>: You must not use <code>AUDIO_S16</code>, <code>AUDIO_U16</code>, <code>AUDIO_S16LSB</code>, or <code>AUDIO_U16LSB.</code> They are not portable, and SDL will not return an 
+error code when they fail. The result will be a horrible staticy noise. You can usually use <code>AUDIO_S16SYS</code>, though not always. Future versions 
+of SDL should take this parameter only as a hint, then read back the value that the OS (for example, OSS or ALSA) has chosen to use in case the 
+desired audio type is not supported. </p>
+<p><strong>Note</strong>: When already initialized, this function will not re-initialize SDL_mixer, nor fail. It will merely increment the number of times 
+<a href="/SDL-Mixer::close_audio.html">SDL::Mixer::close_audio</a> must be called to actually get it to uninitialize. This serves as a very simplistic method for multiple application 
+components to use SDL_mixer without necessitating a great deal of inter-component awareness. Be warned however that in such a situation, the 
+latest components to initialize SDL_mixer will probably not get the SDL_mixer settings they're expecting. </p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Mixer;
+
+ printf(&quot;Error initializing SDL_mixer: %s\n&quot;, SDL::get_error()) unless SDL::Mixer::open_audio(44100, AUDIO_S16, 2, 1024) == 0;
 
 </pre>
 
 </div>
 <h2 id="close_audio">close_audio</h2>
 <div id="close_audio_CONTENT">
-<pre> void SDL::Mixer::close_audio ()
+<pre> SDL::Mixer::close_audio();
 
 </pre>
+<p>Close the mixer and halting all playing audio. This function does not return anything.</p>
 
 </div>
 <h2 id="query_spec">query_spec</h2>
 <div id="query_spec_CONTENT">
-<pre> AV * SDL::Mixer::query_spec ()
-	CODE:
-		int freq, channels, status;
-		Uint16 format;
-		status = Mix_QuerySpec(&amp;freq,&amp;format,&amp;channels);
-		RETVAL = (AV*)sv_2mortal((SV*)newAV());
-		av_push(RETVAL,newSViv(status));
-		av_push(RETVAL,newSViv(freq));
-		av_push(RETVAL,newSViv(format));
-		av_push(RETVAL,newSViv(channels));
-	OUTPUT:
-		RETVAL
+<pre> my @query_spec = @{ SDL::Mixer::query_spec() };
+
+</pre>
+<p>Find out what the actual audio device parameters are.
+This function returns 1 as first array element (status) if the audio has been opened, 0 otherwise.</p>
+<p>Example:</p>
+<pre> use SDL::Mixer;
+
+ my ($status, $freq, $format, $channels) = @{ SDL::Mixer::query_spec() };
+
+ printf(&quot;%s, %s, %s, %s\n&quot;, $status, $freq, $format, $channels);
 
 </pre>
 
@@ -102,7 +154,7 @@ in and out.</p>
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="http://search.cpan.org/perldoc?perl">perl</a>, <a href="/SDL-Music.html">SDL::Music</a> and <a href="/SDL-Sound.html">SDL::Sound</a>.</p>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a>, <a href="/SDL-Mixer::Channels.html">SDL::Mixer::Channels</a>, <a href="/SDL-Mixer::Effects.html">SDL::Mixer::Effects</a>, <a href="/SDL-Mixer::Groups.html">SDL::Mixer::Groups</a>, <a href="/SDL-Mixer::Music.html">SDL::Mixer::Music</a>.</p>
 
 </div>
 </div>
