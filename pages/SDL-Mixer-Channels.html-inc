@@ -48,66 +48,168 @@
 </div>
 <h2 id="allocate_channels">allocate_channels</h2>
 <div id="allocate_channels_CONTENT">
+<pre> my $ret = SDL::Mixer::Channels::allocate_channels( $number_of_channels );
+
+</pre>
+<p>Dynamically change the number of channels managed by the mixer. If decreasing the number of channels, the upper channels arestopped.
+This function returns the new number of allocated channels.</p>
+<p>Example</p>
+<pre> use SDL::Mixer::Channels;
+
+ printf(&quot;We got %d channels!\n&quot;, SDL::Mixer::Channels::allocate_channels( 8 ) );
+
+</pre>
 
 </div>
 <h2 id="volume">volume</h2>
 <div id="volume_CONTENT">
+<pre> my $prev_volume = SDL::Mixer::Channels::volume( $channel_number, $volume );
+
+</pre>
+<p><code>volume</code> changes the volume of the channel specified in channel by the amount set in volume. The range of volume is from 0 to <code>MIX_MAX_VOLUME</code>
+which is <code>128</code>. Passing <code>-1</code> to channel will change the volume of all channels. If the specified volume is <code>-1</code>, it will just return the 
+current volume. </p>
+<p>Returns the previously set volume of the channel.</p>
 
 </div>
 <h2 id="play_channel">play_channel</h2>
 <div id="play_channel_CONTENT">
+<pre> my $channel_number = SDL::Mixer::Channels::play_channel( $channel, $chunk, $loops );
+
+</pre>
+<p><code>play_channel</code> will play the specified <code>chunk</code> over the specified <code>channel</code>. SDL_mixer will choose a channel for you if you pass <code>-1</code> for 
+<code>channel</code>.</p>
+<p>The chunk will be looped <code>loops</code> times, the total number of times played will be <code>loops+1</code>. Passing <code>-1</code> will loop the chunk infinitely. </p>
+<p>Returns the channel the chunk will be played on, or <code>-1</code> on error.</p>
+<p>Example:</p>
+<pre> use SDL::Mixer;
+ use SDL::Mixer::Channels;
+ use SDL::Mixer::Samples;
+
+ SDL::init(SDL_INIT_AUDIO);
+ SDL::Mixer::open_audio( 44100, SDL::Constants::AUDIO_S16, 2, 4096 );
+
+ my $chunk = SDL::Mixer::Samples::load_WAV('sample.wav');
+
+ SDL::Mixer::Channels::play_channel( -1, $chunk, -1 );
+
+ SDL::delay(1000);
+ SDL::Mixer::close_audio();
+
+</pre>
 
 </div>
 <h2 id="play_channel_timed">play_channel_timed</h2>
 <div id="play_channel_timed_CONTENT">
+<pre> my $channel = SDL::Mixer::Channels::play_channel_timed( $channel, $chunk, $loops, $ticks );
+
+</pre>
+<p>Same as <a href="http://search.cpan.org/perldoc?play_channel">play_channel</a> but you can specify the time it will play by <code>$ticks</code>.</p>
 
 </div>
 <h2 id="fade_in_channel">fade_in_channel</h2>
 <div id="fade_in_channel_CONTENT">
+<pre> my $channel = SDL::Mixer::Channels::fade_in_channel( $channel, $chunk, $loops, $ms );
+
+</pre>
+<p>Same as <a href="http://search.cpan.org/perldoc?play_channel">play_channel</a> but you can specify the fade-in time by <code>$ms</code>.</p>
 
 </div>
 <h2 id="fade_in_channel_timed">fade_in_channel_timed</h2>
 <div id="fade_in_channel_timed_CONTENT">
+<pre> my $channel = SDL::Mixer::Channels::fade_in_channel_timed( $channel, $chunk, $loops, $ms, $ticks );
+
+</pre>
+<p>Same as <a href="http://search.cpan.org/perldoc?fade_in_channel">fade_in_channel</a> but you can specify the time how long the chunk will be played by <code>$ticks</code>.</p>
 
 </div>
 <h2 id="pause">pause</h2>
 <div id="pause_CONTENT">
+<pre> SDL::Mixer::Channels::pause( $channel );
+
+</pre>
+<p>Pauses the given channel or all by passing <code>-1</code>.</p>
 
 </div>
 <h2 id="resume">resume</h2>
 <div id="resume_CONTENT">
+<pre> SDL::Mixer::Channels::resume( $channel );
+
+</pre>
+<p>Resumes the given channel or all by passing <code>-1</code>.</p>
 
 </div>
 <h2 id="halt_channel">halt_channel</h2>
 <div id="halt_channel_CONTENT">
+<pre> SDL::Mixer::Channels::halt_channel( $channel );
+
+</pre>
+<p>Stops the given channel or all by passing <code>-1</code>.</p>
 
 </div>
 <h2 id="expire_channel">expire_channel</h2>
 <div id="expire_channel_CONTENT">
+<pre> my $channels = SDL::Mixer::Channels::expire_channel( $channel, $ticks );
+
+</pre>
+<p>Stops the given channel (or <code>-1</code> for all) after the time specified by <code>$ticks</code> (in milliseconds).</p>
+<p>Returns the number of affected channels.</p>
 
 </div>
 <h2 id="fade_out_channel">fade_out_channel</h2>
 <div id="fade_out_channel_CONTENT">
+<pre> my $fading_channels = SDL::Mixer::Channels::fade_out_channel( $which, $ms );
+
+</pre>
+<p><code>fade_out_channel</code> fades out a channel specified in <code>which</code> with a duration specified in <code>ms</code> in milliseconds.</p>
+<p>Returns the the number of channels that will be faded out.</p>
 
 </div>
 <h2 id="channel_finished">channel_finished</h2>
 <div id="channel_finished_CONTENT">
+<p>TODO</p>
 
 </div>
 <h2 id="playing">playing</h2>
 <div id="playing_CONTENT">
+<pre> my $playing = SDL::Mixer::Channels::playing( $channel );
+
+</pre>
+<p>Returns <code>1</code> if the given channel is playing sound, otherwise <code>0</code>. It does'nt check if the channel is paused.</p>
+<p><strong>Note</strong>: If you pass <code>-1</code> you will get the number of playing channels.</p>
 
 </div>
 <h2 id="paused">paused</h2>
 <div id="paused_CONTENT">
+<pre> my $paused = SDL::Mixer::Channels::paused( $channel );
+
+</pre>
+<p>Returns <code>1</code> if the given channel is paused, otherwise <code>0</code>.</p>
+<p><strong>Note</strong>: If you pass <code>-1</code> you will get the number of paused channels.</p>
 
 </div>
 <h2 id="fading_channel">fading_channel</h2>
 <div id="fading_channel_CONTENT">
+<pre> my $fading_channel = SDL::Mixer::Channels::fading_channel( $channel );
+
+</pre>
+<p>Returns one of the following for the given channel:</p>
+<ul>
+		<li>MIX_NO_FADING	</li>
+		<li>MIX_FADING_OUT	</li>
+		<li>MIX_FADING_IN</li>
+</ul>
+
+<p><strong>Note</strong>: Never pass <code>-1</code> to this function!</p>
 
 </div>
 <h2 id="get_chunk">get_chunk</h2>
 <div id="get_chunk_CONTENT">
+<pre> my $chunk = SDL::Mixer::Channels::get_chunk( $channel );
+
+</pre>
+<p><code>get_chunk</code> gets the most recent sample chunk played on channel. This chunk may be currently playing, or just the last used. </p>
+<p><strong>Note</strong>: Never pass <code>-1</code> to this function!</p>
 
 </div>
 </div>

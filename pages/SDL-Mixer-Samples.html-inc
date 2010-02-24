@@ -1,0 +1,135 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#int_mixsam_get_num_chunk_decoders_CO">int 
+mixsam_get_num_chunk_decoders ()
+	CODE:
+		RETVAL = Mix_GetNumChunkDecoders();
+	OUTPUT:
+		RETVAL</a>
+</li>
+</ul>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::Mixer::Samples - functions for loading sound samples</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>Mixer</p>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="int_mixsam_get_num_chunk_decoders_CO">int 
+mixsam_get_num_chunk_decoders ()
+	CODE:
+		RETVAL = Mix_GetNumChunkDecoders();
+	OUTPUT:
+		RETVAL</h2>
+<div id="int_mixsam_get_num_chunk_decoders_CO-2">
+<p>char* 
+mixsam_get_chunk_decoder (idecoder)
+	int idecoder
+	CODE:
+		RETVAL = (char *)Mix_GetChunkDecoder(idecoder);
+	OUTPUT:
+		RETVAL</p>
+<p>#endif</p>
+
+
+
+
+<p>Mix_Chunk *
+mixsam_load_WAV ( filename )
+	char *filename
+	PREINIT:
+		char * CLASS = &quot;SDL::Mixer::MixChunk&quot;;
+	CODE:
+		Mix_Chunk * mixchunk;
+		mixchunk = Mix_LoadWAV(filename);
+		RETVAL = mixchunk;
+	OUTPUT:
+		RETVAL</p>
+
+
+
+
+<p>Mix_Chunk *
+mixsam_load_WAV_RW ( src, freesrc)
+	SDL_RWops * src
+	int freesrc
+	PREINIT:
+		char * CLASS = &quot;SDL::Mixer::MixChunk&quot;;
+	CODE:
+		Mix_Chunk * mixchunk;
+		mixchunk = Mix_LoadWAV_RW(src, freesrc);
+		RETVAL = mixchunk;
+	OUTPUT:
+		RETVAL</p>
+
+
+
+
+<p>Mix_Chunk *
+mixsam_quick_load_WAV ( buf )
+	Uint8 *buf
+	PREINIT:
+		char * CLASS = &quot;SDL::Mixer::MixChunk&quot;;
+	CODE:
+		RETVAL = Mix_QuickLoad_WAV(buf);
+	OUTPUT:
+		RETVAL</p>
+
+
+
+
+<p>Mix_Chunk *
+mixsam_quick_load_RAW ( buf , len)
+	Uint8 *buf
+	int len
+	PREINIT:
+		char * CLASS = &quot;SDL::Mixer::MixChunk&quot;;
+	CODE:
+		RETVAL = Mix_QuickLoad_RAW( buf, len );
+	OUTPUT:
+		RETVAL</p>
+
+
+
+
+<p>int
+mixsam_volume_chunk ( chunk, volume )
+	Mix_Chunk *chunk
+	int volume
+	CODE:
+		RETVAL = Mix_VolumeChunk(chunk,volume);
+	OUTPUT:
+		RETVAL</p>
+
+
+
+
+<p>void
+mixsam_free_chunk( chunk )
+	Mix_Chunk *chunk
+	CODE:
+		Mix_FreeChunk(chunk);</p>
+
+</div>
+</div>
