@@ -65,6 +65,10 @@
 </div>
 <h2 id="load_MUS">load_MUS</h2>
 <div id="load_MUS_CONTENT">
+<pre> my $music = SDL::Mixer::Music::load_MUS( $file );
+
+</pre>
+<p><code>load_MUS</code> loads a music file into a <code>SDL::Music::MixMusic</code> structure. This can be passed to <a href="http://search.cpan.org/perldoc?play_music">play_music</a>.</p>
 
 </div>
 <h2 id="free_music">free_music</h2>
@@ -85,6 +89,23 @@
 </div>
 <h2 id="play_music">play_music</h2>
 <div id="play_music_CONTENT">
+<pre> my $play_music = SDL::Mixer::Music::play_music( $mix_music, $repeats );
+
+</pre>
+<p><code>play_music</code> plays a given <code>SDL::Mixer::MixMusic</code>.
+Passing -1 to <code>$repeats</code> will loop the music infinitely. </p>
+<p>Example:</p>
+<pre> my $music = SDL::Mixer::Music::load_MUS( 'music.mp3' );
+
+ unless(SDL::Mixer::Music::play_music($sample_music, -1))
+ {
+     print(&quot;Something went wrong!\n&quot;);
+ }
+
+
+
+
+</pre>
 
 </div>
 <h2 id="fade_in_music">fade_in_music</h2>
@@ -97,6 +118,10 @@
 </div>
 <h2 id="halt_music">halt_music</h2>
 <div id="halt_music_CONTENT">
+<pre> SDL::Mixer::Music::halt_music();
+
+</pre>
+<p>Halts the music.</p>
 
 </div>
 <h2 id="fade_out_music">fade_out_music</h2>
@@ -105,26 +130,62 @@
 </div>
 <h2 id="fading_music">fading_music</h2>
 <div id="fading_music_CONTENT">
+<pre> my $fading_music = SDL::Mixer::Channels::fading_music();
+
+</pre>
+<p>Returns one of the following:</p>
+<ul>
+		<li>MIX_NO_FADING	</li>
+		<li>MIX_FADING_OUT	</li>
+		<li>MIX_FADING_IN</li>
+</ul>
+
 
 </div>
 <h2 id="pause_music">pause_music</h2>
 <div id="pause_music_CONTENT">
+<pre> SDL::Mixer::Music::pause_music();
+
+</pre>
+<p>Pauses the music.</p>
 
 </div>
 <h2 id="resume_music">resume_music</h2>
 <div id="resume_music_CONTENT">
+<pre>
+
+
+ SDL::Mixer::Music::resume_music();
+
+</pre>
+<p>Resumes the music.</p>
 
 </div>
 <h2 id="rewind_music">rewind_music</h2>
 <div id="rewind_music_CONTENT">
+<pre>
+
+
+ SDL::Mixer::Music::rewind_music();
+
+</pre>
+<p>Rewinds the music.</p>
 
 </div>
 <h2 id="paused_music">paused_music</h2>
 <div id="paused_music_CONTENT">
+<pre> my $paused = SDL::Mixer::Music::paused_music();
+
+</pre>
+<p>Returns <code>1</code> if the music is paused, otherwise <code>0</code>.</p>
 
 </div>
 <h2 id="playing_music">playing_music</h2>
 <div id="playing_music_CONTENT">
+<pre> my $playing_music = SDL::Mixer::Music::playing_music();
+
+</pre>
+<p>Returns <code>1</code> if the music is playing sound, otherwise <code>0</code>. It does'nt check if the music is paused.</p>
 
 </div>
 </div>

@@ -167,7 +167,27 @@ current volume. </p>
 </div>
 <h2 id="channel_finished">channel_finished</h2>
 <div id="channel_finished_CONTENT">
-<p>TODO</p>
+<pre> SDL::Mixer::Channels::channel_finished( $callback );
+
+</pre>
+<p>Add your own callback when a channel has finished playing. <code>NULL</code> to disable callback. The callback may be called from the mixer's audio 
+callback or it could be called as a result of <a href="http://search.cpan.org/perldoc?halt_channel">halt_channel</a>, etc. do not call <code>lock_audio</code> from this callback; you will either be inside 
+the audio callback, or SDL_mixer will explicitly lock the audio before calling your callback.</p>
+<p>Example 1:</p>
+<pre> my $callback = sub{ printf(&quot;[channel_finished] callback called for channel %d\n&quot;, shift); };
+
+ SDL::Mixer::Channels::channel_finished( $callback );
+
+</pre>
+<p>Example 2:</p>
+<pre> sub callback
+ {
+     ...
+ }
+
+ SDL::Mixer::Channels::channel_finished( \&amp;callback );
+
+</pre>
 
 </div>
 <h2 id="playing">playing</h2>
