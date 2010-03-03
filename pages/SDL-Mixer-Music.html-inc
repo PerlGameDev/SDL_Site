@@ -4,13 +4,8 @@
 
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
-<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
-<ul><li><a href="#PerlMixMusicHook">PerlMixMusicHook</a></li>
-<li><a href="#mix_audio">mix_audio</a></li>
-<li><a href="#load_WAV">load_WAV</a></li>
-<li><a href="#load_MUS">load_MUS</a></li>
-<li><a href="#free_music">free_music</a></li>
+<ul><li><a href="#load_MUS">load_MUS</a></li>
 <li><a href="#hook_music">hook_music</a></li>
 <li><a href="#hook_music_finished">hook_music_finished</a></li>
 <li><a href="#get_music_hook_data">get_music_hook_data</a></li>
@@ -25,16 +20,17 @@
 <li><a href="#rewind_music">rewind_music</a></li>
 <li><a href="#set_music_position">set_music_position</a></li>
 <li><a href="#paused_music">paused_music</a></li>
-<li><a href="#playing_music">playing_music</a>
-</li>
+<li><a href="#playing_music">playing_music</a></li>
 </ul>
+</li>
+<li><a href="#AUTHOR">AUTHOR</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::Mixer::Music -- SDL_Mixer music functions and bindings</p>
+<p>SDL::Mixer::Music - functions for music</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -42,26 +38,8 @@
 <p>Mixer</p>
 
 </div>
-<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="DESCRIPTION_CONTENT">
-
-</div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="METHODS_CONTENT">
-
-</div>
-<h2 id="PerlMixMusicHook">PerlMixMusicHook</h2>
-<div id="PerlMixMusicHook_CONTENT">
-
-</div>
-<h2 id="mix_audio">mix_audio</h2>
-<div id="mix_audio_CONTENT">
-<p>Same as SDL::Audio::mix()</p>
-
-</div>
-<h2 id="load_WAV">load_WAV</h2>
-<div id="load_WAV_CONTENT">
-<p>has to be implemented</p>
 
 </div>
 <h2 id="load_MUS">load_MUS</h2>
@@ -72,20 +50,79 @@
 <p><code>load_MUS</code> loads a music file into a <code>SDL::Music::MixMusic</code> structure. This can be passed to <a href="http://search.cpan.org/perldoc?play_music">play_music</a>.</p>
 
 </div>
-<h2 id="free_music">free_music</h2>
-<div id="free_music_CONTENT">
-
-</div>
 <h2 id="hook_music">hook_music</h2>
 <div id="hook_music_CONTENT">
+<pre> SDL::Mixer::Music::hook_music( $callback, $position );
+
+ or
+
+ SDL::Mixer::Music::hook_music( &amp;callback, $position );
+
+</pre>
+<p>This sets up a custom music player function, so you can pass your own audio stream data into the SDL::Mixer.
+The function will be called with <code>position</code> passed into the first parameter when the <code>callback</code> is called.
+The audio stream buffer has to be filled with length bytes of music (2nd parameter).
+The music player will then be called automatically when the mixer needs it. Music playing will start as soon as this is called. 
+All the music playing and stopping functions have no effect on music after this. Pause and resume will work. 
+Using a custom music player and the internal music player is not possible, the custom music player takes priority. </p>
+<p>To stop the custom music player call <code>hook_music()</code> without arguments.</p>
+<p><strong>Note</strong>: NEVER call <code>SDL::Mixer</code> functions, nor <a href="/SDL-Audio::lock.html">SDL::Audio::lock</a>, from a callback function.</p>
+<p><strong>Note</strong>: At program termination also call <code>SDL::Mixer::Music::hook_music()</code> to stop this callback.</p>
+<p>Example:</p>
+<pre> my $callback = sub
+ {
+     my $position = shift; # position (first time its 0, on each call $length is added)
+     my $length   = shift; # length of bytes we have to put in stream
+     my @stream   = '';
+
+     printf(&quot;position=%8d, stream length=%6d\n&quot;, $position, $length);
+
+     for(my $i = 0; $i &lt; $length; $i++)
+     {
+         push(@stream, (($i + $position) &amp; 0xFF));
+     }
+
+     return @stream;
+ };
+
+ SDL::Mixer::Music::hook_music( $callback, 0 );
+
+</pre>
 
 </div>
 <h2 id="hook_music_finished">hook_music_finished</h2>
 <div id="hook_music_finished_CONTENT">
+<pre> SDL::Mixer::Music::hook_music_finished( $callback );
+
+</pre>
+<p>This callback is called when music called by e.g. <a href="http://search.cpan.org/perldoc?play_music">play_music</a> or <a href="http://search.cpan.org/perldoc?fade_in_music">fade_in_music</a> stops naturally. This happens when the music is over or is 
+fading out.</p>
+<p><strong>Note</strong>: If you play music via <a href="http://search.cpan.org/perldoc?hook_music">hook_music</a>, this callback will never be called.</p>
+<p>Example:</p>
+<pre> my $music_is_playing = 0;
+ my @music            = qw(first.mp3 next.mp3 other.mp3 last.mp3);
+ my $callback         = sub{ $music_is_playing = 0; };
+ SDL::Mixer::Music::hook_music_finished( $callback );
+
+ foreach my $this_song ( @music )
+ {
+     SDL::Mixer::Music::play_music( $this_song, 0 );
+     $music_is_playing = 1;
+
+     SDL::delay( 100 ) while( $music_is_playing );
+ }
+
+ SDL::Mixer::Music::hook_music_finished(); # cleanup
+
+</pre>
 
 </div>
 <h2 id="get_music_hook_data">get_music_hook_data</h2>
 <div id="get_music_hook_data_CONTENT">
+<pre> my $position = SDL::Mixer::Music::get_music_hook_data();
+
+</pre>
+<p>Returns the <code>position</code> (first) parameter that will be passed to <a href="http://search.cpan.org/perldoc?hook_music">hook_music</a>'s callback.</p>
 
 </div>
 <h2 id="play_music">play_music</h2>
@@ -139,6 +176,18 @@ Passing -1 to <code>$loops</code> will loop the music infinitely. </p>
 </div>
 <h2 id="volume_music">volume_music</h2>
 <div id="volume_music_CONTENT">
+<pre> my $volume_before = SDL::Mixer::Music::volume_music( $new_volume );
+
+</pre>
+<p><code>volume_music</code> set the volume in <code>$new_volume</code> and returns the volume that was set before.
+Passing <code>-1</code> as argument causes only to return the current volume.</p>
+<p>Volume is between <code>0</code> (silence) and <code>MIX_MAX_VOLUME = 128</code>.</p>
+<p>Example:</p>
+<pre> # set the music volume to 1/2 maximum, and then check it
+ printf( &quot;volume was    : %d\n&quot;, SDL::Mixer::Music::volume_music( MIX_MAX_VOLUME / 2 ) );
+ printf( &quot;volume is now : %d\n&quot;, SDL::Mixer::Music::volume_music( -1 ) );
+
+</pre>
 
 </div>
 <h2 id="halt_music">halt_music</h2>
@@ -212,6 +261,11 @@ Does not go in reverse... negative values do nothing. </p>
 
 </pre>
 		<p>Returns <code>1</code> if the music is playing sound, otherwise <code>0</code>. It does'nt check if the music is paused.</p>
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+		<p>Tobias Leich [FROGGS]</p>
 
 </div>
 </div>
