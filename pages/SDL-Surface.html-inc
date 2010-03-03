@@ -48,7 +48,7 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<p>The main surface (display) is provided by <a href="/SDL-Video::set_video_mode.html">SDL::Video::set_video_mode</a>.
+<p>The main surface (display) is provided by <a href="/SDL-Video.html#set_video_mode">SDL::Video::set_video_mode</a>.
   use SDL; #provides flags &amp; constants
   use SDL::Video; #provides access to set_video_mode
   use SDL::Surface; #provides access to SDL_Surface struct internals</p>
@@ -183,7 +183,7 @@
 </div>
 <h2 id="format">format</h2>
 <div id="format_CONTENT">
-<p>The format of the pixels stored in the surface. See <a href="/SDL-PixelFormat.html">SDL::PixelFormat</a></p>
+<p>The format of the pixels stored in the surface. See <a href="SDL-PixelFormat">SDL::PixelFormat</a></p>
 <pre> my $format = $surface-&gt;format;
 
 </pre>
@@ -263,7 +263,7 @@
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="/SDL.html">SDL</a>, <a href="/SDL-PixelFormat.html">SDL::PixelFormat</a>, <a href="/SDL-Video.html">SDL::Video</a>, <a href="/SDL-Rect.html">SDL::Rect</a></p>
+<p><a href="SDL">SDL</a>, <a href="SDL-PixelFormat">SDL::PixelFormat</a>, <a href="SDL-Video">SDL::Video</a>, <a href="SDL-Rect">SDL::Rect</a></p>
 
 </div>
 </div>

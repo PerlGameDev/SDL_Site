@@ -66,7 +66,7 @@ The music player will then be called automatically when the mixer needs it. Musi
 All the music playing and stopping functions have no effect on music after this. Pause and resume will work. 
 Using a custom music player and the internal music player is not possible, the custom music player takes priority. </p>
 <p>To stop the custom music player call <code>hook_music()</code> without arguments.</p>
-<p><strong>Note</strong>: NEVER call <code>SDL::Mixer</code> functions, nor <a href="/SDL-Audio::lock.html">SDL::Audio::lock</a>, from a callback function.</p>
+<p><strong>Note</strong>: NEVER call <code>SDL::Mixer</code> functions, nor <a href="/SDL-Audio.html#lock">SDL::Audio::lock</a>, from a callback function.</p>
 <p><strong>Note</strong>: At program termination also call <code>SDL::Mixer::Music::hook_music()</code> to stop this callback.</p>
 <p>Example:</p>
 <pre> my $callback = sub

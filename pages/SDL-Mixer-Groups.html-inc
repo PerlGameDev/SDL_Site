@@ -4,7 +4,6 @@
 
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
-<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#reserve_channels">reserve_channels</a></li>
 <li><a href="#group_channel">group_channel</a></li>
@@ -23,16 +22,12 @@
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::Mixer::Groups -- SDL_Mixer groups functions and bindings</p>
+<p>SDL::Mixer::Groups - Audio channel group functions</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
 <p>Mixer</p>
-
-</div>
-<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="DESCRIPTION_CONTENT">
 
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -41,38 +36,91 @@
 </div>
 <h2 id="reserve_channels">reserve_channels</h2>
 <div id="reserve_channels_CONTENT">
+<pre> my $reserved = SDL::Mixer::Groups::reserve_channels( $num );
+
+</pre>
+<p><code>$num</code> is the number of channels to reserve from default mixing. Zero removes all reservations. </p>
+<p>Reserve <code>$num</code> channels from being used when playing samples when passing in <code>-1</code> as a channel number to playback functions. 
+The channels are reserved starting from channel <code>0</code> to <code>$num-1</code>. Passing in zero will unreserve all channels. Normally SDL_mixer starts 
+without any channels reserved.</p>
+<p>The following functions are affected by this setting: </p>
+<ul>
+		<li><a href="/SDL-Mixer-Channels.html#play_channel">SDL::Mixer::Channels::play_channel</a>	</li>
+		<li><a href="/SDL-Mixer-Channels.html#play_channel_timed">SDL::Mixer::Channels::play_channel_timed</a>	</li>
+		<li><a href="/SDL-Mixer-Channels.html#fade_in_channel">SDL::Mixer::Channels::fade_in_channel</a>	</li>
+		<li><a href="/SDL-Mixer-Channels.html#fade_in_channel_timed">SDL::Mixer::Channels::fade_in_channel_timed</a></li>
+</ul>
+
+<p>Returns: The number of channels reserved. Never fails, but may return less channels than you ask for, depending on the number of channels 
+previously allocated (see <a href="/SDL-Mixer-Channels.html#allocate_channels">SDL::Mixer::Channels::allocate_channels</a>).</p>
 
 </div>
 <h2 id="group_channel">group_channel</h2>
 <div id="group_channel_CONTENT">
+<pre> my $grouped = SDL::Mixer::Groups::group_channel( $channel, $group );
+
+</pre>
+<p>Add a channel to group id (any positive integer), or reset it's group to the default group by passing (-1).</p>
+<p>Returns: True(1) on success. False(0) is returned when the channel specified is invalid.</p>
 
 </div>
 <h2 id="group_channels">group_channels</h2>
 <div id="group_channels_CONTENT">
+<pre> my $grouped = SDL::Mixer::Groups::group_channels( $from_channel, $to_channel, $group );
+
+</pre>
+<p>Add a range of channels to group id (any positive integer), or reset their group to the default group by passing (-1).</p>
+<p>Returns: The number of affected channels.</p>
 
 </div>
 <h2 id="group_available">group_available</h2>
 <div id="group_available_CONTENT">
+<pre> my $channel = SDL::Mixer::Groups::group_count( $group );
+
+</pre>
+<p><code>group_newer</code> returns the first available channel of this group.</p>
 
 </div>
 <h2 id="group_count">group_count</h2>
 <div id="group_count_CONTENT">
+<pre> my $channels = SDL::Mixer::Groups::group_count( $group );
+
+</pre>
+<p><code>group_newer</code> returns the number of channels in this group.</p>
 
 </div>
 <h2 id="group_oldest">group_oldest</h2>
 <div id="group_oldest_CONTENT">
+<pre> my $channel = SDL::Mixer::Groups::group_oldest( $group );
+
+</pre>
+<p><code>group_newer</code> returns the channel number which started to play at first.</p>
 
 </div>
 <h2 id="group_newer">group_newer</h2>
 <div id="group_newer_CONTENT">
+<pre> my $channel = SDL::Mixer::Groups::group_newer( $group );
+
+</pre>
+<p><code>group_newer</code> returns the channel number which started to play at last.</p>
 
 </div>
 <h2 id="fade_out_group">fade_out_group</h2>
 <div id="fade_out_group_CONTENT">
+<pre> SDL::Mixer::Groups::fade_out_group( $group, $ms );
+
+</pre>
+<p>Fades out the channels by the given group id. The fade-out-time is specified by <code>$ms</code>.</p>
+<p>Retuns the number of affected channels.</p>
 
 </div>
 <h2 id="halt_group">halt_group</h2>
 <div id="halt_group_CONTENT">
+<pre> SDL::Mixer::Groups::hals_group( $group );
+
+</pre>
+<p>Halts the channels by the given group id.</p>
+<p>Retuns <code>0</code>.</p>
 
 </div>
 </div>

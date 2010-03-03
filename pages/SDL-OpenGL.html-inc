@@ -25,7 +25,7 @@
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p><a href="/SDL-OpenGL.html">SDL::OpenGL</a> is a perl module which when used by your application
+<p><a href="SDL-OpenGL">SDL::OpenGL</a> is a perl module which when used by your application
 exports the gl* and glu* functions into your application's primary namespace.
 Most of the functions described in the OpenGL 1.3 specification are currently
 supported in this fashion.  As the implementation of the OpenGL bindings that
@@ -80,7 +80,7 @@ glCallLists, so you might want to pack your data like this:</p>
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="/SDL-App.html">SDL::App</a></p>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="SDL-App">SDL::App</a></p>
 
 </div>
 </div>

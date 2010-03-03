@@ -94,7 +94,7 @@ if not, it returns the blue component of the color:</p>
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="/SDL-Surface.html">SDL::Surface</a></p>
+<p><a href="SDL-Surface">SDL::Surface</a></p>
 
 </div>
 </div>

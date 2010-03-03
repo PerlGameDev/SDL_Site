@@ -180,11 +180,14 @@ sub node
 	if($self->SUPER::type() eq 'page')
 	{
 		my $page = $self->SUPER::page();
+		my $suff = '';
 		
 		if($page =~ /^SDL\b/)
 		{
-			$page =~ s/::/-/;
-			return "/$page.html";
+			$page =~ s/::([A-Z])+/-$1/g;
+			$page =~ s/(.*)::(.*)/\/$1.html#$2/;
+			
+			return $page;
 		}
 		else
 		{

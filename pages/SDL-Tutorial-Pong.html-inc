@@ -60,7 +60,7 @@
 
 </pre>
 <p>&nbsp;</p>
-<p>That creates a new <a href="/SDL-Game::Rect.html">SDL::Game::Rect</a> object, a rectangle, with the given width/height dimensions and in the given top/left position of the screen.</p>
+<p>That creates a new <a href="SDL-Game-Rect">SDL::Game::Rect</a> object, a rectangle, with the given width/height dimensions and in the given top/left position of the screen.</p>
 <p>Wait. Did I say... <i>&lt;screen</i>&gt;?</p>
 
 </div>
@@ -110,7 +110,7 @@
 <div id="Part_2_Our_first_event_tracking_user-2">
 <p># TODO</p>
 <p>Now let's query some events!</p>
-<p>First, we need to use the <a href="/SDL-Event.html">SDL::Event</a> module. Add this to the beginning of our code:</p>
+<p>First, we need to use the <a href="SDL-Event">SDL::Event</a> module. Add this to the beginning of our code:</p>
 <p>&nbsp;</p>
 <pre>  use SDL::Event;
   my $event = SDL::Event-&gt;new;

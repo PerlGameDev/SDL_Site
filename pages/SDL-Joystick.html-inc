@@ -163,7 +163,7 @@ A joystick must be opened before it can be used.</p>
 <pre> int SDL::Joystick::num_buttons( object );
 
 </pre>
-<p>Gets the number of joystick buttons from a previously opened joystick. See <a href="/SDL-Joystick::open.html">SDL::Joystick::open</a></p>
+<p>Gets the number of joystick buttons from a previously opened joystick. See <a href="/SDL-Joystick.html#open">SDL::Joystick::open</a></p>
 
 </div>
 <h2 id="update">update</h2>

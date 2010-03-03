@@ -110,7 +110,7 @@ error code when they fail. The result will be a horrible staticy noise. You can 
 of SDL should take this parameter only as a hint, then read back the value that the OS (for example, OSS or ALSA) has chosen to use in case the 
 desired audio type is not supported. </p>
 <p><strong>Note</strong>: When already initialized, this function will not re-initialize SDL_mixer, nor fail. It will merely increment the number of times 
-<a href="/SDL-Mixer::close_audio.html">SDL::Mixer::close_audio</a> must be called to actually get it to uninitialize. This serves as a very simplistic method for multiple application 
+<a href="/SDL-Mixer.html#close_audio">SDL::Mixer::close_audio</a> must be called to actually get it to uninitialize. This serves as a very simplistic method for multiple application 
 components to use SDL_mixer without necessitating a great deal of inter-component awareness. Be warned however that in such a situation, the 
 latest components to initialize SDL_mixer will probably not get the SDL_mixer settings they're expecting. </p>
 <p>Example:</p>
@@ -154,7 +154,7 @@ This function returns 1 as first array element (status) if the audio has been op
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="http://search.cpan.org/perldoc?perl">perl</a>, <a href="/SDL-Mixer::Channels.html">SDL::Mixer::Channels</a>, <a href="/SDL-Mixer::Effects.html">SDL::Mixer::Effects</a>, <a href="/SDL-Mixer::Groups.html">SDL::Mixer::Groups</a>, <a href="/SDL-Mixer::Music.html">SDL::Mixer::Music</a>.</p>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a>, <a href="SDL-Mixer-Channels">SDL::Mixer::Channels</a>, <a href="SDL-Mixer-Effects">SDL::Mixer::Effects</a>, <a href="SDL-Mixer-Groups">SDL::Mixer::Groups</a>, <a href="SDL-Mixer-Music">SDL::Mixer::Music</a>.</p>
 
 </div>
 </div>

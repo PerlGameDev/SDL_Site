@@ -138,8 +138,8 @@ However, if you are not polling or waiting for events (e.g. you are filtering th
 <h2 id="poll_event_event">poll_event($event)</h2>
 <div id="poll_event_event_CONTENT">
 <p>Polls for currently pending events. </p>
-<p>If $event is not NULL, the next event is removed from the queue and stored in the <a href="/SDL-Event.html">SDL::Event</a> structure pointed to by $event.</p>
-<p>As this function implicitly calls pump_events, you can only call this function in the thread that set the video mode with <a href="/SDL-Video::set_video_mode.html">SDL::Video::set_video_mode</a>. </p>
+<p>If $event is not NULL, the next event is removed from the queue and stored in the <a href="SDL-Event">SDL::Event</a> structure pointed to by $event.</p>
+<p>As this function implicitly calls pump_events, you can only call this function in the thread that set the video mode with <a href="/SDL-Video.html#set_video_mode">SDL::Video::set_video_mode</a>. </p>
 
 </div>
 <h3 id="RETURN-2">RETURN</h3>
@@ -165,7 +165,7 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 <div id="wait_event_event_CONTENT">
 <p>Waits indefinitely for the next available $event, returning 0 if there was an error while waiting for events, 1 otherwise.</p>
 <p>If $event is not NULL, the next event is removed from the queue and stored in $event.</p>
-<p>As this function implicitly calls SDL_PumpEvents, you can only call this function in the thread that  <a href="/SDL-Video::set_video_mode.html">SDL::Video::set_video_mode</a>.  </p>
+<p>As this function implicitly calls SDL_PumpEvents, you can only call this function in the thread that  <a href="/SDL-Video.html#set_video_mode">SDL::Video::set_video_mode</a>.  </p>
 
 </div>
 <h3 id="RETURN-4">RETURN</h3>
@@ -227,7 +227,7 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="/SDL-Event.html">SDL::Event</a>, <a href="/SDL-Video.html">SDL::Video</a>
+<p><a href="SDL-Event">SDL::Event</a>, <a href="SDL-Video">SDL::Video</a>
 </p>
 
 </div>
