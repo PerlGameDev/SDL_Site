@@ -4,16 +4,17 @@
 
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
-<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
-<ul><li><a href="#int_mixsam_get_num_chunk_decoders_CO">int 
-mixsam_get_num_chunk_decoders ()
-	CODE:
-		RETVAL = Mix_GetNumChunkDecoders();
-	OUTPUT:
-		RETVAL</a>
-</li>
+<ul><li><a href="#get_num_chunk_decoders">get_num_chunk_decoders</a></li>
+<li><a href="#get_chunk_decoder">get_chunk_decoder</a></li>
+<li><a href="#load_WAV">load_WAV</a></li>
+<li><a href="#load_WAV_RW">load_WAV_RW</a></li>
+<li><a href="#quick_load_WAV">quick_load_WAV</a></li>
+<li><a href="#quick_load_RAW">quick_load_RAW</a></li>
+<li><a href="#volume_chunk">volume_chunk</a></li>
 </ul>
+</li>
+<li><a href="#AUTHOR">AUTHOR</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -28,108 +29,90 @@ mixsam_get_num_chunk_decoders ()
 <p>Mixer</p>
 
 </div>
-<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="DESCRIPTION_CONTENT">
-
-</div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="METHODS_CONTENT">
 
 </div>
-<h2 id="int_mixsam_get_num_chunk_decoders_CO">int 
-mixsam_get_num_chunk_decoders ()
-	CODE:
-		RETVAL = Mix_GetNumChunkDecoders();
-	OUTPUT:
-		RETVAL</h2>
-<div id="int_mixsam_get_num_chunk_decoders_CO-2">
-<p>char* 
-mixsam_get_chunk_decoder (idecoder)
-	int idecoder
-	CODE:
-		RETVAL = (char *)Mix_GetChunkDecoder(idecoder);
-	OUTPUT:
-		RETVAL</p>
-<p>#endif</p>
+<h2 id="get_num_chunk_decoders">get_num_chunk_decoders</h2>
+<div id="get_num_chunk_decoders_CONTENT">
+<pre> my $num_decoders = SDL::Mixer::Samples::get_num_chunk_decoders();
 
+</pre>
+<p>Returns the number of available decoders.</p>
 
+</div>
+<h2 id="get_chunk_decoder">get_chunk_decoder</h2>
+<div id="get_chunk_decoder_CONTENT">
+<pre> my $decoder = SDL::Mixer::Samples::get_chunk_decoder( $num_decoder );
 
+</pre>
+<p>Returns the decoder for the given id.</p>
 
-<p>Mix_Chunk *
-mixsam_load_WAV ( filename )
-	char *filename
-	PREINIT:
-		char * CLASS = &quot;SDL::Mixer::MixChunk&quot;;
-	CODE:
-		Mix_Chunk * mixchunk;
-		mixchunk = Mix_LoadWAV(filename);
-		RETVAL = mixchunk;
-	OUTPUT:
-		RETVAL</p>
+</div>
+<h2 id="load_WAV">load_WAV</h2>
+<div id="load_WAV_CONTENT">
+<pre> my $mix_chunk = SDL::Mixer::Samples::load_WAV( $file );
 
+</pre>
+<p><code>load_WAV</code> reads a file and passes it to <a href="/SDL-Mixer-Samples.html#load_WAV_RW">SDL::Mixer::Samples::load_WAV_RW</a>. SO this is a quick way to load a file into a chunk.</p>
+<p>Example:</p>
+<pre> my $chunk = SDL::Mixer::Samples::load_WAV('sample.wav');
 
+ SDL::Mixer::Channels::play_channel(-1, $chunk, -1);
+ SDL::delay(2000);
 
+</pre>
 
-<p>Mix_Chunk *
-mixsam_load_WAV_RW ( src, freesrc)
-	SDL_RWops * src
-	int freesrc
-	PREINIT:
-		char * CLASS = &quot;SDL::Mixer::MixChunk&quot;;
-	CODE:
-		Mix_Chunk * mixchunk;
-		mixchunk = Mix_LoadWAV_RW(src, freesrc);
-		RETVAL = mixchunk;
-	OUTPUT:
-		RETVAL</p>
+</div>
+<h2 id="load_WAV_RW">load_WAV_RW</h2>
+<div id="load_WAV_RW_CONTENT">
+<pre> my $mix_chunk = SDL::Mixer::Samples::load_WAV_RW( $rwops, $free );
 
+</pre>
+<p><code>load_WAV_RW</code> is a macro that loads a sound sample from a a block of memory. It supports WAVE-, MOD-, MIDI-, OGG- and MP3 files (sometimes 
+depends on compilation options). It accepts two arguments, the first being a RWops object from which to read and the second being a flag to 
+free the source memory after loading is complete or not.</p>
+<p>Returns a Mix_Chunk containing the whole sample on success, or <code>undef</code> on error.</p>
+<p><strong>Note</strong>: Do not reuse the RWops-object for another call to this function!</p>
+<p>Example:</p>
+<pre> my $rwops = SDL::RWOps-&gt;new_file('sample.wav', 'r');
 
+ my $chunk = SDL::Mixer::Samples::load_WAV_RW($rwops, 0);
 
+ SDL::Mixer::Channels::play_channel(-1, $chunk, -1);
+ SDL::delay(2000);
 
-<p>Mix_Chunk *
-mixsam_quick_load_WAV ( buf )
-	Uint8 *buf
-	PREINIT:
-		char * CLASS = &quot;SDL::Mixer::MixChunk&quot;;
-	CODE:
-		RETVAL = Mix_QuickLoad_WAV(buf);
-	OUTPUT:
-		RETVAL</p>
+</pre>
 
+</div>
+<h2 id="quick_load_WAV">quick_load_WAV</h2>
+<div id="quick_load_WAV_CONTENT">
+<pre> SDL::Mixer::Samples::quick_load_WAV( $buf );
 
+</pre>
+<p>to be documented.</p>
 
+</div>
+<h2 id="quick_load_RAW">quick_load_RAW</h2>
+<div id="quick_load_RAW_CONTENT">
+<pre> SDL::Mixer::Samples::quick_load_RAW( $buf, $len );
 
-<p>Mix_Chunk *
-mixsam_quick_load_RAW ( buf , len)
-	Uint8 *buf
-	int len
-	PREINIT:
-		char * CLASS = &quot;SDL::Mixer::MixChunk&quot;;
-	CODE:
-		RETVAL = Mix_QuickLoad_RAW( buf, len );
-	OUTPUT:
-		RETVAL</p>
+</pre>
+<p>to be documented.</p>
 
+</div>
+<h2 id="volume_chunk">volume_chunk</h2>
+<div id="volume_chunk_CONTENT">
+<pre> my $volume_before = SDL::Mixer::Samples::volume_chunk( $chunk, $new_volume );
 
+</pre>
+<p><code>volume_chunk</code> let you set and get the volume of a chunk. When a chunk is created is volume is <code>MIX_MAX_VOLUME</code> (<code>128</code>).</p>
+<p>If you pass <code>-1</code> as <code>$new_volume</code> you just get its volume without changing it.</p>
 
-
-<p>int
-mixsam_volume_chunk ( chunk, volume )
-	Mix_Chunk *chunk
-	int volume
-	CODE:
-		RETVAL = Mix_VolumeChunk(chunk,volume);
-	OUTPUT:
-		RETVAL</p>
-
-
-
-
-<p>void
-mixsam_free_chunk( chunk )
-	Mix_Chunk *chunk
-	CODE:
-		Mix_FreeChunk(chunk);</p>
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>Tobias Leich [FROGGS]</p>
 
 </div>
 </div>
