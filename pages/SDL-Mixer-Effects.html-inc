@@ -4,11 +4,15 @@
 
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
-<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
-<ul><li><a href="#register_effect">register_effect()</a></li>
+<ul><li><a href="#register">register</a></li>
+<li><a href="#unregister">unregister</a></li>
+<li><a href="#unregister_all">unregister_all</a></li>
 <li><a href="#set_post_mix">set_post_mix</a></li>
-<li><a href="#set_panning">set_panning</a>
+<li><a href="#set_distance">set_distance</a></li>
+<li><a href="#set_panning">set_panning</a></li>
+<li><a href="#set_position">set_position</a></li>
+<li><a href="#set_reverse_stereo">set_reverse_stereo</a>
 </li>
 </ul>
 </li>
@@ -17,7 +21,7 @@
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::Mixer::Effects -- SDL_Mixer sound effect functions and bindings</p>
+<p>SDL::Mixer::Effects - sound effect functions</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -25,25 +29,166 @@
 <p>Mixer</p>
 
 </div>
-<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="DESCRIPTION_CONTENT">
-
-</div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="METHODS_CONTENT">
 
 </div>
-<h2 id="register_effect">register_effect()</h2>
-<div id="register_effect_CONTENT">
-<p><strong>Note</strong>: &gt;= 1.2.10</p>
+<h2 id="register">register</h2>
+<div id="register_CONTENT">
+<pre> SDL::Mixer::Effects::register( $channel, $effect_callback, $done_callback, $arg );
+
+</pre>
+<p>Hook a processor function into a channel for post processing effects. You may just be reading the data and displaying it, or you may be altering 
+the stream to add an echo. Most processors also have state data that they allocate as they are in use, this would be stored in the <code>$arg</code> data 
+space. When a processor is finished being used, any function passed into <code>$done_callback</code> will be called.</p>
+<p>The effects are put into a linked list, and always appended to the end, meaning they always work on previously registered effects output.</p>
+<p>Returns: Zero on errors, such as a nonexisting channel.</p>
+<p><strong>Note</strong>: Passing MIX_CHANNEL_POST will register the <code>$effect_callback</code> as an postmix effect.</p>
+<p><strong>Note</strong>: Do not use this on a threaded perl. This will crash.</p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Mixer;
+ use SDL::Mixer::Channels;
+ use SDL::Mixer::Effects;
+ use SDL::Mixer::Samples;
+
+ my @last_stream        = ();
+ my $echo_effect_func   = sub
+ {
+     my $channel  = shift;
+     my $samples  = shift;
+     my $position = shift;
+     my @stream   = @_;
+
+     my @stream2 = @stream;
+     my $offset  = $samples / 2;
+     for(my $i = 0; $i &lt; $samples; $i+=2)
+     {
+         if($i &lt; $offset)
+         {
+             if(scalar(@last_stream) == $samples)
+             {
+                 $stream2[$i]     = $stream[$i]     * 0.6 + $last_stream[$samples + $i - $offset]     * 0.4; # left
+                 $stream2[$i + 1] = $stream[$i + 1] * 0.6 + $last_stream[$samples + $i - $offset + 1] * 0.4; # right
+             }
+         }
+         else
+         {
+             $stream2[$i]     = $stream[$i]     * 0.6 + $stream[$i - $offset]     * 0.4; # left
+             $stream2[$i + 1] = $stream[$i + 1] * 0.6 + $stream[$i - $offset + 1] * 0.4; # right
+         }
+     }
+
+     @last_stream = @stream;
+     return @stream2;
+ };
+
+ my $effect_done = sub
+ {
+     # you may do something here
+ };
+
+ SDL::Mixer::open_audio( 44100, SDL::Constants::AUDIO_S16, 2, 1024 );
+
+ my $playing_channel = SDL::Mixer::Channels::play_channel( -1, SDL::Mixer::Samples::load_WAV('test/data/sample.wav'), -1 );
+ SDL::Mixer::Effects::register($playing_channel, $echo_effect_func, $effect_done, 0);
+ SDL::delay(2000);
+ SDL::Mixer::Effects::unregister($playing_channel, $echo_effect_func);
+
+ SDL::Mixer::close_audio();
+ SDL::quit();
+
+</pre>
+
+</div>
+<h2 id="unregister">unregister</h2>
+<div id="unregister_CONTENT">
+<pre> SDL::Mixer::Effects::unregister( $channel, $effect_callback );
+
+</pre>
+<p>Remove the registered effect function from the effect list for channel.
+If the channel is active the registered effect will have its <code>$done_callback</code> function called, if it was specified in 
+<a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a>.</p>
+<p>Returns: Zero on errors, such as invalid channel, or effect function not registered on channel. </p>
+<p><strong>Note</strong>: Do not use this on a threaded perl. This will crash.</p>
+
+</div>
+<h2 id="unregister_all">unregister_all</h2>
+<div id="unregister_all_CONTENT">
+<pre> SDL::Mixer::Effects::unregister_all( $channel );
+
+</pre>
+<p>This removes all effects registered to <code>$channel</code>. If the channel is active all the registered effects will have their <code>$done_callback</code> 
+functions called, if they were specified in <a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a>.</p>
+<p>Returns: Zero on errors, such as channel not existing. </p>
+<p><strong>Note</strong>: Do not use this on a threaded perl. This will crash.</p>
 
 </div>
 <h2 id="set_post_mix">set_post_mix</h2>
 <div id="set_post_mix_CONTENT">
+<pre> SDL::Mixer::Effects::set_post_mix( $effect_callback, $arg );
+
+</pre>
+<p>Hook a processor function to the postmix stream for post processing effects. You may just be reading the data and displaying it, or you may be 
+altering the stream to add an echo. This processor is never really finished, until you call it without arguments.
+There can only be one postmix function used at a time through this method. Use <a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a> with MIX_CHANNEL_POST to use multiple postmix processors.
+This postmix processor is run AFTER all the registered postmixers set up by <a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a>. </p>
+<p><strong>Note</strong>: Do not use this on a threaded perl. This will crash.</p>
+
+</div>
+<h2 id="set_distance">set_distance</h2>
+<div id="set_distance_CONTENT">
+<pre> SDL::Mixer::Effects::set_distance( $channel, $distance );
+
+</pre>
+<p>This effect simulates a simple attenuation of volume due to distance. The volume never quite reaches silence, even at max distance (<code>255</code>).</p>
+<p>NOTE: Using a distance of <code>0</code> will cause the effect to unregister itself from channel. You cannot unregister it any other way, unless you use 
+<a href="/SDL-Mixer-Effects.html#unregister_all">SDL::Mixer::Effects::unregister_all</a> on the channel.</p>
+<p>Returns: Zero on errors, such as an invalid channel, or if Mix_RegisterEffect failed. </p>
 
 </div>
 <h2 id="set_panning">set_panning</h2>
 <div id="set_panning_CONTENT">
+<pre> SDL::Mixer::Effects::set_panning( $channel, $left, $right );
+
+</pre>
+<p>This effect will only work on stereo audio. Meaning you called <a href="/SDL-Mixer.html#open_audio">SDL::Mixer::open_audio</a> with 2 channels. </p>
+<p><strong>Note</strong>: Setting both left and right to 255 will unregister the effect from channel. You cannot unregister it any other way, unless you use 
+<a href="/SDL-Mixer-Effects.html#unregister_all">SDL::Mixer::Effects::unregister_all</a> on the channel.</p>
+<p><strong>Note</strong>: Using this function on a mono audio device will not register the effect, nor will it return an error status.</p>
+<p>Returns: Zero on errors, such as bad channel, or if <a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a> failed. </p>
+
+</div>
+<h2 id="set_position">set_position</h2>
+<div id="set_position_CONTENT">
+<pre> SDL::Mixer::Effects::set_position( $channel, $angle, $distance );
+
+</pre>
+<p>This effect emulates a simple 3D audio effect. It's not all that realistic, but it can help improve some level of realism. By giving it the 
+angle and distance from the camera's point of view, the effect pans and attenuates volumes.</p>
+<p><code>$angle</code> is the direction in relation to forward from 0 to 360 degrees. Larger angles will be reduced to this range using angles % 360.</p>
+<ul>
+		<li>0 = directly in front.	</li>
+		<li>90 = directly to the right.	</li>
+		<li>180 = directly behind.	</li>
+		<li>270 = directly to the left.</li>
+</ul>
+
+<p>So you can see it goes clockwise starting at directly in front.</p>
+<p><code>$distance</code> is <code>0</code>(close/loud) to <code>255</code>(far/quiet).</p>
+<p><strong>Note</strong>: Using angle and distance of <code>0</code>, will cause the effect to unregister itself from channel. You cannot unregister it any other way, 
+unless you use <a href="/SDL-Mixer-Effects.html#unregister_all">SDL::Mixer::Effects::unregister_all</a> on the channel.</p>
+<p>Returns: Zero on errors, such as an invalid channel, or if <code>SDL::Mixer::Effects::register</code> failed. </p>
+
+</div>
+<h2 id="set_reverse_stereo">set_reverse_stereo</h2>
+<div id="set_reverse_stereo_CONTENT">
+<pre> SDL::Mixer::Effects::set_reverse_stereo( $channel, $flip );
+
+</pre>
+<p>If you pass <code>1</code> to <code>$flip</code> it simple reverse stereo, swaps left and right channel sound.</p>
+<p><strong>Note</strong>: Using a flip of <code>0</code>, will cause the effect to unregister itself from channel. You cannot unregister it any other way, unless you use 
+<a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a> on the channel. </p>
 
 </div>
 </div>
