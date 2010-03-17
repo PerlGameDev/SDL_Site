@@ -21,7 +21,7 @@
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p><a href="SDL-Tool-Font">SDL::Tool::Font</a> provides a unified interface for applying
+<p><a href="SDL-Tool-Font.html">SDL::Tool::Font</a> provides a unified interface for applying
 True Type and SFont fonts to various surfaces.</p>
 
 </div>
@@ -42,7 +42,7 @@ with the upper left hand corner starting at the specified coordinates.</p>
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="SDL-Font">SDL::Font</a> <a href="SDL-Font">SDL::TTFont</a> <a href="SDL-Surface">SDL::Surface</a></p>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="SDL-Font.html">SDL::Font</a> <a href="SDL-TTFont.html">SDL::TTFont</a> <a href="SDL-Surface.html">SDL::Surface</a></p>
 
 </div>
 </div>

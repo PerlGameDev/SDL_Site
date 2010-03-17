@@ -75,7 +75,7 @@
 </div>
 <h1 id="See_Also">See Also</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="See_Also_CONTENT">
-<p><a href="SDL-D">SDL::CD</a>, <a href="SDL-Track">SDL::CDTrack</a></p>
+<p><a href="SDL-CD.html">SDL::CD</a>, <a href="SDL-CDTrack.html">SDL::CDTrack</a></p>
 
 </div>
 </div>

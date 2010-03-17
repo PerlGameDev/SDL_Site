@@ -17,7 +17,7 @@
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p><a href="SDL-Music">SDL::Music</a> is used to load music files for use with <a href="SDL-Mixer">SDL::Mixer</a>.
+<p><a href="SDL-Music.html">SDL::Music</a> is used to load music files for use with <a href="SDL-Mixer.html">SDL::Mixer</a>.
 To load a music file one simply creates a new object passing the filename 
 to the constructor:</p>
 <pre>	my $music = new SDL::Music 'my_song.ogg';
@@ -35,7 +35,7 @@ to the constructor:</p>
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="SDL-Mixer">SDL::Mixer</a></p>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="SDL-Mixer.html">SDL::Mixer</a></p>
 
 </div>
 </div>

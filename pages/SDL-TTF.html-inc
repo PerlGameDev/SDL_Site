@@ -1,9 +1,504 @@
 <div class="pod">
 <!-- INDEX START -->
 <h3 id="TOP">Index</h3>
-<hr />
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#General_methods">General methods</a>
+<ul><li><a href="#linked_version">linked_version</a></li>
+<li><a href="#compile_time_version">compile_time_version</a></li>
+<li><a href="#init">init</a></li>
+<li><a href="#was_init">was_init</a></li>
+<li><a href="#quit">quit</a></li>
+</ul>
+</li>
+<li><a href="#Management_functions">Management functions</a>
+<ul><li><a href="#open_font">open_font</a></li>
+<li><a href="#open_font_index">open_font_index</a></li>
+<li><a href="#open_font_RW">open_font_RW</a></li>
+<li><a href="#open_font_index_RW">open_font_index_RW</a></li>
+</ul>
+</li>
+<li><a href="#Attributes">Attributes</a>
+<ul><li><a href="#Global_attributes">Global attributes</a>
+<ul><li><a href="#byte_swapped_unicode">byte_swapped_unicode</a></li>
+</ul>
+</li>
+<li><a href="#Font_style">Font style</a>
+<ul><li><a href="#get_font_style">get_font_style</a></li>
+<li><a href="#set_font_style">set_font_style</a></li>
+</ul>
+</li>
+<li><a href="#Font_settings">Font settings</a>
+<ul><li><a href="#get_font_hinting">get_font_hinting</a></li>
+<li><a href="#set_font_hinting">set_font_hinting</a></li>
+<li><a href="#get_font_kerning">get_font_kerning</a></li>
+<li><a href="#set_font_kerning">set_font_kerning</a></li>
+</ul>
+</li>
+<li><a href="#Font_metrics">Font metrics</a>
+<ul><li><a href="#font_height">font_height</a></li>
+<li><a href="#font_ascent">font_ascent</a></li>
+<li><a href="#font_descent">font_descent</a></li>
+<li><a href="#font_line_skip">font_line_skip</a></li>
+</ul>
+</li>
+<li><a href="#Face_attributes">Face attributes</a>
+<ul><li><a href="#font_faces">font_faces</a></li>
+<li><a href="#font_face_is_fixed_width">font_face_is_fixed_width</a></li>
+<li><a href="#font_face_family_name">font_face_family_name</a></li>
+<li><a href="#font_face_style_name">font_face_style_name</a></li>
+</ul>
+</li>
+<li><a href="#Glyphs">Glyphs</a>
+<ul><li><a href="#glyph_is_provided">glyph_is_provided</a></li>
+<li><a href="#glyph_metrics">glyph_metrics</a></li>
+</ul>
+</li>
+<li><a href="#Text_metrics">Text metrics</a>
+<ul><li><a href="#size_text">size_text</a></li>
+<li><a href="#size_utf8">size_utf8</a></li>
+<li><a href="#size_unicode">size_unicode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#Font_Rendering">Font Rendering</a>
+<ul><li><a href="#render_glyph_solid">render_glyph_solid</a></li>
+<li><a href="#render_glyph_shaded">render_glyph_shaded</a></li>
+<li><a href="#render_glyph_blended">render_glyph_blended</a></li>
+<li><a href="#render_text_solid">render_text_solid</a></li>
+<li><a href="#render_text_shaded">render_text_shaded</a></li>
+<li><a href="#render_text_blended">render_text_blended</a></li>
+<li><a href="#render_utf8_solid">render_utf8_solid</a></li>
+<li><a href="#render_utf8_shaded">render_utf8_shaded</a></li>
+<li><a href="#render_utf8_blended">render_utf8_blended</a></li>
+<li><a href="#render_unicode_solid">render_unicode_solid</a></li>
+<li><a href="#render_unicode_shaded">render_unicode_shaded</a></li>
+<li><a href="#render_unicode_blended">render_unicode_blended</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
 <!-- INDEX END -->
 
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::TTF - True Type Font functions (libfreetype)</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>TODO, TTF</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="General_methods">General methods</h2>
+<div id="General_methods_CONTENT">
+
+</div>
+<h3 id="linked_version">linked_version</h3>
+<div id="linked_version_CONTENT">
+<pre> my $version = SDL::TTF::linked_version();
+
+</pre>
+<p>This gives you the SDL::Version object which SDL_ttf lib is used on the system.
+No prior initialization needs to be done before these function is called. </p>
+<p>Example:</p>
+<pre> use SDL::TTF;
+ use SDL::Version;
+
+ my $version = SDL::TTF::linked_version();
+
+ printf(&quot;got version: %d.%d.%d\n&quot;, $version-&gt;major, $version-&gt;minor, $version-&gt;patch);
+
+</pre>
+
+</div>
+<h3 id="compile_time_version">compile_time_version</h3>
+<div id="compile_time_version_CONTENT">
+<pre> my $version = SDL::TTF::compile_time_version();
+
+</pre>
+<p>This gives you the SDL::Version object which SDL_ttf was present at compile time.</p>
+
+</div>
+<h3 id="init">init</h3>
+<div id="init_CONTENT">
+<pre> my $success = SDL::TTF::init();
+
+</pre>
+<p>Initialize the truetype font API.
+This must be called before using other functions in this library, except <a href="/SDL-TTF.html#was_init">SDL::TTF::was_init</a> and <a href="/SDL-TTF.html#linked_version">SDL::TTF::linked_version</a>.
+SDL does not have to be initialized before this call.</p>
+<p>Returns: <code>0</code> on success, <code>-1</code> on any error.</p>
+
+</div>
+<h3 id="was_init">was_init</h3>
+<div id="was_init_CONTENT">
+<pre> my $was_init = SDL::TTF::was_init();
+
+</pre>
+<p>Query the initilization status of the truetype font API.
+You may, of course, use this before <a href="/SDL-TTF.html#init">SDL::TTF::init</a> to avoid initializing twice in a row. Or use this to determine if you need to call 
+<a href="/SDL-TTF.html#quit">SDL::TTF::quit</a>.</p>
+
+</div>
+<h3 id="quit">quit</h3>
+<div id="quit_CONTENT">
+<pre> SDL::TTF::quit();
+
+</pre>
+<p>Shutdown and cleanup the truetype font API.
+After calling this the SDL::TTF functions should not be used, excepting <a href="/SDL-TTF.html#was_init">SDL::TTF::was_init</a>. You may, of course, use <a href="/SDL-TTF.html#init">SDL::TTF::init</a> to 
+use the functionality again</p>
+
+</div>
+<h2 id="Management_functions">Management functions</h2>
+<div id="Management_functions_CONTENT">
+
+</div>
+<h3 id="open_font">open_font</h3>
+<div id="open_font_CONTENT">
+<pre> my $font = SDL::TTF::open_font($font_file, $point_size);
+
+</pre>
+<p>Load file for use as a font, at the given size. This is actually <code>SDL::TTF::open_font_index(..., ..., $index = 0)</code>. This can load TTF and FON files.</p>
+<p>Returns: a <a href="SDL-TTF-Font.html">SDL::TTF::Font</a> object. <code>undef</code> is returned on errors.</p>
+<p>Example:</p>
+<pre> use SDL::TTF;
+ use SDL::TTF::Font;
+
+ my $font = SDL::TTF::open_font('arial.ttf', '24);
+
+</pre>
+
+</div>
+<h3 id="open_font_index">open_font_index</h3>
+<div id="open_font_index_CONTENT">
+<pre> my $font = SDL::TTF::open_font($font_file, $point_size, $face_index);
+
+</pre>
+<p>This is the same as <a href="/SDL-TTF.html#open_font">SDL::TTF::open_font</a>, except you can specify the face index of a font file containing multiple faces. 
+This can load TTF and FON files. </p>
+
+</div>
+<h3 id="open_font_RW">open_font_RW</h3>
+<div id="open_font_RW_CONTENT">
+<pre> my $font = SDL::TTF::open_font_RW($rwops_object, $free, $point_size);
+
+</pre>
+<p>This is the same as <a href="/SDL-TTF.html#open_font">SDL::TTF::open_font</a>, except you can pass an <a href="SDL-RWOps.html">SDL::RWOps</a>-object. If you pass true as <code>$free</code>, the <a href="SDL-RWOps.html">SDL::RWOps</a>-object
+will be freed by SDL_ttf library. Don't do this, perl will free this object for you.</p>
+<p>Example:</p>
+<pre> my $font = SDL::TTF::open_font_RW(SDL::RWOps-&gt;new_file($font_file, 'r'), 0, 24);
+
+</pre>
+
+</div>
+<h3 id="open_font_index_RW">open_font_index_RW</h3>
+<div id="open_font_index_RW_CONTENT">
+<pre> my $font = SDL::TTF::open_font_index_RW($rwops_object, $free, $point_size, $face_index);
+
+</pre>
+<p>This is the same as <a href="/SDL-TTF.html#open_font_index">SDL::TTF::open_font_index</a>, except you can pass an <a href="SDL-RWOps.html">SDL::RWOps</a>-object. If you pass true as <code>$free</code>, the 
+<a href="SDL-RWOps.html">SDL::RWOps</a>-object will be freed by SDL_ttf library. Don't do this, perl will free this object for you.</p>
+
+</div>
+<h2 id="Attributes">Attributes</h2>
+<div id="Attributes_CONTENT">
+
+</div>
+<h3 id="Global_attributes">Global attributes</h3>
+<div id="Global_attributes_CONTENT">
+
+</div>
+<h4 id="byte_swapped_unicode">byte_swapped_unicode</h4>
+<div id="byte_swapped_unicode_CONTENT">
+<pre> SDL::TTF::byte_swapped_unicode( $bool );
+
+</pre>
+<p>This function tells SDL_ttf whether UNICODE (2 bytes per character) text is generally byteswapped. A <code>UNICODE_BOM_NATIVE</code> or 
+<code>UNICODE_BOM_SWAPPED</code> character in a string will temporarily override this setting for the remainder of that string, however this setting 
+will be restored for the next one. The default mode is non-swapped, native endianness of the CPU.</p>
+
+</div>
+<h3 id="Font_style">Font style</h3>
+<div id="Font_style_CONTENT">
+
+</div>
+<h4 id="get_font_style">get_font_style</h4>
+<div id="get_font_style_CONTENT">
+<pre> SDL::TTF::get_font_style($font);
+
+</pre>
+<p>Returns: The style as a bitmask composed of the following masks:</p>
+<ul>
+		<li>TTF_STYLE_NORMAL	</li>
+		<li>TTF_STYLE_BOLD	</li>
+		<li>TTF_STYLE_ITALIC	</li>
+		<li>TTF_STYLE_UNDERLINE	</li>
+		<li>TTF_STYLE_STRIKETHROUGH (since SDL_ttf 2.0.10)</li>
+</ul>
+
+<p>Example:</p>
+<pre> my $style = SDL::TTF::get_font_style($font);
+
+ print(&quot;normal\n&quot;)        if $style == TTF_STYLE_NORMAL;
+ print(&quot;bold\n&quot;)          if $style  &amp; TTF_STYLE_BOLD;
+ print(&quot;italic\n&quot;)        if $style  &amp; TTF_STYLE_ITALIC;
+ print(&quot;underline\n&quot;)     if $style  &amp; TTF_STYLE_UNDERLINE;
+ print(&quot;strikethrough\n&quot;) if $style  &amp; TTF_STYLE_STRIKETHROUGH;
+
+</pre>
+
+</div>
+<h4 id="set_font_style">set_font_style</h4>
+<div id="set_font_style_CONTENT">
+<pre> SDL::TTF::set_font_style($font, $style);
+
+</pre>
+<p>Set the rendering style of the loaded font.</p>
+<p><strong>Note</strong>: <code>TTF_STYLE_UNDERLINE</code> may cause surfaces created by <code>SDL::TTF::render_glyph_*</code> functions to be extended vertically, downward only, 
+to encompass the underline if the original glyph metrics didn't allow for the underline to be drawn below. This does not change the math used 
+to place a glyph using glyph metrics.
+On the other hand <code>TTF_STYLE_STRIKETHROUGH</code> doesn't extend the glyph, since this would invalidate the metrics used to position the glyph when 
+blitting, because they would likely be extended vertically upward. There is perhaps a workaround, but it would require programs to be smarter 
+about glyph blitting math than they are currently designed for.
+Still, sometimes the underline or strikethrough may be outside of the generated surface, and thus not visible when blitted to the screen. In 
+this case, you should probably turn off these styles and draw your own strikethroughs and underlines. </p>
+
+</div>
+<h3 id="Font_settings">Font settings</h3>
+<div id="Font_settings_CONTENT">
+
+</div>
+<h4 id="get_font_hinting">get_font_hinting</h4>
+<div id="get_font_hinting_CONTENT">
+<pre> my $hinting = SDL::TTF::get_font_hinting($font);
+
+</pre>
+<p>Get the current hinting setting of the loaded font.</p>
+<p><strong>Note</strong>: at least SDL_ttf 2.0.10 needed</p>
+<p>Returns the hinting type matching one of the following defined values:</p>
+<ul>
+		<li>TTF_HINTING_NORMAL	</li>
+		<li>TTF_HINTING_LIGHT	</li>
+		<li>TTF_HINTING_MONO	</li>
+		<li>TTF_HINTING_NONE</li>
+</ul>
 
 
+</div>
+<h4 id="set_font_hinting">set_font_hinting</h4>
+<div id="set_font_hinting_CONTENT">
+<pre> SDL::TTF::set_font_hinting($font, $hinting);
+
+</pre>
+<p>Set the hinting of the loaded font. You should experiment with this setting if you know which font you are using beforehand, especially when 
+using smaller sized fonts. If the user is selecting a font, you may wish to let them select the hinting mode for that font as well.</p>
+<p><strong>Note</strong>: at least SDL_ttf 2.0.10 needed</p>
+<p>Example:</p>
+<pre> SDL::TTF::set_font_hinting($font, TTF_HINTING_LIGHT);
+
+</pre>
+
+</div>
+<h4 id="get_font_kerning">get_font_kerning</h4>
+<div id="get_font_kerning_CONTENT">
+<pre> my $kerning_enabled = SDL::TTF::get_font_kerning($font);
+
+</pre>
+<p>Get the current kerning setting of the loaded font.</p>
+<p>Returns: <code>0</code>(zero) if kerning is disabled. A non-zero value is returned when enabled. The default for a newly loaded font is enabled(<code>1</code>). </p>
+<p><strong>Note</strong>: at least SDL_ttf 2.0.10 needed</p>
+
+</div>
+<h4 id="set_font_kerning">set_font_kerning</h4>
+<div id="set_font_kerning_CONTENT">
+<pre> SDL::TTF::set_font_kerning($font, $kerning_enabled);
+
+</pre>
+<p>Set whether to use kerning when rendering the loaded font. This has no effect on individual glyphs, but rather when rendering whole strings of 
+characters, at least a word at a time. Perhaps the only time to disable this is when kerning is not working for a specific font, resulting in 
+overlapping glyphs or abnormal spacing within words.</p>
+<p>Pass <code>0</code> to disable kerning, 1 to enable.</p>
+<p><strong>Note</strong>: at least SDL_ttf 2.0.10 needed</p>
+
+</div>
+<h3 id="Font_metrics">Font metrics</h3>
+<div id="Font_metrics_CONTENT">
+
+</div>
+<h4 id="font_height">font_height</h4>
+<div id="font_height_CONTENT">
+<pre> my $font_height = SDL::TTF::font_height($font);
+
+</pre>
+
+</div>
+<h4 id="font_ascent">font_ascent</h4>
+<div id="font_ascent_CONTENT">
+<pre> my $font_ascent = SDL::TTF::font_ascent($font);
+ like( $font_ascent,                                       '/^[-]?\d+$/',       &quot;[font_ascent] offset from the baseline to the top of the font is $font_ascent&quot; );
+
+</pre>
+
+</div>
+<h4 id="font_descent">font_descent</h4>
+<div id="font_descent_CONTENT">
+<pre> my $font_descent = SDL::TTF::font_descent($font);
+ like( $font_descent,                                      '/^[-]?\d+$/',       &quot;[font_descent] offset from the baseline to the bottom of the font is $font_descent&quot; );
+
+</pre>
+
+</div>
+<h4 id="font_line_skip">font_line_skip</h4>
+<div id="font_line_skip_CONTENT">
+<pre> my $font_line_skip = SDL::TTF::font_line_skip($font);
+ like( $font_line_skip,                                    '/^[-]?\d+$/',       &quot;[font_line_skip] recommended spacing between lines of text is $font_line_skip&quot; );
+
+</pre>
+
+</div>
+<h3 id="Face_attributes">Face attributes</h3>
+<div id="Face_attributes_CONTENT">
+
+</div>
+<h4 id="font_faces">font_faces</h4>
+<div id="font_faces_CONTENT">
+<p>my $font_faces = SDL::TTF::font_faces($font);
+ok( $font_faces,                                                               &quot;[font_faces] font has $font_faces faces&quot; );</p>
+
+</div>
+<h4 id="font_face_is_fixed_width">font_face_is_fixed_width</h4>
+<div id="font_face_is_fixed_width_CONTENT">
+<p>my $font_face_is_fixed_width = SDL::TTF::font_face_is_fixed_width($font);
+like( $font_face_is_fixed_width,                          '/^[01]$/',          &quot;[font_face_is_fixed_width] is $font_face_is_fixed_width&quot; );</p>
+
+</div>
+<h4 id="font_face_family_name">font_face_family_name</h4>
+<div id="font_face_family_name_CONTENT">
+<p>my $font_face_family_name = SDL::TTF::font_face_family_name($font);
+ok( $font_face_family_name,                                                    &quot;[font_face_family_name] is $font_face_family_name&quot; );</p>
+
+</div>
+<h4 id="font_face_style_name">font_face_style_name</h4>
+<div id="font_face_style_name_CONTENT">
+<p>my $font_face_style_name = SDL::TTF::font_face_style_name($font);
+ok( $font_face_style_name,                                                     &quot;[font_face_style_name] is $font_face_style_name&quot; );</p>
+
+</div>
+<h3 id="Glyphs">Glyphs</h3>
+<div id="Glyphs_CONTENT">
+
+</div>
+<h4 id="glyph_is_provided">glyph_is_provided</h4>
+<div id="glyph_is_provided_CONTENT">
+
+</div>
+<h4 id="glyph_metrics">glyph_metrics</h4>
+<div id="glyph_metrics_CONTENT">
+<pre> my @glyph_metrics = @{ SDL::TTF::glyph_metrics($font, 'M') };
+is( scalar @glyph_metrics,                                5,                   &quot;[glyph_metrics] (minx, maxx, miny, maxy, advance) = (&quot; . join(', ', @glyph_metrics) . &quot;)&quot; );
+
+</pre>
+
+</div>
+<h3 id="Text_metrics">Text metrics</h3>
+<div id="Text_metrics_CONTENT">
+
+</div>
+<h4 id="size_text">size_text</h4>
+<div id="size_text_CONTENT">
+<pre> my ($width, $height) = @{ SDL::TTF::size_text($font, 'Hallo World!') };
+
+</pre>
+
+</div>
+<h4 id="size_utf8">size_utf8</h4>
+<div id="size_utf8_CONTENT">
+<pre> my ($width, $height) = @{ SDL::TTF::size_utf8($font, 'Hallo World!') };
+
+</pre>
+
+</div>
+<h4 id="size_unicode">size_unicode</h4>
+<div id="size_unicode_CONTENT">
+<pre> my ($width, $height) = @{ SDL::TTF::size_unicode($font, 'Hallo World!') };
+
+</pre>
+
+</div>
+<h2 id="Font_Rendering">Font Rendering</h2>
+<div id="Font_Rendering_CONTENT">
+
+</div>
+<h3 id="render_glyph_solid">render_glyph_solid</h3>
+<div id="render_glyph_solid_CONTENT">
+
+</div>
+<h3 id="render_glyph_shaded">render_glyph_shaded</h3>
+<div id="render_glyph_shaded_CONTENT">
+
+</div>
+<h3 id="render_glyph_blended">render_glyph_blended</h3>
+<div id="render_glyph_blended_CONTENT">
+
+</div>
+<h3 id="render_text_solid">render_text_solid</h3>
+<div id="render_text_solid_CONTENT">
+<p><strong>Note</strong>: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=374062</p>
+
+</div>
+<h3 id="render_text_shaded">render_text_shaded</h3>
+<div id="render_text_shaded_CONTENT">
+
+</div>
+<h3 id="render_text_blended">render_text_blended</h3>
+<div id="render_text_blended_CONTENT">
+
+</div>
+<h3 id="render_utf8_solid">render_utf8_solid</h3>
+<div id="render_utf8_solid_CONTENT">
+
+</div>
+<h3 id="render_utf8_shaded">render_utf8_shaded</h3>
+<div id="render_utf8_shaded_CONTENT">
+
+</div>
+<h3 id="render_utf8_blended">render_utf8_blended</h3>
+<div id="render_utf8_blended_CONTENT">
+
+</div>
+<h3 id="render_unicode_solid">render_unicode_solid</h3>
+<div id="render_unicode_solid_CONTENT">
+
+</div>
+<h3 id="render_unicode_shaded">render_unicode_shaded</h3>
+<div id="render_unicode_shaded_CONTENT">
+
+</div>
+<h3 id="render_unicode_blended">render_unicode_blended</h3>
+<div id="render_unicode_blended_CONTENT">
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>Tobias Leich [FROGGS]</p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><a href="SDL-TTF-Font.html">SDL::TTF::Font</a>, <a href="http://search.cpan.org/perldoc?Unicode::String">Unicode::String</a>, <a href="SDL-Video.html">SDL::Video</a>, <a href="SDL-Surface.html">SDL::Surface</a></p>
+
+</div>
 </div>

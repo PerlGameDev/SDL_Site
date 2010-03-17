@@ -184,8 +184,9 @@ sub node
 		
 		if($page =~ /^SDL\b/)
 		{
-			$page =~ s/::([A-Z])+/-$1/g;
+			$page =~ s/::([A-Z]+)/-$1/g;
 			$page =~ s/(.*)::(.*)/\/$1.html#$2/;
+			$page .= '.html' unless $page =~ /\.html/;
 			
 			return $page;
 		}

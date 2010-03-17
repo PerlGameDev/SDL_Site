@@ -26,11 +26,20 @@
 <ul><li><a href="#RETURN-4">RETURN</a></li>
 </ul>
 </li>
-<li><a href="#set_event_filter">set_event_filter</a></li>
+<li><a href="#set_event_filter">set_event_filter</a>
+<ul><li><a href="#PARAMETER">PARAMETER</a></li>
+</ul>
+</li>
 <li><a href="#get_key_state">get_key_state</a></li>
-<li><a href="#get_mod_state">get_mod_state</a></li>
+<li><a href="#get_mod_state">get_mod_state</a>
+<ul><li><a href="#MOD_VALUES">MOD VALUES</a></li>
+</ul>
+</li>
 <li><a href="#set_mod_state">set_mod_state</a></li>
-<li><a href="#event_state">event_state </a></li>
+<li><a href="#event_state">event_state </a>
+<ul><li><a href="#STATES">STATES</a></li>
+</ul>
+</li>
 <li><a href="#get_key_name">get_key_name</a></li>
 <li><a href="#enable_unicode">enable_unicode </a></li>
 <li><a href="#enable_key_repeat">enable_key_repeat </a></li>
@@ -57,11 +66,12 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<p>Most likely you just want to know how to get events for you app.
-  use SDL;
+<p>Most likely you just want to know how to get events for you app.</p>
+<pre>  use SDL;
   use SDL::Event;
-  use SDL::Events;</p>
-<pre>  SDL::init(SDL_INIT_VIDEO); # Event can only be grabbed in the same thread as this 
+  use SDL::Events;
+
+  SDL::init(SDL_INIT_VIDEO); # Event can only be grabbed in the same thread as this 
 
   ...
 
@@ -138,7 +148,7 @@ However, if you are not polling or waiting for events (e.g. you are filtering th
 <h2 id="poll_event_event">poll_event($event)</h2>
 <div id="poll_event_event_CONTENT">
 <p>Polls for currently pending events. </p>
-<p>If $event is not NULL, the next event is removed from the queue and stored in the <a href="SDL-Event">SDL::Event</a> structure pointed to by $event.</p>
+<p>If $event is not NULL, the next event is removed from the queue and stored in the <a href="SDL-Event.html">SDL::Event</a> structure pointed to by $event.</p>
 <p>As this function implicitly calls pump_events, you can only call this function in the thread that set the video mode with <a href="/SDL-Video.html#set_video_mode">SDL::Video::set_video_mode</a>. </p>
 
 </div>
@@ -175,59 +185,269 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 </div>
 <h2 id="set_event_filter">set_event_filter</h2>
 <div id="set_event_filter_CONTENT">
+<p>Sets up a filter to process all events </p>
+<pre>	my $filter = sub { if($_[0]-&gt;type == SDL_ACTIVEEVENT){ return 0} else{ return 1; }};
+
+	SDL::Events::set_event_filter($filter);
+
+</pre>
+
+</div>
+<h3 id="PARAMETER">PARAMETER</h3>
+<div id="PARAMETER_CONTENT">
+<p>set_event_filter takes a coderef that it checks all events again. The callback gets a event in the stack</p>
+<pre>	sub { my $event_to_test = shift; ...}
+
+</pre>
+<p>to filter the event return a 0, to pass the filter return a 1. </p>
+<p>One <strong>Caveat</strong> is if you are filterign SDL_QUITEVENT the event will be filtered if it is non-intterupt call ( Window closes normally ). If it is a interrupt SDL_QUITEVENT it will be process on the next event poll. </p>
+<p>Events pushed onto to the queue with <a href="/SDL-Events.html#push_events">SDL::Events::push_events</a> or <a href="/SDL-Events.html#peep_events">SDL::Events::peep_events</a> do not get filtered.</p>
+<p>This callback may run in a different thread. </p>
 
 </div>
 <h2 id="get_key_state">get_key_state</h2>
 <div id="get_key_state_CONTENT">
+<p>Get a snapshot of the current keyboard state</p>
+<pre>	my $keys_ref = SDL::Events::get_key_state();
+
+	print $keys_ref-&gt;[SDLK_RETURN]; # 1 if pressed , 0 if not pressed
+
+</pre>
+<p>Use <a href="/SDL-Events.html#pump_events">SDL::Events::pump_events</a> to update the state array.</p>
+<p>This function gives you the current state after all events have been processed, so if a key or button has been pressed and released before you process events, then the pressed state will never show up in the get_key_state call.</p>
+<p>This function doesn't take into account whether shift has been pressed or not.</p>
 
 </div>
 <h2 id="get_mod_state">get_mod_state</h2>
 <div id="get_mod_state_CONTENT">
+<p>Get the state of the modifier keys</p>
+<p>Returns the current state of modifier keys</p>
+<p>Return value is an OR'd combination of  KMOD_*</p>
+<pre> SDL::Events::pump_events; #get latest mod_state in buffers
+
+ my $mod_state = SDL::Events::get_mod_state();
+
+ # Check which ones are pressed with 
+
+ # no mod pressed?
+
+ print 'no_mod' if  ( $mod_state &amp; KMOD_NONE );
+
+ # CTRL or ALT 
+
+ print 'ctrl alt' if ($mod_state &amp; KMOD_CTRL || $mod_state &amp; KMOD_ALT );
+
+</pre>
+
+</div>
+<h3 id="MOD_VALUES">MOD VALUES</h3>
+<div id="MOD_VALUES_CONTENT">
+<dl>
+	<dt>KMOD_NONE</dt>
+	<dt>KMOD_LSHIFT</dt>
+	<dt>KMOD_RSHIFT</dt>
+	<dt>KMOD_LCTRL</dt>
+	<dt>KMOD_RCTRL</dt>
+	<dt>KMOD_LALT</dt>
+	<dt>KMOD_RALT</dt>
+	<dt>KMOD_LMETA</dt>
+	<dt>KMOD_RMETA</dt>
+	<dt>KMOD_NUM</dt>
+	<dt>KMOD_CAPS</dt>
+	<dt>KMOD_MODE</dt>
+	<dt>KMOD_CTRL </dt>
+	<dd>
+		<p>same as KMOD_LCTRL|KMOD_RCTRL</p>
+	</dd>
+	<dt>KMOD_SHIFT</dt>
+	<dd>
+		<p>same as KMOD_LSHIFT|KMOD_RSHIFT</p>
+	</dd>
+	<dt>KMOD_ALT</dt>
+	<dd>
+		<p>same as KMOD_LALT|KMOD_RALT</p>
+	</dd>
+	<dt>KMOD_META</dt>
+	<dd>
+		<p>same as KMOD_LMETA|KMOD_RMETA</p>
+	</dd>
+</dl>
 
 </div>
 <h2 id="set_mod_state">set_mod_state</h2>
 <div id="set_mod_state_CONTENT">
+<p>Get the state of the modifier keys</p>
+<p>The inverse of <a href="/SDL-Events.html#get_mod_state">SDL::Events::get_mod_state</a> allows you to impose modifier key states on your application.</p>
+<p>Simply pass your desired modifier states into $modstate. This value can be a OR'd combination of any KMOD* constant.</p>
+<pre> my $modstate = KMOD_LMETA | KMOD_LSHIFT;
+
+</pre>
+<p>Any KMOD_* constant see <a href="/SDL-Events.html#get_mod_state">SDL::Events::get_mod_state</a> for constants.
+ SDL::Events::set_mod_state( $modstate );</p>
 
 </div>
 <h2 id="event_state">event_state </h2>
 <div id="event_state_CONTENT">
+<p>Allows you to set the state of processing certain events</p>
+<pre> SDL::Events::event_state( $type, $state );
+
+</pre>
+<p>A list of $type(s) can be found in <a href="SDL-Event.html">SDL::Event</a></p>
+
+</div>
+<h3 id="STATES">STATES</h3>
+<div id="STATES_CONTENT">
+<dl>
+	<dt>SDL_IGNORE</dt>
+	<dd>
+		<p>The event of $type will be automatically dropper from the event queue and will not be filtered.</p>
+	</dd>
+	<dt>SDL_ENABLE</dt>
+	<dd>
+		<p>The event of $type will be processed normally. This is default.</p>
+	</dd>
+	<dt>SDL_QUERY</dt>
+	<dd>
+		<p>The current processing state of the $type will be returned</p>
+	</dd>
+</dl>
 
 </div>
 <h2 id="get_key_name">get_key_name</h2>
 <div id="get_key_name_CONTENT">
+<p>Gets the name of the a SDL virtual keysym</p>
+<pre> my $event = SDL::Event-&gt;new();
+
+ while( SDL::Events::poll_event($event) )
+ {
+   my $key = $event-&gt;key_sym;
+   $key_str = SDL::Events::get_key_name($key);
+ }
+
+</pre>
+<p>Returns a string with the name of the key sym.</p>
 
 </div>
 <h2 id="enable_unicode">enable_unicode </h2>
 <div id="enable_unicode_CONTENT">
+<p>Enable/Disable UNICODE translation</p>
+<pre>  my $previous_translation_mode = SDL::Events::enable_unicode( 1 ); #enable
+     $previous_translation_mode = SDL::Events::enable_unicode( 0 ); #disables
+
+</pre>
+<p>To obtain the character codes corresponding to received keyboard events, Unicode translation must first be turned on using this function. The translation incurs a slight overhead for each keyboard event and is therefore disabled by default. For each subsequently recieved key down event, the unicode member of the <a href="/SDL-Event.html#key_sym">SDL::Event::key_sym</a> provided structure will be then contain the corresponding character code, or otherwise zero.</p>
+<p>A value of 1 for enabling, 0 for disabling and -1 for unchanged. -1 is usefull for querying the current translation mode.</p>
+<p>Only key press events will be translated not release events.</p>
+<p>Returns the previous translation mode as (1,0).</p>
 
 </div>
 <h2 id="enable_key_repeat">enable_key_repeat </h2>
 <div id="enable_key_repeat_CONTENT">
+<p>Sets keyboard repeat rate</p>
+<pre> my $success = SDL::Events::enable_key_repeat( $delay, $interval );
+
+</pre>
+<p>Enables or disables the keyboard repeat rate. $delay specifies how long the key must be pressed before it begins repeating, it then repleats at the speed specified by $interval. Both $delay and $interval are expressed in milliseconds.</p>
+<p>Setting $delay to 0 disables key repeating completely. Good default values are SDL_DEFAULT_REPEAT_DELAY and SDL_DEFAULT_REPEAT_INTERVAL.</p>
+<p>Return 0 on success and -1 on fail.</p>
 
 </div>
 <h2 id="get_mouse_state">get_mouse_state </h2>
 <div id="get_mouse_state_CONTENT">
+<p>Retrives the current state of the mouse</p>
+<pre>	my ($mask,$x,$y) = @{ SDL::Events::get_mouse_state( ) };
+
+        print 'Button Left pressed' if ($mask &amp; SDL_BUTTON_LMASK);    
+
+        print 'Button Right pressed' if ($mask &amp; SDL_BUTTON_RMASK);   
+
+        print 'Button Middle pressed' if ($mask &amp; SDL_BUTTON_MMASK);  
+
+        print $x.','.$y;
+
+</pre>
+<p>The current button state is returned as a button $bitmask, which can be tested using the the above constants </p>
 
 </div>
 <h2 id="get_relative_mouse_state">get_relative_mouse_state </h2>
 <div id="get_relative_mouse_state_CONTENT">
+<p>Retrives the current relative state of the mouse</p>
+<pre>	my ($mask,$x,$y) = @{ SDL::Events::get_mouse_state( ) };
+
+        print 'Button Left pressed' if ($mask &amp; SDL_BUTTON_LMASK);    
+
+        print 'Button Right pressed' if ($mask &amp; SDL_BUTTON_RMASK);   
+
+        print 'Button Middle pressed' if ($mask &amp; SDL_BUTTON_MMASK);  
+
+        print $x.','.$y; # this is relative to the last postion of the mouse
+
+</pre>
+<p>The current button state is returned as a button $bitmask, which can be tested using the the above constants </p>
+
+
+
+
 
 </div>
 <h2 id="get_app_state">get_app_state </h2>
 <div id="get_app_state_CONTENT">
+<p>Gets the state of the application</p>
+<pre>	my $app_state = SDL::Events::get_app_state();
+
+</pre>
+<p>The $app_state is a bitwise combination of:</p>
+<dl>
+	<dt>SDL_APPMOUSEFOCUS</dt>
+	<dd>
+		<p>Application has mouse focus</p>
+<pre>	warn 'mouse focus' if $app_state &amp; SDL_APPMOUSEFOCUS
+
+</pre>
+	</dd>
+	<dt>SDL_APPINPUTFOCUS</dt>
+	<dd>
+		<p>Application has keyboard focus</p>
+<pre>	warn 'keyboard focus' if $app_state &amp; SDL_APPINPUTFOCUS
+
+
+
+
+</pre>
+	</dd>
+	<dt>SDL_APPACTIVE</dt>
+	<dd>
+		<p>Application is visible</p>
+<pre>	warn 'Application Visible' if $app_state &amp; SDL_APPACTIVE
+
+
+
+
+</pre>
 
 </div>
 <h2 id="joystick_event_state">joystick_event_state </h2>
 <div id="joystick_event_state_CONTENT">
+		<p>Enable/disable joystick event polling</p>
+<pre>	my $status = SDL::Events::joystick_event_state( $state );
 
-
-
-
+</pre>
+		<p>This function is used to enable or disable joystick event processing. With joystick event processing disabled you will have to update joystick states with SDL_JoystickUpdate and read the joystick information manually. $state can be:</p>
+	</dd>
+	<dt>SDL_QUERY</dt>
+	<dt>SDL_ENABLE </dt>
+	<dt>SDL_IGNORE</dt>
+	<dd>
+		<p>Joystick event handling is default. Even if joystick event processing is enabled, individual joysticks must be opened before they generate events</p>
+	</dd>
+</dl>
+<p><strong>Warning:</strong> Calling this function may delete all events currently in SDL's event queue.</p>
+<p>If $state is SDL_QUERY then the current state is returned, otherwise the new processing state is returned.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="SDL-Event">SDL::Event</a>, <a href="SDL-Video">SDL::Video</a>
+<p><a href="SDL-Event.html">SDL::Event</a>, <a href="SDL-Video.html">SDL::Video</a>
 </p>
 
 </div>

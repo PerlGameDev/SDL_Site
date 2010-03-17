@@ -47,7 +47,7 @@
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p><a href="SDL-Font">SDL::TTFont</a> is a module for applying true type fonts to <a href="SDL-Surface">SDL::Surface</a>.</p>
+<p><a href="SDL-TTFont.html">SDL::TTFont</a> is a module for applying true type fonts to <a href="SDL-Surface.html">SDL::Surface</a>.</p>
 
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -176,7 +176,7 @@ for &quot;ae&quot; will not always match the width for &quot;a&quot; + &quot;e&q
 </div>
 <h2 id="print_surface_top_left_text">print ($surface, $top, $left, @text)</h2>
 <div id="print_surface_top_left_text_CONTENT">
-<p>Directly draws text to an existing surface. Receives the target <a href="SDL-Surface">SDL::Surface</a> 
+<p>Directly draws text to an existing surface. Receives the target <a href="SDL-Surface.html">SDL::Surface</a> 
 object and the relative top (y) and left (x) coordinates to put the text in. 
 The last parameter may be a string or an array or strings with the text to be 
 written.</p>
@@ -193,7 +193,7 @@ written.</p>
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="http://search.cpan.org/perldoc?perl">perl</a>, <a href="SDL">SDL</a>, <a href="SDL-Surface">SDL::Surface</a>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a>, <a href="SDL.html">SDL</a>, <a href="SDL-Surface.html">SDL::Surface</a>
 </p>
 
 </div>

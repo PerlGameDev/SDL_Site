@@ -54,7 +54,7 @@ values of a <code>SDL::Surface</code>'s palette can be set with the <code>SDL::V
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="SDL-Color">SDL::Color</a> <a href="SDL-Surface">SDL::Surface</a></p>
+<p><a href="SDL-Color.html">SDL::Color</a> <a href="SDL-Surface.html">SDL::Surface</a></p>
 
 </div>
 </div>

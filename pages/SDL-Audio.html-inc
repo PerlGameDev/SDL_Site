@@ -64,7 +64,7 @@
 
 </pre>
 	</dd>
-	<dt>The desired audio format. See <a href="SDL-AudioSpec">SDL::AudioSpec</a></dt>
+	<dt>The desired audio format. See <a href="SDL-AudioSpec.html">SDL::AudioSpec</a></dt>
 	<dd>
 <pre>    $desired-&gt;format
 
@@ -100,7 +100,7 @@
 	</dd>
 </dl>
 <p>SDL::Audio::open reads these fields from the desired SDL::AudioSpec structure passed to the function and attempts to find an audio configuration matching your desired. As mentioned above, if the obtained parameter is NULL then SDL with convert from your desired audio settings to the hardware settings as it plays.</p>
-<p>If obtained is NULL then the desired SDL::AudioSpec is your working specification, otherwise the obtained SDL::AudioSpec becomes the working specification and the desired specification can be deleted. The data in the working specification is used when building <a href="SDL-AudioCVT">SDL::AudioCVT</a>'s for converting loaded data to the hardware format.</p>
+<p>If obtained is NULL then the desired SDL::AudioSpec is your working specification, otherwise the obtained SDL::AudioSpec becomes the working specification and the desired specification can be deleted. The data in the working specification is used when building <a href="SDL-AudioCVT.html">SDL::AudioCVT</a>'s for converting loaded data to the hardware format.</p>
 <p>SDL::Audio::open calculates the size and silence fields for both the $desired and $obtained specifications. The size field stores the total size of the audio buffer in bytes, while the silence stores the value used to represent silence in the audio buffer</p>
 <p>The audio device starts out playing silence when it's opened, and should be enabled for playing by calling SDL::Audio::pause(0) when you are ready for your audio callback function to be called. Since the audio driver may modify the requested size of the audio buffer, you should allocate any local mixing buffers after you open the audio device. </p>
 

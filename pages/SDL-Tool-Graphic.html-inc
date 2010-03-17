@@ -31,7 +31,7 @@
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p><a href="SDL-Tool-Graphic">SDL::Tool::Graphic</a> is a module for zooming and rotating <a href="SDL-Surface">SDL::Surface</a> objects.</p>
+<p><a href="SDL-Tool-Graphic.html">SDL::Tool::Graphic</a> is a module for zooming and rotating <a href="SDL-Surface.html">SDL::Surface</a> objects.</p>
 
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -40,17 +40,17 @@
 </div>
 <h2 id="zoom_surface_xzoom_yzoom_smooth">zoom ( surface, xzoom, yzoom, smooth )</h2>
 <div id="zoom_surface_xzoom_yzoom_smooth_CONT">
-<p><code>SDL::Tool::Graphic::zoom</code> scales a <a href="SDL-Surface">SDL::Surface</a> along the two axis independently.</p>
+<p><code>SDL::Tool::Graphic::zoom</code> scales a <a href="SDL-Surface.html">SDL::Surface</a> along the two axis independently.</p>
 
 </div>
 <h2 id="rotoZoom_surface_angle_zoom_smooth">rotoZoom ( surface, angle, zoom, smooth )</h2>
 <div id="rotoZoom_surface_angle_zoom_smooth_C">
-<p><code>SDL::Tool::Graphic::rotoZoom</code> rotates and fixed axis zooms a <a href="SDL-Surface">SDL::Surface</a>.</p>
+<p><code>SDL::Tool::Graphic::rotoZoom</code> rotates and fixed axis zooms a <a href="SDL-Surface.html">SDL::Surface</a>.</p>
 
 </div>
 <h2 id="grayScale_surface">grayScale ( surface )</h2>
 <div id="grayScale_surface_CONTENT">
-<p><code>SDL::Tool::Graphic::grayScale</code> rotates and fixed axis zooms a <a href="SDL-Surface">SDL::Surface</a>.</p>
+<p><code>SDL::Tool::Graphic::grayScale</code> rotates and fixed axis zooms a <a href="SDL-Surface.html">SDL::Surface</a>.</p>
 
 </div>
 <h2 id="invertColor_surface">invertColor ( surface )</h2>
@@ -69,7 +69,7 @@
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="SDL-Surface">SDL::Surface</a></p>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="SDL-Surface.html">SDL::Surface</a></p>
 
 </div>
 </div>

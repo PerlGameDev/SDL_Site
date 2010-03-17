@@ -55,9 +55,9 @@ need to draw the alternate image beforehand somehow.</p>
 </div>
 <h2 id="Loading_Images">Loading Images</h2>
 <div id="Loading_Images_CONTENT">
-<p>As usual, start with an <a href="SDL-App">SDL::App</a> object representing the image window.  Then
+<p>As usual, start with an <a href="SDL-App.html">SDL::App</a> object representing the image window.  Then
 preload the image file.  This is easy; just pass the <code>name</code> parameter to the
-<a href="SDL-Surface">SDL::Surface</a> constructor:</p>
+<a href="SDL-Surface.html">SDL::Surface</a> constructor:</p>
 <p>&nbsp;</p>
 <pre>	use SDL::Surface;
 
@@ -100,7 +100,7 @@ though.  Assuming <code>$app</code> is the SDL::App object, as usual:</p>
 
 </pre>
 <p>&nbsp;</p>
-<p>Here we have two <a href="SDL-Rect">SDL::Rect</a> objects which represent rectangular regions of a
+<p>Here we have two <a href="SDL-Rect.html">SDL::Rect</a> objects which represent rectangular regions of a
 Surface.  <code>$frame_rect</code> represents the entire area of <code>$frame</code>, while
 <code>$dest_rect</code> represents the area of the main window in which to blit the
 frame.  This may be clearer with more descriptive variable names:</p>
@@ -199,11 +199,11 @@ smoothly.  More on that next time.</p>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
 <dl>
-	<dt><a href="SDL-Tutorial">SDL::Tutorial</a></dt>
+	<dt><a href="SDL-Tutorial.html">SDL::Tutorial</a></dt>
 	<dd>
 		<p>basic SDL tutorial</p>
 	</dd>
-	<dt><a href="SDL-Tutorial-Animation">SDL::Tutorial::Animation</a></dt>
+	<dt><a href="SDL-Tutorial-Animation.html">SDL::Tutorial::Animation</a></dt>
 	<dd>
 		<p>non-image animation</p>
 	</dd>

@@ -59,8 +59,8 @@ frame and saving and restoring the background for every object drawn.</p>
 <div id="Redrawing_the_Screen_CONTENT">
 <p>Since you have to draw the screen in the right order once to start with it's
 pretty easy to make this into a loop and redraw things in the right order for
-every frame.  Given a <a href="SDL-App">SDL::App</a> object <code>$app</code>, a <a href="SDL-Rect">SDL::Rect</a> <code>$rect</code>, and
-a <a href="SDL-Color">SDL::Color</a> <code>$color</code>, you only have to create a new SDL::Rect <code>$bg</code>,
+every frame.  Given a <a href="SDL-App.html">SDL::App</a> object <code>$app</code>, a <a href="SDL-Rect.html">SDL::Rect</a> <code>$rect</code>, and
+a <a href="SDL-Color.html">SDL::Color</a> <code>$color</code>, you only have to create a new SDL::Rect <code>$bg</code>,
 representing the whole of the background surface and a new SDL::Color
 <code>$bg_color</code>, representing the background color.  You can write a
 <code>draw_frame()</code> function as follows:</p>
@@ -155,11 +155,11 @@ them soon.</p>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
 <dl>
-	<dt><a href="SDL-Tutorial-Drawing">SDL::Tutorial::Drawing</a></dt>
+	<dt><a href="SDL-Tutorial-Drawing.html">SDL::Tutorial::Drawing</a></dt>
 	<dd>
 		<p>basic drawing with SDL Perl</p>
 	</dd>
-	<dt><a href="SDL-Tutorial-Images">SDL::Tutorial::Images</a></dt>
+	<dt><a href="SDL-Tutorial-Images.html">SDL::Tutorial::Images</a></dt>
 	<dd>
 		<p>animating images</p>
 	</dd>

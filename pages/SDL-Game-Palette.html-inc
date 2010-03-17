@@ -25,7 +25,7 @@
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p><a href="SDL-Palette">SDL::Palette</a> provides an interface to the SDL_Palette structures,
+<p><a href="SDL-Palette.html">SDL::Palette</a> provides an interface to the SDL_Palette structures,
 and can be used to set the color values of an existing palette's indexes.</p>
 
 </div>
@@ -65,7 +65,7 @@ and can be used to set the color values of an existing palette's indexes.</p>
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="SDL-Color">SDL::Color</a> <a href="SDL-Surface">SDL::Surface</a></p>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="SDL-Color.html">SDL::Color</a> <a href="SDL-Surface.html">SDL::Surface</a></p>
 
 </div>
 </div>

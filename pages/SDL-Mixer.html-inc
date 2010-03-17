@@ -154,7 +154,7 @@ This function returns 1 as first array element (status) if the audio has been op
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="http://search.cpan.org/perldoc?perl">perl</a>, <a href="SDL-Mixer-Channels">SDL::Mixer::Channels</a>, <a href="SDL-Mixer-Effects">SDL::Mixer::Effects</a>, <a href="SDL-Mixer-Groups">SDL::Mixer::Groups</a>, <a href="SDL-Mixer-Music">SDL::Mixer::Music</a>.</p>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a>, <a href="SDL-Mixer-Channels.html">SDL::Mixer::Channels</a>, <a href="SDL-Mixer-Effects.html">SDL::Mixer::Effects</a>, <a href="SDL-Mixer-Groups.html">SDL::Mixer::Groups</a>, <a href="SDL-Mixer-Music.html">SDL::Mixer::Music</a>.</p>
 
 </div>
 </div>
