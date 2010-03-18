@@ -378,7 +378,7 @@ baseline.
 It could be used when drawing an individual glyph relative to a top point, by combining it with the glyph's <code>maxy</code> metric to resolve the top 
 of the rectangle used when blitting the glyph on the screen.</p>
 <p>Example:</p>
-<pre> my ($minx, $maxx, $miny, $maxy, $advance) = @{ SDL::TTF::glyph_metrics($font, 'M') };
+<pre> my ($minx, $maxx, $miny, $maxy, $advance) = @{ SDL::TTF::glyph_metrics($font, &quot;\0M&quot;) };
 
  $rect-&gt;y( $top + SDL::TTF::font_ascent($font) - $maxy );
 
@@ -395,7 +395,7 @@ the font.
 It could be used when drawing an individual glyph relative to a bottom point, by combining it with the glyph's <code>maxy</code> metric to resolve the top 
 of the rectangle used when blitting the glyph on the screen.</p>
 <p>Example:</p>
-<pre> my ($minx, $maxx, $miny, $maxy, $advance) = @{ SDL::TTF::glyph_metrics($font, 'M') };
+<pre> my ($minx, $maxx, $miny, $maxy, $advance) = @{ SDL::TTF::glyph_metrics($font, &quot;\0M&quot;) };
 
  $rect-&gt;y( $bottom - SDL::TTF::font_descent($font) - $maxy );
 
@@ -468,11 +468,29 @@ in the font is the same width, thus you can assume that a rendered string's widt
 </div>
 <h4 id="glyph_is_provided">glyph_is_provided</h4>
 <div id="glyph_is_provided_CONTENT">
+<pre> my $glyph_is_provided = SDL::TTF::glyph_is_provided($font, $unicode_char);
+
+</pre>
+<p>Get the status of the availability of the glyph from the loaded font.</p>
+<p>Returns: the index of the glyph in font, or 0 for an undefined character code.</p>
+<p><strong>Note</strong>: You have to pass this unicode character either as UTF16/UCS-2 big endian without BOM, or with BOM as UTF16/UCS-2 big/little endian.</p>
+<p><strong>Note</strong>: at least SDL_ttf 2.0.10 needed</p>
+<p>Example:</p>
+<pre> print(&quot;We have this char!\n&quot;) if SDL::TTF::glyph_is_provided($font, &quot;\0M&quot;);
+
+</pre>
 
 </div>
 <h4 id="glyph_metrics">glyph_metrics</h4>
 <div id="glyph_metrics_CONTENT">
-<pre> my @glyph_metrics = @{ SDL::TTF::glyph_metrics($font, 'M') };
+<pre> my @glyph_metrics = @{ SDL::TTF::glyph_metrics($font, $unicode_char) };
+
+</pre>
+<p>Get desired glyph metrics of the UNICODE char from the loaded font.</p>
+<p>See also: <a href="http://freetype.sourceforge.net/freetype2/docs/tutorial/step2.html">The FreeType2 Documentation Tutorial</a></p>
+<p><strong>Note</strong>: You have to pass this unicode character either as UTF16/UCS-2 big endian without BOM, or with BOM as UTF16/UCS-2 big/little endian.</p>
+<p>Example:</p>
+<pre> my ($minx, $maxx, $miny, $maxy, $advance) = @{ SDL::TTF::glyph_metrics($font, &quot;\0M&quot;) };
 
 </pre>
 
