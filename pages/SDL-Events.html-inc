@@ -420,20 +420,19 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 		<p>Application is visible</p>
 <pre>	warn 'Application Visible' if $app_state &amp; SDL_APPACTIVE
 
-
-
-
 </pre>
+	</dd>
+</dl>
 
 </div>
 <h2 id="joystick_event_state">joystick_event_state </h2>
 <div id="joystick_event_state_CONTENT">
-		<p>Enable/disable joystick event polling</p>
+<p>Enable/disable joystick event polling</p>
 <pre>	my $status = SDL::Events::joystick_event_state( $state );
 
 </pre>
-		<p>This function is used to enable or disable joystick event processing. With joystick event processing disabled you will have to update joystick states with SDL_JoystickUpdate and read the joystick information manually. $state can be:</p>
-	</dd>
+<p>This function is used to enable or disable joystick event processing. With joystick event processing disabled you will have to update joystick states with SDL_JoystickUpdate and read the joystick information manually. $state can be:</p>
+<dl>
 	<dt>SDL_QUERY</dt>
 	<dt>SDL_ENABLE </dt>
 	<dt>SDL_IGNORE</dt>

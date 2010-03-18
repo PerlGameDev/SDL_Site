@@ -417,26 +417,49 @@ font.</p>
 </div>
 <h4 id="font_faces">font_faces</h4>
 <div id="font_faces_CONTENT">
-<p>my $font_faces = SDL::TTF::font_faces($font);
-ok( $font_faces,                                                               &quot;[font_faces] font has $font_faces faces&quot; );</p>
+<pre> my $font_faces = SDL::TTF::font_faces($font);
+
+</pre>
+<p>Get the number of faces (&quot;sub-fonts&quot;) available in the loaded font. This is a count of the number of specific fonts (based on size and style 
+and other typographical features perhaps) contained in the font itself.</p>
 
 </div>
 <h4 id="font_face_is_fixed_width">font_face_is_fixed_width</h4>
 <div id="font_face_is_fixed_width_CONTENT">
-<p>my $font_face_is_fixed_width = SDL::TTF::font_face_is_fixed_width($font);
-like( $font_face_is_fixed_width,                          '/^[01]$/',          &quot;[font_face_is_fixed_width] is $font_face_is_fixed_width&quot; );</p>
+<pre> my $font_face_is_fixed_width = SDL::TTF::font_face_is_fixed_width($font);
+
+</pre>
+<p>Test if the current font face of the loaded font is a fixed width font. Fixed width fonts are monospace, meaning every character that exists 
+in the font is the same width, thus you can assume that a rendered string's width is going to be the result of <code>glyph_width * string_length</code>.</p>
+<p>Returns: <code>&gt;0</code> if font is a fixed width font. <code>0</code> if not a fixed width font. </p>
 
 </div>
 <h4 id="font_face_family_name">font_face_family_name</h4>
 <div id="font_face_family_name_CONTENT">
-<p>my $font_face_family_name = SDL::TTF::font_face_family_name($font);
-ok( $font_face_family_name,                                                    &quot;[font_face_family_name] is $font_face_family_name&quot; );</p>
+<pre> my $font_face_family_name = SDL::TTF::font_face_family_name($font);
+
+</pre>
+<p>Get the current font face family name from the loaded font. This information is not for every font available.</p>
+<p>Example:</p>
+<pre> my $font = SDL::TTF::open_font('arialuni.ttf', 8);
+
+ printf(&quot;%s\n&quot;, SDL::TTF::font_face_family_name($font)); # will print &quot;Arial Unicode MS&quot;
+
+</pre>
 
 </div>
 <h4 id="font_face_style_name">font_face_style_name</h4>
 <div id="font_face_style_name_CONTENT">
-<p>my $font_face_style_name = SDL::TTF::font_face_style_name($font);
-ok( $font_face_style_name,                                                     &quot;[font_face_style_name] is $font_face_style_name&quot; );</p>
+<pre> my $font_face_style_name = SDL::TTF::font_face_style_name($font);
+
+</pre>
+<p>Get the current font face style name from the loaded font. This information is not for every font available. </p>
+<p>Example:</p>
+<pre> my $font = SDL::TTF::open_font('arialuni.ttf', 8);
+
+ printf(&quot;%s\n&quot;, SDL::TTF::font_face_style_name($font)); # will print &quot;Regular&quot;
+
+</pre>
 
 </div>
 <h3 id="Glyphs">Glyphs</h3>
@@ -450,7 +473,6 @@ ok( $font_face_style_name,                                                     &
 <h4 id="glyph_metrics">glyph_metrics</h4>
 <div id="glyph_metrics_CONTENT">
 <pre> my @glyph_metrics = @{ SDL::TTF::glyph_metrics($font, 'M') };
-is( scalar @glyph_metrics,                                5,                   &quot;[glyph_metrics] (minx, maxx, miny, maxy, advance) = (&quot; . join(', ', @glyph_metrics) . &quot;)&quot; );
 
 </pre>
 
