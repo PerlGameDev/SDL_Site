@@ -501,23 +501,60 @@ in the font is the same width, thus you can assume that a rendered string's widt
 </div>
 <h4 id="size_text">size_text</h4>
 <div id="size_text_CONTENT">
-<pre> my ($width, $height) = @{ SDL::TTF::size_text($font, 'Hallo World!') };
+<pre> my ($width, $height) = @{ SDL::TTF::size_text($font, $text) };
 
 </pre>
+<p>Calculate the resulting surface size of the LATIN1 encoded text rendered using <code>$font</code>. No actual rendering is done, however correct kerning 
+is done to get the actual width. The height returned is the same as you can get using <a href="/SDL-TTF.html#font_height">SDL::TTF::font_height</a>.</p>
 
 </div>
 <h4 id="size_utf8">size_utf8</h4>
 <div id="size_utf8_CONTENT">
-<pre> my ($width, $height) = @{ SDL::TTF::size_utf8($font, 'Hallo World!') };
+<pre> my ($width, $height) = @{ SDL::TTF::size_utf8($font, $text) };
+
+</pre>
+<p>Calculate the resulting surface size of the UTF8 encoded text rendered using <code>$font</code>. No actual rendering is done, however correct kerning is 
+done to get the actual width. The height returned in h is the same as you can get using <a href="/SDL-TTF.html#font_height">SDL::TTF::font_height</a>.</p>
+<p>Note that the first example uses the same text as in the LATIN1 example, that is because plain ASCII is UTF8 compatible.</p>
+<p>Examples:</p>
+<pre> ($width, $height) = @{ SDL::TTF::size_utf8($font, 'Hallo World!') }; # plain text, if your script is in utf8 or ansi-format
+
+ # or
+
+ ($width, $height) = @{ SDL::TTF::size_utf8($font, &quot;\xE4\xBB\x8A\xE6\x97\xA5\xE3\x81\xAF&quot;) }; # utf8 hex-data
+
+ # or
+
+ use Unicode::String;
+ my $unicode       = utf8($data_from_somwhere);
+ ($width, $height) = @{ SDL::TTF::size_utf8($font, $unicode-&gt;utf8) }; # utf8 via Unicode::String
 
 </pre>
 
 </div>
 <h4 id="size_unicode">size_unicode</h4>
 <div id="size_unicode_CONTENT">
-<pre> my ($width, $height) = @{ SDL::TTF::size_unicode($font, 'Hallo World!') };
+<pre> my ($width, $height) = @{ SDL::TTF::size_unicode($font, $text) };
 
 </pre>
+<p>Calculate the resulting surface size of the UNICODE encoded text rendered using <code>$font</code>. No actual rendering is done, however correct kerning 
+is done to get the actual width. The height returned in h is the same as you can get using <a href="/SDL-TTF.html#font_height">SDL::TTF::font_height</a>.</p>
+<p><code>$text</code> has to be:</p>
+<dl>
+	<dt>UTF16BE without BOM</dt>
+	<dd>
+		<p>&quot;hallo&quot; will look like &quot;\0h\0a\0l\0l\0o&quot;</p>
+	</dd>
+	<dt>UTF16BE with BOM</dt>
+	<dd>
+		<p>&quot;hallo&quot; will look like &quot;\xFE\xFF\0h\0a\0l\0l\0o&quot;</p>
+	</dd>
+	<dt>UTF16LE with BOM</dt>
+	<dd>
+		<p>&quot;hallo&quot; will look like &quot;\xFF\xFEh\0a\0l\0l\0o\0&quot;</p>
+	</dd>
+</dl>
+<p>You may use Unicode::String for this.</p>
 
 </div>
 <h2 id="Font_Rendering">Font Rendering</h2>
