@@ -67,18 +67,27 @@
 </ul>
 </li>
 <li><a href="#Font_Rendering">Font Rendering</a>
+<ul><li><a href="#Solid">Solid</a>
 <ul><li><a href="#render_glyph_solid">render_glyph_solid</a></li>
-<li><a href="#render_glyph_shaded">render_glyph_shaded</a></li>
-<li><a href="#render_glyph_blended">render_glyph_blended</a></li>
 <li><a href="#render_text_solid">render_text_solid</a></li>
-<li><a href="#render_text_shaded">render_text_shaded</a></li>
-<li><a href="#render_text_blended">render_text_blended</a></li>
 <li><a href="#render_utf8_solid">render_utf8_solid</a></li>
-<li><a href="#render_utf8_shaded">render_utf8_shaded</a></li>
-<li><a href="#render_utf8_blended">render_utf8_blended</a></li>
 <li><a href="#render_unicode_solid">render_unicode_solid</a></li>
+</ul>
+</li>
+<li><a href="#Shaded">Shaded</a>
+<ul><li><a href="#render_glyph_shaded">render_glyph_shaded</a></li>
+<li><a href="#render_text_shaded">render_text_shaded</a></li>
+<li><a href="#render_utf8_shaded">render_utf8_shaded</a></li>
 <li><a href="#render_unicode_shaded">render_unicode_shaded</a></li>
+</ul>
+</li>
+<li><a href="#Blended">Blended</a>
+<ul><li><a href="#render_glyph_blended">render_glyph_blended</a></li>
+<li><a href="#render_text_blended">render_text_blended</a></li>
+<li><a href="#render_utf8_blended">render_utf8_blended</a></li>
 <li><a href="#render_unicode_blended">render_unicode_blended</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -96,7 +105,7 @@
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, TTF</p>
+<p>TTF</p>
 
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -561,53 +570,188 @@ is done to get the actual width. The height returned in h is the same as you can
 <div id="Font_Rendering_CONTENT">
 
 </div>
-<h3 id="render_glyph_solid">render_glyph_solid</h3>
+<h3 id="Solid">Solid</h3>
+<div id="Solid_CONTENT">
+
+</div>
+<h4 id="render_glyph_solid">render_glyph_solid</h4>
 <div id="render_glyph_solid_CONTENT">
+<pre> my $surface = SDL::TTF::render_glyph_solid($font, $char, $color);
+
+</pre>
+<p>Render the unicode encoded char onto a new surface, using the Solid mode. After that you can blit this surface to your display-surface.</p>
+<p><strong>Note</strong>: The unicode char has to be passed exactly like for <a href="/SDL-TTF.html#size_unicode">SDL::TTF::size_unicode</a>.</p>
+<p><strong>Note</strong>: <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=374062">See space-character bug</a>. You have to upgrade libfreetype2 to at least version 2.3.5</p>
 
 </div>
-<h3 id="render_glyph_shaded">render_glyph_shaded</h3>
-<div id="render_glyph_shaded_CONTENT">
-
-</div>
-<h3 id="render_glyph_blended">render_glyph_blended</h3>
-<div id="render_glyph_blended_CONTENT">
-
-</div>
-<h3 id="render_text_solid">render_text_solid</h3>
+<h4 id="render_text_solid">render_text_solid</h4>
 <div id="render_text_solid_CONTENT">
-<p><strong>Note</strong>: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=374062</p>
+<pre> my $surface = SDL::TTF::render_text_solid($font, $text, $color);
+
+</pre>
+<p>Render the LATIN1 encoded text onto a new surface, using the Solid mode. After that you can blit this surface to your display-surface.</p>
+<p><strong>Note</strong>: <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=374062">See space-character bug</a>. You have to upgrade libfreetype2 to at least 
+version 2.3.5</p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Video;
+ use SDL::Color;
+ use SDL::TTF;
+ use SDL::TTF::Font;
+
+ SDL::init(SDL_INIT_VIDEO);
+
+ my $display = SDL::Video::set_video_mode(640, 480, 32, SDL_SWSURFACE);
+ my $font    = SDL::TTF::open_font('arial.ttf', '24);
+ my $surface = SDL::TTF::render_text_solid($font, 'Hallo!', SDL::Color-&gt;new(0xFF,0xFF,0xFF));
+
+ SDL::Video::blit_surface($surface, SDL::Rect-&gt;new(0, 0, 640, 480), $display, SDL::Rect-&gt;new(10, 10, 640, 480));
+ SDL::Video::update_rect($display, 0, 0, 0, 0);
+
+ SDL::delay(5000);
+
+</pre>
 
 </div>
-<h3 id="render_text_shaded">render_text_shaded</h3>
-<div id="render_text_shaded_CONTENT">
-
-</div>
-<h3 id="render_text_blended">render_text_blended</h3>
-<div id="render_text_blended_CONTENT">
-
-</div>
-<h3 id="render_utf8_solid">render_utf8_solid</h3>
+<h4 id="render_utf8_solid">render_utf8_solid</h4>
 <div id="render_utf8_solid_CONTENT">
+<pre> my $surface = SDL::TTF::render_utf8_solid($font, $text, $color);
+
+</pre>
+<p>Render the UTF8 encoded text onto a new surface, using the Solid mode. After that you can blit this surface to your display-surface.</p>
+<p><strong>Note</strong>: <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=374062">See space-character bug</a>. You have to upgrade libfreetype2 to at least 
+version 2.3.5</p>
 
 </div>
-<h3 id="render_utf8_shaded">render_utf8_shaded</h3>
-<div id="render_utf8_shaded_CONTENT">
-
-</div>
-<h3 id="render_utf8_blended">render_utf8_blended</h3>
-<div id="render_utf8_blended_CONTENT">
-
-</div>
-<h3 id="render_unicode_solid">render_unicode_solid</h3>
+<h4 id="render_unicode_solid">render_unicode_solid</h4>
 <div id="render_unicode_solid_CONTENT">
+<pre> my $surface = SDL::TTF::render_unicode_solid($font, $text, $color);
+
+</pre>
+<p>Render the unicode encoded text onto a new surface, using the Solid mode. After that you can blit this surface to your display-surface.</p>
+<p><strong>Note</strong>: The unicode test has to be passed exactly like for <a href="/SDL-TTF.html#size_unicode">SDL::TTF::size_unicode</a>.</p>
+<p><strong>Note</strong>: <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=374062">See space-character bug</a>. You have to upgrade libfreetype2 to at least 
+version 2.3.5</p>
 
 </div>
-<h3 id="render_unicode_shaded">render_unicode_shaded</h3>
+<h3 id="Shaded">Shaded</h3>
+<div id="Shaded_CONTENT">
+
+</div>
+<h4 id="render_glyph_shaded">render_glyph_shaded</h4>
+<div id="render_glyph_shaded_CONTENT">
+<pre> my $surface = SDL::TTF::render_glyph_shaded($font, $char, $color, $background_color);
+
+</pre>
+<p>Render the unicode encoded char onto a new surface. The surface is filled with <code>$background_color</code>. After that you can blit this surface to 
+your display-surface.</p>
+<p><strong>Note</strong>: The unicode char has to be passed exactly like for <a href="/SDL-TTF.html#size_unicode">SDL::TTF::size_unicode</a>.</p>
+
+</div>
+<h4 id="render_text_shaded">render_text_shaded</h4>
+<div id="render_text_shaded_CONTENT">
+<pre> my $surface = SDL::TTF::render_text_shaded($font, $text, $color, $background_color);
+
+</pre>
+<p>Render the LATIN1 encoded text onto a new surface. The surface is filled with <code>$background_color</code>. After that you can blit this surface to 
+your display-surface.</p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Video;
+ use SDL::Color;
+ use SDL::TTF;
+ use SDL::TTF::Font;
+
+ SDL::init(SDL_INIT_VIDEO);
+
+ my $display = SDL::Video::set_video_mode(640, 480, 32, SDL_SWSURFACE);
+ my $font    = SDL::TTF::open_font('arial.ttf', '24);
+ my $white   = SDL::Color-&gt;new(0xFF, 0xFF, 0xFF);
+ my $black   = SDL::Color-&gt;new(0x00, 0x00, 0x00);
+ my $surface = SDL::TTF::render_text_solid($font, 'Hallo!', $white, $black);
+
+ SDL::Video::blit_surface($surface, SDL::Rect-&gt;new(0, 0, 640, 480), $display, SDL::Rect-&gt;new(10, 10, 640, 480));
+ SDL::Video::update_rect($display, 0, 0, 0, 0);
+
+ SDL::delay(5000);
+
+</pre>
+
+</div>
+<h4 id="render_utf8_shaded">render_utf8_shaded</h4>
+<div id="render_utf8_shaded_CONTENT">
+<pre> my $surface = SDL::TTF::render_utf8_shaded($font, $text, $color, $background_color);
+
+</pre>
+<p>Render the UTF8 encoded text onto a new surface. The surface is filled with <code>$background_color</code>. After that you can blit this surface to 
+your display-surface.</p>
+
+</div>
+<h4 id="render_unicode_shaded">render_unicode_shaded</h4>
 <div id="render_unicode_shaded_CONTENT">
+<pre> my $surface = SDL::TTF::render_unicode_shaded($font, $text, $color, $background_color);
+
+</pre>
+<p>Render the unicode encoded text onto a new surface. The surface is filled with <code>$background_color</code>. After that you can blit this surface to 
+your display-surface.</p>
+<p><strong>Note</strong>: The unicode text has to be passed exactly like for <a href="/SDL-TTF.html#size_unicode">SDL::TTF::size_unicode</a>.</p>
 
 </div>
-<h3 id="render_unicode_blended">render_unicode_blended</h3>
+<h3 id="Blended">Blended</h3>
+<div id="Blended_CONTENT">
+
+</div>
+<h4 id="render_glyph_blended">render_glyph_blended</h4>
+<div id="render_glyph_blended_CONTENT">
+<pre> my $surface = SDL::TTF::render_glyph_blended($font, $char, $color);
+
+</pre>
+<p>Render the unicode encoded char onto a new surface. After that you can blit this surface to your display-surface.</p>
+<p><strong>Note</strong>: The unicode char has to be passed exactly like for <a href="/SDL-TTF.html#size_unicode">SDL::TTF::size_unicode</a>.</p>
+
+</div>
+<h4 id="render_text_blended">render_text_blended</h4>
+<div id="render_text_blended_CONTENT">
+<pre> my $surface = SDL::TTF::render_text_blended($font, $text, $color);
+
+</pre>
+<p>Render the LATIN1 encoded text onto a new surface. After that you can blit this surface to your display-surface.</p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Video;
+ use SDL::Color;
+ use SDL::TTF;
+ use SDL::TTF::Font;
+
+ SDL::init(SDL_INIT_VIDEO);
+
+ my $display = SDL::Video::set_video_mode(640, 480, 32, SDL_SWSURFACE);
+ my $font    = SDL::TTF::open_font('arial.ttf', '24);
+ my $surface = SDL::TTF::render_text_blended($font, 'Hallo!', SDL::Color-&gt;new(0xFF,0xFF,0xFF));
+
+ SDL::Video::blit_surface($surface, SDL::Rect-&gt;new(0, 0, 640, 480), $display, SDL::Rect-&gt;new(10, 10, 640, 480));
+ SDL::Video::update_rect($display, 0, 0, 0, 0);
+
+ SDL::delay(5000);
+
+</pre>
+
+</div>
+<h4 id="render_utf8_blended">render_utf8_blended</h4>
+<div id="render_utf8_blended_CONTENT">
+<pre> my $surface = SDL::TTF::render_utf8_blended($font, $text, $color);
+
+</pre>
+<p>Render the UTF8 encoded text onto a new surface. After that you can blit this surface to your display-surface.</p>
+
+</div>
+<h4 id="render_unicode_blended">render_unicode_blended</h4>
 <div id="render_unicode_blended_CONTENT">
+<pre> my $surface = SDL::TTF::render_unicode_blended($font, $text, $color);
+
+</pre>
+<p>Render the unicode encoded text onto a new surface. After that you can blit this surface to your display-surface.</p>
+<p><strong>Note</strong>: The unicode char has to be passed exactly like for <a href="/SDL-TTF.html#size_unicode">SDL::TTF::size_unicode</a>.</p>
 
 </div>
 <h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
