@@ -35,7 +35,7 @@
 <pre>	# to read this tutorial
 	$ perldoc SDL::Tutorial
 
-	# to create a bare-bones SDL app based on this tutorial
+	# to run this tutorial 
 	$ perl -MSDL::Tutorial -e 1
 
 </pre>
@@ -45,7 +45,7 @@
 <div id="SDL_BASICS_CONTENT">
 <p>SDL, the Simple DirectMedia Layer, is a cross-platform multimedia library.
 These are the Perl 5 bindings.  You can find out more about SDL at
-<a href="http://www.libsdl.org/">http://www.libsdl.org/</a>.</p>
+<a href="http://www.libsdl.org/">http://www.libsdl.org/</a>. You can find out more about SDL perl at <a href="http://sdl.perl.org">http://sdl.perl.org</a>.</p>
 <p>Creating an SDL application with Perl is easy.  You have to know a few basics,
 though.  Here's how to get up and running as quickly as possible.</p>
 

@@ -349,6 +349,7 @@ using smaller sized fonts. If the user is selecting a font, you may wish to let 
 <p>Get the current kerning setting of the loaded font.</p>
 <p>Returns: <code>0</code>(zero) if kerning is disabled. A non-zero value is returned when enabled. The default for a newly loaded font is enabled(<code>1</code>). </p>
 <p><strong>Note</strong>: at least SDL_ttf 2.0.10 needed</p>
+<p><strong>Note</strong>: This function returns wrong values: See <a href="http://bugzilla.libsdl.org/show_bug.cgi?id=973">http://bugzilla.libsdl.org/show_bug.cgi?id=973</a></p>
 
 </div>
 <h4 id="set_font_kerning">set_font_kerning</h4>
