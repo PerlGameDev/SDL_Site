@@ -1,0 +1,223 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#CONSTANTS">CONSTANTS</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#init">init</a></li>
+<li><a href="#was_init">was_init</a></li>
+<li><a href="#set_default_color">set_default_color</a></li>
+<li><a href="#set_minimum_size">set_minimum_size</a></li>
+<li><a href="#set_text">set_text</a></li>
+<li><a href="#set_markup">set_markup</a></li>
+<li><a href="#get_layout_width">get_layout_width</a></li>
+<li><a href="#get_layout_height">get_layout_height</a></li>
+<li><a href="#set_base_direction">set_base_direction</a></li>
+<li><a href="#set_dpi">set_dpi</a></li>
+<li><a href="#set_language">set_language</a></li>
+<li><a href="#draw">draw</a></li>
+<li><a href="#set_surface_create_args">set_surface_create_args</a></li>
+<li><a href="#create_surface_draw">create_surface_draw</a></li>
+</ul>
+</li>
+<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::Pango - Text rendering engine</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>TODO, Pango</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre> use SDL;
+ use SDL::Color;
+ use SDL::Surface;
+ use SDL::Overlay;
+ use SDL::Rect;
+ use SDL::Video;
+ use SDL::PixelFormat;
+ use SDL::Pango;
+ use SDL::Pango::Context;
+
+ SDL::Pango::init();
+
+ my $context = new SDL::Pango::Context;
+ SDL::Pango::set_default_color($context, 0xA7C344FF, 0);
+ SDL::Pango::set_markup($context, 'Hallo &lt;b&gt;W&lt;span foreground=&quot;red&quot;&gt;o&lt;/span&gt;&lt;i&gt;r&lt;/i&gt;&lt;u&gt;l&lt;/u&gt;d&lt;/b&gt;!', -1);
+
+ SDL::init(SDL_INIT_VIDEO);
+
+ my $display = SDL::Video::set_video_mode(640, 480, 32, SDL_SWSURFACE);
+ my $bg      = SDL::Video::map_RGB($display-&gt;format, 0x12, 0x22, 0x45);
+ SDL::Video::fill_rect($display, SDL::Rect-&gt;new(0, 0, 640, 480), $bg);
+
+ my $surface = SDL::Pango::create_surface_draw($context);
+ SDL::Video::blit_surface($surface, SDL::Rect-&gt;new(0, 0, 640, 480), $display, SDL::Rect-&gt;new(0, 0, 640, 480));
+
+ SDL::Video::update_rect($display, 0, 0, 0, 0);
+ SDL::delay(2000);
+
+</pre>
+
+</div>
+<h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CONSTANTS_CONTENT">
+<p>The constants are not exported by default. You can export them into your namespace by doing:</p>
+<pre> use SDL::Pango ':constants';
+
+</pre>
+<p>or access them directly:</p>
+<pre> SDL::Pango::SDLPANGO_DIRECTION_NEUTRAL;
+
+</pre>
+<p>Available constants:</p>
+<dl>
+	<dt>SDLPANGO_DIRECTION_LTR</dt>
+	<dd>
+		<p>Left to right</p>
+	</dd>
+	<dt>SDLPANGO_DIRECTION_RTL</dt>
+	<dd>
+		<p>Right to left</p>
+	</dd>
+	<dt>SDLPANGO_DIRECTION_WEAK_LTR</dt>
+	<dd>
+		<p>Left to right (weak)</p>
+	</dd>
+	<dt>SDLPANGO_DIRECTION_WEAK_RTL</dt>
+	<dd>
+		<p>Right to left (weak)</p>
+	</dd>
+	<dt>SDLPANGO_DIRECTION_NEUTRAL</dt>
+	<dd>
+		<p>Neutral</p>
+	</dd>
+</dl>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="init">init</h2>
+<div id="init_CONTENT">
+<pre> SDL::Pango::init();
+
+</pre>
+
+</div>
+<h2 id="was_init">was_init</h2>
+<div id="was_init_CONTENT">
+<pre> my $was_init = SDL::Pango::was_init();
+
+</pre>
+
+</div>
+<h2 id="set_default_color">set_default_color</h2>
+<div id="set_default_color_CONTENT">
+<pre> SDL::Pango::set_default_color($context, 0xA7C344FF, 0);
+ SDL::Pango::set_default_color($context, 0xA7, 0xC3, 0x44, 0xFF, 0, 0, 0, 0x00);
+
+</pre>
+
+</div>
+<h2 id="set_minimum_size">set_minimum_size</h2>
+<div id="set_minimum_size_CONTENT">
+<pre> SDL::Pango::set_minimum_size($context, 640, 0);
+
+</pre>
+
+</div>
+<h2 id="set_text">set_text</h2>
+<div id="set_text_CONTENT">
+<pre> SDL::Pango::set_text($context, $text, 20);
+
+</pre>
+
+</div>
+<h2 id="set_markup">set_markup</h2>
+<div id="set_markup_CONTENT">
+<pre> SDL::Pango::set_markup($context, $text, -1);
+
+</pre>
+
+</div>
+<h2 id="get_layout_width">get_layout_width</h2>
+<div id="get_layout_width_CONTENT">
+<pre> my $w = SDL::Pango::get_layout_width($context);
+
+</pre>
+
+</div>
+<h2 id="get_layout_height">get_layout_height</h2>
+<div id="get_layout_height_CONTENT">
+<pre> my $h = SDL::Pango::get_layout_height($context);
+
+</pre>
+
+</div>
+<h2 id="set_base_direction">set_base_direction</h2>
+<div id="set_base_direction_CONTENT">
+<pre> SDL::Pango::set_base_direction($context, SDLPANGO_DIRECTION_LTR);
+
+</pre>
+
+</div>
+<h2 id="set_dpi">set_dpi</h2>
+<div id="set_dpi_CONTENT">
+<pre> SDL::Pango::set_dpi($context, 48, 48);
+
+</pre>
+
+</div>
+<h2 id="set_language">set_language</h2>
+<div id="set_language_CONTENT">
+<pre> SDL::Pango::set_language($context, &quot;en&quot;);
+
+</pre>
+
+</div>
+<h2 id="draw">draw</h2>
+<div id="draw_CONTENT">
+<pre> SDL::Pango::draw($context, $display, (640 - $w) / 2, (480 - $h) / 2);
+
+</pre>
+
+</div>
+<h2 id="set_surface_create_args">set_surface_create_args</h2>
+<div id="set_surface_create_args_CONTENT">
+<pre> SDL::Pango::set_surface_create_args($context, SDL_SWSURFACE, 32, 255&lt;&lt;24, 255&lt;&lt;16, 255&lt;&lt;8, 255);
+
+</pre>
+
+</div>
+<h2 id="create_surface_draw">create_surface_draw</h2>
+<div id="create_surface_draw_CONTENT">
+<pre> my $surface = SDL::Pango::create_surface_draw($context);
+
+</pre>
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>Tobias Leich [FROGGS]</p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><a href="SDL-Pango-Context.html">SDL::Pango::Context</a>, <a href="SDL-Video.html">SDL::Video</a>, <a href="SDL-Surface.html">SDL::Surface</a>, <a href="SDL-TTF.html">SDL::TTF</a></p>
+
+</div>
+</div>
