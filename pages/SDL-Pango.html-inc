@@ -36,7 +36,7 @@
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
-<p>TODO, Pango</p>
+<p>Pango</p>
 
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -116,6 +116,9 @@
 <pre> SDL::Pango::init();
 
 </pre>
+<p>Initialize the Glib and Pango API. This must be called before using other functions in this library, excepting <a href="/SDL-Pango.html#was_init">SDL::Pango::was_init</a>. 
+SDL does not have to be initialized before this call.</p>
+<p>Returns: always <code>0</code>. </p>
 
 </div>
 <h2 id="was_init">was_init</h2>
@@ -123,35 +126,45 @@
 <pre> my $was_init = SDL::Pango::was_init();
 
 </pre>
+<p>Query the initilization status of the Glib and Pango API. You may, of course, use this before <a href="/SDL-Pango.html#init">SDL::Pango::init</a> to avoid initilizing twice 
+in a row.</p>
+<p>Returns: Non-zero when already initialized. Zero when not initialized.</p>
 
 </div>
 <h2 id="set_default_color">set_default_color</h2>
 <div id="set_default_color_CONTENT">
-<pre> SDL::Pango::set_default_color($context, 0xA7C344FF, 0);
- SDL::Pango::set_default_color($context, 0xA7, 0xC3, 0x44, 0xFF, 0, 0, 0, 0x00);
+<pre> SDL::Pango::set_default_color($context, $foreground, $background);
+ SDL::Pango::set_default_color($context, $r1, $g1, $b1, $a1, $r2, $g2, $b2, $a2);
 
 </pre>
+<p>Sets default foreground and background color when rendering text and markup.</p>
+<p>You can call it with either 2 color-parameters (32-bit RRGGBBAA values), or with 4 separate values for foreground and 4 separate values for 
+background.</p>
 
 </div>
 <h2 id="set_minimum_size">set_minimum_size</h2>
 <div id="set_minimum_size_CONTENT">
-<pre> SDL::Pango::set_minimum_size($context, 640, 0);
+<pre> SDL::Pango::set_minimum_size($context, $width, $height);
 
 </pre>
+<p>Sets the minimum size of the drawing rectangle.</p>
 
 </div>
 <h2 id="set_text">set_text</h2>
 <div id="set_text_CONTENT">
-<pre> SDL::Pango::set_text($context, $text, 20);
+<pre> SDL::Pango::set_text($context, $text, $length);
 
 </pre>
+<p>Set plain text to context. Text must be utf-8. <code>$length</code> chars will be rendered, pass <code>-1</code> to render the whole text.</p>
 
 </div>
 <h2 id="set_markup">set_markup</h2>
 <div id="set_markup_CONTENT">
-<pre> SDL::Pango::set_markup($context, $text, -1);
+<pre> SDL::Pango::set_markup($context, $text, $length);
 
 </pre>
+<p>Set markup text to context. Text must be utf-8. <code>$length</code> chars will be rendered, pass <code>-1</code> to render the whole text.</p>
+<p>See <a href="http://library.gnome.org/devel/pango/unstable/PangoMarkupFormat.html">PangoMarkupFormat</a> for a description about the markup format.</p>
 
 </div>
 <h2 id="get_layout_width">get_layout_width</h2>
@@ -159,6 +172,7 @@
 <pre> my $w = SDL::Pango::get_layout_width($context);
 
 </pre>
+<p>Returns the width of the resulting surface of the given text/markup for this context.</p>
 
 </div>
 <h2 id="get_layout_height">get_layout_height</h2>
@@ -166,24 +180,34 @@
 <pre> my $h = SDL::Pango::get_layout_height($context);
 
 </pre>
+<p>Returns the height of the resulting surface of the given text/markup for this context.</p>
 
 </div>
 <h2 id="set_base_direction">set_base_direction</h2>
 <div id="set_base_direction_CONTENT">
-<pre> SDL::Pango::set_base_direction($context, SDLPANGO_DIRECTION_LTR);
+<pre> SDL::Pango::set_base_direction($context, $direction);
 
 </pre>
+<p>Sets the direction of the text to either left-to-right or right-to-left.</p>
+<p>See <a href="#CONSTANTS">CONSTANTS</a>.</p>
 
 </div>
 <h2 id="set_dpi">set_dpi</h2>
 <div id="set_dpi_CONTENT">
-<pre> SDL::Pango::set_dpi($context, 48, 48);
+<pre> SDL::Pango::set_dpi($context, $dpi_x, $dpi_y);
 
 </pre>
+<p>Sets the DPI (dots per inch) for this context. Default is <code>96</code>.</p>
 
 </div>
 <h2 id="set_language">set_language</h2>
 <div id="set_language_CONTENT">
+<pre> SDL::Pango::set_language($context, $language);
+
+</pre>
+<p>Sets the language name for this context.</p>
+<p>See <a href="http://www.loc.gov/standards/iso639-2/php/code_list.php">ISO639-2</a>.</p>
+<p>Example:</p>
 <pre> SDL::Pango::set_language($context, &quot;en&quot;);
 
 </pre>
@@ -191,14 +215,28 @@
 </div>
 <h2 id="draw">draw</h2>
 <div id="draw_CONTENT">
-<pre> SDL::Pango::draw($context, $display, (640 - $w) / 2, (480 - $h) / 2);
+<pre> SDL::Pango::draw($context, $display, $x, $y);
 
 </pre>
+<p>Draws the text or markup to an existing surface at position <code>$x</code>/<code>$y</code>.</p>
 
 </div>
 <h2 id="set_surface_create_args">set_surface_create_args</h2>
 <div id="set_surface_create_args_CONTENT">
-<pre> SDL::Pango::set_surface_create_args($context, SDL_SWSURFACE, 32, 255&lt;&lt;24, 255&lt;&lt;16, 255&lt;&lt;8, 255);
+<pre> SDL::Pango::set_surface_create_args($context, $flags, $bits, $r_mask, $g_mask, $b_mask, $a_mask);
+
+</pre>
+<p>Sets the argumet that are used when creating a surface via <a href="/SDL-Pango.html#create_surface_draw">SDL::Pango::create_surface_draw</a>.</p>
+<p>Example:</p>
+<pre> SDL::Pango::set_surface_create_args(
+     $context, 
+     SDL_SWSURFACE, 
+     32, 
+     0xFF000000, 
+     0x00FF0000, 
+     0x0000FF00, 
+     0x000000FF
+ );
 
 </pre>
 
@@ -208,6 +246,7 @@
 <pre> my $surface = SDL::Pango::create_surface_draw($context);
 
 </pre>
+<p>Creates a new surface and draws the text/markup. You can specify the attributes of the surfaces using <a href="/SDL-Pango.html#set_surface_create_args">SDL::Pango::set_surface_create_args</a>.</p>
 
 </div>
 <h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
