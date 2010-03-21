@@ -188,7 +188,7 @@ use the functionality again</p>
 <pre> use SDL::TTF;
  use SDL::TTF::Font;
 
- my $font = SDL::TTF::open_font('arial.ttf', '24);
+ my $font = SDL::TTF::open_font('arial.ttf', 24);
 
 </pre>
 

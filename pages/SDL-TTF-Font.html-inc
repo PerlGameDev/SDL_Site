@@ -1,0 +1,57 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#METHODS">METHODS</a></li>
+<li><a href="#CONSTRUCTOR">CONSTRUCTOR</a></li>
+<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::TTF::Font - Font object type for SDL_ttf</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>TTF, Structure</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h1 id="CONSTRUCTOR">CONSTRUCTOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CONSTRUCTOR_CONTENT">
+<pre> my $font = SDL::TTF::Font-&gt;new($font_file, $point_size);
+
+ my $font = SDL::TTF::Font-&gt;new($font_file, $point_size, $face_index);
+
+</pre>
+<p>Load file for use as a font, at the given size. This can load TTF and FON files.
+You can specify the face index of a font file containing multiple faces.</p>
+<p>Returns: a <a href="SDL-TTF-Font.html">SDL::TTF::Font</a> object. <code>undef</code> is returned on errors.</p>
+<p>Example:</p>
+<pre> use SDL::TTF::Font;
+
+ my $font = SDL::TTF::Font-&gt;new('arial.ttf', 24);
+
+</pre>
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>Tobias Leich [FROGGS]</p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><a href="SDL-TTF.html">SDL::TTF</a></p>
+
+</div>
+</div>
