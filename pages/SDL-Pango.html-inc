@@ -78,6 +78,10 @@
 <pre> use SDL::Pango ':direction';
 
 </pre>
+<p>or</p>
+<pre> use SDL::Pango ':all';
+
+</pre>
 <p>or access them directly:</p>
 <pre> SDL::Pango::SDLPANGO_DIRECTION_NEUTRAL;
 

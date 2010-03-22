@@ -115,6 +115,10 @@
 <pre> use SDL::TTF qw(:hinting :style);
 
 </pre>
+<p>or</p>
+<pre> use SDL::TTF ':all';
+
+</pre>
 <p>or access them directly:</p>
 <pre> SDL::TTF::TTF_HINTING_NORMAL;
 
