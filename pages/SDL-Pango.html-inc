@@ -75,7 +75,7 @@
 <h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CONSTANTS_CONTENT">
 <p>The constants are not exported by default. You can export them into your namespace by doing:</p>
-<pre> use SDL::Pango ':constants';
+<pre> use SDL::Pango ':direction';
 
 </pre>
 <p>or access them directly:</p>

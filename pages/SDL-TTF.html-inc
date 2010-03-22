@@ -4,6 +4,7 @@
 
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#CONSTANTS">CONSTANTS</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#General_methods">General methods</a>
 <ul><li><a href="#linked_version">linked_version</a></li>
@@ -106,6 +107,35 @@
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
 <p>TTF</p>
+
+</div>
+<h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CONSTANTS_CONTENT">
+<p>The constants are not exported by default. You can export them into your namespace by doing:</p>
+<pre> use SDL::TTF qw(:hinting :style);
+
+</pre>
+<p>or access them directly:</p>
+<pre> SDL::TTF::TTF_HINTING_NORMAL;
+
+</pre>
+<p>Available constants for &quot;hinting&quot;:</p>
+<ul>
+		<li>TTF_HINTING_NORMAL	</li>
+		<li>TTF_HINTING_LIGHT	</li>
+		<li>TTF_HINTING_MONO	</li>
+		<li>TTF_HINTING_NONE</li>
+</ul>
+
+<p>Available constants for &quot;style&quot;:</p>
+<ul>
+		<li>TTF_STYLE_NORMAL	</li>
+		<li>TTF_STYLE_BOLD	</li>
+		<li>TTF_STYLE_ITALIC	</li>
+		<li>TTF_STYLE_UNDERLINE	</li>
+		<li>TTF_STYLE_STRIKETHROUGH</li>
+</ul>
+
 
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -594,22 +624,22 @@ is done to get the actual width. The height returned in h is the same as you can
 <p><strong>Note</strong>: <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=374062">See space-character bug</a>. You have to upgrade libfreetype2 to at least 
 version 2.3.5</p>
 <p>Example:</p>
-<pre> use SDL;
- use SDL::Video;
- use SDL::Color;
- use SDL::TTF;
- use SDL::TTF::Font;
+<pre>	use SDL;
+	use SDL::Rect;
+	use SDL::Video;
+	use SDL::Color;
+	use SDL::TTF;
+	use SDL::TTF::Font;
 
- SDL::init(SDL_INIT_VIDEO);
-
- my $display = SDL::Video::set_video_mode(640, 480, 32, SDL_SWSURFACE);
- my $font    = SDL::TTF::open_font('arial.ttf', '24);
- my $surface = SDL::TTF::render_text_solid($font, 'Hallo!', SDL::Color-&gt;new(0xFF,0xFF,0xFF));
-
- SDL::Video::blit_surface($surface, SDL::Rect-&gt;new(0, 0, 640, 480), $display, SDL::Rect-&gt;new(10, 10, 640, 480));
- SDL::Video::update_rect($display, 0, 0, 0, 0);
-
- SDL::delay(5000);
+	SDL::init(SDL_INIT_VIDEO);
+	SDL::TTF::init();
+	my $display = SDL::Video::set_video_mode(640, 480, 32, SDL_SWSURFACE);
+	my $font    = SDL::TTF::open_font('test/data/aircut3.ttf', '24');
+	die 'Coudnt make font '. SDL::get_error if !$font;
+	my $surface = SDL::TTF::render_text_solid($font, 'Hallo!', SDL::Color-&gt;new(0xFF,0xFF,0xFF));
+	SDL::Video::blit_surface($surface, SDL::Rect-&gt;new(0, 0, 640, 480), $display, SDL::Rect-&gt;new(10, 10, 640, 480));
+	SDL::Video::update_rect($display, 0, 0, 0, 0);
+	SDL::delay(5000);
 
 </pre>
 
