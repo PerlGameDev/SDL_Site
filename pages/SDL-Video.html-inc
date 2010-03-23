@@ -5,6 +5,7 @@
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#CONSTANTS">CONSTANTS</a></li>
 <li><a href="#Core_Functions">Core Functions</a>
 <ul><li><a href="#get_video_surface">get_video_surface</a></li>
 <li><a href="#get_video_info">get_video_info</a></li>
@@ -96,8 +97,8 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<pre> use SDL;
- use SDL::Video;
+<pre> use SDL ':init';
+ use SDL::Video ':flags';
  use SDL::Surface;
  use SDL::Rect;
 
@@ -108,7 +109,7 @@
  SDL::init(SDL_INIT_VIDEO);
 
  # setting video mode
- my $screen_surface = SDL::Video::set_video_mode($screen_width, $screen_height, 32, SDL_SWSURFACE);
+ my $screen_surface = SDL::Video::set_video_mode($screen_width, $screen_height, 32, SDL_ANYFORMAT);
 
  # drawing something somewhere
  my $mapped_color   = SDL::Video::map_RGB($screen_surface-&gt;format(), 0, 0, 255); # blue
@@ -124,6 +125,76 @@
  SDL::quit();
 
 </pre>
+
+</div>
+<h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CONSTANTS_CONTENT">
+<p>Available flags for <a href="/SDL-Video.html#set_video_mode">SDL::Video::set_video_mode</a>:</p>
+<dl>
+	<dt>SDL_ANYFORMAT</dt>
+	<dd>
+		<p>Allow any pixel-format *</p>
+	</dd>
+	<dt>SDL_HWPALETTE</dt>
+	<dd>
+		<p>Have an exclusive palette</p>
+	</dd>
+	<dt>SDL_DOUBLEBUF</dt>
+	<dd>
+		<p>Double buffered *</p>
+	</dd>
+	<dt>SDL_FULLSCREEN</dt>
+	<dd>
+		<p>Full screen surface *</p>
+	</dd>
+	<dt>SDL_OPENGL</dt>
+	<dd>
+		<p>Have an OpenGL context *</p>
+	</dd>
+	<dt>SDL_OPENGLBLIT</dt>
+	<dd>
+		<p>Support OpenGL blitting *. NOTE: This option is kept for compatibility only, and is not recommended for new code.</p>
+	</dd>
+	<dt>SDL_RESIZABLE</dt>
+	<dd>
+		<p>Resizable surface *</p>
+	</dd>
+	<dt>SDL_NOFRAME</dt>
+	<dd>
+		<p>No window caption or edge frame</p>
+	</dd>
+</dl>
+<p>Used internally</p>
+<dl>
+	<dt>SDL_HWACCEL</dt>
+	<dd>
+		<p>Use hardware acceleration blit</p>
+	</dd>
+	<dt>SDL_SRCCOLORKEY</dt>
+	<dd>
+		<p>Use colorkey blitting</p>
+	</dd>
+	<dt>SDL_RLEACCELOK</dt>
+	<dd>
+		<p>Private flag</p>
+	</dd>
+	<dt>SDL_RLEACCEL</dt>
+	<dd>
+		<p>Accelerated colorkey blitting with RLE</p>
+	</dd>
+	<dt>SDL_SRCALPHA</dt>
+	<dd>
+		<p>Use alpha blending blit</p>
+	</dd>
+	<dt>SDL_PREALLOC</dt>
+	<dd>
+		<p>Use preallocated memory</p>
+	</dd>
+</dl>
+
+
+
+
 
 </div>
 <h1 id="Core_Functions">Core Functions</h1><p><a href="#TOP" class="toplink">Top</a></p>

@@ -6,6 +6,7 @@
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#CONSTANTS">CONSTANTS</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#new_flags_width_height_depth_Rmask_G">new ( flags, width, height, depth, Rmask, Gmask, Bmask, Amask )</a></li>
 <li><a href="#new_from_surface_width_height_depth_">new_from ( surface, width, height, depth, Rmask, Gmask, Bmask, Amask )</a>
@@ -68,6 +69,23 @@
 <p>An <code>SDL_Surface</code> defines a surfaceangular area of pixels.</p>
 
 </div>
+<h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CONSTANTS_CONTENT">
+<p>The constants are not exported by default. You can export them into your namespace by doing:</p>
+<pre> use SDL::Surface ':flags';
+
+</pre>
+<p>or</p>
+<pre> use SDL::Surface ':all';
+
+</pre>
+<p>or access them directly:</p>
+<pre> SDL::Surface::SDL_SWSURFACE;
+
+</pre>
+<p>Available constants: see <a href="#flags">flags</a></p>
+
+</div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="METHODS_CONTENT">
 
@@ -97,72 +115,21 @@
 </div>
 <h4 id="flags">flags</h4>
 <div id="flags_CONTENT">
+<p>Available for new()</p>
 <dl>
-	<dt>SDL_ANYFORMAT</dt>
-	<dd>
-		<p>Allow any pixel-format *</p>
-	</dd>
 	<dt>SDL_ASYNCBLIT</dt>
 	<dd>
 		<p>Use asynchronous blit if possible</p>
-	</dd>
-	<dt>SDL_DOUBLEBUF</dt>
-	<dd>
-		<p>Double buffered *</p>
-	</dd>
-	<dt>SDL_HWACCEL</dt>
-	<dd>
-		<p>Use hardware acceleration blit</p>
-	</dd>
-	<dt>SDL_HWPALETTE</dt>
-	<dd>
-		<p>Have an exclusive palette</p>
-	</dd>
-	<dt>SDL_HWSURFACE</dt>
-	<dd>
-		<p>Stored in video memory</p>
-	</dd>
-	<dt>SDL_FULLSCREEN</dt>
-	<dd>
-		<p>Full screen surface *</p>
-	</dd>
-	<dt>SDL_OPENGL</dt>
-	<dd>
-		<p>Have an OpenGL context *</p>
-	</dd>
-	<dt>SDL_OPENGLBLIT</dt>
-	<dd>
-		<p>Support OpenGL blitting *. NOTE: This option is kept for compatibility only, and is not recommended for new code.</p>
-	</dd>
-	<dt>SDL_RESIZABLE</dt>
-	<dd>
-		<p>Resizable surface *</p>
-	</dd>
-	<dt>SDL_RLEACCEL</dt>
-	<dd>
-		<p>Accelerated colorkey blitting with RLE</p>
-	</dd>
-	<dt>SDL_SRCALPHA</dt>
-	<dd>
-		<p>Use alpha blending blit</p>
-	</dd>
-	<dt>SDL_SRCCOLORKEY</dt>
-	<dd>
-		<p>Use colorkey blitting</p>
 	</dd>
 	<dt>SDL_SWSURFACE</dt>
 	<dd>
 		<p>Stored in the system memory. SDL_SWSURFACE is not actually a flag (it is defined as 0). A lack of SDL_HWSURFACE implies SDL_SWSURFACE</p>
 	</dd>
-	<dt>SDL_PREALLOC</dt>
+	<dt>SDL_HWSURFACE</dt>
 	<dd>
-		<p>Use preallocated memory</p>
+		<p>Stored in video memory</p>
 	</dd>
 </dl>
-
-
-
-
 
 </div>
 <h2 id="w">w</h2>
