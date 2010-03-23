@@ -72,15 +72,15 @@
 <h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CONSTANTS_CONTENT">
 <p>The constants are not exported by default. You can export them into your namespace by doing:</p>
-<pre> use SDL::Surface ':flags';
+<pre> use SDL::Video ':flags';
 
 </pre>
 <p>or</p>
-<pre> use SDL::Surface ':all';
+<pre> use SDL::Video ':all';
 
 </pre>
 <p>or access them directly:</p>
-<pre> SDL::Surface::SDL_SWSURFACE;
+<pre> SDL::Video::SDL_SWSURFACE;
 
 </pre>
 <p>Available constants: see <a href="#flags">flags</a></p>
@@ -115,7 +115,7 @@
 </div>
 <h4 id="flags">flags</h4>
 <div id="flags_CONTENT">
-<p>Available for new()</p>
+<p>Available flags for new() are exported by SDL::Video</p>
 <dl>
 	<dt>SDL_ASYNCBLIT</dt>
 	<dd>
@@ -123,7 +123,7 @@
 	</dd>
 	<dt>SDL_SWSURFACE</dt>
 	<dd>
-		<p>Stored in the system memory. SDL_SWSURFACE is not actually a flag (it is defined as 0). A lack of SDL_HWSURFACE implies SDL_SWSURFACE</p>
+		<p>Stored in the system memory.</p>
 	</dd>
 	<dt>SDL_HWSURFACE</dt>
 	<dd>

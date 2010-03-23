@@ -98,7 +98,7 @@
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
 <pre> use SDL ':init';
- use SDL::Video ':flags';
+ use SDL::Video ':all';
  use SDL::Surface;
  use SDL::Rect;
 
@@ -129,72 +129,59 @@
 </div>
 <h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CONSTANTS_CONTENT">
-<p>Available flags for <a href="/SDL-Video.html#set_video_mode">SDL::Video::set_video_mode</a>:</p>
-<dl>
-	<dt>SDL_ANYFORMAT</dt>
-	<dd>
-		<p>Allow any pixel-format *</p>
-	</dd>
-	<dt>SDL_HWPALETTE</dt>
-	<dd>
-		<p>Have an exclusive palette</p>
-	</dd>
-	<dt>SDL_DOUBLEBUF</dt>
-	<dd>
-		<p>Double buffered *</p>
-	</dd>
-	<dt>SDL_FULLSCREEN</dt>
-	<dd>
-		<p>Full screen surface *</p>
-	</dd>
-	<dt>SDL_OPENGL</dt>
-	<dd>
-		<p>Have an OpenGL context *</p>
-	</dd>
-	<dt>SDL_OPENGLBLIT</dt>
-	<dd>
-		<p>Support OpenGL blitting *. NOTE: This option is kept for compatibility only, and is not recommended for new code.</p>
-	</dd>
-	<dt>SDL_RESIZABLE</dt>
-	<dd>
-		<p>Resizable surface *</p>
-	</dd>
-	<dt>SDL_NOFRAME</dt>
-	<dd>
-		<p>No window caption or edge frame</p>
-	</dd>
-</dl>
-<p>Used internally</p>
-<dl>
-	<dt>SDL_HWACCEL</dt>
-	<dd>
-		<p>Use hardware acceleration blit</p>
-	</dd>
-	<dt>SDL_SRCCOLORKEY</dt>
-	<dd>
-		<p>Use colorkey blitting</p>
-	</dd>
-	<dt>SDL_RLEACCELOK</dt>
-	<dd>
-		<p>Private flag</p>
-	</dd>
-	<dt>SDL_RLEACCEL</dt>
-	<dd>
-		<p>Accelerated colorkey blitting with RLE</p>
-	</dd>
-	<dt>SDL_SRCALPHA</dt>
-	<dd>
-		<p>Use alpha blending blit</p>
-	</dd>
-	<dt>SDL_PREALLOC</dt>
-	<dd>
-		<p>Use preallocated memory</p>
-	</dd>
-</dl>
+<p>The constants are not exported by default. You can export them into your namespace by doing:</p>
+<pre> use SDL::Video ':all';
 
+</pre>
+<p>or access them directly:</p>
+<pre> SDL::Video::SDL_SWSURFACE;
 
+</pre>
+<p>or by choosing the export tags below:</p>
+<p>Export tag: ':surface'</p>
+<pre> SDL_ASYNCBLIT       Use asynchronous blit if possible
+ SDL_SWSURFACE       Stored in the system memory.
+ SDL_HWSURFACE       Stored in video memory
 
+</pre>
+<p>Export tag: ':video'</p>
+<pre> SDL_ANYFORMAT       Allow any pixel-format
+ SDL_HWPALETTE       Have an exclusive palette
+ SDL_DOUBLEBUF       Double buffered
+ SDL_FULLSCREEN      Full screen surface
+ SDL_OPENGL          Have an OpenGL context
+ SDL_OPENGLBLIT      Support OpenGL blitting. 
+                     NOTE: This option is kept for compatibility only, and is not recommended for new code.
+ SDL_RESIZABLE       Resizable surface
+ SDL_NOFRAME         No window caption or edge frame
+ SDL_HWACCEL Use     Hardware acceleration blit
+ SDL_SRCCOLORKEY     Use colorkey blitting
+ SDL_RLEACCELOK      Private flag
+ SDL_RLEACCEL        Accelerated colorkey blitting with RLE
+ SDL_SRCALPHA        Use alpha blending blit
+ SDL_PREALLOC        Use preallocated memory
 
+</pre>
+<p>Export tag ':overlay'</p>
+<pre> SDL_YV12_OVERLAY    Planar mode: Y + V + U  (3 planes)
+ SDL_IYUV_OVERLAY    Planar mode: Y + U + V  (3 planes)
+ SDL_YUY2_OVERLAY    Packed mode: Y0+U0+Y1+V0 (1 plane)
+ SDL_UYVY_OVERLAY    Packed mode: U0+Y0+V0+Y1 (1 plane)
+ SDL_YVYU_OVERLAY    Packed mode: Y0+V0+Y1+U0 (1 plane)
+
+</pre>
+<p>Export tag ':palette'</p>
+<pre> SDL_LOGPAL          Logical palette, which controls how blits are mapped to/from the surface
+ SDL_PHYSPAL         Physical palette, which controls how pixels look on the screen
+
+</pre>
+<p>Export tag ':grab'</p>
+<pre> SDL_GRAB_QUERY
+ SDL_GRAB_OFF
+ SDL_GRAB_ON
+ SDL_GRAB_FULLSCREEN Used interally
+
+</pre>
 
 </div>
 <h1 id="Core_Functions">Core Functions</h1><p><a href="#TOP" class="toplink">Top</a></p>
