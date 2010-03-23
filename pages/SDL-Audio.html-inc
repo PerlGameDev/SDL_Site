@@ -4,6 +4,7 @@
 
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#CONSTANTS">CONSTANTS</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#open">open</a></li>
 <li><a href="#pause">pause</a></li>
@@ -29,6 +30,38 @@
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
 <p>Core, Audio</p>
+
+</div>
+<h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CONSTANTS_CONTENT">
+<p>The constants are not exported by default. You can export them into your namespace by doing:</p>
+<pre> use SDL::Audio ':all';
+
+</pre>
+<p>or access them directly:</p>
+<pre> SDL::Audio::AUDIO_S16SYS;
+
+</pre>
+<p>or by choosing the export tags below:</p>
+<p>Export tag: ':format'</p>
+<pre> AUDIO_U8
+ AUDIO_S8
+ AUDIO_U16LSB
+ AUDIO_S16LSB
+ AUDIO_U16MSB
+ AUDIO_S16MSB
+ AUDIO_U16
+ AUDIO_S16 
+ AUDIO_U16SYS
+ AUDIO_S16SYS
+
+</pre>
+<p>Export tag: ':status'</p>
+<pre> SDL_AUDIO_STOPPED
+ SDL_AUDIO_PLAYING
+ SDL_AUDIO_PAUSED
+
+</pre>
 
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>

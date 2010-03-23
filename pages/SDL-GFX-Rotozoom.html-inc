@@ -4,6 +4,7 @@
 
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#CONSTANTS">CONSTANTS</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#surface">surface</a></li>
 <li><a href="#surface_xy">surface_xy</a></li>
@@ -27,6 +28,24 @@
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
 <p>TODO, GFX</p>
+
+</div>
+<h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CONSTANTS_CONTENT">
+<p>The constants are not exported by default. You can export them into your namespace by doing:</p>
+<pre> use SDL::GFX::Rotozoom ':all';
+
+</pre>
+<p>or access them directly:</p>
+<pre> SDL::GFX::Rotozoom::SMOOTHING_OFF;
+
+</pre>
+<p>or by choosing the export tags below:</p>
+<p>Export tag: ':smoothing'</p>
+<pre> SMOOTHING_OFF
+ SMOOTHING_ON
+
+</pre>
 
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
