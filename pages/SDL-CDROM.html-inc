@@ -7,10 +7,7 @@
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#num_drives">num_drives</a></li>
-<li><a href="#name">name</a>
-<ul><li><a href="#Examples">Examples</a></li>
-</ul>
-</li>
+<li><a href="#name">name</a></li>
 </ul>
 </li>
 <li><a href="#See_Also">See Also</a>
@@ -30,7 +27,7 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<pre> use SDL;
+<pre> use SDL ':init';
  use SDL::CDROM;
 
  SDL::init(SDL_INIT_CDROM);
@@ -62,15 +59,13 @@
 
 </pre>
 <p>Returns human readable name for CDROM device</p>
+<p>Examples:</p>
+<ul>
+		<li>'/dev/cdrom'	</li>
+		<li>'E:'	</li>
+		<li>'/dev/disk/ide/1/master'  </li>
+</ul>
 
-</div>
-<h3 id="Examples">Examples</h3>
-<div id="Examples_CONTENT">
-<dl>
-	<dt>'/dev/cdrom'</dt>
-	<dt>'E:'</dt>
-	<dt>'/dev/disk/ide/1/master'  </dt>
-</dl>
 
 </div>
 <h1 id="See_Also">See Also</h1><p><a href="#TOP" class="toplink">Top</a></p>

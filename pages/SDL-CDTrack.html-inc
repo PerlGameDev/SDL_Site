@@ -5,6 +5,7 @@
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#CONSTANTS">CONSTANTS</a></li>
 <li><a href="#METHOD">METHOD</a>
 <ul><li><a href="#id">id</a></li>
 <li><a href="#type">type</a></li>
@@ -29,9 +30,9 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<pre> use SDL;
+<pre> use SDL ':init';
  use SDL::CDROM;
- use SDL::CD;
+ use SDL::CD ':status';
  use SDL::CDTrack;
 
  SDL::init( SDL_INIT_CDROM );
@@ -40,22 +41,34 @@
 
  if( $drives &gt; 0 )
  {
-  my $CD = SDL::CD-&gt;new(0); #first drive's CD
+     my $CD = SDL::CD-&gt;new(0); #first drive's CD
 
-  if( $CD != NULL)
-  {
-	if( $CD-&gt;status != CD_TRAYEMPTY )
-	{
-	my $track = SDL::CD-&gt;track(0);
-	}
-  }
-
+     if($CD)
+     {
+         if( $CD-&gt;status != CD_TRAYEMPTY )
+         {
+             my $track = SDL::CD-&gt;track(0);
+         }
+     }
  }
 
- SDL::quit();
+</pre>
 
+</div>
+<h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CONSTANTS_CONTENT">
+<p>The constants are not exported by default. You can export them into your namespace by doing:</p>
+<pre> use SDL::CDTrack ':all';
 
+</pre>
+<p>or access them directly:</p>
+<pre> SDL::CDTrack::SDL_AUDIO_TRACK;
 
+</pre>
+<p>or by choosing the export tags below:</p>
+<p>Export tag: ':type'</p>
+<pre> SDL_AUDIO_TRACK
+ SDL_DATA_TRACK
 
 </pre>
 
