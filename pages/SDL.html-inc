@@ -8,16 +8,6 @@
 </li>
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
-<li><a href="#The_SDL_Perl_2009_Development_Team">The SDL Perl 2009 Development Team</a>
-<ul><li><a href="#Documentation">Documentation</a></li>
-<li><a href="#Perl_Development">Perl Development</a></li>
-<li><a href="#Maintainance">Maintainance </a></li>
-</ul>
-</li>
-<li><a href="#MacOSX_Experimental_Usage">MacOSX Experimental Usage</a>
-<ul><li><a href="#Running_SDL_Perl_Scripts_in_MacOSX">Running SDL Perl Scripts in MacOSX</a></li>
-</ul>
-</li>
 <li><a href="#Functions_exported_by_SDL_pm">Functions exported by SDL.pm</a>
 <ul><li><a href="#init_flags">init(flags) </a></li>
 <li><a href="#init_subsystem_flags">init_subsystem(flags)</a></li>
@@ -55,7 +45,7 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<pre>  use SDL;
+<pre>  use SDL ':all';
 
 </pre>
 
@@ -68,68 +58,6 @@ liberties with the SDL API, and attempts to adhere to the spirit of both the SDL
 and Perl.  This document describes the low-level functional SDL_perl API.  For the
 object oriented programming interface please see the documentation provided on a
 per class basis.</p>
-
-</div>
-<h1 id="The_SDL_Perl_2009_Development_Team">The SDL Perl 2009 Development Team</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="The_SDL_Perl_2009_Development_Team_C">
-
-</div>
-<h2 id="Documentation">Documentation</h2>
-<div id="Documentation_CONTENT">
-<pre>	Nick: magnet
-
-</pre>
-
-</div>
-<h2 id="Perl_Development">Perl Development</h2>
-<div id="Perl_Development_CONTENT">
-<pre>	Nick: Garu
-	Name: Breno G. de Oliveira
-
-	Nick: Dngor
-	Name: Rocco Caputo
-
-	Nick: nferraz
-	Name: Nelson Ferraz
-
-	Nick: acme
-	Name: Leon Brocard
-
-	Nick: FROGGS
-	Name: Tobias Leich
-
-</pre>
-
-</div>
-<h2 id="Maintainance">Maintainance </h2>
-<div id="Maintainance_CONTENT">
-<pre>	Nick: kthakore
-	Name: Kartik Thakore
-
-</pre>
-
-</div>
-<h1 id="MacOSX_Experimental_Usage">MacOSX Experimental Usage</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="MacOSX_Experimental_Usage_CONTENT">
-<p>Please get libsdl packages from Fink</p>
-<pre>	perl Build.PL
-	perl Build test
-	perl Build bundle
-	perl Build install
-
-</pre>
-
-</div>
-<h2 id="Running_SDL_Perl_Scripts_in_MacOSX">Running SDL Perl Scripts in MacOSX</h2>
-<div id="Running_SDL_Perl_Scripts_in_MacOSX_C">
-<p>First set the PERL5LIB environment variable to the dependencies of your script</p>
-<pre>	%export PERL5LIB=$PERL5LIB:./lib
-
-</pre>
-<p>Use the SDLPerl executable made in the bundle and call your scripts</p>
-<pre>	%SDLPerl.app/Contents/MacOS/SDLPerl yourScript.pl
-
-</pre>
 
 </div>
 <h1 id="Functions_exported_by_SDL_pm">Functions exported by SDL.pm</h1><p><a href="#TOP" class="toplink">Top</a></p>
