@@ -4,6 +4,7 @@
 
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#CONSTANTS">CONSTANTS</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#init">init</a></li>
@@ -28,6 +29,53 @@
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
 <p>Mixer</p>
+
+</div>
+<h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CONSTANTS_CONTENT">
+<p>The constants are not exported by default. You can export them into your namespace by doing:</p>
+<pre> use SDL::Mixer ':all';
+
+</pre>
+<p>or access them directly:</p>
+<pre> SDL::Mixer::MIX_DEFAULT_FREQUENCY;
+
+</pre>
+<p>or by choosing the export tags below:</p>
+<p>Export tag: ':init'</p>
+<pre> MIX_INIT_FLAC
+ MIX_INIT_MOD
+ MIX_INIT_MP3
+ MIX_INIT_OGG
+
+</pre>
+<p>Export tag: ':default'</p>
+<pre> MIX_CHANNELS
+ MIX_DEFAULT_FORMAT
+ MIX_DEFAULT_FREQUENCY
+ MIX_DEFAULT_CHANNELS
+ MIX_MAX_VOLUME
+ MIX_CHANNEL_POST
+
+</pre>
+<p>Export tag: ':fading'</p>
+<pre> MIX_NO_FADING
+ MIX_FADING_OUT
+ MIX_FADING_IN
+
+</pre>
+<p>Export tag: ':type'</p>
+<pre> MUS_NONE
+ MUS_CMD
+ MUS_WAV
+ MUS_MOD
+ MUS_MID
+ MUS_OGG
+ MUS_MP3
+ MUS_MP3_MAD
+ MUS_MP3_FLAC
+
+</pre>
 
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
