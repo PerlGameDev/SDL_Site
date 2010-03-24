@@ -15,13 +15,8 @@
 <li><a href="#quit">quit</a></li>
 <li><a href="#was_init_flags">was_init(flags)</a></li>
 <li><a href="#get_error">get_error()</a></li>
-<li><a href="#set_error_real_error_values">set_error_real(error, @values)  </a></li>
-<li><a href="#error_code_need_to_be_coded">error(code) * need to be coded</a></li>
-<li><a href="#clear_error">clear_error() </a></li>
-<li><a href="#load_object">load_object()</a></li>
-<li><a href="#load_function">load_function()</a></li>
-<li><a href="#unload_object">unload_object()</a></li>
-<li><a href="#VERSION">VERSION()</a></li>
+<li><a href="#set_error_real_error_values">set_error_real(error, @values)</a></li>
+<li><a href="#clear_error">clear_error()</a></li>
 <li><a href="#version">version()</a></li>
 <li><a href="#linked_version">linked_version</a></li>
 <li><a href="#get_error-2">get_error()</a></li>
@@ -77,6 +72,8 @@ the bitwise OR product of the SDL_INIT_* constants.</p>
 <pre> SDL::SDL_INIT_AUDIO;
 
 </pre>
+<p>or by choosing the export tags below:</p>
+<p>Export tag: ':init'</p>
 <dl>
 	<dt>*
 SDL_INIT_AUDIO</dt>
@@ -123,10 +120,6 @@ The flags tells SDL::quit_subSystem which subsystems to shut down, it uses the s
 flags is a bitwise OR'd combination of the subsystems you wish to check (see SDL::init for a list of subsystem flags). 
 If 'flags' is 0 or SDL_INIT_EVERYTHING, it returns a mask of all initialized subsystems (this does not include SDL_INIT_EVENTTHREAD or SDL_INIT_NOPARACHUTE).</p>
 
-
-
-
-
 </div>
 <h2 id="get_error">get_error()</h2>
 <div id="get_error_CONTENT">
@@ -134,94 +127,51 @@ If 'flags' is 0 or SDL_INIT_EVERYTHING, it returns a mask of all initialized sub
 <code>SDL::get_error</code>, which returns a scalar containing the text of the message if any.</p>
 
 </div>
-<h2 id="set_error_real_error_values">set_error_real(error, @values)  </h2>
+<h2 id="set_error_real_error_values">set_error_real(error, @values)</h2>
 <div id="set_error_real_error_values_CONTENT">
-<p>SDL::get_error sets the SDL error to a printf style formatted string. 
+<p>SDL::set_error_real sets the SDL error to a printf style formatted string. 
 it doesn't returns any values.</p>
 
 </div>
-<h2 id="error_code_need_to_be_coded">error(code) * need to be coded</h2>
-<div id="error_code_need_to_be_coded_CONTENT">
-<p>Sets the SDL error message to one of several predefined strings specified by code. </p>
-<p>code can be :</p>
-<dl>
-	<dt>SDL_errorcode</dt>
-	<dd>
-		<p>The corresponding error string</p>
-	</dd>
-	<dt>SDL_ENOMEM</dt>
-	<dd>
-		<p>Out of memory</p>
-	</dd>
-	<dt>SDL_EFREAD</dt>
-	<dd>
-		<p>Error reading from datastream</p>
-	</dd>
-	<dt>SDL_EFWRITE</dt>
-	<dd>
-		<p>Error writing to datastream</p>
-	</dd>
-	<dt>SDL_EFSEEK</dt>
-	<dd>
-		<p>Error seeking in datastream</p>
-	</dd>
-	<dt>SDL_UNSUPPORTED</dt>
-	<dd>
-		<p>Unknown SDL error</p>
-	</dd>
-	<dt>SDL_LASTERROR</dt>
-	<dd>
-		<p>Unknown SDL error</p>
-	</dd>
-	<dt>any other value</dt>
-	<dd>
-		<p>Unknown SDL error</p>
-	</dd>
-</dl>
-<p>Note 1: SDL_LASTERROR marks the highest numbered predefined error.
-Note 2: SDL also defines SDL_OutOfMemory() and SDL_Unsupported() for internal use
-which are equivalent to SDL_Error(SDL_ENOMEM) and SDL_Error(SDL_UNSUPPORTED) respectively. </p>
-<p>SDL::Error doesn't returns any value.</p>
-
-
-
-
-
-</div>
-<h2 id="clear_error">clear_error() </h2>
+<h2 id="clear_error">clear_error()</h2>
 <div id="clear_error_CONTENT">
-<p>SDL::clear_error deletes all information about the last internal SDL error. Useful if the error has been handled by the program.
+<p>SDL::clear_error deletes all information about the last SDL error. Useful if the error has been handled by the program.
 it doesn't returns any value.</p>
-
-</div>
-<h2 id="load_object">load_object()</h2>
-<div id="load_object_CONTENT">
-<p>Need to be coded.</p>
-
-</div>
-<h2 id="load_function">load_function()</h2>
-<div id="load_function_CONTENT">
-<p>Need to be coded.</p>
-
-</div>
-<h2 id="unload_object">unload_object()</h2>
-<div id="unload_object_CONTENT">
-<p>Need to be coded.</p>
-
-</div>
-<h2 id="VERSION">VERSION()</h2>
-<div id="VERSION_CONTENT">
-<p>Need to be coded. </p>
 
 </div>
 <h2 id="version">version()</h2>
 <div id="version_CONTENT">
-<p>Need to be coded.</p>
+<pre> my $version = SDL::version();
+
+</pre>
+<p>Returns an SDL::Version object of the of the SDL library at compile time.</p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Version;
+
+ my $v = SDL::version();
+ printf(&quot;got version: %d.%d.%d\n&quot;, $v-&gt;major, $v-&gt;minor, $v-&gt;patch);
+
+
+
+
+</pre>
 
 </div>
 <h2 id="linked_version">linked_version</h2>
 <div id="linked_version_CONTENT">
-<p>Need to be coded.</p>
+<pre> my $linked_version = SDL::linked_version();
+
+</pre>
+<p>Returns an SDL::Version object of the currently loaded SDL library.</p>
+<p>Example:</p>
+<pre> use SDL;
+ use SDL::Version;
+
+ my $v = SDL::linked_version();
+ printf(&quot;got version: %d.%d.%d\n&quot;, $v-&gt;major, $v-&gt;minor, $v-&gt;patch);
+
+</pre>
 
 </div>
 <h2 id="get_error-2">get_error()</h2>
@@ -232,22 +182,18 @@ it doesn't returns any value.</p>
 </div>
 <h2 id="delay_ms">delay(ms)</h2>
 <div id="delay_ms_CONTENT">
+<pre> SDL::delay(1000);
+
+</pre>
 <p>This subroutine allows an application to delay further operations for atleast a
 number of milliseconds provided as the argument.  The actual delay may be longer
 than the specified depending on the underlying OS.</p>
 
-
-
-
-
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>magnet, kthakore</p>
-
-
-
-
+<p>magnet, kthakore
+</p>
 
 </div>
 </div>
