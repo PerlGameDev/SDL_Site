@@ -30,7 +30,7 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<pre> use SDL ':init';
+<pre> use SDL;
  use SDL::CDROM;
  use SDL::CD ':status';
  use SDL::CDTrack;
@@ -57,11 +57,11 @@
 </div>
 <h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CONSTANTS_CONTENT">
-<p>The constants are not exported by default. You can export them into your namespace by doing:</p>
-<pre> use SDL::CDTrack ':all';
+<p>The constants are exported by default. You can avoid this by doing:</p>
+<pre> use SDL::CDTrack ();
 
 </pre>
-<p>or access them directly:</p>
+<p>and access them directly:</p>
 <pre> SDL::CDTrack::SDL_AUDIO_TRACK;
 
 </pre>
