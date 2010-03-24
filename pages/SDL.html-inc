@@ -139,23 +139,31 @@ per class basis.</p>
 <h2 id="init_flags">init(flags) </h2>
 <div id="init_flags_CONTENT">
 <p>As with the C language API, SDL_perl initializes the SDL environment through
-the <code>SDL::init</code> subroutine.  This routine takes a mode flag constructed through
-the bitwise OR product of the following constants:</p>
+the <code>SDL::init</code> subroutine. This routine takes a mode flag constructed through
+the bitwise OR product of the SDL_INIT_* constants.</p>
+<p>The constants are not exported by default. You can export them into your namespace by doing:</p>
+<pre> use SDL ':all';
+
+</pre>
+<p>or access them directly:</p>
+<pre> SDL::SDL_INIT_AUDIO;
+
+</pre>
 <dl>
 	<dt>*
-INIT_AUDIO</dt>
+SDL_INIT_AUDIO</dt>
 	<dt>*
-INIT_VIDEO</dt>
+SDL_INIT_VIDEO</dt>
 	<dt>*
-INIT_CDROM</dt>
+SDL_INIT_CDROM</dt>
 	<dt>*
-INIT_EVERYTHING</dt>
+SDL_INIT_EVERYTHING</dt>
 	<dt>*
-INIT_NOPARACHUTE</dt>
+SDL_INIT_NOPARACHUTE</dt>
 	<dt>*
-INIT_JOYSTICK</dt>
+SDL_INIT_JOYSTICK</dt>
 	<dt>*
-INIT_TIMER</dt>
+SDL_INIT_TIMER</dt>
 </dl>
 <p><code>SDL::Init</code> returns 0 on success, or -1 on error.</p>
 
@@ -242,10 +250,6 @@ it doesn't returns any values.</p>
 		<p>Unknown SDL error</p>
 	</dd>
 </dl>
-
-
-
-
 <p>Note 1: SDL_LASTERROR marks the highest numbered predefined error.
 Note 2: SDL also defines SDL_OutOfMemory() and SDL_Unsupported() for internal use
 which are equivalent to SDL_Error(SDL_ENOMEM) and SDL_Error(SDL_UNSUPPORTED) respectively. </p>
