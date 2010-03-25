@@ -54,10 +54,6 @@
 <div id="hook_music_CONTENT">
 <pre> SDL::Mixer::Music::hook_music( $callback, $position );
 
- or
-
- SDL::Mixer::Music::hook_music( &amp;callback, $position );
-
 </pre>
 <p>This sets up a custom music player function, so you can pass your own audio stream data into the SDL::Mixer.
 The function will be called with <code>position</code> passed into the first parameter when the <code>callback</code> is called.
@@ -69,7 +65,7 @@ Using a custom music player and the internal music player is not possible, the c
 <p><strong>Note</strong>: NEVER call <code>SDL::Mixer</code> functions, nor <a href="/SDL-Audio.html#lock">SDL::Audio::lock</a>, from a callback function.</p>
 <p><strong>Note</strong>: At program termination also call <code>SDL::Mixer::Music::hook_music()</code> to stop this callback.</p>
 <p>Example:</p>
-<pre> my $callback = sub
+<pre> sub callback
  {
      my $position = shift; # position (first time its 0, on each call $length is added)
      my $length   = shift; # length of bytes we have to put in stream
@@ -83,9 +79,9 @@ Using a custom music player and the internal music player is not possible, the c
      }
 
      return @stream;
- };
+ }
 
- SDL::Mixer::Music::hook_music( $callback, 0 );
+ SDL::Mixer::Music::hook_music( 'main::callback', 0 );
 
 </pre>
 
@@ -101,8 +97,12 @@ This happens when the music is over or is fading out.</p>
 <p>Example:</p>
 <pre> my $music_is_playing = 0;
  my @music            = qw(first.mp3 next.mp3 other.mp3 last.mp3);
- my $callback         = sub{ $music_is_playing = 0; };
- SDL::Mixer::Music::hook_music_finished( $callback );
+ sub callback
+ {
+     $music_is_playing = 0;
+ }
+
+ SDL::Mixer::Music::hook_music_finished( 'main::callback' );
 
  foreach my $this_song ( @music )
  {
