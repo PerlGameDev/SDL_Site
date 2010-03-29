@@ -88,7 +88,7 @@ Using a custom music player and the internal music player is not possible, the c
 </div>
 <h2 id="hook_music_finished">hook_music_finished</h2>
 <div id="hook_music_finished_CONTENT">
-<pre> SDL::Mixer::Music::hook_music_finished( $callback );
+<pre> SDL::Mixer::Music::hook_music_finished( 'main::callback' );
 
 </pre>
 <p>This callback is called when music called by e.g. <a href="/SDL-Mixer-Music.html#play_music">SDL::Mixer::Music::play_music</a> or <a href="/SDL-Mixer-Music.html#fade_in_music">SDL::Mixer::Music::fade_in_music</a> stops naturally. 

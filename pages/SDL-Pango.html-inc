@@ -82,7 +82,23 @@
 <pre> SDL::Pango::SDLPANGO_DIRECTION_NEUTRAL;
 
 </pre>
-<p>Available constants:</p>
+<p>or by choosing the export tags below:</p>
+<p>Export tag: ':align'</p>
+<dl>
+	<dt>SDLPANGO_ALIGN_LEFT</dt>
+	<dd>
+		<p>Left alignment</p>
+	</dd>
+	<dt>SDLPANGO_ALIGN_CENTER</dt>
+	<dd>
+		<p>Centered</p>
+	</dd>
+	<dt>SDLPANGO_ALIGN_RIGHT</dt>
+	<dd>
+		<p>Right alignment</p>
+	</dd>
+</dl>
+<p>Export tag: ':direction'</p>
 <dl>
 	<dt>SDLPANGO_DIRECTION_LTR</dt>
 	<dd>
@@ -153,9 +169,17 @@ background.</p>
 <h2 id="set_text">set_text</h2>
 <div id="set_text_CONTENT">
 <pre> SDL::Pango::set_text($context, $text, $length);
+ SDL::Pango::set_text($context, $text, $length, $alignment);
 
 </pre>
 <p>Set plain text to context. Text must be utf-8. <code>$length</code> chars will be rendered, pass <code>-1</code> to render the whole text.</p>
+<p><code>$alignment</code> can be:</p>
+<ul>
+		<li>SDLPANGO_ALIGN_LEFT (default)	</li>
+		<li>SDLPANGO_ALIGN_CENTER	</li>
+		<li>SDLPANGO_ALIGN_RIGHT</li>
+</ul>
+
 
 </div>
 <h2 id="set_markup">set_markup</h2>

@@ -49,7 +49,7 @@
  MIX_INIT_OGG
 
 </pre>
-<p>Export tag: ':default'</p>
+<p>Export tag: ':defaults'</p>
 <pre> MIX_CHANNELS
  MIX_DEFAULT_FORMAT
  MIX_DEFAULT_FREQUENCY
@@ -74,6 +74,25 @@
  MUS_MP3
  MUS_MP3_MAD
  MUS_MP3_FLAC
+
+</pre>
+<p>Export tag: ':format'</p>
+<pre> AUDIO_U8
+ AUDIO_S8
+ AUDIO_U16LSB
+ AUDIO_S16LSB
+ AUDIO_U16MSB
+ AUDIO_S16MSB
+ AUDIO_U16
+ AUDIO_S16 
+ AUDIO_U16SYS
+ AUDIO_S16SYS
+
+</pre>
+<p>Export tag: ':status'</p>
+<pre> SDL_AUDIO_STOPPED
+ SDL_AUDIO_PLAYING
+ SDL_AUDIO_PAUSED
 
 </pre>
 
