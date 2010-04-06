@@ -11,7 +11,7 @@
 </ul>
 </li>
 <li><a href="#Latest_News">Latest News</a>
-<ul><li><a href="#Feb_22_2010">Feb 22 2010</a>
+<ul><li><a href="#Apr_06_2010">Apr 06 2010</a>
 <ul><li><a href="#CPAN_Release">CPAN Release</a></li>
 <li><a href="#Active_Development">Active Development</a></li>
 <li><a href="#TODO">TODO</a>
@@ -30,7 +30,9 @@
 <h2 id="Welcome">Welcome</h2>
 <div id="Welcome_CONTENT">
 <p>SDL Perl are a set of bindings to the Simple DirectMedia Library (SDL).</p>
-<p>'Simple DirectMedia Layer is a cross-platform multimedia library designed to provide low level access to audio, keyboard, mouse, joystick, 3D hardware via OpenGL, and 2D video framebuffer. It is used by MPEG playback software, emulators, and many popular games, including the award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>www.libsdl.org</cite></p>
+<p>'Simple DirectMedia Layer is a cross-platform multimedia library designed to provide low level access to audio, keyboard, mouse, joystick, 
+3D hardware via OpenGL, and 2D video framebuffer. It is used by MPEG playback software, emulators, and many popular games, including the 
+award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>www.libsdl.org</cite></p>
 <p>SDL Perl is an active and exciting project with many facets. Explore this website to learn more. </p>
 
 </div>
@@ -62,22 +64,14 @@
 <div id="Latest_News_CONTENT">
 
 </div>
-<h2 id="Feb_22_2010">Feb 22 2010</h2>
-<div id="Feb_22_2010_CONTENT">
+<h2 id="Apr_06_2010">Apr 06 2010</h2>
+<div id="Apr_06_2010_CONTENT">
 
 </div>
 <h3 id="CPAN_Release">CPAN Release</h3>
 <div id="CPAN_Release_CONTENT">
-
-
-
-
-<p><a href="http://search.cpan.org/~kthakore">SDL 2.3_5(Alpha)</a> is on CPAN. The new API has many changes, read the <a href="http://sdl.perl.org/blog-0001.html">release notes</a>. </p>
-<p>SDL Perl is v2.2.6 on CPAN. The last of it's kind. This is the last release which will have the old API. </p>
-
-
-
-
+<p><a href="http://search.cpan.org/~kthakore">SDL 2.4</a> is on CPAN! The new API has many changes and much more improvements. So check it out ;o)</p>
+<p>SDL Perl at v2.2.6 on CPAN is the last of it's kind which will have the old API.</p>
 
 </div>
 <h3 id="Active_Development">Active Development</h3>
@@ -87,33 +81,11 @@
 </div>
 <h3 id="TODO">TODO</h3>
 <div id="TODO_CONTENT">
-<dl>
-	<dt>Release 2.3_7</dt>
-	<dd>
-<pre> Mixer Docs, tests, and XS
+<ul>
+		<li>Sugar for Core SDL objects	</li>
+		<li>Make SDL work with Frozen Bubble</li>
+</ul>
 
-</pre>
-	</dd>
-	<dt>Release 2.3_8</dt>
-	<dd>
-<pre> TTF Docs, tests and XS
-
-</pre>
-	</dd>
-	<dt>Release 2.3_9</dt>
-	<dd>
-<pre> Pango Docs, tests and XS
-
-</pre>
-	</dd>
-	<dt>Release 2.4.5</dt>
-	<dd>
-<pre>  Sugar for Core SDL objects
-  Make SDL work with Frozen Bubble
-
-</pre>
-	</dd>
-</dl>
 
 </div>
 </div>

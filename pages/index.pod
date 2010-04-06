@@ -6,7 +6,9 @@
 
 SDL Perl are a set of bindings to the Simple DirectMedia Library (SDL).
 
-'Simple DirectMedia Layer is a cross-platform multimedia library designed to provide low level access to audio, keyboard, mouse, joystick, 3D hardware via OpenGL, and 2D video framebuffer. It is used by MPEG playback software, emulators, and many popular games, including the award winning Linux port of "Civilization: Call To Power."' --L<www.libsdl.org>
+'Simple DirectMedia Layer is a cross-platform multimedia library designed to provide low level access to audio, keyboard, mouse, joystick, 
+3D hardware via OpenGL, and 2D video framebuffer. It is used by MPEG playback software, emulators, and many popular games, including the 
+award winning Linux port of "Civilization: Call To Power."' --L<www.libsdl.org>
 
 SDL Perl is an active and exciting project with many facets. Explore this website to learn more. 
 
@@ -36,15 +38,13 @@ To begin testing read L<this| http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testin
 
 =head1 Latest News
 
-=head2 Feb 22 2010
+=head2 Apr 06 2010
 
 =head3 CPAN Release
 	
+L<SDL 2.4|http://search.cpan.org/~kthakore> is on CPAN! The new API has many changes and much more improvements. So check it out ;o)
 
-L<SDL 2.3_5(Alpha)|http://search.cpan.org/~kthakore> is on CPAN. The new API has many changes, read the L<release notes|http://sdl.perl.org/blog-0001.html>. 
-
-SDL Perl is v2.2.6 on CPAN. The last of it's kind. This is the last release which will have the old API. 
-
+SDL Perl at v2.2.6 on CPAN is the last of it's kind which will have the old API.
 
 =head3 Active Development
 
@@ -52,24 +52,15 @@ SDL Perl is being actively developed to v3.0. The process is as below:
 
 =head3 TODO
 
-=over
+=over 4
 
-=item Release 2.3_7
+=item *
 
- Mixer Docs, tests, and XS
+Sugar for Core SDL objects
 
-=item Release 2.3_8
+=item *
 
- TTF Docs, tests and XS
-
-=item Release 2.3_9
-
- Pango Docs, tests and XS
-
-=item Release 2.4.5
-  
-  Sugar for Core SDL objects
-  Make SDL work with Frozen Bubble
+Make SDL work with Frozen Bubble
 
 =back
 
