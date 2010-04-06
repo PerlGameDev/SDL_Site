@@ -214,10 +214,12 @@ this tutorial; Save these images in a subdirectory called &quot;images&quot;:
 <div id="USING_SDL_CONTENT">
 <p>First step: use the required libraries:</p>
 <p>&nbsp;</p>
-<pre>    use SDL; #needed to get all constants
-    use SDL::App;
-    use SDL::Surface;
-    use SDL::Rect;
+<pre>	use SDL; #needed to get all constants
+	use SDL::Video;
+	use SDL::App;
+	use SDL::Surface;
+	use SDL::Rect;
+	use SDL::Image;
 
 </pre>
 <p>&nbsp;</p>
@@ -234,44 +236,41 @@ this tutorial; Save these images in a subdirectory called &quot;images&quot;:
 <p>&nbsp;</p>
 <p>Third step: load the images and create the necessary &quot;rectangles&quot;:</p>
 <p>&nbsp;</p>
-<pre>    my $background = SDL::Surface-&gt;new( -name =&gt; 'images/background.jpg', );
-    my $ship       = SDL::Surface-&gt;new( -name =&gt; 'images/ship.png', );
+<pre>	my $background = SDL::Image::load('images/background.jpg');
+	my $ship       = SDL::Image::load('images/ship.jpg');
 
-    my $background_rect = SDL::Rect-&gt;new(
-        -height =&gt; $background-&gt;height(),
-        -width  =&gt; $background-&gt;width(),
-    );
+	my $background_rect = SDL::Rect-&gt;new(0,0,
+	    $background-&gt;w,
+	    $background-&gt;h,
+	);
 
-    my $ship_rect = SDL::Rect-&gt;new(
-        -height =&gt; $ship-&gt;height(),
-        -width  =&gt; $ship-&gt;width(),
-    );
+	my $ship_rect = SDL::Rect-&gt;new(0,0,
+	    $ship-&gt;w,
+	    $ship-&gt;h,
+	);
 
 </pre>
 <p>&nbsp;</p>
 <p>Fourth step: create a sub to draw the spaceship and background:</p>
 <p>&nbsp;</p>
-<pre>    sub draw {
-        my ( $x, $y ) = @_; # spaceship position
+<pre>	sub draw {
+	    my ( $x, $y ) = @_; # spaceship position
 
-        # fix $y for screen resolution
-        $y = 450 * ( 1000 - $y ) / 1000;
+	    # fix $y for screen resolution
+	    $y = 450 * ( 1000 - $y ) / 1000;
 
-        # background
-        $background-&gt;blit( $background_rect, $app, $background_rect );
+	    # background
+	    SDL::Video::blit_surface($background, $background_rect, $app, $background_rect );
 
-        # ship
-        my $ship_dest_rect = SDL::Rect-&gt;new(
-            -height =&gt; $ship-&gt;height(),
-            -width  =&gt; $ship-&gt;width(),
-            -x      =&gt; $x,
-            -y      =&gt; $y,
-        );
+	    # ship
+	    my $ship_dest_rect = SDL::Rect-&gt;new(
+		$x, $y, $ship-&gt;w, $ship-&gt;h,
+	    );
 
-        $ship-&gt;blit( $ship_rect, $app, $ship_dest_rect );
+	    SDL::Video::blit_surface($ship, $ship_rect, $app, $ship_dest_rect );
 
-        $app-&gt;update($background_rect);
-    }
+	    SDL::Video::update_rects($app, $background_rect);
+	}
 
 </pre>
 <p>&nbsp;</p>

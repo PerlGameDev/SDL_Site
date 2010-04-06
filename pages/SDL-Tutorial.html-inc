@@ -106,30 +106,28 @@ them there, then <code>update</code> the <code>$app</code>.</p>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
 <dl>
-	<dt><a href="SDL-Tutorial-Drawing.html">SDL::Tutorial::Drawing</a></dt>
+	<dt><a href="SDL-Animation.html">SDL::Animation</a></dt>
 	<dd>
-		<p>basic drawing with rectangles</p>
+		<p>basic rectangle drawing and animation</p>
 	</dd>
-	<dt><a href="SDL-Tutorial-Animation.html">SDL::Tutorial::Animation</a></dt>
+	<dt><a href="SDL-Tutorial-LunarLander.html">SDL::Tutorial::LunarLander</a></dt>
 	<dd>
-		<p>basic rectangle animation</p>
-	</dd>
-	<dt><a href="SDL-Tutorial-Images.html">SDL::Tutorial::Images</a></dt>
-	<dd>
-		<p>image loading and animation</p>
+		<p>basic image loading and animation</p>
 	</dd>
 </dl>
 
 </div>
 <h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHOR_CONTENT">
-<p>chromatic, &lt;chromatic@wgz.org&gt;.  </p>
+<p>chromatic, &lt;chromatic@wgz.org&gt;. </p>
+<p>nelson ferraz, &lt;nferraz@cpan.org&gt;. </p>
+<p>Updated by kthakore and garu.</p>
 <p>Written for and maintained by the Perl SDL project, <a href="http://sdl.perl.org/">http://sdl.perl.org/</a>.</p>
 
 </div>
 <h1 id="COPYRIGHT">COPYRIGHT</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="COPYRIGHT_CONTENT">
-<p>Copyright (c) 2003 - 2004, chromatic.  All rights reserved.  This module is
+<p>Copyright (c) 2003 - 2004, chromatic. 2009 - 2010, kthakore.  All rights reserved.  This module is
 distributed under the same terms as Perl itself, in the hope that it is useful
 but certainly under no guarantee.
 </p>

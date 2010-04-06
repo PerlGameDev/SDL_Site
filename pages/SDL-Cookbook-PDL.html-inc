@@ -6,7 +6,6 @@
 <ul><li><a href="#CATEGORY">CATEGORY</a></li>
 </ul>
 </li>
-<li><a href="#Old_SDL_interface">Old SDL interface</a></li>
 <li><a href="#Perl_s_SDL_in_a_nutshell">Perl's SDL in a nutshell</a></li>
 <li><a href="#SDL_power_through_simplicity">SDL - power through simplicity</a></li>
 <li><a href="#Example_1_Model_of_a_2_D_Noninteract">Example 1: Model of a 2-D Noninteracting Gas</a>
@@ -49,11 +48,6 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 <p>Cookbook</p>
 
 </div>
-<h1 id="Old_SDL_interface">Old SDL interface</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="Old_SDL_interface_CONTENT">
-<p>Please be aware that much of the code in this example uses SDL Perl v 2.2.4.  The SDL Perl developers are hard at work rewriting SDL, to be released as SDL 3.0 soon.  The new version of SDL is not backwards compatible.  Check back with this page after SDL 3.0 has been released to get the updated commands.</p>
-
-</div>
 <h1 id="Perl_s_SDL_in_a_nutshell">Perl's SDL in a nutshell</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="Perl_s_SDL_in_a_nutshell_CONTENT">
 <p>SDL stands for Simple DirectMedia Layer.  It's a cross-platform library written in C that's meant to handle all of the low-level graphics and sound stuff.  You can read more about SDL here: http://www.libsdl.org/.  Because SDL is focused on game programming, it has a raw but clean feel to it.  We will focus for now on using SDL to handle images for us.  Handling sound may some day be the focus of another chapter.</p>
@@ -73,6 +67,7 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 	use SDL::App;
 	use SDL::Rect;
 	use SDL::Color;
+	use SDL::Video;
 
 	# User defined pen-nib size.
 	my $nib_size = 3;
@@ -87,18 +82,19 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 
 	# our nib will be white
 	my $nib_color = SDL::Color-&gt;new(
-			-r =&gt; 0xff,
-			-g =&gt; 0xff,
-			-b =&gt; 0xff,
+			0xff, #r
+			0xff, #b
+			0xff, #g
 		);
 
 	# and our nib will be represented by a rectangle
 	# (Alternatively, you could use an image, which would allow
 	# for pretty anti-aliasing if you created it in GIMP with
 	# antialiasing)
-	my $nib = SDL::Rect-&gt;new(
-		-height =&gt; $nib_size,
-		-width  =&gt; $nib_size,
+	my $nib = SDL::Rect-&gt;new( 
+	    0 , 0, #x, y
+     	$nib_size, #w
+		$nib_size, #h
 	);
 
 	# now draw a sine wave (wthout covering up previously drawn rectangles)
@@ -108,12 +104,12 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 		$nib-&gt;x( $t * 8 );
 		$nib-&gt;y( sin($t) * 80 + 240 );
 
-		$app-&gt;fill( $nib, $nib_color );
+		SDL::Video::fill_rect($app, $nib, $nib_color );
 	}
 
 	# Generally use the update command, but if you want to update the whole
 	# surface, use flip
-	$app-&gt;flip()
+	SDL::Video::fill_rect($app,)
 
 	sleep 5;
 
@@ -162,18 +158,19 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 	use SDL::App;
 	use SDL::Rect;
 	use SDL::Color;
+	use SDL::Video;
 
 	# Create the SDL App
 	my $app = SDL::App-&gt;new( -width  =&gt; $side_length, -height =&gt; $side_length, 
 					-title  =&gt; &quot;Simple Simulation!&quot;, -depth  =&gt; 16, );
 
 	# white particles on a black background
-	my $particle_color = SDL::Color-&gt;new( -r =&gt; 0xff, -g =&gt; 0xff, -b =&gt; 0xff, );
-	my $bg_color = SDL::Color-&gt;new( -r =&gt; 0x00, -g =&gt; 0x00, -b =&gt; 0x00, );
+	my $particle_color = SDL::Color-&gt;new( 0xff, 0xff, 0xff, );
+	my $bg_color = SDL::Color-&gt;new( 0x00, 0x00, 0x00 );
 
 	# rectangles for the particles and the background
-	my $particle = SDL::Rect-&gt;new( -height =&gt; 5, -width  =&gt; 5, );
-	my $bg = SDL::Rect-&gt;new( -height =&gt; $side_length, -width =&gt; $side_length, );
+	my $particle = SDL::Rect-&gt;new( 0,0, 5, 5);
+	my $bg = SDL::Rect-&gt;new( 0,0,$side_length, $side_length, );
 
 </pre>
 <p>Hopefully this is straightforward code.  We pull in our library dependencies and then create a few objects with the necessary properties.  Finally, we get to the actual application loop:</p>
@@ -183,13 +180,13 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 		compute();
 
 		# Clean the canvas
-		$app-&gt;fill( $bg, $bg_color);
+		SDL::Video::fill_rect($app, $bg, $bg_color);
 		for(my $i = 0; $i &lt; $numb_of_atoms; $i++) {
 			$particle-&gt;x( $positions-&gt;at(0,$i) );
 			$particle-&gt;y( $positions-&gt;at(1,$i) );
-			$app-&gt;fill( $particle, $particle_color );
+			SDL::Video::fill_rect($app, $particle, $particle_color );
 		}
-		$app-&gt;flip();
+		SDL::Video::flip($app);
 		$app-&gt;delay(10);
 	}
 
@@ -246,9 +243,9 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 <pre>	for(my $i = 0; $i &lt; $numb_of_atoms; $i++) {
 		$particle-&gt;x( $positions-&gt;at(0,$i) );
 		$particle-&gt;y( $positions-&gt;at(1,$i) );
-		$particle-&gt;height( $particle_size );
-		$particle-&gt;width( $particle_size );
-		$app-&gt;fill( $particle, $particle_color );
+		$particle-&gt;h( $particle_size );
+		$particle-&gt;w( $particle_size );
+		SDL::Video::fill_rect($app, $particle, $particle_color );
 	}
 
 </pre>
@@ -386,31 +383,32 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 	use SDL::App;
 	use SDL::Rect;
 	use SDL::Color;
+	use SDL::Video;
 
 	# Create the SDL App
 	my $app = SDL::App-&gt;new( -width  =&gt; $side_length, -height =&gt; $side_length, 
 				-title  =&gt; &quot;Simple Simulation!&quot;, -depth  =&gt; 16, );
 
 	# white particles on a black background
-	my $particle_color = SDL::Color-&gt;new( -r =&gt; 0xff, -g =&gt; 0xff, -b =&gt; 0xff, );
-	my $bg_color = SDL::Color-&gt;new( -r =&gt; 0x00, -g =&gt; 0x00, -b =&gt; 0x00, );
+	my $particle_color = SDL::Color-&gt;new( 0xff, 0xff, 0xff, );
+	my $bg_color = SDL::Color-&gt;new( 0x00, 0x00, 0x00 );
 
 	# rectangles for the particles and the background
-	my $particle = SDL::Rect-&gt;new( -height =&gt; 5, -width  =&gt; 5, );
-	my $bg = SDL::Rect-&gt;new( -height =&gt; $side_length, -width =&gt; $side_length, );
+	my $particle = SDL::Rect-&gt;new( 0,0, 5, 5);
+	my $bg = SDL::Rect-&gt;new( 0,0,$side_length, $side_length, );
 
 	# Run the simulation
 	for(my $t = 0; $t &lt; 20; $t += $d_t) {
 		MyCompute::compute();
 
 		# Clean the canvas
-		$app-&gt;fill( $bg, $bg_color);
+		SDL::Video::fill_rect($app, $bg, $bg_color);
 		for(my $i = 0; $i &lt; $numb_of_atoms; $i++) {
 			$particle-&gt;x( $positions-&gt;at(0,$i) );
 			$particle-&gt;y( $positions-&gt;at(1,$i) );
-			$app-&gt;fill( $particle, $particle_color );
+			SDL::Video::fill_rect($app, $particle, $particle_color );
 		}
-		$app-&gt;flip();
+		SDL::Video::flip($app);
 		$app-&gt;delay(10);
 	}
 
@@ -421,7 +419,8 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 <h2 id="Listening_to_Events">Listening to Events</h2>
 <div id="Listening_to_Events_CONTENT">
 <p>To respond to user interactions, we have to listen to user events using an SDL::Event object.  So first, add this line with our other use statements:</p>
-<pre> use SDL::Event;
+<pre> use SDL::Event; 
+	use SDL::Events; 
 
 </pre>
 <p>and then be sure to create an event object amongst the animation initialization code:</p>
@@ -434,14 +433,14 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 		MyCompute::compute();
 
 		# Clean the canvas
-		$app-&gt;fill( $bg, $bg_color);
+		SDL::Video::fill_rect($app, $bg, $bg_color);
 		for(my $i = 0; $i &lt; $numb_of_atoms; $i++) {
 			$particle-&gt;x( $positions-&gt;at(0,$i) );
 			$particle-&gt;y( $positions-&gt;at(1,$i) );
-			$app-&gt;fill( $particle, $particle_col10);
+			SDL::Video::fill_rect($app, $particle, $particle_col10);
 
-		while($event-&gt;poll()) {
-			if($event-&gt;type() =head1  SDL_QUIT) {
+		while(SDL::Events::poll_event($event) ) {
+			if($event-&gt;type() ==  SDL_QUIT) {
 				exit;
 			}
 		}
@@ -467,14 +466,14 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 
 	sub incr_particle_size {
 		$particle_size++;
-		$particle-&gt;height($particle_size);
-		$particle-&gt;width($particle_size);
+		$particle-&gt;h($particle_size);
+		$particle-&gt;w($particle_size);
 	}
 
 	sub decr_particle_size {
 		$particle_size-- if $particle_size &gt; 1;
-		$particle-&gt;height($particle_size);
-		$particle-&gt;width($particle_size);
+		$particle-&gt;h($particle_size);
+		$particle-&gt;w($particle_size);
 	}
 
 
@@ -485,21 +484,21 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 		MyCompute::compute();
 
 		# Clean the canvas
-		$app-&gt;fill( $bg, $bg_color);
+		SDL::Video::fill_rect($app, $bg, $bg_color);
 		for(my $i = 0; $i &lt; $numb_of_atoms; $i++) {
 			$particle-&gt;x( $positions-&gt;at(0,$i) );
 			$particle-&gt;y( $positions-&gt;at(1,$i) );
-			$app-&gt;fill( $particle, $particle_color );
+			SDL::Video::fill_rect($app, $particle, $particle_color );
 		}
-		$app-&gt;flip();
+		SDL::Video::flip($app);
 		$app-&gt;delay(10);
 
-		while($event-&gt;poll()) {
-			if($event-&gt;type() =head1  SDL_QUIT) {
+		while(SDL::Events::poll_event($event) ) {
+			if($event-&gt;type() ==  SDL_QUIT) {
 				exit;
-			} elsif($event-&gt;type() =head1  SDL_KEYDOWN) {
-				if(exists $keyname_dispatch_table-&gt;{$event-&gt;key_name()}) {
-					$keyname_dispatch_table-&gt;{$event-&gt;key_name()}-&gt;();
+			} elsif($event-&gt;type() ==  SDL_QUIT) {
+				if(exists $keyname_dispatch_table-&gt;{$event-&gt;keysym_name()}) {
+					$keyname_dispatch_table-&gt;{$event-&gt;keysym_name()}-&gt;();
 				}
 			}
 		}
@@ -563,22 +562,24 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 	use SDL::App;
 	use SDL::Rect;
 	use SDL::Color;
-	use SDL::Event;
+	use SDL::Video;
+	use SDL::Event;  
+	use SDL::Events; 
 
 	# Create the SDL App
 	my $app = SDL::App-&gt;new( -width  =&gt; $side_length, -height =&gt; $side_length, 
 				-title  =&gt; &quot;Simple Simulation!&quot;, -depth  =&gt; 16, );
 
 	# white particles on a black background
-	my $particle_color = SDL::Color-&gt;new( -r =&gt; 0xff, -g =&gt; 0xff, -b =&gt; 0xff, );
-	my $bg_color = SDL::Color-&gt;new( -r =&gt; 0x00, -g =&gt; 0x00, -b =&gt; 0x00, );
+	my $particle_color = SDL::Color-&gt;new( 0xff, 0xff, 0xff, );
+	my $bg_color = SDL::Color-&gt;new( 0x00, 0x00, 0x00 );
 
 	# rectangles for the particles and the background
-	my $particle = SDL::Rect-&gt;new( -height =&gt; 5, -width  =&gt; 5, );
-	my $bg = SDL::Rect-&gt;new( -height =&gt; $side_length, -width =&gt; $side_length, );
+	my $particle = SDL::Rect-&gt;new( 0,0, 5, 5);
+	my $bg = SDL::Rect-&gt;new( 0,0,$side_length, $side_length, );
 
 	# event listener
-	my $event = new SDL::Event;
+	my $event = new SDL::Event-&gt;new();
 
 	# event dispatch table
 	my $keyname_dispatch_table = {
@@ -592,14 +593,14 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 
 	sub incr_particle_size {
 		$particle_size++;
-		$particle-&gt;height($particle_size);
-		$particle-&gt;width($particle_size);
+		$particle-&gt;h($particle_size);
+		$particle-&gt;w($particle_size);
 	}
 
 	sub decr_particle_size {
 		$particle_size-- if $particle_size &gt; 1;
-		$particle-&gt;height($particle_size);
-		$particle-&gt;width($particle_size);
+		$particle-&gt;h($particle_size);
+		$particle-&gt;w($particle_size);
 	}
 
 
@@ -610,21 +611,21 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 		MyCompute::compute();
 
 		# Clean the canvas
-		$app-&gt;fill( $bg, $bg_color);
+		SDL::Video::fill_rect($app, $bg, $bg_color);
 		for(my $i = 0; $i &lt; $numb_of_atoms; $i++) {
 			$particle-&gt;x( $positions-&gt;at(0,$i) );
 			$particle-&gt;y( $positions-&gt;at(1,$i) );
-			$app-&gt;fill( $particle, $particle_color );
+			SDL::Video::fill_rect($app, $particle, $particle_color );
 		}
-		$app-&gt;flip();
+		SDL::Video::flip($app);
 		$app-&gt;delay(10);
 
-		while($event-&gt;poll()) {
-			if($event-&gt;type() =head1  SDL_QUIT) {
+		while(SDL::Events::poll_event($event) ) {
+			if($event-&gt;type() ==  SDL_QUIT) {
 				exit;
-			} elsif($event-&gt;type() =head1  SDL_KEYDOWN) {
-				if(exists $keyname_dispatch_table-&gt;{$event-&gt;key_name()}) {
-					$keyname_dispatch_table-&gt;{$event-&gt;key_name()}-&gt;();
+			} elsif($event-&gt;type() ==  SDL_QUIT) {
+				if(exists $keyname_dispatch_table-&gt;{$event-&gt;keysym_name()}) {
+					$keyname_dispatch_table-&gt;{$event-&gt;keysym_name()}-&gt;();
 				}
 			}
 		}

@@ -69,9 +69,9 @@ representing the whole of the background surface and a new SDL::Color
 	{
 		my ($app, %args) = @_;
 
-		$app-&gt;fill( $args{ bg }, $args{ bg_color } );
-		$app-&gt;fill( $args{rect}, $args{rect_color} );
-		$app-&gt;update( $args{bg} );
+		SDL::Video::fill_rect($app,  $args{bg},   $args{bg_color}   );
+		SDL::Video::fill_rect($app, $args{rect}, $args{rect_color} );
+		SDL::Video::update_rects($app, $args{bg} );
 	}
 
 </pre>
@@ -118,9 +118,10 @@ figure out the rectangle of the correct size to <code>update()</code>.  No thank
 	{
 		my ($app, %args) = @_;
 
-		$app-&gt;fill(   $args{old_rect}, $args{bg_color}   );
-		$app-&gt;fill(   $args{rect],     $args{rect_color} );
-		$app-&gt;update( $args{old_rect}, $args{rect}       );
+		SDL::Video::fill_rect($app, $args{old_rect}, $args{bg_color}   );
+		SDL::Video::fill_rect($app,  $args{rect},     $args{rect_color} );
+		SDL::Video::update_rects($app, $args{old_rect} );
+		SDL::Video::update_rects($app, $args{rect} );
 	}
 
 </pre>
@@ -169,6 +170,7 @@ them soon.</p>
 <h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHOR_CONTENT">
 <p>chromatic, &lt;chromatic@wgz.org&gt;</p>
+<p>updated by kthakore, &lt;kthakore@cpan.org&gt;</p>
 <p>Written for and maintained by the Perl SDL project, <a href="http://sdl.perl.org/">http://sdl.perl.org/</a>.</p>
 
 </div>
