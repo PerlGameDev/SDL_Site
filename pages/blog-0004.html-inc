@@ -1,23 +1,25 @@
 <div class="blog">
 <h1 id="NAME">
-Threaded XS callback finally gets solved.
+Eye Candy
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i><br />
-Dragged down from the lofty isles,<br />
-into the guts and gore of the monster,<br />
-a welcoming cringe in the gut approaches. <br />
+<i style="text-align: right;"><br />
+<b>clang </b><br />
+With each imperfect hit <br />
+a legendary blade forms<br />
 </i><br />
-</div><br />
 <br />
-So I was planning staying silent until an exam I had was done. But new developers on IRC (j_king, felix and ruoso) pull me back in. Which is a good thing ... I suppose ... because we finally have threaded callbacks for timer and audiospec to work. ruoso++ for this major contribution. If you remember this was the <a href="http://stackoverflow.com/questions/1791114/creating-threaded-callbacks-in-xs">problem</a> we were having. <br />
 <br />
-The new callbacks capability in audiospec allow you to procedurally generate sound now. If you would like a simple example take a look at <a href="http://github.com/kthakore/SDL_perl/blob/redesign/t/core_audiospec.t"> t/core_audiospec.t</a>. However a more fun example may be ruoso++'s <a href="http://github.com/ruoso/tecla">tecla</a> (a game for toddlers).  Myself and Garu think it is a work of art but that is only because we are toddlers. <br />
+In prep for the TPM meeting we have been working hard to release a new version of SDL Perl and Alien::SDL. After a lot of feed back from testers (Mike Stok, Stuart Watt, and Chas Owens), we where able to get a working version on 64bit and Mac. The releases will be out tomorrow but here <br />
+is some eye candy to tide you guys over.<br />
 <br />
-On a side note some tickets on RT have also received some love ( after 3 or 4 years ... but nonetheless). TonyC++ sorry for the long time in response. <br />
 <br />
-More information on the <a href="http://github.com/kthakore/SDL_perl/blob/redesign/CHANGELOG">CHANGELOG</a>. <br />
+This is shooter.pl finally working in MacOSX and 64 bit.<br />
 <br />
-Also a shout out to FROGGS for his new SON!!!.  Congrats buddy!<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-6642671796628033537?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/tCttmYltlTls5VMK61L-TEYAkA4/0/da"><img src="http://feedads.g.doubleclick.net/~a/tCttmYltlTls5VMK61L-TEYAkA4/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/tCttmYltlTls5VMK61L-TEYAkA4/1/da"><img src="http://feedads.g.doubleclick.net/~a/tCttmYltlTls5VMK61L-TEYAkA4/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/AQmkpsuSquI" height="1" width="1"/></div></div>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://i.imgur.com/NQ55t.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="200" src="http://i.imgur.com/NQ55t.png" width="320" /></a></div><br />
+<br />
+k23z_ mentioned I should get some more SDL_perl videos out to attract some devs. So here goes.  <br />
+<br />
+<a href="http://vimeo.com/9689482">Walking Guy</a> from <a href="http://vimeo.com/user3244181">SDLPerl</a> on <a href="http://vimeo.com/">Vimeo</a>.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-7753290048735163114?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/95lvKL6nWJpyXT29j0YtmTQdS9U/0/da"><img src="http://feedads.g.doubleclick.net/~a/95lvKL6nWJpyXT29j0YtmTQdS9U/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/95lvKL6nWJpyXT29j0YtmTQdS9U/1/da"><img src="http://feedads.g.doubleclick.net/~a/95lvKL6nWJpyXT29j0YtmTQdS9U/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/VTMRrJo4GkA" height="1" width="1"/></div></div>

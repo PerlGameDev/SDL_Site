@@ -1,17 +1,14 @@
 <div class="blog">
 <h1 id="NAME">
-SDL Perl Documentation: Reviewers need
+SDL_perl 2.3_5 is out!
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i><br />
-The written word, <br />
-survives; <br />
-the tests of Time,<br />
-the fires of Hades,<br />
-and wrath of Pluto.<br />
-</i><br />
+<div style="text-align: right;"><i>We keep on rolling,<br />
+rolling,<br />
+waiting on the world to turn.</i><br />
 </div><br />
-<h1>Documentation </h1><p>In an effort to learn from past versions of SDL Perl and improve. We have been writing lots of documentation for our users. Of course since this is the first time we have been providing documentation we need your help. Please review our docs, at <a href="http://sdl.perl.org/documentation.html">sdl.perl.org</a> and give us some feed back. Send us the feeback at sdl-devel@mail.org or join us at #sdl irc.perl.org</p><br />
-<i>--yapgh</i><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-1574568821593098925?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/VvEuEQbih1n042j8cAGxEVAiawg/0/da"><img src="http://feedads.g.doubleclick.net/~a/VvEuEQbih1n042j8cAGxEVAiawg/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/VvEuEQbih1n042j8cAGxEVAiawg/1/da"><img src="http://feedads.g.doubleclick.net/~a/VvEuEQbih1n042j8cAGxEVAiawg/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/PAyq7Lab9no" height="1" width="1"/></div></div>
+So a new alpha is out on <a href="http://search.cpan.org/~kthakore/SDL-2.3_5/">CPAN</a>, after a bit of a break. We are trying to pick up our speed again. Hopefully we can get back to the weekly updates. This week I am going to try to get Mixer and TTF bindings test, redesigned and doc'd. Hopefully soon we can start working on Frozen Bubble, as things are starting to come together. This alpha release has finally given us a good implementation of SDL Timers. Also <a href="http://daniel.ruoso.com/categoria/perl/games-perl-1">Daniel Ruoso</a> has also started a series blog posts of making games with SDL Perl. Hopefully this can get more people in SDL, cause we can sure use the help!<br />
+<br />
+<i>More to come --yapgh</i><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-896792692004201189?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/0/da"><img src="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/1/da"><img src="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/EOF919S-yGg" height="1" width="1"/></div></div>

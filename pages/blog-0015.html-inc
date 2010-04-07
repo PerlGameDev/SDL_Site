@@ -1,34 +1,19 @@
 <div class="blog">
 <h1 id="NAME">
-Why and How Frozen Bubble is going to CPAN
+Development Update
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>A single drop,</i><br />
-</div><div style="text-align: right;"><i>causes the ocean to swell</i><br />
-</div><div style="text-align: left;"><br />
-</div><div style="text-align: left;">So 5 weeks ago, SDL Perl was broken. It had been for several years. After the last release SDL Perl works ... somewhat. The quick releases that you have seen have been work-arounds, fixes and refactoring. This is not bad for a few weeks of work but, there is a point where code smell and technical debt is too huge to fix with out redesigning. This is that point.<br />
-</div><div style="text-align: left;"><br />
-</div><div style="text-align: left;">Since the redesigning will take time and effort it will be good to have a leg up. This leg up is Frozen Bubble 2.20. Frozen Bubble employs a lot of C and Perl hacks to cover up for SDL Perl's lacking. This will help in a sense fast forward the code status to 2008. Since Frozen Bubble is helping us out, we can go one step forward and help it out! <br />
-</div><div style="text-align: left;"><br />
-</div><div style="text-align: left;">So Alias (Adam Kennedy) and I have started work on making Frozen Bubble CPAN accessible. Frozen Bubble is a well know game and making it cross-platform will bring lots of attention and hopefully contributions to SDL Perl.<br />
-</div><div style="text-align: left;"><br />
-</div><div style="text-align: left;">In Alias's <a href="http://use.perl.org/%7EAlias/journal/39701">earlier post</a> about this he mentioned about making a splash and some other stuff. I will talk about how and where we will be accomplishing this task. <br />
-</div><div style="text-align: left;"><br />
-</div><div style="text-align: left;">First we will be tracking Frozen Bubble on the new <a href="http://sdlperl.ath.cx/projects/SDLPerl/wiki">SDL Perl Trac website</a>. This site will be similar to Padre's Trac site. As a bonus for people looking to help out in SDL Perl I have separated tasks by <i>perceived </i>difficulty. This will help to breakdown harder task too.<br />
-</div><div style="text-align: left;"><br />
-</div><div style="text-align: left;">For example for Frozen Bubble the two major bumps we have run into so far are:<br />
-</div><div style="text-align: left;"><br />
-</div><div style="text-align: left;">Migrating the SDL Perl workarounds: <a href="http://sdlperl.ath.cx/projects/SDLPerl/ticket/3">Ticket #3</a><br />
-</div><div style="text-align: left;">Making the Build System Portable: <a href="http://sdlperl.ath.cx/projects/SDLPerl/ticket/7">Ticket #7</a><br />
-</div><div style="text-align: left;"><br />
-</div><div style="text-align: left;">The first one will be difficult as it involves XS. So I will break it down into easier tasks with specific instruction which can then hopefully be picked up by interested contributers. The second one there is sort of a forte of Adam so I will leave it up to him. This is the process I am proposing make hard tickets, break them down.<br />
-</div><div style="text-align: left;"><br />
-</div><div style="text-align: left;">This will generate a lot of easy tickets that will hopefully be synchronized.&nbsp; If you are interested in this please give me a shout on #sdl irc.perl.org or the mailing list at sdl-devel@perl.org and I will get you registered.<br />
-</div><div style="text-align: left;"><br />
-</div><div style="text-align: left;">--yapgh<br />
-</div><div style="text-align: left;"><br />
-</div><div style="text-align: left;"><br />
-</div><div style="text-align: left;"><br />
-</div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-1296050942449452224?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/jPyY3iooiTlYdpCXSBfDyyNO-1c/0/da"><img src="http://feedads.g.doubleclick.net/~a/jPyY3iooiTlYdpCXSBfDyyNO-1c/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/jPyY3iooiTlYdpCXSBfDyyNO-1c/1/da"><img src="http://feedads.g.doubleclick.net/~a/jPyY3iooiTlYdpCXSBfDyyNO-1c/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/oXhO0UG4Xwc" height="1" width="1"/></div></div>
+<div style="text-align: right;"><i>Short and Sweet</i><br />
+</div><br />
+Had an exam on the weekend so I am a bit late. Here is the progress so far. <br />
+<ul><li> SDL::Video at 97% </li>
+<li> SDL::Events at 25% </li>
+<li> ~1000 tests cases passing on Windows and Linux </li>
+</ul><br />
+<a href="http://sdlperl.ath.cx:8080/app/public_graphs/start/1"><img alt="SDL Smoke tests" src="http://sdlperl.ath.cx:8080/app/public_graphs/image/1" /> </a><br />
+<br />
+The major release maybe coming quicker than we thought. FROGGS++ for helping a lot out on this. However we need <b>more testers!!</b> Please contact us on <a href="http://widget.mibbit.com/?settings=89f140215d60860684cee2f6a917607f&amp;server=irc.perl.org&amp;channel=%23sdl">#sdl</a> and we will set you up with an account on <a href="http://sdlperl.ath.cx:8080/">Smolder</a>.<br />
+<br />
+[Edit] Please read http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testing on how to get started in test!<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4856093544888768121?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/0/da"><img src="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/1/da"><img src="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/Oj7yQkxCPjs" height="1" width="1"/></div></div>

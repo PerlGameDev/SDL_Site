@@ -1,20 +1,40 @@
 <div class="blog">
 <h1 id="NAME">
-Newbie Friendly Perl Projects
+Design of SDL::Rect
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>A seed needs soft soil and water to grow</i></div><div style="text-align: right;"></div>This is a reply to <a href="http://szabgab.com/blog/2009/09/1251862435.html">szabgab's</a> post on how to get newbies interested in Perl modules. Being a newbie in Perl myself I thought I should take a shot.<br />
+<div style="text-align: right;"><i><br />
+you say things,<br />
+I hear,<br />
+but don't listen,<br />
 <br />
-I was thinking you can make projects more accessible to newbies by having a step by step plan included with where they need to look. For example for docs of SDL_perl:<br />
-<ol><li>Look at SDL docs [<a href="http://www.libsdl.org/cgi/docwiki.cgi/SDL_API_by_name">link</a>]</li>
-<li>See where SDL_perl is using the same functions [<a href="http://cpansearch.perl.org/src/KTHAKORE/SDL_Perl-v2.2.2.11/src/SDL.xs">link</a>] and the docs to this file [<a href="http://cpansearch.perl.org/src/KTHAKORE/SDL_Perl-v2.2.2.11/lib/SDL.pm">link</a>]</li>
-<li>Use the pod format to add it to the source [<a href="http://perldoc.perl.org/perlpod.html">link to using pod</a>]</li>
-<li>{BONUS} Come up with tutorial or cookbook [<a href="http://search.cpan.org/%7Edrolsky/Moose-0.89/lib/Moose/Cookbook.pod">link to example</a>]</li>
-<li>Submit code to github [<a href="http://github.com/guides/home">link</a>] or email them to me [<a href="mailto:kthakore@cpan.org">link</a>]<br />
-</li>
-</ol><br />
-Basically assume nothing is known. I know this may seem demeaning but I am a newbie to Perl and sometimes I hate looking for crust (docs). I call it crust because a crust is useful for me to eat a pizza slice, but it has no flavor .<br />
+you show things,<br />
+I see,<br />
+but don't understand,<br />
 <br />
-<i>--yapgh </i><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-581981098917545448?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/yfbvYHPwJPYtzg2K3vTu0J_GV2Q/0/da"><img src="http://feedads.g.doubleclick.net/~a/yfbvYHPwJPYtzg2K3vTu0J_GV2Q/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/yfbvYHPwJPYtzg2K3vTu0J_GV2Q/1/da"><img src="http://feedads.g.doubleclick.net/~a/yfbvYHPwJPYtzg2K3vTu0J_GV2Q/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/L_py_7lrbl0" height="1" width="1"/></div></div>
+you write things,<br />
+I read,<br />
+but don't know.<br />
+</i></div><br />
+Lately we have been working on cleaning up the XS name spaces of SDL perl. After some bumps and falls we came up with a separated Rect module. Rect is one of the most simple C struct as shown below. <br />
+<br />
+<script src="http://gist.github.com/185940.js">
+</script><br />
+<br />
+Using the awesome <a href="http://cpansearch.perl.org/src/DMR/CookBookB-19960430/perlobject.map">perlobject.map</a> as a reference I was able to create a <a href="http://github.com/kthakore/SDL_perl/blob/a1b835c168ec184abc01edbc01862ffa15624c26/lib/SDL/Rect.pm">blessed perl</a> object in <a href="http://github.com/kthakore/SDL_perl/blob/a1b835c168ec184abc01edbc01862ffa15624c26/src/Rect.xs">XS</a>. So now SDL::Rect-&gt;new(...) gave us a blessed reference ready to go. And as an icing it would destroy itself properly no matter where it was used. But once I brought it into our existing code base, garu pointed out the extending it was a little bit of a mess. So far to extend Rect we have to something like below. Any comment or advice would be much appreciated.<br />
+<br />
+<br />
+<script src="http://gist.github.com/185938.js">
+</script><br />
+<br />
+<br />
+Have at it I am a big boy. You can grab the code like this.<br />
+Only If you don't already have a local git repo:<br />
+<br />
+<blockquote>mkdir SDL<br />
+cd SDL<br />
+git init .</blockquote><br />
+Then do this or skip to this if you already have a local git repo<br />
+<blockquote>git pull git://github.com/kthakore/SDL_perl.git experimental</blockquote><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-3340771783563950133?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/KEhhydXQVOQIR77sDEUjV6-zh0M/0/da"><img src="http://feedads.g.doubleclick.net/~a/KEhhydXQVOQIR77sDEUjV6-zh0M/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/KEhhydXQVOQIR77sDEUjV6-zh0M/1/da"><img src="http://feedads.g.doubleclick.net/~a/KEhhydXQVOQIR77sDEUjV6-zh0M/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/6i-HmfODM5o" height="1" width="1"/></div></div>

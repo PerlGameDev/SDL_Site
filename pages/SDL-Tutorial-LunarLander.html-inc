@@ -28,7 +28,7 @@
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>Lunar Lander - a small tutorial on Perl SDL</p>
+<p>SDL::Tutorial::LunarLander - a small tutorial on Perl SDL</p>
 
 </div>
 <h2 id="CATEGORY">CATEGORY</h2>
@@ -47,12 +47,22 @@ lines of code, or less.</p>
 <h3 id="CREATING_A_DEMO">CREATING A DEMO</h3>
 <div id="CREATING_A_DEMO_CONTENT">
 <p>You can see the final version of the demo code by doing:</p>
-<p>&nbsp;</p>
-<pre>   perl -MSDL::Tutorial::LunarLander=lander.pl -e1
+<pre>
+
+
+
+
+
+   perl -MSDL::Tutorial::LunarLander=lander.pl -e1
+
+
+
+
+
+
 
 </pre>
-<p>&nbsp;</p>
-<p>this will create all three files used in the tutorial:</p>
+<p>this will create all three files used in the tutorial.</p>
 
 
 
@@ -69,8 +79,13 @@ later. We must build the game logic first!</p>
 If we start with a simpler simulation, we can worry with the presentation
 later.</p>
 <p>So, here's the initial code:</p>
-<p>&nbsp;</p>
-<pre>    #!/usr/bin/perl
+<pre>
+
+
+
+
+
+    #!/usr/bin/perl
 
     use strict;
     use warnings;
@@ -95,11 +110,21 @@ later.</p>
         print &quot;You landed on the surface safely! :-D\n&quot;;
     }
 
+
+
+
+
+
+
 </pre>
-<p>&nbsp;</p>
 <p>Run the code and you'll see something like this:</p>
-<p>&nbsp;</p>
-<pre>    at 0 s height = 1000 m, velocity = 0 m/s
+<pre>
+
+
+
+
+
+    at 0 s height = 1000 m, velocity = 0 m/s
     at 1 s height = 1000 m, velocity = 1 m/s
     at 2 s height = 999 m, velocity = 2 m/s
     at 3 s height = 997 m, velocity = 3 m/s
@@ -112,8 +137,13 @@ later.</p>
 
     CRASH!!!
 
+
+
+
+
+
+
 </pre>
-<p>&nbsp;</p>
 <p>&quot;What happened? How do I control the ship???&quot;</p>
 
 </div>
@@ -125,34 +155,69 @@ could write some code to handle keyboard and joysticks now, but
 an scriptable spaceship will be easier to start. Remember, focus
 on the game logic!)</p>
 <p>So, create add this simple script to the end of your file:</p>
-<p>&nbsp;</p>
-<pre>    __DATA__
+<pre>
+
+
+
+
+
+    __DATA__
     at 41s, accelerate 10 m/s^2 up
     at 43s, 10 m/s^2
     at 45s, 10
     at 47s, 10
     at 49s, 10
 
+
+
+
+
+
+
 </pre>
-<p>&nbsp;</p>
 <p>The script is straightforward: it simply states a time when we
 will push the spaceship up with a given acceleration. It accepts
 free text: any two numbers you type will work.</p>
 <p>We can parse the script using this regular expression:</p>
-<p>&nbsp;</p>
-<pre>    my $script_re = qr/(\d+) \D+ (\d+)/x;
+<pre>
+
+
+
+
+
+    my $script_re = qr/(\d+) \D+ (\d+)/x;
+
+
+
+
+
+
 
 </pre>
-<p>&nbsp;</p>
 <p>And we can build a hash of ( time =&gt; acceleration ) with:</p>
-<p>&nbsp;</p>
-<pre>    my %up = map { $_ =~ $script_re } &lt;DATA&gt;;
+<pre>
+
+
+
+
+
+    my %up = map { $_ =~ $script_re } &lt;DATA&gt;;
+
+
+
+
+
+
 
 </pre>
-<p>&nbsp;</p>
 <p>So the middle section of the program will become:</p>
-<p>&nbsp;</p>
-<pre>    my $script_re = qr/(\d+) \D+ (\d+)/x;
+<pre>
+
+
+
+
+
+    my $script_re = qr/(\d+) \D+ (\d+)/x;
     my %up = map { $_ =~ $script_re } &lt;DATA&gt;;
 
     while ( $height &gt; 0 ) {
@@ -169,12 +234,22 @@ free text: any two numbers you type will work.</p>
         $t        = $t + 1;
     }
 
+
+
+
+
+
+
 </pre>
-<p>&nbsp;</p>
 <p>That's it!</p>
 <p>Try to run the program, and the ship should land safely:</p>
-<p>&nbsp;</p>
-<pre>    ./lunar.pl autopilot.txt 
+<pre>
+
+
+
+
+
+    ./lunar.pl autopilot.txt 
     at 0 s height = 1000 m, velocity = 0 m/s
     at 1 s height = 1000 m, velocity = 1 m/s
     at 2 s height = 999 m, velocity = 2 m/s
@@ -189,8 +264,13 @@ free text: any two numbers you type will work.</p>
 
     You landed on the surface safely! :-D
 
+
+
+
+
+
+
 </pre>
-<p>&nbsp;</p>
 <p>Cool, but...</p>
 
 </div>
@@ -213,30 +293,55 @@ this tutorial; Save these images in a subdirectory called &quot;images&quot;:
 <h2 id="USING_SDL">USING SDL</h2>
 <div id="USING_SDL_CONTENT">
 <p>First step: use the required libraries:</p>
-<p>&nbsp;</p>
-<pre>	use SDL; #needed to get all constants
+<pre>
+
+
+
+
+
+	use SDL; #needed to get all constants
 	use SDL::Video;
 	use SDL::App;
 	use SDL::Surface;
 	use SDL::Rect;
 	use SDL::Image;
 
+
+
+
+
+
+
 </pre>
-<p>&nbsp;</p>
 <p>Second step: initialize <code>SDL::App</code>:</p>
-<p>&nbsp;</p>
-<pre>    my $app = SDL::App-&gt;new(
+<pre>
+
+
+
+
+
+    my $app = SDL::App-&gt;new(
         -title  =&gt; &quot;Lunar Lander&quot;,
         -width  =&gt; 800,
         -height =&gt; 600,
         -depth  =&gt; 32,
     );
 
+
+
+
+
+
+
 </pre>
-<p>&nbsp;</p>
 <p>Third step: load the images and create the necessary &quot;rectangles&quot;:</p>
-<p>&nbsp;</p>
-<pre>	my $background = SDL::Image::load('images/background.jpg');
+<pre>
+
+
+
+
+
+	my $background = SDL::Image::load('images/background.jpg');
 	my $ship       = SDL::Image::load('images/ship.jpg');
 
 	my $background_rect = SDL::Rect-&gt;new(0,0,
@@ -249,11 +354,21 @@ this tutorial; Save these images in a subdirectory called &quot;images&quot;:
 	    $ship-&gt;h,
 	);
 
+
+
+
+
+
+
 </pre>
-<p>&nbsp;</p>
 <p>Fourth step: create a sub to draw the spaceship and background:</p>
-<p>&nbsp;</p>
-<pre>	sub draw {
+<pre>
+
+
+
+
+
+	sub draw {
 	    my ( $x, $y ) = @_; # spaceship position
 
 	    # fix $y for screen resolution
@@ -272,8 +387,13 @@ this tutorial; Save these images in a subdirectory called &quot;images&quot;:
 	    SDL::Video::update_rects($app, $background_rect);
 	}
 
+
+
+
+
+
+
 </pre>
-<p>&nbsp;</p>
 <p>Note that this sub first combines all the bitmaps, using a blit
 (&quot;Block Image Transfer&quot;) operation -- which is quite fast, but does
 not update the display.</p>
@@ -283,8 +403,13 @@ between cycles (&quot;flickering&quot;).</p>
 <p>Finally, add the following lines to the end of the main loop, so that
 we call the <code>draw()</code> function with the correct spaceship
 coordinates:</p>
-<p>&nbsp;</p>
-<pre>    while ( $height &gt; 0 ) {
+<pre>
+
+
+
+
+
+    while ( $height &gt; 0 ) {
 
         # ...
 
@@ -292,8 +417,13 @@ coordinates:</p>
         $app-&gt;delay(10);
     }
 
+
+
+
+
+
+
 </pre>
-<p>&nbsp;</p>
 <p>That's it!</p>
 <p>Run the program and watch the spaceship landing safely on the surface
 of the moon.</p>

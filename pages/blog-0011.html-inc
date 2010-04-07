@@ -1,19 +1,17 @@
 <div class="blog">
 <h1 id="NAME">
-Development Update
+SDL Perl Documentation: Reviewers need
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>Short and Sweet</i><br />
+<div style="text-align: right;"><i><br />
+The written word, <br />
+survives; <br />
+the tests of Time,<br />
+the fires of Hades,<br />
+and wrath of Pluto.<br />
+</i><br />
 </div><br />
-Had an exam on the weekend so I am a bit late. Here is the progress so far. <br />
-<ul><li> SDL::Video at 97% </li>
-<li> SDL::Events at 25% </li>
-<li> ~1000 tests cases passing on Windows and Linux </li>
-</ul><br />
-<a href="http://sdlperl.ath.cx:8080/app/public_graphs/start/1"><img alt="SDL Smoke tests" src="http://sdlperl.ath.cx:8080/app/public_graphs/image/1" /> </a><br />
-<br />
-The major release maybe coming quicker than we thought. FROGGS++ for helping a lot out on this. However we need <b>more testers!!</b> Please contact us on <a href="http://widget.mibbit.com/?settings=89f140215d60860684cee2f6a917607f&amp;server=irc.perl.org&amp;channel=%23sdl">#sdl</a> and we will set you up with an account on <a href="http://sdlperl.ath.cx:8080/">Smolder</a>.<br />
-<br />
-[Edit] Please read http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testing on how to get started in test!<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4856093544888768121?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/0/da"><img src="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/1/da"><img src="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/Oj7yQkxCPjs" height="1" width="1"/></div></div>
+<h1>Documentation </h1><p>In an effort to learn from past versions of SDL Perl and improve. We have been writing lots of documentation for our users. Of course since this is the first time we have been providing documentation we need your help. Please review our docs, at <a href="http://sdl.perl.org/documentation.html">sdl.perl.org</a> and give us some feed back. Send us the feeback at sdl-devel@mail.org or join us at #sdl irc.perl.org</p><br />
+<i>--yapgh</i><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-1574568821593098925?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/VvEuEQbih1n042j8cAGxEVAiawg/0/da"><img src="http://feedads.g.doubleclick.net/~a/VvEuEQbih1n042j8cAGxEVAiawg/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/VvEuEQbih1n042j8cAGxEVAiawg/1/da"><img src="http://feedads.g.doubleclick.net/~a/VvEuEQbih1n042j8cAGxEVAiawg/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/PAyq7Lab9no" height="1" width="1"/></div></div>
