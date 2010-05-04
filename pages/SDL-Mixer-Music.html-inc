@@ -244,7 +244,9 @@ Passing zero is similar to rewinding the song. </p>
 		<p>Jumps to position seconds from the current position in the stream.
 So you may want to call <a href="/SDL-Mixer-Music.html#rewind_music">SDL::Mixer::Music::rewind_music</a> before this.
 Does not go in reverse... negative values do nothing. </p>
-		<p>Returns: <code>0</code> on success, or <code>-1</code> if the codec doesn't support this function. </p>
+	</dd>
+</dl>
+<p>Returns: <code>0</code> on success, or <code>-1</code> if the codec doesn't support this function. </p>
 
 </div>
 <h2 id="paused_music">paused_music</h2>
@@ -252,7 +254,7 @@ Does not go in reverse... negative values do nothing. </p>
 <pre> my $paused = SDL::Mixer::Music::paused_music();
 
 </pre>
-		<p>Returns <code>1</code> if the music is paused, otherwise <code>0</code>.</p>
+<p>Returns <code>1</code> if the music is paused, otherwise <code>0</code>.</p>
 
 </div>
 <h2 id="playing_music">playing_music</h2>
@@ -260,12 +262,12 @@ Does not go in reverse... negative values do nothing. </p>
 <pre> my $playing_music = SDL::Mixer::Music::playing_music();
 
 </pre>
-		<p>Returns <code>1</code> if the music is playing sound, otherwise <code>0</code>. It does'nt check if the music is paused.</p>
+<p>Returns <code>1</code> if the music is playing sound, otherwise <code>0</code>. It does'nt check if the music is paused.</p>
 
 </div>
 <h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHOR_CONTENT">
-		<p>Tobias Leich [FROGGS]</p>
+<p>Tobias Leich [FROGGS]</p>
 
 </div>
 </div>

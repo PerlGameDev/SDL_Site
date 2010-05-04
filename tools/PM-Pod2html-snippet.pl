@@ -7,7 +7,7 @@ use Pod::Xhtml;
 use File::Copy;
 use File::Spec::Functions qw(rel2abs splitpath splitdir catpath catdir catfile canonpath);
 
-my $input_path      = 'C:/SDL_perl/lib/pods';
+my $input_path      = 'D:/dev/SDL_perl/lib/pods';
    $input_path   = $ARGV[0] if $ARGV[0];
 
 my ($volume, $dirs) = splitpath(rel2abs(__FILE__));

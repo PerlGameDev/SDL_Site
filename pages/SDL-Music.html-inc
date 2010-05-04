@@ -20,7 +20,7 @@
 <p><a href="SDL-Music.html">SDL::Music</a> is used to load music files for use with <a href="SDL-Mixer.html">SDL::Mixer</a>.
 To load a music file one simply creates a new object passing the filename 
 to the constructor:</p>
-<pre>	my $music = new SDL::Music 'my_song.ogg';
+<pre>	my $music = SDL::Music-&gt;new(  'my_song.ogg' );
 
 
 

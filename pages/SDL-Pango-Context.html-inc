@@ -30,7 +30,7 @@
 </div>
 <h2 id="new">new</h2>
 <div id="new_CONTENT">
-<pre> my $context = new SDL::Pango::Context;
+<pre> my $context = SDL::Pango::Context-&gt;new;
 
 </pre>
 <p>Creates a new SDL::Pango context object. See <a href="SDL-Pango.html">SDL::Pango</a>.</p>

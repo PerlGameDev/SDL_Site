@@ -39,31 +39,32 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<pre>	use SDL;
-	use SDL::Event; 
-	use SDL::App; 
+<pre>    use SDL;
+    use SDL::App; 
+    use SDL::Event;
+    use SDL::Events; 
 
-	my $app = new SDL::App ( 
-	-title =&gt; 'Application Title', 
-	-width =&gt; 640, 
-	-height =&gt; 480, 
-	-depth =&gt; 32 ); 
+    my $app = SDL::App-&gt;new( 
+        -title  =&gt; 'Application Title',
+        -width  =&gt; 640,
+        -height =&gt; 480,
+        -depth  =&gt; 32
+    ); 
 
 </pre>
 <p>This is the manual way of doing things	</p>
-<pre>	my $event = new SDL::Event;             # create a new event 
+<pre>    my $event = SDL::Event-&gt;new; # create a new event 
 
-	$event-&gt;pump();
-	$event-&gt;poll();
+    SDL::Events::pump_events();
 
-	while ($event-&gt;wait()) { 
-	  my $type = $event-&gt;type();      # get event type 
-	  print $type; 
-	  exit if $type == SDL_QUIT; 
-	  }
-An alternative to the manual Event processing is the L&lt;SDL::App::loop&gt; .
+    while ( SDL::Events::poll_event($event) ) { 
+        my $type = $event-&gt;type(); # get event type 
+        print $type; 
+        exit if $type == SDL_QUIT; 
+    }
 
 </pre>
+<p>An alternative to the manual Event processing is the <a href="/SDL-App.html#loop">SDL::App::loop</a> .</p>
 
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -156,19 +157,20 @@ SDL_GRAB_OFF</dt>
 of event handler subroutines.  The keys of the hash must be SDL event types such
 as SDL_QUIT(), SDL_KEYDOWN(), and the like.  The event method recieves as its parameter 
 the event object used in the loop.</p>
-<pre>  Example:
+<p>Example:</p>
+<pre>    my $app = SDL::App-&gt;new(
+        -title  =&gt; &quot;test.app&quot;, 
+        -width  =&gt; 800, 
+        -height =&gt; 600, 
+        -depth  =&gt; 32
+    );
 
-	my $app = new SDL::App  -title =&gt; &quot;test.app&quot;, 
-				-width =&gt; 800, 
-				-height =&gt; 600, 
-				-depth =&gt; 32;
+    my %actions = (
+        SDL_QUIT()    =&gt; sub { exit(0); },
+        SDL_KEYDOWN() =&gt; sub { print &quot;Key Pressed&quot; },
+    );
 
-	my %actions = (
-		SDL_QUIT() =&gt; sub { exit(0); },
-		SDL_KEYDOWN() =&gt; sub { print &quot;Key Pressed&quot; },
-	);
-
-	$app-&gt;loop(\%actions);
+    $app-&gt;loop( \%actions );
 
 </pre>
 

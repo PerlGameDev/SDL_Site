@@ -24,7 +24,7 @@
 </ul>
 </li>
 <li><a href="#Direct_Write_to_Surface_Pixel">Direct Write to Surface Pixel</a>
-<ul><li><a href="#get_pixels">get_pixels</a></li>
+<ul><li><a href="#get_pixel">get_pixel</a></li>
 <li><a href="#set_pixels">set_pixels</a>
 <ul><li><a href="#Usage">Usage</a></li>
 </ul>
@@ -179,12 +179,13 @@
 <p>Disclaimer: This can be very slow, it is suitable for creating surfaces one time and not for animations</p>
 
 </div>
-<h2 id="get_pixels">get_pixels</h2>
-<div id="get_pixels_CONTENT">
-<pre> $surface-&gt;get_pixels( $offset )  
+<h2 id="get_pixel">get_pixel</h2>
+<div id="get_pixel_CONTENT">
+<pre> my $pixel = $surface-&gt;get_pixel( $offset )  
 
 </pre>
-<p>Returns the current integer value at (surface-&gt;pixels)[offset] </p>
+<p>Returns the pixel value for the given <code>$offset</code>. The pixel value depends on current pixel format.</p>
+<p><strong>Note</strong>: For surfaces with a palette (1 byte per pixel) the palette index is returned instead of color values.</p>
 
 </div>
 <h2 id="set_pixels">set_pixels</h2>
@@ -192,20 +193,19 @@
 <pre> $surface-&gt;set_pixels( $offset, $value );
 
 </pre>
-<p>Sets the current integer to $value at (surface-&gt;pixels)[offset]</p>
+<p>Sets the current pixel <code>$value</code> to the given <code>$offset</code>. The pixel value must fit the pixel format of the surface.</p>
+<p><strong>Note</strong>: For surfaces with a palette (1 byte per pixel) the palette index must be passed instead of color values.</p>
 
 </div>
 <h3 id="Usage">Usage</h3>
 <div id="Usage_CONTENT">
-<pre>  sub putpixel
-  {
-	my($x, $y, $color) = @_;
-	my $lineoffset = $y * ($screen-&gt;pitch / $depth_in_bytes); 
-	$screen-&gt;set_pixels( $lineoffset+ $x, $color);
-  }
+<pre> sub putpixel
+ {
+     my($x, $y, $color) = @_;
+     $screen-&gt;set_pixels( $x + $y * $screen-&gt;w, $color);
+ }
 
 </pre>
-<p>Note: $depth_in_bytes for 32 is 4, 16 is 2, 8 is 1;</p>
 <p>See also examples/sols/ch02.pl</p>
 
 </div>

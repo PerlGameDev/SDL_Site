@@ -53,7 +53,7 @@
 
  SDL::Pango::init();
 
- my $context = new SDL::Pango::Context;
+ my $context = SDL::Pango::Context-&gt;new;
  SDL::Pango::set_default_color($context, 0xA7C344FF, 0);
  SDL::Pango::set_markup($context, 'Hallo &lt;b&gt;W&lt;span foreground=&quot;red&quot;&gt;o&lt;/span&gt;&lt;i&gt;r&lt;/i&gt;&lt;u&gt;l&lt;/u&gt;d&lt;/b&gt;!', -1);
 

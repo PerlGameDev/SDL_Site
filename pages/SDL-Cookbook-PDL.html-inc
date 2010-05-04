@@ -424,7 +424,7 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 
 </pre>
 <p>and then be sure to create an event object amongst the animation initialization code:</p>
-<pre> my $event = new SDL::Event;
+<pre> my $event = SDL::Event-&gt;new;
 
 </pre>
 <p>Finally, we need to update the application loop so that it examines and responds to events.  Replace the current application loop with this code:</p>
@@ -579,7 +579,7 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 	my $bg = SDL::Rect-&gt;new( 0,0,$side_length, $side_length, );
 
 	# event listener
-	my $event = new SDL::Event-&gt;new();
+	my $event = SDL::Event-&gt;new();
 
 	# event dispatch table
 	my $keyname_dispatch_table = {

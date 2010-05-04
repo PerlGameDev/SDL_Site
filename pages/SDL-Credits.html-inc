@@ -2,7 +2,8 @@
 <!-- INDEX START -->
 <h3 id="TOP">Index</h3>
 
-<ul><li><a href="#The_SDL_Perl_2010_Development_Team">The SDL Perl 2010 Development Team</a>
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#The_SDL_Perl_2010_Development_Team">The SDL Perl 2010 Development Team</a>
 <ul><li><a href="#Core_Developers">Core Developers</a></li>
 <li><a href="#Maintainance">Maintainance </a>
 </li>
@@ -11,6 +12,11 @@
 </ul><hr />
 <!-- INDEX END -->
 
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::Credits - Authors and contributors of the SDL Perl project</p>
+
+</div>
 <h1 id="The_SDL_Perl_2010_Development_Team">The SDL Perl 2010 Development Team</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="The_SDL_Perl_2010_Development_Team_C">
 
@@ -18,7 +24,7 @@
 <h2 id="Core_Developers">Core Developers</h2>
 <div id="Core_Developers_CONTENT">
 <p>See the <a href="http://github.com/kthakore/SDL_perl/graphs/impact">impact graph</a> on our github repository.</p>
-<p>Also see our CONTRIBUTERS file.</p>
+<p>Also see our CONTRIBUTORS file.</p>
 
 </div>
 <h2 id="Maintainance">Maintainance </h2>
@@ -32,10 +38,6 @@
 
 </pre>
 <p>They can be reached on the SDL-devel\@perl.org mailing list and the #sdl channel on the irc.perl.org network.</p>
-
-
-
-
 
 </div>
 </div>

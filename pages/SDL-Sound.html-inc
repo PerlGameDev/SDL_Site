@@ -31,7 +31,7 @@
 <p><a href="SDL-Sound.html">SDL::Sound</a> is a module for loading WAV files for sound effects.
 The file can be loaded by creating a new <a href="SDL-Sound.html">SDL::Sound</a> object by
 passing the filename to the constructor;</p>
-<pre>	my $sound = new SDL::Sound 'my_sfx.wav';
+<pre>	my $sound = SDL::Sound-&gt;new( 'my_sfx.wav' );
 
 </pre>
 

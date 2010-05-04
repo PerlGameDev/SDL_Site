@@ -25,7 +25,7 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<pre>  $video = new SDL::SMPEG ( -name =&gt; 'pr0n.mpg' );
+<pre>  $video = SDL::SMPEG-&gt;new( -name =&gt; 'pr0n.mpg' );
 
 </pre>
 
