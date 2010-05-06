@@ -276,14 +276,12 @@ word identifier like <code>&quot;x11&quot;</code>, <code>&quot;windib&quot;</cod
 
 </pre>
 <p>Returns a reference to an array:</p>
-<dl>
-	<dt>*
-of available screen dimensions (as <code>SDL::Rect</code>'s) for the given format and video flags. </dt>
-	<dt>*
-with first array element 'all'. In this case you can set all modes.</dt>
-	<dt>*
-with first array element 'none' if no mode is available.</dt>
-</dl>
+<ul>
+		<li>of available screen dimensions (as <code>SDL::Rect</code>'s) for the given format and video flags. 	</li>
+		<li>with first array element 'all'. In this case you can set all modes.	</li>
+		<li>with first array element 'none' if no mode is available.</li>
+</ul>
+
 <p><strong>Note</strong>: &lt;list_modes&gt; should be called before the video_mode ist set. Otherwise you will always get 'all'.</p>
 <p>Example:</p>
 <pre> use SDL;
