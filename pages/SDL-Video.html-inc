@@ -97,8 +97,8 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<pre> use SDL ':init';
- use SDL::Video ':all';
+<pre> use SDL;
+ use SDL::Video;
  use SDL::Surface;
  use SDL::Rect;
 
@@ -275,8 +275,16 @@ word identifier like <code>&quot;x11&quot;</code>, <code>&quot;windib&quot;</cod
 <pre> my @modes = @{ SDL::Video::list_modes( $pixel_format, $flags ) };
 
 </pre>
-<p>Returns a ref to an array of available screen dimensions for the given format and video flags,
-or it return undef if no modes are available.</p>
+<p>Returns a reference to an array:</p>
+<dl>
+	<dt>*
+of available screen dimensions (as <code>SDL::Rect</code>'s) for the given format and video flags. </dt>
+	<dt>*
+with first array element 'all'. In this case you can set all modes.</dt>
+	<dt>*
+with first array element 'none' if no mode is available.</dt>
+</dl>
+<p><strong>Note</strong>: &lt;list_modes&gt; should be called before the video_mode ist set. Otherwise you will always get 'all'.</p>
 <p>Example:</p>
 <pre> use SDL;
  use SDL::Video;
@@ -293,9 +301,9 @@ or it return undef if no modes are available.</p>
  if($#modes &gt; 0)
  {
      print(&quot;available modes:\n&quot;);
-     foreach my $index ( @modes )
+     foreach my $mode ( @modes )
      {
-         printf(&quot;%03d: %d x %d\n&quot;, $index, $modes[$index]-&gt;w, $modes[$index]-&gt;h );
+         printf(&quot;%d x %d\n&quot;, $mode-&gt;w, $mode-&gt;h );
      }
  }
  elsif($#modes == 0)

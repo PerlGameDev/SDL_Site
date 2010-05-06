@@ -359,7 +359,7 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 
 </pre>
 <p>to filter the event return a 0, to pass the filter return a 1. </p>
-<p>One <strong>Caveat</strong> is if you are filterign SDL_QUITEVENT the event will be filtered if it is non-intterupt call ( Window closes normally ). If it is a interrupt SDL_QUITEVENT it will be process on the next event poll. </p>
+<p>One <strong>Caveat</strong> is if you are filtering SDL_QUIT the event will be filtered if it is non-intterupt call ( Window closes normally ). If it is a interrupt SDL_QUIT it will be process on the next event poll. </p>
 <p>Events pushed onto to the queue with <a href="/SDL-Events.html#push_events">SDL::Events::push_events</a> or <a href="/SDL-Events.html#peep_events">SDL::Events::peep_events</a> do not get filtered.</p>
 <p>This callback may run in a different thread. </p>
 
