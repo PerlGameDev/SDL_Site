@@ -11,7 +11,7 @@
 </ul>
 </li>
 <li><a href="#Latest_News">Latest News</a>
-<ul><li><a href="#Apr_06_2010">Apr 06 2010</a>
+<ul><li><a href="#Mar_11_2010">Mar 11 2010</a>
 <ul><li><a href="#CPAN_Release">CPAN Release</a></li>
 <li><a href="#Active_Development">Active Development</a></li>
 <li><a href="#TODO">TODO</a>
@@ -64,8 +64,8 @@ award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>ww
 <div id="Latest_News_CONTENT">
 
 </div>
-<h2 id="Apr_06_2010">Apr 06 2010</h2>
-<div id="Apr_06_2010_CONTENT">
+<h2 id="Mar_11_2010">Mar 11 2010</h2>
+<div id="Mar_11_2010_CONTENT">
 
 </div>
 <h3 id="CPAN_Release">CPAN Release</h3>
@@ -82,8 +82,11 @@ award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>ww
 <h3 id="TODO">TODO</h3>
 <div id="TODO_CONTENT">
 <ul>
-		<li>Sugar for Core SDL objects	</li>
-		<li>Make SDL work with Frozen Bubble</li>
+		<li>Make SDL work with Frozen Bubble
+<br /><br />Frozen Bubble is being reviewed as we speak! Until then
+<br /><br /><pre>  cpan Games::FrozenBubble
+
+</pre></li>
 </ul>
 
 

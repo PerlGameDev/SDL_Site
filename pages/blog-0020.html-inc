@@ -1,28 +1,26 @@
 <div class="blog">
 <h1 id="NAME">
-HackFest: Results
+The beginnings of modular design for SDL Perl
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>The beautiful sunset,</i><br />
-</div><div style="text-align: right;"><i>is no match for,</i><br />
-</div><div style="text-align: right;"><i>the ugly sunrise<br />
-</i><br />
-</div><h1>Results</h1>On Sunday we had a hackfest on #sdl irc.perl.org. This is what we got done.<br />
+<div style="text-align: right;"><i>“Do or do not... there is no try.”</i><br />
+</div><div style="text-align: right;"><i>--yoda </i><br />
 <br />
-<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/_NnqjAQEn1Xo/SsEsVovCs8I/AAAAAAAAABw/5wMJtyamCpo/s1600-h/sdl-tetris-osx.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/_NnqjAQEn1Xo/SsEsVovCs8I/AAAAAAAAABw/5wMJtyamCpo/s320/sdl-tetris-osx.png" /></a><br />
-</div><br />
+</div><h1>The design before</h1><br />
+The bindings before were all in <a href="http://github.com/kthakore/SDL_perl/blob/master/src/SDL.xs">one huge XS file</a>. This was then exported into the SDL module. This means that the XS file has to handle with macros if any component (e.x SDL_Mixer) is not compiled. Moreover having ever binding in one XS file prevents use to treat C structs as object with only one point of free and malloc. This would be BEGIN and DESTROY in Perl. Also the monolithic design introduces a lot of bugs because we have to use free and malloc all over the place. Lastly SDL monolithic design has the constructor for all structs in both Perl and in XS. <br />
 <br />
-<ol><li>MacOSX build is working again. It's still rough but Tetris works on it now. dngor++</li>
-<li><a href="http://search.cpan.org/%7Ekthakore/SDL-Tutorial-Tetris-0.015/">SDL::Tutorial::Tetris</a> is on CPAN as v0.15. nferraz++</li>
-<li><a href="http://github.com/m4gnet/SDL_perl/commit/9957e76f888ac71a911e3a71c2783141748d2387">SDL Perl docs</a> are a little better now. magnet++</li>
-<li>Finally experimental <a href="http://github.com/kthakore/SDL_perl/tree/experimental">Rect and Game::Rect</a> are behaving. There is still more work needed in Game::Rect. Moreover there are more tests on the experimental release. garu++</li>
-<li>Also POGL is <a href="http://sdlperl.pastebin.com/f78b8c1b9">working</a> experimentally with SDL. <br />
-</li>
-</ol>Hopefully I can get the first three results into the next release soon. The next release 2.2.3 will go up as a developmental release first. Also the experimental branch is going up as version 2_4.<br />
+<h1>The design we are aiming for</h1>Simple <a href="http://github.com/kthakore/SDL_perl/blob/master/src/Rect.xs">one XS</a> per Module. This would also simplify the Build code.<br />
 <br />
-<h1>Developers</h1>All developers please tell me what to put you guys want to be put down as on the  <br />
-in the Docs for the SDL Perl Team section.<br />
+<h2>First Step </h2><br />
+We have began with SDL Rect. It is in github master branch now. We are in the progress of making it back compatible. Originally SDL::Rect took named variables as parameters for new(). Now since the constructor <a href="http://github.com/kthakore/SDL_perl/blob/master/src/Rect.xs#L16">is in XS</a> we have only unnamed parameters. <br />
 <br />
---yapgh<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-8724981068699019715?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/6YFnWgFhXauEKA4hBMU0s3gAkyk/0/da"><img src="http://feedads.g.doubleclick.net/~a/6YFnWgFhXauEKA4hBMU0s3gAkyk/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/6YFnWgFhXauEKA4hBMU0s3gAkyk/1/da"><img src="http://feedads.g.doubleclick.net/~a/6YFnWgFhXauEKA4hBMU0s3gAkyk/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/zTCDGPMs_SU" height="1" width="1"/></div></div>
+<br />
+<h3>Before</h3><br />
+SDL::Rect-&gt;new( -x =&gt; 0, -y =&gt; 0, -width =&gt; 0, -height =&gt; 0);<br />
+<br />
+<h3>After</h3><br />
+SDL::Rect-&gt;new(0, 0, 0, 0);<br />
+<br />
+Ideally we would like both ways of constructing Rect.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-6151839795039915111?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/kLUEuAPtuInPChqB2WfChUn3YyI/0/da"><img src="http://feedads.g.doubleclick.net/~a/kLUEuAPtuInPChqB2WfChUn3YyI/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/kLUEuAPtuInPChqB2WfChUn3YyI/1/da"><img src="http://feedads.g.doubleclick.net/~a/kLUEuAPtuInPChqB2WfChUn3YyI/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/uEzoBWRJEks" height="1" width="1"/></div></div>

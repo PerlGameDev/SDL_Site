@@ -8,7 +8,7 @@
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#num_joysticks">num_joysticks</a></li>
 <li><a href="#name">name</a></li>
-<li><a href="#open">open</a></li>
+<li><a href="#new">new</a></li>
 <li><a href="#opened">opened</a></li>
 <li><a href="#index">index</a></li>
 <li><a href="#num_axes">num_axes</a></li>
@@ -73,7 +73,7 @@
 
  printf(&quot;%d joysticks found\n&quot;, $num_joysticks);
 
- for($i = 0; i &lt; $num_joysticks; $i++)
+ for($i = 0; $i &lt; $num_joysticks; $i++)
  {
      printf(&quot;%s\n&quot;, SDL::Joystick::name($i));
  }
@@ -81,9 +81,9 @@
 </pre>
 
 </div>
-<h2 id="open">open</h2>
-<div id="open_CONTENT">
-<pre> object SDL::Joystick::open( index );
+<h2 id="new">new</h2>
+<div id="new_CONTENT">
+<pre> object SDL::Joystick-&gt;new( index );
 
 </pre>
 <p>Opens a joystick for use within SDL. The <code>index</code> refers to the N'th joystick in the system. 
@@ -95,7 +95,7 @@ A joystick must be opened before it can be used.</p>
  if(SDL::Joystick::num_joysticks() &gt; 0)
  {
      # Open joystick
-     my $joystick = SDL::Joystick::open(0);
+     my $joystick = SDL::Joystick-&gt;new(0);
 
      if($joystick)
      {
@@ -131,7 +131,7 @@ A joystick must be opened before it can be used.</p>
 <pre> int SDL::Joystick::index( object );
 
 </pre>
-<p>Returns the <code>index</code> of a given <code>SDL_Joystick</code> structure. See <a href="#open">SDL::Joystick::open</a></p>
+<p>Returns the <code>index</code> of a given <code>SDL_Joystick</code> structure. See <a href="#new">SDL::Joystick::new</a></p>
 
 </div>
 <h2 id="num_axes">num_axes</h2>
@@ -139,7 +139,7 @@ A joystick must be opened before it can be used.</p>
 <pre> int SDL::Joystick::num_axes( object );
 
 </pre>
-<p>Return the number of axes available from a previously opened joystick. See <a href="#open">SDL::Joystick::open</a></p>
+<p>Return the number of axes available from a previously opened joystick. See <a href="#new">SDL::Joystick::new</a></p>
 
 </div>
 <h2 id="num_balls">num_balls</h2>
@@ -147,7 +147,7 @@ A joystick must be opened before it can be used.</p>
 <pre> int SDL::Joystick::num_balls( object );
 
 </pre>
-<p>Return the number of trackballs available from a previously opened joystick. See <a href="#open">SDL::Joystick::open</a></p>
+<p>Return the number of trackballs available from a previously opened joystick. See <a href="#new">SDL::Joystick::new</a></p>
 
 </div>
 <h2 id="num_hats">num_hats</h2>
@@ -155,7 +155,7 @@ A joystick must be opened before it can be used.</p>
 <pre> int SDL::Joystick::num_hats( object );
 
 </pre>
-<p>Gets the number of joystick hats from a previously opened joystick. See <a href="#open">SDL::Joystick::open</a></p>
+<p>Gets the number of joystick hats from a previously opened joystick. See <a href="#new">SDL::Joystick::new</a></p>
 
 </div>
 <h2 id="num_buttons">num_buttons</h2>
@@ -163,7 +163,7 @@ A joystick must be opened before it can be used.</p>
 <pre> int SDL::Joystick::num_buttons( object );
 
 </pre>
-<p>Gets the number of joystick buttons from a previously opened joystick. See <a href="/SDL-Joystick.html#open">SDL::Joystick::open</a></p>
+<p>Gets the number of joystick buttons from a previously opened joystick. See <a href="#new">SDL::Joystick::new</a></p>
 
 </div>
 <h2 id="update">update</h2>
@@ -183,7 +183,7 @@ The value returned by <code>get_axis</code> is a signed integer (-32768 to 32767
 it may be necessary to impose certain tolerances on these values to account for jitter.</p>
 <p><strong>Note</strong>: Some joysticks use axes 2 and 3 for extra buttons. </p>
 <p>Returns a 16-bit signed integer representing the current position of the axis.</p>
-<pre> my $joystick = SDL::Joystick::open(0);
+<pre> my $joystick = SDL::Joystick-&gt;new(0);
 
  my $x_move   = SDL::Joystick::get_axis($joystick, 0);
  my $y_move   = SDL::Joystick::get_axis($joystick, 1);
@@ -210,7 +210,7 @@ it may be necessary to impose certain tolerances on these values to account for 
 		<li><code>SDL_HAT_LEFTDOWN</code></li>
 </ul>
 
-<pre> my $joystick = SDL::Joystick::open(0);
+<pre> my $joystick = SDL::Joystick-&gt;new(0);
 
  my $position = SDL::Joystick::get_hat($joystick, 0);
 
@@ -226,7 +226,7 @@ it may be necessary to impose certain tolerances on these values to account for 
 </pre>
 <p><code>get_button</code> returns the current state of the given button on the given joystick.</p>
 <p>Returns 1 if the button is pressed. Otherwise, 0. </p>
-<pre> my $joystick    = SDL::Joystick::open(0);
+<pre> my $joystick    = SDL::Joystick-&gt;new(0);
 
  my $num_buttons = SDL::Joystick::num_buttons($joystick);
 
@@ -250,7 +250,7 @@ it may be necessary to impose certain tolerances on these values to account for 
 <p>Returns 0 on success or -1 on failure</p>
 <pre> my $delta_x  = 0;
  my $delta_y  = 0;
- my $joystick = SDL::Joystick::open(0);
+ my $joystick = SDL::Joystick-&gt;new(0);
 
  SDL::Joystick::update();
 
@@ -265,7 +265,7 @@ it may be necessary to impose certain tolerances on these values to account for 
 <pre> void SDL::Joystick::close( object );
 
 </pre>
-<p>Closes a previously opened joystick. See <a href="#open">SDL::Joystick::open</a></p>
+<p>Closes a previously opened joystick. See <a href="#new">SDL::Joystick::new</a></p>
 <pre> SDL::Joystick::close($joystick) if SDL::Joystick::opened(0);
 
 </pre>

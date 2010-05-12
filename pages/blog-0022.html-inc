@@ -1,28 +1,28 @@
 <div class="blog">
 <h1 id="NAME">
-Thanks nothingmuch, and updates
+HackFest: Results
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>struggle,</i><br />
-</div><div style="text-align: right;"><i>live,</i><br />
-</div><div style="text-align: right;"><i><span id="goog_1253289394523"></span><span id="goog_1253289394524"></span><a href="http://www.blogger.com/"></a>cease,</i><br />
-</div><div style="text-align: right;"><i>die</i><br />
-</div><div style="text-align: right;"><br />
-</div><div style="text-align: left;">After a struggling with XS and opaque C structs in the experimental SDL::Rect for a long time. <a href="http://blog.woobling.org/2009/09/hackathon-summary.html">Nothingmuch </a>comes along and solves my problem with this beautiful module<a href="http://search.cpan.org/%7Enuffin/XS-Object-Magic-0.02/"> XS::Object::Magic</a>. So I will start moving my ugly XS to Magic Land.<br />
+<div style="text-align: right;"><i>The beautiful sunset,</i><br />
+</div><div style="text-align: right;"><i>is no match for,</i><br />
+</div><div style="text-align: right;"><i>the ugly sunrise<br />
+</i><br />
+</div><h1>Results</h1>On Sunday we had a hackfest on #sdl irc.perl.org. This is what we got done.<br />
 <br />
-<b>SDL Perl Tutorials</b><br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/_NnqjAQEn1Xo/SsEsVovCs8I/AAAAAAAAABw/5wMJtyamCpo/s1600-h/sdl-tetris-osx.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/_NnqjAQEn1Xo/SsEsVovCs8I/AAAAAAAAABw/5wMJtyamCpo/s320/sdl-tetris-osx.png" /></a><br />
+</div><br />
 <br />
-This past week I have been working on the sorry state of SDL Perl tutorials. Currently I am working on a <a href="http://github.com/kthakore/TetrisPL">Tetris Clone</a>. I am hoping to have it done by next Thrusday for TPM meeting. This tutorial is a mix of several tutorials I <a href="http://ezide.com/games/writing-games.html">found online</a>. Another <a href="http://www.nntp.perl.org/group/perl.sdl.devel/2009/09/msg1446.html">Lunar Lander tutorial</a> has been submitted by Nelson Ferraz.<br />
+<ol><li>MacOSX build is working again. It's still rough but Tetris works on it now. dngor++</li>
+<li><a href="http://search.cpan.org/%7Ekthakore/SDL-Tutorial-Tetris-0.015/">SDL::Tutorial::Tetris</a> is on CPAN as v0.15. nferraz++</li>
+<li><a href="http://github.com/m4gnet/SDL_perl/commit/9957e76f888ac71a911e3a71c2783141748d2387">SDL Perl docs</a> are a little better now. magnet++</li>
+<li>Finally experimental <a href="http://github.com/kthakore/SDL_perl/tree/experimental">Rect and Game::Rect</a> are behaving. There is still more work needed in Game::Rect. Moreover there are more tests on the experimental release. garu++</li>
+<li>Also POGL is <a href="http://sdlperl.pastebin.com/f78b8c1b9">working</a> experimentally with SDL. <br />
+</li>
+</ol>Hopefully I can get the first three results into the next release soon. The next release 2.2.3 will go up as a developmental release first. Also the experimental branch is going up as version 2_4.<br />
 <br />
-If anyone has any really good tutorials for game development (regardless of language) or even request of tutorials. Send it my way I will look into them.<br />
+<h1>Developers</h1>All developers please tell me what to put you guys want to be put down as on the  <br />
+in the Docs for the SDL Perl Team section.<br />
 <br />
-<b>New SDL Perl site</b><br />
-<br />
-Also we have begin work on a new site. It is still needs work. <a href="http://sdlperl.ath.cx/">New Site</a>.<br />
-<br />
-<i>--yapgh</i> <br />
-<br />
-<br />
-</div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-1314526975514787247?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/pMfaJKnHUxD0JKlc5dqPx0xnjNQ/0/da"><img src="http://feedads.g.doubleclick.net/~a/pMfaJKnHUxD0JKlc5dqPx0xnjNQ/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/pMfaJKnHUxD0JKlc5dqPx0xnjNQ/1/da"><img src="http://feedads.g.doubleclick.net/~a/pMfaJKnHUxD0JKlc5dqPx0xnjNQ/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/DYKuJkQK5TU" height="1" width="1"/></div></div>
+--yapgh<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-8724981068699019715?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/6YFnWgFhXauEKA4hBMU0s3gAkyk/0/da"><img src="http://feedads.g.doubleclick.net/~a/6YFnWgFhXauEKA4hBMU0s3gAkyk/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/6YFnWgFhXauEKA4hBMU0s3gAkyk/1/da"><img src="http://feedads.g.doubleclick.net/~a/6YFnWgFhXauEKA4hBMU0s3gAkyk/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/zTCDGPMs_SU" height="1" width="1"/></div></div>

@@ -1,26 +1,29 @@
 <div class="blog">
 <h1 id="NAME">
-The beginnings of modular design for SDL Perl
+Development Update
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>“Do or do not... there is no try.”</i><br />
-</div><div style="text-align: right;"><i>--yoda </i><br />
-<br />
-</div><h1>The design before</h1><br />
-The bindings before were all in <a href="http://github.com/kthakore/SDL_perl/blob/master/src/SDL.xs">one huge XS file</a>. This was then exported into the SDL module. This means that the XS file has to handle with macros if any component (e.x SDL_Mixer) is not compiled. Moreover having ever binding in one XS file prevents use to treat C structs as object with only one point of free and malloc. This would be BEGIN and DESTROY in Perl. Also the monolithic design introduces a lot of bugs because we have to use free and malloc all over the place. Lastly SDL monolithic design has the constructor for all structs in both Perl and in XS. <br />
-<br />
-<h1>The design we are aiming for</h1>Simple <a href="http://github.com/kthakore/SDL_perl/blob/master/src/Rect.xs">one XS</a> per Module. This would also simplify the Build code.<br />
-<br />
-<h2>First Step </h2><br />
-We have began with SDL Rect. It is in github master branch now. We are in the progress of making it back compatible. Originally SDL::Rect took named variables as parameters for new(). Now since the constructor <a href="http://github.com/kthakore/SDL_perl/blob/master/src/Rect.xs#L16">is in XS</a> we have only unnamed parameters. <br />
+<div style="text-align: right;"><i><br />
+A stoic stone will sit idle, <br />
+but will some effort,<br />
+A rolling rock will run!<br />
+</i><br />
+</div><br />
+In the past week the SDL Perl team has been busy! This is what we have accomplished<br />
 <br />
 <br />
-<h3>Before</h3><br />
-SDL::Rect-&gt;new( -x =&gt; 0, -y =&gt; 0, -width =&gt; 0, -height =&gt; 0);<br />
+<h3>Commitment to Testing!</h3>In an effort to focus on continuing our focus on testing we have setup a <a href="http://sdlperl.ath.cx:8080/app/public_projects/smoke_reports/1">Smolder</a> site for the SDL redesign process. Currently we have two platforms (linux, windows32) regularly tested on here. If there are more people following the redesign process and would like to share their test results; contact us at sdl-devel@perl.org and we will provide access to you.<br />
 <br />
-<h3>After</h3><br />
-SDL::Rect-&gt;new(0, 0, 0, 0);<br />
+<h3>SDL::Video</h3>For the core development most of the focus has been on redesigning around the Video category of the SDL perl API. As of now we are <a href="http://bit.ly/2ar7bK">50% done</a>. 19 functions out of 38 functions have been implemented and tested. <br />
 <br />
-Ideally we would like both ways of constructing Rect.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-6151839795039915111?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/kLUEuAPtuInPChqB2WfChUn3YyI/0/da"><img src="http://feedads.g.doubleclick.net/~a/kLUEuAPtuInPChqB2WfChUn3YyI/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/kLUEuAPtuInPChqB2WfChUn3YyI/1/da"><img src="http://feedads.g.doubleclick.net/~a/kLUEuAPtuInPChqB2WfChUn3YyI/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/uEzoBWRJEks" height="1" width="1"/></div></div>
+<br />
+<h3>Site Redesign + Migration</h3>On the end of the spectrum, Froggs has been hard at work on the <a href="http://froggs.de/sdlperl/">graphical design </a>of the site. More over with mst's help we will soon be migrating to http://sdl.perl.org. <br />
+<br />
+<br />
+<br />
+<h3>Documentation</h3>Moreover this week we have seen an increase effort from magnet on the <a href="http://github.com/kthakore/SDL_perl/commits/redesign">SDL docs</a>. Kudos!<br />
+<br />
+<br />
+<h3>SWIG Experimentation</h3>Finally <a href="http://github.com/kthakore/SDL_perl/commits/swig">Katrina</a> has begun looking into SWIG as alternative for SDL in the future.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-5353247044730007101?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/AJN8bYfVRRvf2r11XrVe85gGcF4/0/da"><img src="http://feedads.g.doubleclick.net/~a/AJN8bYfVRRvf2r11XrVe85gGcF4/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/AJN8bYfVRRvf2r11XrVe85gGcF4/1/da"><img src="http://feedads.g.doubleclick.net/~a/AJN8bYfVRRvf2r11XrVe85gGcF4/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/hJ7NPW5Bawg" height="1" width="1"/></div></div>

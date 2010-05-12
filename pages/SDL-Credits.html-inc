@@ -3,6 +3,7 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#The_SDL_Perl_2010_Development_Team">The SDL Perl 2010 Development Team</a>
 <ul><li><a href="#Core_Developers">Core Developers</a></li>
 <li><a href="#Maintainance">Maintainance </a>
@@ -15,6 +16,11 @@
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
 <p>SDL::Credits - Authors and contributors of the SDL Perl project</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>Core</p>
 
 </div>
 <h1 id="The_SDL_Perl_2010_Development_Team">The SDL Perl 2010 Development Team</h1><p><a href="#TOP" class="toplink">Top</a></p>
