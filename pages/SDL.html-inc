@@ -2,24 +2,23 @@
 <!-- INDEX START -->
 <h3 id="TOP">Index</h3>
 
-<ul><li><a href="#NAME">NAME</a>
-<ul><li><a href="#CATEGORY">CATEGORY</a></li>
-</ul>
-</li>
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
-<li><a href="#Functions_exported_by_SDL_pm">Functions exported by SDL.pm</a>
-<ul><li><a href="#init_flags">init(flags) </a></li>
+<li><a href="#CONSTANTS">CONSTANTS</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#init_flags">init(flags)</a></li>
 <li><a href="#init_subsystem_flags">init_subsystem(flags)</a></li>
 <li><a href="#quit_subsystem_flags">quit_subsystem(flags)</a></li>
-<li><a href="#quit">quit</a></li>
+<li><a href="#quit">quit()</a></li>
 <li><a href="#was_init_flags">was_init(flags)</a></li>
 <li><a href="#get_error">get_error()</a></li>
 <li><a href="#set_error_real_error_values">set_error_real(error, @values)</a></li>
 <li><a href="#clear_error">clear_error()</a></li>
 <li><a href="#version">version()</a></li>
-<li><a href="#linked_version">linked_version</a></li>
-<li><a href="#get_error-2">get_error()</a></li>
+<li><a href="#linked_version">linked_version()</a></li>
+<li><a href="#get_ticks">get_ticks()</a></li>
 <li><a href="#delay_ms">delay(ms)</a></li>
 </ul>
 </li>
@@ -33,38 +32,29 @@
 <p>SDL - Simple DirectMedia Layer for Perl</p>
 
 </div>
-<h2 id="CATEGORY">CATEGORY</h2>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
 <p>Core</p>
 
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<pre>  use SDL ':all';
+<pre> use SDL;
 
 </pre>
 
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p>SDL_perl is a package of perl modules that provides both functional and object orient
-interfaces to the Simple DirectMedia Layer for Perl 5.  This package does take some
-liberties with the SDL API, and attempts to adhere to the spirit of both the SDL
-and Perl.  This document describes the low-level functional SDL_perl API.  For the
-object oriented programming interface please see the documentation provided on a
-per class basis.</p>
+<p>SDL_perl is a package of Perl modules that provide both functional and object oriented interfaces to the Simple DirectMedia Layer for Perl 5.
+This package takes some liberties with the SDL API, and attempts to adhere to the spirit of both the SDL and Perl.
+This document describes the low-level functional SDL Perl API.
+For the object oriented programming interface please see the documentation provided on a per-class basis.</p>
 
 </div>
-<h1 id="Functions_exported_by_SDL_pm">Functions exported by SDL.pm</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="Functions_exported_by_SDL_pm_CONTENT">
-
-</div>
-<h2 id="init_flags">init(flags) </h2>
-<div id="init_flags_CONTENT">
-<p>As with the C language API, SDL_perl initializes the SDL environment through
-the <code>SDL::init</code> subroutine. This routine takes a mode flag constructed through
-the bitwise OR product of the SDL_INIT_* constants.</p>
-<p>The constants are not exported by default. You can export them into your namespace by doing:</p>
+<h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CONSTANTS_CONTENT">
+<p>The constants are not exported by default. You can export them by doing:</p>
 <pre> use SDL ':all';
 
 </pre>
@@ -74,126 +64,124 @@ the bitwise OR product of the SDL_INIT_* constants.</p>
 </pre>
 <p>or by choosing the export tags below:</p>
 <p>Export tag: ':init'</p>
-<dl>
-	<dt>*
-SDL_INIT_AUDIO</dt>
-	<dt>*
-SDL_INIT_VIDEO</dt>
-	<dt>*
-SDL_INIT_CDROM</dt>
-	<dt>*
-SDL_INIT_EVERYTHING</dt>
-	<dt>*
-SDL_INIT_NOPARACHUTE</dt>
-	<dt>*
-SDL_INIT_JOYSTICK</dt>
-	<dt>*
-SDL_INIT_TIMER</dt>
-</dl>
-<p><code>SDL::Init</code> returns 0 on success, or -1 on error.</p>
+<pre> SDL_INIT_AUDIO
+ SDL_INIT_VIDEO
+ SDL_INIT_CDROM
+ SDL_INIT_EVERYTHING
+ SDL_INIT_NOPARACHUTE
+ SDL_INIT_JOYSTICK
+ SDL_INIT_TIMER
+
+</pre>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="init_flags">init(flags)</h2>
+<div id="init_flags_CONTENT">
+<p>As with the C language API, SDL Perl initializes the SDL environment with the <code>SDL::init</code> subroutine.
+This routine takes a mode flag constructed through the bitwise OR product of the <code>SDL_INIT_*</code> constants.
+The <code>flags</code> tell <code>SDL::init</code> which subsystems to initialize.</p>
+<pre> SDL::init(SDL_INIT_AUDIO | SDL_INIT_JOYSTICK);
+
+</pre>
+<p><code>SDL::init</code> returns <code>0</code> on success, or <code>-1</code> on error.</p>
 
 </div>
 <h2 id="init_subsystem_flags">init_subsystem(flags)</h2>
 <div id="init_subsystem_flags_CONTENT">
-<p>After SDL has been initialized with SDL::init you may initialize uninitialized subsystems with SDL::init_subsystem.
-The flags parameter is the same as that used in SDL::init. </p>
-<p>SDL::init_subsystem returns 0 on success, or -1 on error.</p>
+<p>After <code>SDL</code> has been initialized with <code>SDL::init</code> you may initialize any uninitialized subsystems with <code>SDL::init_subsystem</code>.
+The <code>flags</code> tell <code>SDL::init_subsystem</code> which subsystems to initialize, and are taken in the same way as <code>SDL::init</code>.</p>
+<p><code>SDL::init_subsystem</code> returns <code>0</code> on success, or <code>-1</code> on error.</p>
 
 </div>
 <h2 id="quit_subsystem_flags">quit_subsystem(flags)</h2>
 <div id="quit_subsystem_flags_CONTENT">
-<p>SDL::quit_subsystem allows you to shut down a subsystem that has been previously initialized by SDL::init or SDL::init_subsystem.
-The flags tells SDL::quit_subSystem which subsystems to shut down, it uses the same values that are passed to SDL::init. </p>
-<p>SDL::quit_subsystem doesn't returns any value.</p>
+<p><code>SDL::quit_subsystem</code> allows you to shut down a subsystem that has been previously initialized by <code>SDL::init</code> or <code>SDL::init_subsystem</code>.
+The <code>flags</code> tell <code>SDL::quit_subsystem</code> which subsystems to shut down, and are taken in the same way as <code>SDL::init</code>.</p>
+<p><code>SDL::quit_subsystem</code> doesn't return any values.</p>
 
 </div>
-<h2 id="quit">quit</h2>
+<h2 id="quit">quit()</h2>
 <div id="quit_CONTENT">
-<p>Shuts down all SDL subsystems, unloads the dynamically linked library and frees the allocated resources.</p>
-<p><strong>Note</strong>: This will be called automatically when perl exits. You don't need to call this, except you want to initialize SDL after this again.</p>
-<p>SDL::quit doesn't returns any value.</p>
+<p><code>SDL::quit</code> Shuts down all SDL subsystems, unloads the dynamically linked library and frees the allocated resources.</p>
+<p><strong>Note:</strong> This will be called automatically when Perl exits. You don't need to call this, except if you want to initialize SDL again after this.</p>
+<p><code>SDL::quit</code> doesn't return any values.</p>
 
 </div>
 <h2 id="was_init_flags">was_init(flags)</h2>
 <div id="was_init_flags_CONTENT">
-<p>SDL::was_init allows you to see which SDL subsytems have been initialized.
-flags is a bitwise OR'd combination of the subsystems you wish to check (see SDL::init for a list of subsystem flags). 
-If 'flags' is 0 or SDL_INIT_EVERYTHING, it returns a mask of all initialized subsystems (this does not include SDL_INIT_EVENTTHREAD or SDL_INIT_NOPARACHUTE).</p>
+<p><code>SDL::was_init</code> allows you to see which SDL subsytems have been initialized.
+The <code>flags</code> tell <code>SDL::was_init</code> which subsystems to check, and are taken in the same way as <code>SDL::init</code>.</p>
+<p><code>SDL::was_init</code> returns a mask of the initialized subsystems it checks.
+If <code>flags</code> is <code>0</code> or <code>SDL_INIT_EVERYTHING</code>, a mask of all initialized subsystems will be returned (this does not include <code>SDL_INIT_EVENTTHREAD</code> or <code>SDL_INIT_NOPARACHUTE</code>).</p>
+<pre> use SDL ':all';
+
+ my $mask = SDL::was_init(SDL_INIT_AUDIO | SDL_INIT_JOYSTICK);
+ if($mask &amp; SDL_INIT_AUDIO and $mask &amp; SDL_INIT_JOYSTICK) {
+     # Both subsystems are initialized!
+ }
+
+</pre>
 
 </div>
 <h2 id="get_error">get_error()</h2>
 <div id="get_error_CONTENT">
-<p>The last error message set by the SDL library can be retrieved using the subroutine
-<code>SDL::get_error</code>, which returns a scalar containing the text of the message if any.</p>
+<p>Returns a scalar value containing the last error message set by the SDL library (if any).</p>
 
 </div>
 <h2 id="set_error_real_error_values">set_error_real(error, @values)</h2>
 <div id="set_error_real_error_values_CONTENT">
-<p>SDL::set_error_real sets the SDL error to a printf style formatted string. 
-it doesn't returns any values.</p>
+<p><code>SDL::set_error_real</code> sets the SDL error to a <code>printf</code> style formatted string.</p>
+<p><code>SDL::set_error_real</code> doesn't return any values.</p>
 
 </div>
 <h2 id="clear_error">clear_error()</h2>
 <div id="clear_error_CONTENT">
-<p>SDL::clear_error deletes all information about the last SDL error. Useful if the error has been handled by the program.
-it doesn't returns any value.</p>
+<p><code>SDL::clear_error</code> deletes all information about the last SDL error.
+This is useful if the error has been handled by the program.</p>
+<p><code>SDL::clear_error</code> doesn't return any values.</p>
 
 </div>
 <h2 id="version">version()</h2>
 <div id="version_CONTENT">
-<pre> my $version = SDL::version();
-
-</pre>
-<p>Returns an SDL::Version object of the of the SDL library at compile time.</p>
-<p>Example:</p>
+<p>Returns an <code>SDL::Version</code> object of the SDL library at compile-time.</p>
 <pre> use SDL;
  use SDL::Version;
 
  my $v = SDL::version();
  printf(&quot;got version: %d.%d.%d\n&quot;, $v-&gt;major, $v-&gt;minor, $v-&gt;patch);
 
-
-
-
 </pre>
 
 </div>
-<h2 id="linked_version">linked_version</h2>
+<h2 id="linked_version">linked_version()</h2>
 <div id="linked_version_CONTENT">
-<pre> my $linked_version = SDL::linked_version();
-
-</pre>
-<p>Returns an SDL::Version object of the currently loaded SDL library.</p>
-<p>Example:</p>
-<pre> use SDL;
- use SDL::Version;
-
- my $v = SDL::linked_version();
- printf(&quot;got version: %d.%d.%d\n&quot;, $v-&gt;major, $v-&gt;minor, $v-&gt;patch);
-
-</pre>
+<p><code>SDL::linked_version</code> works in the same way as <code>SDL::version</code>, but returns an <code>SDL::Version</code> object of the SDL library at link-time.</p>
 
 </div>
-<h2 id="get_error-2">get_error()</h2>
-<div id="get_error_CONTENT-2">
-<p>The last error message set by the SDL library can be retrieved using the subroutine
-<code>SDL::get_error</code>, which returns a scalar containing the text of the message if any.</p>
+<h2 id="get_ticks">get_ticks()</h2>
+<div id="get_ticks_CONTENT">
+<p>Returns the number of milliseconds since SDL library initialization.
+This value wraps around if the program runs for more than 49.7 days</p>
 
 </div>
 <h2 id="delay_ms">delay(ms)</h2>
 <div id="delay_ms_CONTENT">
-<pre> SDL::delay(1000);
+<p><code>SDL::delay</code> waits the specified number of milliseconds before returning.
+The actual delay may be longer than specified depending on the underlying OS.</p>
+<p><code>SDL::delay</code> doesn't return anything.</p>
+<pre> # Delay for half a second
+ SDL::delay(500);
 
 </pre>
-<p>This subroutine allows an application to delay further operations for atleast a
-number of milliseconds provided as the argument.  The actual delay may be longer
-than the specified depending on the underlying OS.</p>
 
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>magnet, kthakore
-</p>
+<p>magnet, kthakore, Blaizer</p>
 
 </div>
 </div>
