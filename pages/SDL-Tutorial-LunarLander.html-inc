@@ -301,7 +301,7 @@ this tutorial; Save these images in a subdirectory called &quot;images&quot;:
 
 	use SDL; #needed to get all constants
 	use SDL::Video;
-	use SDL::App;
+	use SDLx::App;
 	use SDL::Surface;
 	use SDL::Rect;
 	use SDL::Image;
@@ -313,14 +313,14 @@ this tutorial; Save these images in a subdirectory called &quot;images&quot;:
 
 
 </pre>
-<p>Second step: initialize <code>SDL::App</code>:</p>
+<p>Second step: initialize <code>SDLx::App</code>:</p>
 <pre>
 
 
 
 
 
-    my $app = SDL::App-&gt;new(
+    my $app = SDLx::App-&gt;new(
         -title  =&gt; &quot;Lunar Lander&quot;,
         -width  =&gt; 800,
         -height =&gt; 600,

@@ -6,29 +6,12 @@
 <ul><li><a href="#CATEGORY">CATEGORY</a></li>
 </ul>
 </li>
-<li><a href="#Perl_s_SDL_in_a_nutshell">Perl's SDL in a nutshell</a></li>
-<li><a href="#SDL_power_through_simplicity">SDL - power through simplicity</a></li>
-<li><a href="#Example_1_Model_of_a_2_D_Noninteract">Example 1: Model of a 2-D Noninteracting Gas</a>
-<ul><li><a href="#Computational_Logic">Computational Logic</a></li>
-<li><a href="#Animation_Logic">Animation Logic</a></li>
-<li><a href="#Disappearing_Particles_Some_of_the_p">Disappearing Particles!
-Some of the particles can drift off the screen.  This is no good. What's causing this problem?</a></li>
-<li><a href="#Disappearing_Particles_take_2">Disappearing Particles, take 2</a></li>
-</ul>
+<li><a href="#Creating_a_SDL_Surface_piddle">Creating a SDL Surface piddle</a>
+<ul><li><a href="#Creating_a_simple_piddle">Creating a simple piddle</a></li>
+<li><a href="#Operating_on_the_Surface_safely">Operating on the Surface safely</a></li>
+<li><a href="#Error_due_to_BPP_at_blitting">Error due to BPP at blitting</a>
 </li>
-<li><a href="#What_s_in_a_Name_Pesky_conflicts_wit">What's in a Name?  Pesky conflicts with main::in()</a>
-<ul><li><a href="#Solution_1_Explicit_scoping_using_pa">Solution 1: Explicit scoping using packages</a></li>
-<li><a href="#Solution_2_Removing_SDL_s_in_or_PDL_">Solution 2: Removing SDL's in or PDL's in from the symbol table</a></li>
 </ul>
-</li>
-<li><a href="#Making_the_simulation_interactive">Making the simulation interactive</a>
-<ul><li><a href="#Present_state_of_the_code">Present state of the code</a></li>
-<li><a href="#Listening_to_Events">Listening to Events</a></li>
-<li><a href="#Responding_to_events">Responding to events</a></li>
-<li><a href="#Final_State_of_the_Code">Final State of the Code</a></li>
-</ul>
-</li>
-<li><a href="#Directions_for_future_work">Directions for future work</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -48,600 +31,79 @@ Some of the particles can drift off the screen.  This is no good. What's causing
 <p>Cookbook</p>
 
 </div>
-<h1 id="Perl_s_SDL_in_a_nutshell">Perl's SDL in a nutshell</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="Perl_s_SDL_in_a_nutshell_CONTENT">
-<p>SDL stands for Simple DirectMedia Layer.  It's a cross-platform library written in C that's meant to handle all of the low-level graphics and sound stuff.  You can read more about SDL here: http://www.libsdl.org/.  Because SDL is focused on game programming, it has a raw but clean feel to it.  We will focus for now on using SDL to handle images for us.  Handling sound may some day be the focus of another chapter.</p>
-<p>We will be using Perl's SDL module, not SDL directly.  Fortunately, Perl's SDL module has a small collection of very simple tutorials that perfectly introduce basic usage.  You can find them here: http://sdl.perl.org/tutorials/.  Another excellent and very substantial introduction can be found here: http://arstechnica.com/gaming/news/2006/02/games-perl.ars</p>
-<p>SDL is not a Perl core module, so you'll need to install it before moving forward.  Before moving on, go through some of the tutorials and play around with SDL a little bit.  Continue on once you think you've got the hang of it.</p>
+<h1 id="Creating_a_SDL_Surface_piddle">Creating a SDL Surface piddle</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="Creating_a_SDL_Surface_piddle_CONTEN">
+<p>PDL's core type is a piddle. Once a piddle is provided to PDL it can go do a numerous amounts of things. Please see the example in 'examples/cookbook/pdl.pl' that came with this module.</p>
 
 </div>
-<h1 id="SDL_power_through_simplicity">SDL - power through simplicity</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="SDL_power_through_simplicity_CONTENT">
-<p>One of the first questions you're bound to ask when you begin using SDL for your own work is, &quot;How do I draw a line?&quot;  As it turns out, you don't!  SDL's pixmap capabilities are just that - pixmap capabilities.  If you want to draw a line, you'll have to do it manually.</p>
-<p>For example, here is a very poorly implemented hack (read - don't do this at home) that will draw a simple sine-wave graph:</p>
-<pre>	#!/usr/bin/perl
-	use warnings;
-	use strict;
-
-	use SDL;
-	use SDL::App;
-	use SDL::Rect;
-	use SDL::Color;
-	use SDL::Video;
-
-	# User defined pen-nib size.
-	my $nib_size = 3;
-
-	# Create the SDL App
-	my $app = SDL::App-&gt;new(
-		-width  =&gt; 640,
-		-height =&gt; 480,
-		-depth  =&gt; 16,
-		-title  =&gt; &quot;Hello, World!&quot;,
-	);
-
-	# our nib will be white
-	my $nib_color = SDL::Color-&gt;new(
-			0xff, #r
-			0xff, #b
-			0xff, #g
-		);
-
-	# and our nib will be represented by a rectangle
-	# (Alternatively, you could use an image, which would allow
-	# for pretty anti-aliasing if you created it in GIMP with
-	# antialiasing)
-	my $nib = SDL::Rect-&gt;new( 
-	    0 , 0, #x, y
-     	$nib_size, #w
-		$nib_size, #h
-	);
-
-	# now draw a sine wave (wthout covering up previously drawn rectangles)
-	my $t = 0;
-	my $t_step = 2**-4;
-	for($t = 0; $t &lt; 50; $t += $t_step) {
-		$nib-&gt;x( $t * 8 );
-		$nib-&gt;y( sin($t) * 80 + 240 );
-
-		SDL::Video::fill_rect($app, $nib, $nib_color );
-	}
-
-	# Generally use the update command, but if you want to update the whole
-	# surface, use flip
-	SDL::Video::fill_rect($app,)
-
-	sleep 5;
+<h2 id="Creating_a_simple_piddle">Creating a simple piddle</h2>
+<div id="Creating_a_simple_piddle_CONTENT">
+<p>First lets get the right modules.</p>
+<pre>  use PDL;
+  use SDL::Rect;
+  use SDL::Video;
+  use SDL::Surface;
+  use SDL::PixelFormat;
 
 </pre>
-<p>Wait a second, you say, this doesn't seem either powerful or simple!  You're right, but that's not because SDL is a poor tool.  Rather, this example targets SDL's weaknesses rather than its strenghts.</p>
-<p>If you need to make a plot, use PLplot or PGPLOT.  If you need to make something move, use SDL.</p>
+<p>Suppose you want a surface of size (200,400) and 32 bit (RGBA).</p>
+<pre>   my ( $bytes_per_pixel, $width, $height ) = ( 4, 200, 400 );
+
+</pre>
+<p>Define the $width, $height and $bytes_per_pixel. Your $bytes_per_pixel is the number of bits (in this case 32) divided by 8 bits per byte. Therefore for our 32 bpp we have 4 Bpp;</p>
+<pre>   my $piddle  = zeros( byte, $bytes_per_pixel, $width, $height );
+
+</pre>
+<p>Create a normal $piddle with zeros, byte format and the Bpp x width x height dimensions.</p>
+<pre>   my $pointer = $piddle-&gt;get_dataref();
+
+</pre>
+<p>Here is where we get the acutal data the piddle is pointing to. We will have SDL create a new surface from this function.</p>
+<pre>   my $surface = SDL::Surface-&gt;new_from( $pointer, $width, $height, 32,
+        $width * $bytes_per_pixel );
+
+</pre>
+<p>Using the same dimensions we create the surface using new_form. The width *  Bpp is the scanline (pitch) of the surface in bytes.</p>
+<pre>   warn &quot;Made surface of $width, $height and &quot;. $surface-&gt;format-&gt;BytesPerPixel;
+   return ( $piddle, $surface );
+
+</pre>
+<p>Finally make sure that the surface acutally has the correct dimensions we gave.</p>
+<p><strong>NOTE:</strong> $surface-&gt;format-&gt;BytesPerPixel must return 1,2,3,4. !!</p>
+<p>Now you can blit and use the surface as needed; and do PDL operations as required.</p>
+
+
+
+
 
 </div>
-<h1 id="Example_1_Model_of_a_2_D_Noninteract">Example 1: Model of a 2-D Noninteracting Gas</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="Example_1_Model_of_a_2_D_Noninteract-2">
-<p>In this section we'll develop a fully working animation/simulation.  We'll start with something quite simple for now and expand it as we go along.  The goal of this example is for it to work, not to be well-designed.  For a discussion of making your simulations well-designed, read below.</p>
-<p>We will separate our program into two parts: the computational logic and the animation logic.  Here's the introduction and the computational part:</p>
+<h2 id="Operating_on_the_Surface_safely">Operating on the Surface safely</h2>
+<div id="Operating_on_the_Surface_safely_CONT">
+<p>To make sure SDL is in sync with the data. You must call SDL::Video::lock <strong>before</strong> doing PDL operations on the piddle.</p>
+<pre>    SDL::Video::lock_surface($surface);
 
-</div>
-<h2 id="Computational_Logic">Computational Logic</h2>
-<div id="Computational_Logic_CONTENT">
-<pre>
-
-
-	#!/usr/bin/perl
-	# A simple simulation
-	use warnings;
-	use strict;
-	use PDL;
-
-	# Set up the system parameters, including random positions and velocities.
-	my $d_t = 2**-3;
-	my $side_length = 200;
-	my $numb_of_atoms = 100;
-	my $positions = random(2, $numb_of_atoms) * $side_length;
-	my $velocities = random(2, $numb_of_atoms) * 6;
-
-	sub compute {
-		$positions += $d_t * $velocities;
-	}
+    $piddle ( :, 0 : rand(400), 0 : rand(200) ) .=   pdl( rand(225), rand(225), rand(255), 255 );
 
 </pre>
-<p>If you've ever written a simulation, you'll probably object that we don't have any iteration over time.  You're right, but it turns out that the timing works much better in SDL's event loop than in our computational logic.  The purpose of the computational logic is to let us focus on encoding our systems dynamics without having to worry about the application logic.  In this case, the computational logic simply updates the positions of the particles according to their velocities.</p>
-
-</div>
-<h2 id="Animation_Logic">Animation Logic</h2>
-<div id="Animation_Logic_CONTENT">
-<p>We next need to figure out how the application is actually going to run and display anything.  We'll do this in two stages, the application intialization and the run loop.</p>
-<p>Here's some initialization code to get started; put this below the code already supplied above:</p>
-<pre>	use SDL;
-	use SDL::App;
-	use SDL::Rect;
-	use SDL::Color;
-	use SDL::Video;
-
-	# Create the SDL App
-	my $app = SDL::App-&gt;new( -width  =&gt; $side_length, -height =&gt; $side_length, 
-					-title  =&gt; &quot;Simple Simulation!&quot;, -depth  =&gt; 16, );
-
-	# white particles on a black background
-	my $particle_color = SDL::Color-&gt;new( 0xff, 0xff, 0xff, );
-	my $bg_color = SDL::Color-&gt;new( 0x00, 0x00, 0x00 );
-
-	# rectangles for the particles and the background
-	my $particle = SDL::Rect-&gt;new( 0,0, 5, 5);
-	my $bg = SDL::Rect-&gt;new( 0,0,$side_length, $side_length, );
-
-</pre>
-<p>Hopefully this is straightforward code.  We pull in our library dependencies and then create a few objects with the necessary properties.  Finally, we get to the actual application loop:</p>
-<pre>	# Run the simulation by (1) computing the updated positions, clearing the canvas, drawing the
-	# new particles, updating the visual display, and pausing before continuing:
-	for(my $t = 0; $t &lt; 20; $t += $d_t) {
-		compute();
-
-		# Clean the canvas
-		SDL::Video::fill_rect($app, $bg, $bg_color);
-		for(my $i = 0; $i &lt; $numb_of_atoms; $i++) {
-			$particle-&gt;x( $positions-&gt;at(0,$i) );
-			$particle-&gt;y( $positions-&gt;at(1,$i) );
-			SDL::Video::fill_rect($app, $particle, $particle_color );
-		}
-		SDL::Video::flip($app);
-		$app-&gt;delay(10);
-	}
-
-</pre>
-<p>When you run this code (combined with the code already supplied), you should get a bunch of particles slowly drifting down and to the right.  Not all that interesting, but then again, we have a simulation up and working!  Cool!.</p>
-
-</div>
-<h2 id="Disappearing_Particles_Some_of_the_p">Disappearing Particles!
-Some of the particles can drift off the screen.  This is no good. What's causing this problem?</h2>
-<div id="Disappearing_Particles_Some_of_the_p-2">
-<p>The root of the problem is that our computational code is, well, rather dumb, it doesn't check to see if the particle is about to go off the screen.  So, we need to update our computational code to look like this:</p>
-<pre>	sub compute {
-		$positions += $d_t * $velocities;
-
-		# Find all particles that are 'outside' the box, place them back in
-		# box, and reverse their directions
-		my ($bad_pos, $bad_vel)
-			= where($positions, $velocities, $positions &gt; $side_length);
-		$bad_vel *= -1;
-		$bad_pos .= 2 * $side_length - $bad_pos;
-	}
-
-</pre>
-<p>With this change to the code, you should get particles that 'bounce' when the reach the far edge.  This is far from satisfactory, however, because the compute code is adjusting the particle's ''left'' edge, not its center, so the particles nearly go off the screen before they bounce.  To fix this, we work with an effective side length instead:</p>
-<pre>	my $effective_length = $side_length - 5;
-	sub compute {
-		$positions += $d_t * $velocities;
-
-		# Find all particles that are 'outside' the box and push them back in the
-		# opposite direction, reversing their directions, too.
-		my ($bad_pos, $bad_vel)
-			= where($positions, $velocities, $positions &gt; $effective_length);
-		$bad_vel *= -1;
-		$bad_pos .= 2 * $effective_length - $bad_pos;
-	}
-
-</pre>
-<p>So far I've been carrying that explicit constant of 5 to represent the size of the particles.  We should put that in a variable somewhere so that it's a bitcode&gt; and put it near the top.  Also, the velocities are rather silly - we don't have any negative velocities.  Let's try using &lt;code&gt;grandom&lt;/code&gt; instead.  Now your variable initialization code should look something like this:</p>
-<pre>	# Set up the system parameters, including random positions and velocities.
-	my $d_t = 2**-3;
-	my $side_length = 200;
-	my $particle_size = 5;
-	my $numb_of_atoms = 100;
-	my $positions = random(2, $numb_of_atoms) * $side_length;
-	my $velocities = grandom(2, $numb_of_atoms) * 5;
+<p>After that you can unlock the surface to blit.</p>
+<pre>    SDL::Video::unlock_surface($surface);
 
 </pre>
 
 </div>
-<h2 id="Disappearing_Particles_take_2">Disappearing Particles, take 2</h2>
-<div id="Disappearing_Particles_take_2_CONTEN">
-<p>Unless you experience an unusual circumstance, all of the particles will quickly shrivel up and disappear!  What's going on?  It turns out we have a problem with our computational logic again, but we are also running into strange behavior from SDL.  We'll take a look at SDL's weird behavior first.</p>
-<p>Clearly the particle rectangle's size is not supposed to change, but somehow it does.  To confince yourself of this, modify the &lt;code&gt;for&lt;/code&gt; loop in the application loop so it looks more like this, which explicitly sets the particle size for every particle that's drawn:</p>
-<pre>	for(my $i = 0; $i &lt; $numb_of_atoms; $i++) {
-		$particle-&gt;x( $positions-&gt;at(0,$i) );
-		$particle-&gt;y( $positions-&gt;at(1,$i) );
-		$particle-&gt;h( $particle_size );
-		$particle-&gt;w( $particle_size );
-		SDL::Video::fill_rect($app, $particle, $particle_color );
-	}
+<h2 id="Error_due_to_BPP_at_blitting">Error due to BPP at blitting</h2>
+<div id="Error_due_to_BPP_at_blitting_CONTENT">
+<p>When blitting the new surface check for the return value to see if there has been a problem.</p>
+<pre>    my $b = SDL::Video::blit_surface(
+        $surface,  SDL::Rect-&gt;new( 0, 0, $surface-&gt;w, $surface-&gt;h ),
+        $app, SDL::Rect-&gt;new(  ( $app-&gt;w - $surface-&gt;w ) / 2, ( $app-&gt;h - $surface-&gt;h ) / 2, $app-&gt;w, $app-&gt;h )
+       );
+
+    die &quot;Could not blit: &quot; . SDL::get_error() if ( $b == -1 );
 
 </pre>
-<p>Now it's clear that although we still have particles flying off the screen up and to the left, they are no longer shriveling away.  This strange behavior is due to SDL's response to a negative position for a rectangle - it just resizes the rectangle so that it only the portion of the rectangle that's in positive territory remains.  The upshot is that you must always be careful about how you handle drawing positons.</p>
-<p>Now that the particles are no longer disappearing, it's clear that we forgot to set up a physical boundary condition for our particles on the uppper and left edges.  To fix that, we modify the compute function:</p>
-<pre>	sub compute {
-		$positions += $d_t * $velocities;
-
-		# Find all particles that are 'outside' the box and push them back in the
-		# opposite direction, reversing their directions, too.
-		my ($bad_pos, $bad_vel)
-			= where($positions, $velocities, $positions &gt; $effective_length);
-		$bad_vel *= -1;
-		$bad_pos .= 2 * $effective_length - $bad_pos;
-
-		($bad_pos, $bad_vel) = where($positions, $velocities, $positions &lt; 0);
-		$bad_vel *= -1;
-		$bad_pos *= -1;
-	}
-
-</pre>
-<p>You can also remove the explicit particle-sizing that we put in before, because it's no longer a problem.</p>
-<p>And there you have it!  We have a fully fledged simulation of noninteracting particles in a box!</p>
-
-</div>
-<h1 id="What_s_in_a_Name_Pesky_conflicts_wit">What's in a Name?  Pesky conflicts with main::in()</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="What_s_in_a_Name_Pesky_conflicts_wit-2">
-<p>If you've been running your simulations along with the demo, you'll almost certainly have noticed an error looking something like this:</p>
-<pre> Prototype mismatch: sub main::in (;@) vs none at ./sdlsandbox.pl line 36
-
-</pre>
-<p>This is the unfortunate consequence of both SDL and PDL exporting their &lt;code&gt;in&lt;/code&gt; function to their enclosing namespace.  The standard solution to this is to have modify one of your &lt;code&gt;use&lt;/code&gt; lines so it looks like </p>
-<pre>	 use PDL qw( !in );
-
-</pre>
-<p>Unfortunately, PDL doesn't listen you what you say when it imports functions into the namespace.  As far as I can tell, neither does SDL.  The best way to fix this problem is to encapsulate one of the two pieces of code into its own package.  We'll do that with the MyComputation package.</p>
-
-</div>
-<h2 id="Solution_1_Explicit_scoping_using_pa">Solution 1: Explicit scoping using packages</h2>
-<div id="Solution_1_Explicit_scoping_using_pa-2">
-<p>Tweak your code a bit so that you call <code>use PDL;</code> within the MyCompute package, and place all of the piddles within that package space:</p>
-<pre>	package MyCompute;
-	use PDL;
-	my $positions = random(2, $numb_of_atoms) * $side_length;
-
-	# ... and later
-	package main;
-	use SDL;
-
-	# ... and later, tweak the application loop
-	for(my $t = 0; $t &lt; 20; $t += $d_t) {
-		MyCompute::compute();
-
-</pre>
-<p>And now everything should run fine, without any more warnings!</p>
-
-</div>
-<h2 id="Solution_2_Removing_SDL_s_in_or_PDL_">Solution 2: Removing SDL's in or PDL's in from the symbol table</h2>
-<div id="Solution_2_Removing_SDL_s_in_or_PDL_-2">
-<p>Sometimes you have to mix your animation code with computational code, in which case the above solution doesn't solve your problem.  If you find that you don't need to use one of PDL's or SDL's &lt;code&gt;in&lt;/code&gt; function in your own code, go ahead and remove it from the main symbol table.  You can always get back to it later by fully qualifying the function call.  To remove SDL's &lt;code&gt;in&lt;/code&gt; function, use code like this:</p>
-<pre>	# use SDL, but remove SDL's in function before loading PDL
-	use SDL;
-	BEGIN {
-		delete $main::{in};
-	}
-	use PDL;
-
-</pre>
-<p>If you would rather have SDL's <code>in</code> function in your main symbol table, reverse the placement of &lt;code&gt;use SD<a href="#code">code</a> and &lt;code&gt;use PD<a href="#code">code</a> in the previous example:</p>
-<pre>	# use PDL, but remove its 'in' function before loading SDL
-	use PDL;
-	BEGIN {
-		delete $main::{in};
-	}
-	use SDL;
-
-</pre>
-
-</div>
-<h1 id="Making_the_simulation_interactive">Making the simulation interactive</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="Making_the_simulation_interactive_CO">
-<p>As the closing portion of this chapter, we'll consider how to make the simulation interactive.  SDL captures keyboard and mouse behavior, so putting this into our simulator is straightforward.</p>
-
-</div>
-<h2 id="Present_state_of_the_code">Present state of the code</h2>
-<div id="Present_state_of_the_code_CONTENT">
-<p>Before moving into getting user interaction, I first want to be sure we're working with the same code.  In particular, I've made a couple of important modifications so that this code is slightly different from what we were working with above.  I'll point out those differences as we come to them.  Here's the program as it stands, from top to bottom:</p>
-<pre>	#!/usr/bin/perl
-	# A simple simulation
-	use warnings;
-	use strict;
-
-	## Global Variables ##
-
-	# Set up the system parameters, including random positions and velocities.
-	my $d_t = 2**-3;
-	my $side_length = 200;
-	my $particle_size = 5;
-	my $numb_of_atoms = 100;
-
-	## Computational Stuff ##
-
-	package MyCompute;
-	use PDL;
-	my $positions = random(2, $numb_of_atoms) * $side_length;
-	my $velocities = grandom(2, $numb_of_atoms) * 6;
-	my $effective_length;
-
-	sub compute {
-		my $effective_length = $side_length - $particle_size;
-
-		# update the a real simulation, this is the interesting part
-		$positions += $d_t * $velocities;
-
-		# Check boundary conditions.  Find all particles that are 'outside' the box,
-		# place them back in the box, and reverse their directions
-		my ($bad_pos, $bad_vel)
-			= where($positions, $velocities, $positions &gt; $effective_length);
-		$bad_vel *= -1;
-		$bad_pos .= 2 * $effective_length - $bad_pos;
-
-		($bad_pos, $bad_vel) = where($positions, $velocities, $positions &lt; 0);
-		$bad_vel *= -1;
-		$bad_pos *= -1;
-	}
-
-
-
-
-	## Animation Code ##
-
-	package main;
-
-	use SDL;
-	use SDL::App;
-	use SDL::Rect;
-	use SDL::Color;
-	use SDL::Video;
-
-	# Create the SDL App
-	my $app = SDL::App-&gt;new( -width  =&gt; $side_length, -height =&gt; $side_length, 
-				-title  =&gt; &quot;Simple Simulation!&quot;, -depth  =&gt; 16, );
-
-	# white particles on a black background
-	my $particle_color = SDL::Color-&gt;new( 0xff, 0xff, 0xff, );
-	my $bg_color = SDL::Color-&gt;new( 0x00, 0x00, 0x00 );
-
-	# rectangles for the particles and the background
-	my $particle = SDL::Rect-&gt;new( 0,0, 5, 5);
-	my $bg = SDL::Rect-&gt;new( 0,0,$side_length, $side_length, );
-
-	# Run the simulation
-	for(my $t = 0; $t &lt; 20; $t += $d_t) {
-		MyCompute::compute();
-
-		# Clean the canvas
-		SDL::Video::fill_rect($app, $bg, $bg_color);
-		for(my $i = 0; $i &lt; $numb_of_atoms; $i++) {
-			$particle-&gt;x( $positions-&gt;at(0,$i) );
-			$particle-&gt;y( $positions-&gt;at(1,$i) );
-			SDL::Video::fill_rect($app, $particle, $particle_color );
-		}
-		SDL::Video::flip($app);
-		$app-&gt;delay(10);
-	}
-
-</pre>
-<p>So there it is, top to bottom, in about 75 lines.</p>
-
-</div>
-<h2 id="Listening_to_Events">Listening to Events</h2>
-<div id="Listening_to_Events_CONTENT">
-<p>To respond to user interactions, we have to listen to user events using an SDL::Event object.  So first, add this line with our other use statements:</p>
-<pre> use SDL::Event; 
-	use SDL::Events; 
-
-</pre>
-<p>and then be sure to create an event object amongst the animation initialization code:</p>
-<pre> my $event = SDL::Event-&gt;new;
-
-</pre>
-<p>Finally, we need to update the application loop so that it examines and responds to events.  Replace the current application loop with this code:</p>
-<pre>	# Run the simulation
-	while(1) {
-		MyCompute::compute();
-
-		# Clean the canvas
-		SDL::Video::fill_rect($app, $bg, $bg_color);
-		for(my $i = 0; $i &lt; $numb_of_atoms; $i++) {
-			$particle-&gt;x( $positions-&gt;at(0,$i) );
-			$particle-&gt;y( $positions-&gt;at(1,$i) );
-			SDL::Video::fill_rect($app, $particle, $particle_col10);
-
-		while(SDL::Events::poll_event($event) ) {
-			if($event-&gt;type() ==  SDL_QUIT) {
-				exit;
-			}
-		}
-	}
-
-</pre>
-<p>Now the animator will run indefinitely, until you explicitly tell it to close.  (You may have noticed before that the application would not close even if you told it to close.  Now we've fixed that.)</p>
-
-</div>
-<h2 id="Responding_to_events">Responding to events</h2>
-<div id="Responding_to_events_CONTENT">
-<p>When SDL gets a mouse response or a keyboard key press, it tells you with an event.  The naive way to process these event is with a series of if statements.  Don't do that.</p>
-<p>Instead, create a dispatch table, which is nothing more than a hash whose values are the subroutines you want to have run when an event happens.  Replace the application loop with the following code:</p>
-<pre>	# event dispatch table
-	my $keyname_dispatch_table = {
-		'up'	=&gt; \&amp;incr_particle_size,	# up key makes particles larger
-		'down'	=&gt; \&amp;decr_particle_size,	# down key makes particles smaller
-		'space'	=&gt; sub { $d_t = -$d_t	},	# space-bar reverses time
-		'.'	=&gt; sub { $d_t *= 1.1	},	# right-angle-bracket fast-forwards
-		','	=&gt; sub { $d_t /= 1.1	},	# left-angle-bracket slows down
-		'q'	=&gt; sub { exit;		},	# q exits
-	};
-
-	sub incr_particle_size {
-		$particle_size++;
-		$particle-&gt;h($particle_size);
-		$particle-&gt;w($particle_size);
-	}
-
-	sub decr_particle_size {
-		$particle_size-- if $particle_size &gt; 1;
-		$particle-&gt;h($particle_size);
-		$particle-&gt;w($particle_size);
-	}
-
-
-
-
-	# Run the simulation
-	while(1) {
-		MyCompute::compute();
-
-		# Clean the canvas
-		SDL::Video::fill_rect($app, $bg, $bg_color);
-		for(my $i = 0; $i &lt; $numb_of_atoms; $i++) {
-			$particle-&gt;x( $positions-&gt;at(0,$i) );
-			$particle-&gt;y( $positions-&gt;at(1,$i) );
-			SDL::Video::fill_rect($app, $particle, $particle_color );
-		}
-		SDL::Video::flip($app);
-		$app-&gt;delay(10);
-
-		while(SDL::Events::poll_event($event) ) {
-			if($event-&gt;type() ==  SDL_QUIT) {
-				exit;
-			} elsif($event-&gt;type() ==  SDL_QUIT) {
-				if(exists $keyname_dispatch_table-&gt;{$event-&gt;keysym_name()}) {
-					$keyname_dispatch_table-&gt;{$event-&gt;keysym_name()}-&gt;();
-				}
-			}
-		}
-	}
-
-</pre>
-<p>Dispatch tables allow for powerful methods of abstracting your program logic.  Now adding a new event handler is as easy as updating the dispatch table!</p>
-<p>As written, you can now increase or decrease the particle size using the up and down arrow keys, you can increase ory using the right or left angle-brackets, you can reverse time using the space bar, or you can quit by pressing q.</p>
-
-</div>
-<h2 id="Final_State_of_the_Code">Final State of the Code</h2>
-<div id="Final_State_of_the_Code_CONTENT">
-<p>Just so that you've got a complete working example, here is the final state of the code, clocking in at a mere 115 lines:</p>
-<pre>	#!/usr/bin/perl
-	# A simple simulation
-	use warnings;
-	use strict;
-
-	## Global Variables ##
-
-	# Set up the system parameters, including random positions and velocities.
-	my $d_t = 2**-3;
-	my $side_length = 200;
-	my $particle_size = 5;
-	my $numb_of_atoms = 100;
-
-	## Computational Stuff ##
-
-	package MyCompute;
-	use PDL;
-	my $positions = random(2, $numb_of_atoms) * $side_length;
-	my $velocities = grandom(2, $numb_of_atoms) * 6;
-	my $effective_length;
-
-	sub compute {
-		my $effective_length = $side_length - $particle_size;
-
-		# update the positions.  For a real simulation, this is the interesting part
-		$positions += $d_t * $velocities;
-
-		# Check boundary conditions.  Find all particles that are 'outside' the box,
-		# place them back in the box, and reverse their directions
-		my ($bad_pos, $bad_vel)
-			= where($positions, $velocities, $positions &gt; $effective_length);
-		$bad_vel *= -1;
-		$bad_pos .= 2 * $effective_length - $bad_pos;
-
-		($bad_pos, $bad_vel) = where($positions, $velocities, $positions &lt; 0);
-		$bad_vel *= -1;
-		$bad_pos *= -1;
-	}
-
-
-
-
-	## Animation Code ##
-
-	package main;
-
-	use SDL;
-	use SDL::App;
-	use SDL::Rect;
-	use SDL::Color;
-	use SDL::Video;
-	use SDL::Event;  
-	use SDL::Events; 
-
-	# Create the SDL App
-	my $app = SDL::App-&gt;new( -width  =&gt; $side_length, -height =&gt; $side_length, 
-				-title  =&gt; &quot;Simple Simulation!&quot;, -depth  =&gt; 16, );
-
-	# white particles on a black background
-	my $particle_color = SDL::Color-&gt;new( 0xff, 0xff, 0xff, );
-	my $bg_color = SDL::Color-&gt;new( 0x00, 0x00, 0x00 );
-
-	# rectangles for the particles and the background
-	my $particle = SDL::Rect-&gt;new( 0,0, 5, 5);
-	my $bg = SDL::Rect-&gt;new( 0,0,$side_length, $side_length, );
-
-	# event listener
-	my $event = SDL::Event-&gt;new();
-
-	# event dispatch table
-	my $keyname_dispatch_table = {
-		'up'	=&gt; \&amp;incr_particle_size,	# up key makes particles large
-		'down'	=&gt; \&amp;decr_particle_size,	# up key makes particles large
-		'space'	=&gt; sub { $d_t = -$d_t	},	
-		'.'	=&gt; sub { $d_t *= 1.1	},	# right-arrow fast-forwards
-		','	=&gt; sub { $d_t /= 1.1	},	# left-arrow slows down
-		'q'	=&gt; sub { exit;		},	# q exits
-	};
-
-	sub incr_particle_size {
-		$particle_size++;
-		$particle-&gt;h($particle_size);
-		$particle-&gt;w($particle_size);
-	}
-
-	sub decr_particle_size {
-		$particle_size-- if $particle_size &gt; 1;
-		$particle-&gt;h($particle_size);
-		$particle-&gt;w($particle_size);
-	}
-
-
-
-
-	# Run the simulation
-	while(1) {
-		MyCompute::compute();
-
-		# Clean the canvas
-		SDL::Video::fill_rect($app, $bg, $bg_color);
-		for(my $i = 0; $i &lt; $numb_of_atoms; $i++) {
-			$particle-&gt;x( $positions-&gt;at(0,$i) );
-			$particle-&gt;y( $positions-&gt;at(1,$i) );
-			SDL::Video::fill_rect($app, $particle, $particle_color );
-		}
-		SDL::Video::flip($app);
-		$app-&gt;delay(10);
-
-		while(SDL::Events::poll_event($event) ) {
-			if($event-&gt;type() ==  SDL_QUIT) {
-				exit;
-			} elsif($event-&gt;type() ==  SDL_QUIT) {
-				if(exists $keyname_dispatch_table-&gt;{$event-&gt;keysym_name()}) {
-					$keyname_dispatch_table-&gt;{$event-&gt;keysym_name()}-&gt;();
-				}
-			}
-		}
-	}
-
-</pre>
-<p>Next, if you want to model interactions among particles, you could write code in the compute function to handle that for you.  If you wanted to use little balls instead of the boxes we've used here, you could create your own images and use an SDL::Surface to load the image.  You can't resize an image using SDL, but then you'd probably be working with real interactions anyway, like a Coulomb force, in which case you'd really be adjusting the interaction strength, not the particle size.</p>
-
-</div>
-<h1 id="Directions_for_future_work">Directions for future work</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="Directions_for_future_work_CONTENT">
-<p>I have a couple of ideas for future work combining PDL and SDL.</p>
-<dl>
-	<dt>PLplot driver thingy that creates plots that can be blitted onto an app.  This way, having a graph plotting along side your simulation would be straightforward.
-=item  Write a function to convert SDL::Surface to a collection of rgba piddles.  We might even be able to convince the piddle to work directly with the memory allocated for the SDL::Survace object for super-fast PDL-based image manipulations.  As an added bonus, you'd be able to slice and dice!</dt>
-</dl>
+<p>If the error message is 'Blit combination not supported' that means that the BPP is incorrect or incosistent with the dimensions.
+After that a simple update_rect will so your new surface on the screen.</p>
 
 </div>
 </div>

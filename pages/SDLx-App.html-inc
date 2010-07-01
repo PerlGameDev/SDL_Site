@@ -29,7 +29,7 @@
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::App - a SDL perl extension</p>
+<p>SDLx::App - a SDL perl extension</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -40,11 +40,11 @@
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
 <pre>    use SDL;
-    use SDL::App; 
+    use SDLx::App; 
     use SDL::Event;
     use SDL::Events; 
 
-    my $app = SDL::App-&gt;new( 
+    my $app = SDLx::App-&gt;new( 
         -title  =&gt; 'Application Title',
         -width  =&gt; 640,
         -height =&gt; 480,
@@ -64,12 +64,12 @@
     }
 
 </pre>
-<p>An alternative to the manual Event processing is the <a href="/SDL-App.html#loop">SDL::App::loop</a> .</p>
+<p>An alternative to the manual Event processing is the <a href="http://search.cpan.org/perldoc?SDLx::App::loop">SDLx::App::loop</a> .</p>
 
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p><a href="SDL-App.html">SDL::App</a> controls the root window of the of your SDL based application.
+<p><a href="http://search.cpan.org/perldoc?SDLx::App">SDLx::App</a> controls the root window of the of your SDL based application.
 It extends the <a href="SDL-Surface.html">SDL::Surface</a> class, and provides an interface to the window
 manager oriented functions.</p>
 
@@ -80,9 +80,9 @@ manager oriented functions.</p>
 </div>
 <h2 id="new">new</h2>
 <div id="new_CONTENT">
-<p><code>SDL::App::new</code> initializes the SDL, creates a new screen,
+<p><code>SDLx::App::new</code> initializes the SDL, creates a new screen,
 and initializes some of the window manager properties.
-<code>SDL::App::new</code> takes a series of named parameters:</p>
+<code>SDLx::App::new</code> takes a series of named parameters:</p>
 <ul>
 		<li>-title	</li>
 		<li>-icon_title	</li>
@@ -98,7 +98,7 @@ and initializes some of the window manager properties.
 </div>
 <h2 id="title">title</h2>
 <div id="title_CONTENT">
-<p><code>SDL::App::title</code> takes 0, 1, or 2  arguments.  It returns the current
+<p><code>SDLx::App::title</code> takes 0, 1, or 2  arguments.  It returns the current
 application window title.  If one parameter is passed, both the window
 title and icon title will be set to its value.  If two parameters are
 passed the window title will be set to the first, and the icon title
@@ -107,39 +107,39 @@ to the second.</p>
 </div>
 <h2 id="delay">delay</h2>
 <div id="delay_CONTENT">
-<p><code>SDL::App::delay</code> takes 1 argument, and will sleep the application for
+<p><code>SDLx::App::delay</code> takes 1 argument, and will sleep the application for
 that many ms.</p>
 
 </div>
 <h2 id="ticks">ticks</h2>
 <div id="ticks_CONTENT">
-<p><code>SDL::App::ticks</code> returns the number of ms since the application began.</p>
+<p><code>SDLx::App::ticks</code> returns the number of ms since the application began.</p>
 
 </div>
 <h2 id="error">error</h2>
 <div id="error_CONTENT">
-<p><code>SDL::App::error</code> returns the last error message set by the SDL.</p>
+<p><code>SDLx::App::error</code> returns the last error message set by the SDL.</p>
 
 </div>
 <h2 id="resize">resize</h2>
 <div id="resize_CONTENT">
-<p><code>SDL::App::resize</code> takes a new height and width of the application
+<p><code>SDLx::App::resize</code> takes a new height and width of the application
 if the application was originally created with the -resizable option.</p>
 
 </div>
 <h2 id="fullscreen">fullscreen</h2>
 <div id="fullscreen_CONTENT">
-<p><code>SDL::App::fullscreen</code> toggles the application in and out of fullscreen mode.</p>
+<p><code>SDLx::App::fullscreen</code> toggles the application in and out of fullscreen mode.</p>
 
 </div>
 <h2 id="iconify">iconify</h2>
 <div id="iconify_CONTENT">
-<p><code>SDL::App::iconify</code> iconifies the applicaiton window.</p>
+<p><code>SDLx::App::iconify</code> iconifies the applicaiton window.</p>
 
 </div>
 <h2 id="grab_input">grab_input</h2>
 <div id="grab_input_CONTENT">
-<p><code>SDL::App::grab_input</code> can be used to change the input focus behavior of
+<p><code>SDLx::App::grab_input</code> can be used to change the input focus behavior of
 the application.  It takes one argument, which should be one of the following:</p>
 <dl>
 	<dt>*
@@ -153,12 +153,12 @@ SDL_GRAB_OFF</dt>
 </div>
 <h2 id="loop">loop</h2>
 <div id="loop_CONTENT">
-<p><code>SDL::App::loop</code> is a simple event loop method which takes a reference to a hash
+<p><code>SDLx::App::loop</code> is a simple event loop method which takes a reference to a hash
 of event handler subroutines.  The keys of the hash must be SDL event types such
 as SDL_QUIT(), SDL_KEYDOWN(), and the like.  The event method recieves as its parameter 
 the event object used in the loop.</p>
 <p>Example:</p>
-<pre>    my $app = SDL::App-&gt;new(
+<pre>    my $app = SDLx::App-&gt;new(
         -title  =&gt; &quot;test.app&quot;, 
         -width  =&gt; 800, 
         -height =&gt; 600, 
@@ -177,14 +177,14 @@ the event object used in the loop.</p>
 </div>
 <h2 id="sync">sync</h2>
 <div id="sync_CONTENT">
-<p><code>SDL::App::sync</code> encapsulates the various methods of syncronizing the screen with the
-current video buffer.  <code>SDL::App::sync</code> will do a fullscreen update, using the double buffer
+<p><code>SDLx::App::sync</code> encapsulates the various methods of syncronizing the screen with the
+current video buffer.  <code>SDLx::App::sync</code> will do a fullscreen update, using the double buffer
 or OpenGL buffer if applicable.  This is prefered to calling flip on the application window.</p>
 
 </div>
 <h2 id="attribute_attr_value">attribute ( attr, [value] )</h2>
 <div id="attribute_attr_value_CONTENT">
-<p><code>SDL::App::attribute</code> allows one to set and get GL attributes.  By passing a value
+<p><code>SDLx::App::attribute</code> allows one to set and get GL attributes.  By passing a value
 in addition to the attribute selector, the value will be set.  <code>SDL:::App::attribute</code>
 always returns the current value of the given attribute, or croaks on failure.</p>
 

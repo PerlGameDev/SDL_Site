@@ -1,25 +1,26 @@
 <div class="blog">
 <h1 id="NAME">
-Updates, Falling Block Game, and Hack Fest
+The beginnings of modular design for SDL Perl
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>Silent but active,<br />
-Small but deadly. <br />
-</i><br />
-</div><br />
+<div style="text-align: right;"><i>“Do or do not... there is no try.”</i><br />
+</div><div style="text-align: right;"><i>--yoda </i><br />
 <br />
-<h3>Updates</h3>Ok so my blog posts have gone down a bit due to me using my fingers for coding. We have started to get some updates to SDL docs so that good. Also some of the tutorials are shaping up. This is what I have been hacking this past week.<br />
+</div><h1>The design before</h1><br />
+The bindings before were all in <a href="http://github.com/kthakore/SDL_perl/blob/master/src/SDL.xs">one huge XS file</a>. This was then exported into the SDL module. This means that the XS file has to handle with macros if any component (e.x SDL_Mixer) is not compiled. Moreover having ever binding in one XS file prevents use to treat C structs as object with only one point of free and malloc. This would be BEGIN and DESTROY in Perl. Also the monolithic design introduces a lot of bugs because we have to use free and malloc all over the place. Lastly SDL monolithic design has the constructor for all structs in both Perl and in XS. <br />
 <br />
+<h1>The design we are aiming for</h1>Simple <a href="http://github.com/kthakore/SDL_perl/blob/master/src/Rect.xs">one XS</a> per Module. This would also simplify the Build code.<br />
 <br />
-<br />
-<div class="separator" style="clear: both; text-align: center;"><br />
-</div><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_NnqjAQEn1Xo/SrmNTm9UkKI/AAAAAAAAAA0/S0XNvXsp9u4/s1600-h/tetris.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_NnqjAQEn1Xo/SrmNTm9UkKI/AAAAAAAAAA0/S0XNvXsp9u4/s320/tetris.jpg" /></a><br />
-</div><br />
+<h2>First Step </h2><br />
+We have began with SDL Rect. It is in github master branch now. We are in the progress of making it back compatible. Originally SDL::Rect took named variables as parameters for new(). Now since the constructor <a href="http://github.com/kthakore/SDL_perl/blob/master/src/Rect.xs#L16">is in XS</a> we have only unnamed parameters. <br />
 <br />
 <br />
+<h3>Before</h3><br />
+SDL::Rect-&gt;new( -x =&gt; 0, -y =&gt; 0, -width =&gt; 0, -height =&gt; 0);<br />
 <br />
-You can grab the <a href="http://github.com/kthakore/TetrisPL">code</a>. Note you will have to install deps yourself. Read the README file. It is not a tutorial yet, because it was hacked together in ~50 hours. But it playable now. During building this I found out that MacOSX (and Snow Leopard) has died again.<br />
+<h3>After</h3><br />
+SDL::Rect-&gt;new(0, 0, 0, 0);<br />
 <br />
-<h3>Hackfest</h3>So with dngor's help this sunday (27/09/09) we will have a hackfest to fix MacOSX support. Anyone with a MacOSX and wants to help is welcome on <a href="http://widget.mibbit.com/?settings=89f140215d60860684cee2f6a917607f&amp;server=irc.perl.org&amp;channel=%23sdl">#sdl irc.perl.org</a>. We will also try to fix up a lot of docs and the tutorial for a early next week release. Also if we can we will migrate to the new site.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-7382145297295717151?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/bWiO6Z427TQpguktQW281jplCOc/0/da"><img src="http://feedads.g.doubleclick.net/~a/bWiO6Z427TQpguktQW281jplCOc/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/bWiO6Z427TQpguktQW281jplCOc/1/da"><img src="http://feedads.g.doubleclick.net/~a/bWiO6Z427TQpguktQW281jplCOc/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/kiv1WV0FYP4" height="1" width="1"/></div></div>
+Ideally we would like both ways of constructing Rect.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-6151839795039915111?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/kLUEuAPtuInPChqB2WfChUn3YyI/0/da"><img src="http://feedads.g.doubleclick.net/~a/kLUEuAPtuInPChqB2WfChUn3YyI/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/kLUEuAPtuInPChqB2WfChUn3YyI/1/da"><img src="http://feedads.g.doubleclick.net/~a/kLUEuAPtuInPChqB2WfChUn3YyI/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/uEzoBWRJEks" height="1" width="1"/></div></div>

@@ -4,7 +4,8 @@
 
 <ul><li><a href="#NAME">NAME</a>
 <ul><li><a href="#CATEGORY">CATEGORY</a></li>
-<li><a href="#First_Steps">First Steps</a>
+<li><a href="#First_Steps">First Steps</a></li>
+<li><a href="#PDL_with_SDL">PDL with SDL</a>
 </li>
 </ul>
 </li>
@@ -23,7 +24,12 @@
 </div>
 <h2 id="First_Steps">First Steps</h2>
 <div id="First_Steps_CONTENT">
-<p>see <a href="SDL-Tutorial.html">SDL::Tutorial</a>
+<p>see <a href="SDL-Tutorial.html">SDL::Tutorial</a></p>
+
+</div>
+<h2 id="PDL_with_SDL">PDL with SDL</h2>
+<div id="PDL_with_SDL_CONTENT">
+<p>Attaching a PDL piddle object to SDL. <a href="SDL-Cookbook-PDL.html">SDL::Cookbook::PDL</a>
 </p>
 
 </div>

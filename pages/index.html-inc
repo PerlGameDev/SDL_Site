@@ -11,7 +11,7 @@
 </ul>
 </li>
 <li><a href="#Latest_News">Latest News</a>
-<ul><li><a href="#Mar_11_2010">Mar 11 2010</a>
+<ul><li><a href="#July_01_2010">July 01 2010</a>
 <ul><li><a href="#CPAN_Release">CPAN Release</a></li>
 <li><a href="#Active_Development">Active Development</a></li>
 <li><a href="#TODO">TODO</a>
@@ -64,13 +64,13 @@ award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>ww
 <div id="Latest_News_CONTENT">
 
 </div>
-<h2 id="Mar_11_2010">Mar 11 2010</h2>
-<div id="Mar_11_2010_CONTENT">
+<h2 id="July_01_2010">July 01 2010</h2>
+<div id="July_01_2010_CONTENT">
 
 </div>
 <h3 id="CPAN_Release">CPAN Release</h3>
 <div id="CPAN_Release_CONTENT">
-<p><a href="http://search.cpan.org/~kthakore">SDL 2.4</a> is on CPAN! The new API has many changes and much more improvements. So check it out ;o)</p>
+<p><a href="http://search.cpan.org/~kthakore">SDL 2.5</a> RC is on CPAN! The new API has many changes and much more improvements. So check it out ;o)</p>
 <p>SDL Perl at v2.2.6 on CPAN is the last of it's kind which will have the old API.</p>
 
 </div>

@@ -53,7 +53,7 @@ though.  Here's how to get up and running as quickly as possible.</p>
 <h2 id="Surfaces">Surfaces</h2>
 <div id="Surfaces_CONTENT">
 <p>All graphics in SDL live on a surface.  You'll need at least one.  That's what
-<a href="SDL-App.html">SDL::App</a> provides.</p>
+<a href="http://search.cpan.org/perldoc?SDLx::App">SDLx::App</a> provides.</p>
 <p>Of course, before you can get a surface, you need to initialize your video
 mode.  SDL gives you several options, including whether to run in a window or
 take over the full screen, the size of the window, the bit depth of your
@@ -63,11 +63,11 @@ something really simple.</p>
 </div>
 <h2 id="Initialization">Initialization</h2>
 <div id="Initialization_CONTENT">
-<p>SDL::App makes it easy to initialize video and create a surface.  Here's how to
+<p>SDLx::App makes it easy to initialize video and create a surface.  Here's how to
 ask for a windowed surface with 640x480x16 resolution:</p>
-<pre>	use SDL::App;
+<pre>	use SDLx::App;
 
-	my $app = SDL::App-&gt;new(
+	my $app = SDLx::App-&gt;new(
 		-width  =&gt; 640,
 		-height =&gt; 480,
 		-depth  =&gt; 16,
@@ -77,9 +77,9 @@ ask for a windowed surface with 640x480x16 resolution:</p>
 <p>You can get more creative, especially if you use the <code>-title</code> and <code>-icon</code>
 attributes in a windowed application.  Here's how to set the window title of
 the application to <code>My SDL Program</code>:</p>
-<pre>	use SDL::App;
+<pre>	use SDLx::App;
 
-	my $app = SDL::App-&gt;new(
+	my $app = SDLx::App-&gt;new(
 		-height =&gt; 640,
 		-width  =&gt; 480,
 		-depth  =&gt; 16,
