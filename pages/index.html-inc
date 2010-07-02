@@ -51,6 +51,11 @@ award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>ww
 	<dt>Mailing List</dt>
 	<dd>
 		<p>Send us an email at <a href="mailto:sdl-devel@perl.org">mailing list</a>.</p>
+		<p>Our archives are located at <a href="http://www.mail-archive.com/sdl-devel@perl.org/">mail-archive</a> and  <a href="http://www.nntp.perl.org/group/perl.sdl.devel">nntp.perl</a>.</p>
+		<p>We also have a <a href="http://www.nntp.perl.org/rss/perl.sdl.devel.rdf">rssfeed</a>.</p>
+		<p>For help send an empty email to <a href="mailto:sdl-devel-help@perl.org">sdl-devel-help@perl.org</a>.</p>
+		<p>To subscribe to the mailing lists send an empty email to <a href="mailto:sdl-devel-subscribe@perl.org">sdl-devel-subscribe@perl.org</a>.</p>
+		<p>To unsubscribe send an empty email to <a href="mailto:sdl-devel-unsubscribe@perl.org">sdl-devel-unsubscribe@perl.org</a>.</p>
 	</dd>
 	<dt>Testing and Development</dt>
 	<dd>

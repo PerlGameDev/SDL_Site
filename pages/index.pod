@@ -28,6 +28,16 @@ Talk to us on channel L<#sdl|http://widget.mibbit.com/?settings=89f140215d608606
 
 Send us an email at L<mailing list| mailto:sdl-devel@perl.org>.
 
+Our archives are located at L<mail-archive | http://www.mail-archive.com/sdl-devel@perl.org/> and  L<nntp.perl | http://www.nntp.perl.org/group/perl.sdl.devel>.
+
+We also have a L<rssfeed | http://www.nntp.perl.org/rss/perl.sdl.devel.rdf>.
+
+For help send an empty email to L< sdl-devel-help@perl.org| mailto:sdl-devel-help@perl.org>.
+
+To subscribe to the mailing lists send an empty email to L< sdl-devel-subscribe@perl.org| mailto:sdl-devel-subscribe@perl.org>.
+
+To unsubscribe send an empty email to L< sdl-devel-unsubscribe@perl.org | mailto:sdl-devel-unsubscribe@perl.org>.
+
 =item Testing and Development
 
 Join us on the trac L<site| http://sdlperl.ath.cx/projects/SDLPerl> to get started on making and grabing tickets. 
