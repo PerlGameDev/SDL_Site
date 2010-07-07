@@ -6,8 +6,8 @@
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#METHODS">METHODS</a>
-<ul><li><a href="#add_timer_interval_callback">add_timer(interval, callback)</a></li>
-<li><a href="#remove_timer_id">remove_timer(id)</a>
+<ul><li><a href="#add_timer">add_timer</a></li>
+<li><a href="#remove_timer">remove_timer</a>
 </li>
 </ul>
 </li>
@@ -26,13 +26,17 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<pre> use threads;
+<pre> use warnings;
+ use strict;
+
+ use threads;
  use threads::shared;
 
- use SDL ':all';
  use SDL::Time;
 
  package foo;
+
+ use SDL ':all';
 
  SDL::init(SDL_INIT_TIMER);
 
@@ -54,12 +58,16 @@
 <div id="METHODS_CONTENT">
 
 </div>
-<h2 id="add_timer_interval_callback">add_timer(interval, callback)</h2>
-<div id="add_timer_interval_callback_CONTENT">
-<p>This runs in a separate thread and a cloned Perl thread.</p>
-<p>The <code>callback</code> function, specified with a string of the function's name, will be called after the milliseconds of <code>interval</code> have elapsed.
+<h2 id="add_timer">add_timer</h2>
+<div id="add_timer_CONTENT">
+<pre> my $id = SDL::Timer::add_timer( $ms_interval, $callback );
+
+</pre>
+<p>This runs in a separate thread and a cloned Perl thread.
+<code>threads</code> and <code>threads::shared</code> must be used to share any variables the timer uses.</p>
+<p>The <code>$callback</code> function, specified with a string of the function's name, will be called after the milliseconds of <code>$interval</code> have elapsed.
 The actual delay may be longer than specified depending on the underlying OS.
-The callback function is passed the current timer interval as well as the <code>interval</code> parameter and should return the next timer interval.
+The callback function is passed the current timer interval as well as the <code>$interval</code> parameter and should return the next timer interval.
 If the return value from the callback is 0, the timer is cancelled; otherwise, the timer will continue to run.</p>
 <p>The timer callback function may run in a different thread to your main program, so it shouldn't call any functions from within itself.
 You may call SDL::push_event, however.</p>
@@ -67,10 +75,13 @@ You may call SDL::push_event, however.</p>
 <p><strong>Note:</strong> You must initialize (<code>SDL::init</code>) the timer subsystem to use this function.</p>
 
 </div>
-<h2 id="remove_timer_id">remove_timer(id)</h2>
-<div id="remove_timer_id_CONTENT">
-<p>The other way to cancel a timer is to use <code>SDL::Time::remove_timer</code> on the <code>id</code> of a timer.
-This <code>id</code> is the return value of the <code>SDL::Time::remove_timer</code> function.</p>
+<h2 id="remove_timer">remove_timer</h2>
+<div id="remove_timer_CONTENT">
+<pre> SDL::Timer::remove_timer( $id );
+
+</pre>
+<p>The other way to cancel a timer is to use <code>SDL::Time::remove_timer</code> on the <code>$id</code> of a timer.
+This ID is the return value of the <code>SDL::Time::add_timer</code> function.</p>
 <p><code>SDL::Time::remove_timer</code> returns <code>0</code> on success or <code>-1</code> on error.</p>
 
 </div>

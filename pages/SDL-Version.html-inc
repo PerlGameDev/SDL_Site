@@ -7,9 +7,9 @@
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
-<ul><li><a href="#major">major()</a></li>
-<li><a href="#minor">minor()</a></li>
-<li><a href="#patch">patch()</a>
+<ul><li><a href="#major">major</a></li>
+<li><a href="#minor">minor</a></li>
+<li><a href="#patch">patch</a>
 </li>
 </ul>
 </li>
@@ -47,24 +47,26 @@
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
 <p>The <code>SDL::Version</code> structure is used by the <code>SDL::linked_version</code> function and the <code>SDL::version</code> macro.
-The <code>SDL::linked_version</code> function returns the link-time SDL version whereas <code>SDL::version</code> returns the compile-time SDL version.</p>
+The <code>SDL::linked_version</code> function returns the link-time SDL version whereas <code>SDL::version</code> returns the compile-time SDL version.
+<strong>Note:</strong> This is the SDL version, not the SDL_Perl version.
+The SDL_Perl version is in <code>$SDL::VERSION</code>.</p>
 
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="METHODS_CONTENT">
 
 </div>
-<h2 id="major">major()</h2>
+<h2 id="major">major</h2>
 <div id="major_CONTENT">
 <p>Returns the major version number.</p>
 
 </div>
-<h2 id="minor">minor()</h2>
+<h2 id="minor">minor</h2>
 <div id="minor_CONTENT">
 <p>Returns the minor version number.</p>
 
 </div>
-<h2 id="patch">patch()</h2>
+<h2 id="patch">patch</h2>
 <div id="patch_CONTENT">
 <p>Returns the patch version number.</p>
 

@@ -4,25 +4,32 @@
 
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#CONSTANTS">CONSTANTS</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#warp_mouse">warp_mouse</a></li>
 <li><a href="#set_cursor">set_cursor</a></li>
 <li><a href="#get_cursor">get_cursor</a></li>
-<li><a href="#show_cursor">show_cursor</a>
-</li>
+<li><a href="#show_cursor">show_cursor</a></li>
 </ul>
+</li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
 </li>
 </ul><hr />
 <!-- INDEX END --><a href="assets/Mouse.png" target="_blank"><img src="assets/Mouse.png" style="height: 160px" alt="Mouse.png"/></a><hr />
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::Mouse -- SDL Bindings for the Mouse device</p>
+<p>SDL::Mouse - SDL Bindings for the Mouse device</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CATEGORY_CONTENT">
 <p>Core, Mouse</p>
+
+</div>
+<h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CONSTANTS_CONTENT">
+<p>The constants for SDL::Mouse belong to SDL::Events/SDL::Event, under the export tag of <code>':state'</code>.</p>
 
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -31,24 +38,27 @@
 </div>
 <h2 id="warp_mouse">warp_mouse</h2>
 <div id="warp_mouse_CONTENT">
-<pre> void warp_mouse( int $x, int $y );
+<pre> SDL::Mouse::warp_mouse( $x, $y );
 
 </pre>
-<p>Set the position of the mouse cursor (generates a mouse motion event).</p>
+<p>Set the position of the mouse cursor (generates a mouse motion event).
+Even if the mouse is warped to where it currently is, a mouse motion event is generated.</p>
 
 </div>
 <h2 id="set_cursor">set_cursor</h2>
 <div id="set_cursor_CONTENT">
-<pre> void set_cursor( object );
+<pre> SDL::Mouse::set_cursor( $cursor_object );
 
 </pre>
-<p>Sets the currently active cursor to the specified one. If the cursor is currently visible, the change will be immediately represented 
-on the display. <code>set_cursor()</code> can be used to force cursor redraw, if this is desired for any reason. </p>
+<p>Sets the currently active cursor to the specified one.
+See <a href="SDL-Cursor.html">SDL::Cursor</a> for details on cursor objects.
+If the cursor is currently visible, the change will be immediately represented on the display.
+<code>set_cursor()</code> can be used to force cursor redraw, if this is desired for any reason.</p>
 
 </div>
 <h2 id="get_cursor">get_cursor</h2>
 <div id="get_cursor_CONTENT">
-<pre> object get_cursor();
+<pre> my $cursor_object = SDL::Mouse::get_cursor;
 
 </pre>
 <p>Gets the currently active mouse cursor.</p>
@@ -56,17 +66,19 @@ on the display. <code>set_cursor()</code> can be used to force cursor redraw, if
 </div>
 <h2 id="show_cursor">show_cursor</h2>
 <div id="show_cursor_CONTENT">
-<pre> int show_cursor( int toggle );
+<pre> my $return = SDL::Mouse::show_cursor( $state );
 
 </pre>
-<p>Toggle whether or not the cursor is shown on the screen. Passing <code>SDL_ENABLE</code> displays the cursor and passing <code>SDL_DISABLE</code> hides it. 
+<p>Toggle whether or not the cursor is shown on the screen.
+Passing <code>SDL_ENABLE</code> displays the cursor and passing <code>SDL_DISABLE</code> hides it.
 The current state of the mouse cursor can be queried by passing <code>SDL_QUERY</code>, either <code>SDL_DISABLE</code> or <code>SDL_ENABLE</code> will be returned.</p>
 <pre> use SDL;
  use SDL::Mouse;
  use SDL::Video;
+ use SDL::Events ':state'; #For the constants
 
  SDL::init(SDL_INIT_VIDEO);
- SDL::Video::set_video_mode( 640, 480, 16, SDL_SWSURFACE);
+ SDL::Video::set_video_mode(640, 480, 16, SDL_SWSURFACE);
 
  printf(&quot;Cursor is %s\n&quot;, SDL::Mouse::show_cursor(SDL_QUERY) ? 'visible' : 'not visible');
 
@@ -83,6 +95,11 @@ The current state of the mouse cursor can be queried by passing <code>SDL_QUERY<
  sleep(3);
 
 </pre>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><a href="SDL-Cursor.html">SDL::Cursor</a></p>
 
 </div>
 </div>

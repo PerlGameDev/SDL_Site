@@ -5,7 +5,8 @@
 <ul><li><a href="#NAME">NAME</a>
 <ul><li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#First_Steps">First Steps</a></li>
-<li><a href="#PDL_with_SDL">PDL with SDL</a>
+<li><a href="#PDL_with_SDL">PDL with SDL</a></li>
+<li><a href="#POGL_with_SDL">POGL with SDL</a>
 </li>
 </ul>
 </li>
@@ -29,8 +30,13 @@
 </div>
 <h2 id="PDL_with_SDL">PDL with SDL</h2>
 <div id="PDL_with_SDL_CONTENT">
-<p>Attaching a PDL piddle object to SDL. <a href="SDL-Cookbook-PDL.html">SDL::Cookbook::PDL</a>
-</p>
+<p>Attaching a PDL piddle object to SDL. <a href="SDL-Cookbook-PDL.html">SDL::Cookbook::PDL</a></p>
+
+</div>
+<h2 id="POGL_with_SDL">POGL with SDL</h2>
+<div id="POGL_with_SDL_CONTENT">
+<p>Starting an OpenGL app with SDLx::App. <a href="SDL-Cookbook-OpenGL.html">SDL::Cookbook::OpenGL</a></p>
+<p>Sending textures to Perl OpenGL. <a href="SDL-Cookbook-POGL.html">SDL::Cookbook::POGL</a></p>
 
 </div>
 </div>

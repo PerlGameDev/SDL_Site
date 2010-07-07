@@ -8,27 +8,17 @@
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#CONSTANTS">CONSTANTS</a></li>
 <li><a href="#METHODS">METHODS</a>
-<ul><li><a href="#new_flags_width_height_depth_Rmask_G">new ( flags, width, height, depth, Rmask, Gmask, Bmask, Amask )</a></li>
-<li><a href="#new_from_surface_width_height_depth_">new_from ( surface, width, height, depth, Rmask, Gmask, Bmask, Amask )</a>
-<ul><li><a href="#Construtor_Parameters">Construtor Parameters</a>
-<ul><li><a href="#flags">flags</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul><li><a href="#new">new</a></li>
+<li><a href="#new_from">new_from</a></li>
 <li><a href="#w">w</a></li>
 <li><a href="#h">h</a></li>
 <li><a href="#format">format</a></li>
 <li><a href="#pitch">pitch</a></li>
-<li><a href="#clip_rect">clip_rect</a></li>
 </ul>
 </li>
 <li><a href="#Direct_Write_to_Surface_Pixel">Direct Write to Surface Pixel</a>
 <ul><li><a href="#get_pixel">get_pixel</a></li>
-<li><a href="#set_pixels">set_pixels</a>
-<ul><li><a href="#Usage">Usage</a></li>
-</ul>
-</li>
+<li><a href="#set_pixels">set_pixels</a></li>
 <li><a href="#get_pixels_ptr">get_pixels_ptr</a></li>
 </ul>
 </li>
@@ -39,7 +29,7 @@
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDL::Surface - Graphic surface structure.</p>
+<p>SDL::Surface - Graphic surface structure</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -49,17 +39,17 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<p>The main surface (display) is provided by <a href="/SDL-Video.html#set_video_mode">SDL::Video::set_video_mode</a>.
-  use SDL; #provides flags &amp; constants
-  use SDL::Video; #provides access to set_video_mode
-  use SDL::Surface; #provides access to SDL_Surface struct internals</p>
-<pre>  SDL::init(SDL_INIT_VIDEO); 
-  my $display = SDL::Video::set_video_mode(); 
+<pre> use SDL;
+ use SDL::Video;
+ use SDL::Surface;
 
-</pre>
-<p>All surfaces constructed from now on are attached to the $display. There are two constructors available to do this.</p>
-<pre>  my $surface  = SDL::Surface-&gt;new ( ... ); 
-  my $surface2 = SDL::Surface-&gt;new_from ( surface, ... ); 
+ # Create the main surface (display)
+ SDL::init(SDL_INIT_VIDEO);
+ my $display = SDL::Video::set_video_mode(640, 480, 16, SDL_SWSURFACE);
+
+ # Create other surfaces attached to the $display.
+ my $surface  = SDL::Surface-&gt;new(SDL_ASYNCBLIT | SDL_HWSURFACE, 640, 480, 16, 0, 0, 0, 0);
+ my $surface2 = SDL::Surface-&gt;new_from($surface, 100, 100, 8, 0, 0, 0, 0);
 
 </pre>
 
@@ -71,47 +61,7 @@
 </div>
 <h1 id="CONSTANTS">CONSTANTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="CONSTANTS_CONTENT">
-<p>The constants are exported by default. You can avoid this by doing:</p>
-<pre> use SDL::Video ();
-
-</pre>
-<p>and access them directly:</p>
-<pre> SDL::Video::SDL_SWSURFACE;
-
-</pre>
-<p>Available constants: see <a href="#flags">flags</a></p>
-
-</div>
-<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="METHODS_CONTENT">
-
-</div>
-<h2 id="new_flags_width_height_depth_Rmask_G">new ( flags, width, height, depth, Rmask, Gmask, Bmask, Amask )</h2>
-<div id="new_flags_width_height_depth_Rmask_G-2">
-<p>The constructor creates a new surface with the specified parameter values.</p>
-<pre>    my $surface = SDL::Surface-&gt;new( ... );
-
-</pre>
-
-</div>
-<h2 id="new_from_surface_width_height_depth_">new_from ( surface, width, height, depth, Rmask, Gmask, Bmask, Amask )</h2>
-<div id="new_from_surface_width_height_depth_-2">
-<p>The constructor creates a new surface with the specified parameter values. </p>
-<pre>    my $surface = SDL::Surface-&gt;new_from( $old_surface, ... );
-
-
-
-
-</pre>
-
-</div>
-<h3 id="Construtor_Parameters">Construtor Parameters</h3>
-<div id="Construtor_Parameters_CONTENT">
-
-</div>
-<h4 id="flags">flags</h4>
-<div id="flags_CONTENT">
-<p>Available flags for new() are exported by SDL::Video</p>
+<p>The constants for SDL::Surface belong to SDL::Video, under the export tag of <code>':surface'</code>.</p>
 <dl>
 	<dt>SDL_ASYNCBLIT</dt>
 	<dd>
@@ -119,37 +69,67 @@
 	</dd>
 	<dt>SDL_SWSURFACE</dt>
 	<dd>
-		<p>Stored in the system memory.</p>
+		<p>Store in system memory</p>
 	</dd>
 	<dt>SDL_HWSURFACE</dt>
 	<dd>
-		<p>Stored in video memory</p>
+		<p>Store in video memory</p>
 	</dd>
 </dl>
 
 </div>
-<h2 id="w">w</h2>
-<div id="w_CONTENT">
-<p>SDL::Surface width are defined at construction. Thus the following is read only. </p>
-<pre>  my $w = $surface-&gt;w; 
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="new">new</h2>
+<div id="new_CONTENT">
+<pre> my $surface = SDL::Surface-&gt;new(
+     $flags, $width, $height, $depth, $Rmask, $Gmask, $Bmask, $Amask
+ );
 
 </pre>
+<p>The constructor creates a new surface with the specified parameter values.</p>
+<p>The four mask values are the bits that the channel will ignore.
+For example, an Rmask of <code>0xFF</code> will ignore that channel completely, making everything on the surface more green/blue.</p>
+
+</div>
+<h2 id="new_from">new_from</h2>
+<div id="new_from_CONTENT">
+<pre> my $surface = SDL::Surface-&gt;new_from(
+     $surface, $width, $height, $depth, $Rmask, $Gmask, $Bmask, $Amask
+ );
+
+</pre>
+<p>The constructor creates a new surface with the specified parameter values.
+The flags are taken from the specified <code>$surface</code>.</p>
+
+</div>
+<h2 id="w">w</h2>
+<div id="w_CONTENT">
+<pre> my $w = $surface-&gt;w;
+
+</pre>
+<p>Returns the width of the surface.
+SDL::Surface width is defined at construction so this is read-only.</p>
 
 </div>
 <h2 id="h">h</h2>
 <div id="h_CONTENT">
-<p>SDL::Surface height are defined at construction. Thus the following is read only. </p>
-<pre>  my $h = $surface-&gt;h; 
+<pre> my $h = $surface-&gt;h;
 
 </pre>
+<p>Returns the height of the surface.
+SDL::Surface height is defined at construction so this is read-only.</p>
 
 </div>
 <h2 id="format">format</h2>
 <div id="format_CONTENT">
-<p>The format of the pixels stored in the surface. See <a href="SDL-PixelFormat.html">SDL::PixelFormat</a></p>
 <pre> my $format = $surface-&gt;format;
 
 </pre>
+<p>The format of the pixels stored in the surface.
+See <a href="SDL-PixelFormat.html">SDL::PixelFormat</a></p>
 
 </div>
 <h2 id="pitch">pitch</h2>
@@ -157,35 +137,22 @@
 <pre> my $pitch = $surface-&gt;pitch;
 
 </pre>
-<p>SDL::Surface's scanline length in bytes</p>
-
-</div>
-<h2 id="clip_rect">clip_rect</h2>
-<div id="clip_rect_CONTENT">
-<p>To get the surface's clip_rect we the following</p>
-<pre> my $clip_rect = SDL::Rect-&gt;new(0,0,0,0);
- SDL::Video::get_clip_rect($surface, $clip_rect);
-
-</pre>
-<p>To set the surface's clip_rect use the following</p>
-<pre> my $clip_rect = SDL::Rect-&gt;new(2,23,23,542);
- SDL::Video::set_clip_rect($surface, $clip_rect);
-
-</pre>
+<p>The scanline length in bytes.</p>
 
 </div>
 <h1 id="Direct_Write_to_Surface_Pixel">Direct Write to Surface Pixel</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="Direct_Write_to_Surface_Pixel_CONTEN">
-<p>Disclaimer: This can be very slow, it is suitable for creating surfaces one time and not for animations</p>
+<p><strong>Disclaimer:</strong> The following methods can be very slow, making them suitable for creating surfaces, but not for animations</p>
 
 </div>
 <h2 id="get_pixel">get_pixel</h2>
 <div id="get_pixel_CONTENT">
-<pre> my $pixel = $surface-&gt;get_pixel( $offset )  
+<pre> my $pixel = $surface-&gt;get_pixel( $offset )
 
 </pre>
-<p>Returns the pixel value for the given <code>$offset</code>. The pixel value depends on current pixel format.</p>
-<p><strong>Note</strong>: For surfaces with a palette (1 byte per pixel) the palette index is returned instead of color values.</p>
+<p>Returns the pixel value for the given <code>$offset</code>.
+The pixel value depends on current pixel format.</p>
+<p><strong>Note:</strong> For surfaces with a palette (1 byte per pixel) the palette index is returned instead of color values.</p>
 
 </div>
 <h2 id="set_pixels">set_pixels</h2>
@@ -193,35 +160,25 @@
 <pre> $surface-&gt;set_pixels( $offset, $value );
 
 </pre>
-<p>Sets the current pixel <code>$value</code> to the given <code>$offset</code>. The pixel value must fit the pixel format of the surface.</p>
+<p>Sets the pixel <code>$value</code> to the given <code>$offset</code>.
+The pixel value must fit the pixel format of the surface.</p>
 <p><strong>Note</strong>: For surfaces with a palette (1 byte per pixel) the palette index must be passed instead of color values.</p>
-
-</div>
-<h3 id="Usage">Usage</h3>
-<div id="Usage_CONTENT">
-<pre> sub putpixel
- {
-     my($x, $y, $color) = @_;
-     $screen-&gt;set_pixels( $x + $y * $screen-&gt;w, $color);
+<p>Example:</p>
+<pre> sub putpixel {
+     my ($x, $y, $color) = @_;
+     $display-&gt;set_pixels( $x + $y * $display-&gt;w, $color);
  }
 
 </pre>
-<p>See also examples/sols/ch02.pl</p>
+<p>See also <cite>examples/pixel_operations/sols/ch02.pl</cite>!</p>
 
 </div>
 <h2 id="get_pixels_ptr">get_pixels_ptr</h2>
 <div id="get_pixels_ptr_CONTENT">
-<pre> $surface-&gt;get_pixels_ptr();
+<pre> my $ptr = $surface-&gt;get_pixels_ptr;
 
 </pre>
-<p>Returns the C ptr to this surfaces's pixels</p>
-
-
-
-
-
-
-
+<p>Returns a reference to the surface's pixels.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

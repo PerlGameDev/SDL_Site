@@ -9,7 +9,7 @@
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
-<ul><li><a href="#new_r_g_b">new ( $r, $g, $b )</a></li>
+<ul><li><a href="#new">new</a></li>
 <li><a href="#r">r</a></li>
 <li><a href="#g">g</a></li>
 <li><a href="#b">b</a></li>
@@ -32,14 +32,14 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<pre>  my $black = SDL::Color-&gt;new( 0, 0, 0);
-  my $color = SDL::Color-&gt;new(255, 0, 0);
-  my $r = $color-&gt;r; # 255
-  my $g = $color-&gt;g; # 0
-  my $b = $color-&gt;b; # 0
-  $color-&gt;g(255);
-  $color-&gt;b(255);
-  # $color is now white
+<pre> my $black = SDL::Color-&gt;new(0, 0, 0);
+ my $color = SDL::Color-&gt;new(255, 0, 0);
+ my $r = $color-&gt;r; # 255
+ my $g = $color-&gt;g; # 0
+ my $b = $color-&gt;b; # 0
+ $color-&gt;g(255);
+ $color-&gt;b(255);
+ # $color is now white
 
 </pre>
 
@@ -53,43 +53,42 @@
 <div id="METHODS_CONTENT">
 
 </div>
-<h2 id="new_r_g_b">new ( $r, $g, $b )</h2>
-<div id="new_r_g_b_CONTENT">
-<p>The constructor creates a new color with the specified red, green and
-blue values:</p>
-<pre>  my $color = SDL::Color-&gt;new(255, 0, 0);
+<h2 id="new">new</h2>
+<div id="new_CONTENT">
+<pre> my $color = SDL::Color-&gt;new(255, 0, 0);
 
 </pre>
+<p>The constructor creates a new color with the specified red, green and blue values.</p>
 
 </div>
 <h2 id="r">r</h2>
 <div id="r_CONTENT">
-<p>If passed a value, this method sets the red component of the color;
-if not, it returns the red component of the color:</p>
-<pre>  my $r = $color-&gt;r; # 255
-  $color-&gt;r(128);
+<pre> my $r = $color-&gt;r;
+ $color-&gt;r(128);
 
 </pre>
+<p>If passed a value, this method sets the red component of the color;
+if not, it returns the red component of the color.</p>
 
 </div>
 <h2 id="g">g</h2>
 <div id="g_CONTENT">
-<p>If passed a value, this method sets the green component of the color;
-if not, it returns the green component of the color:</p>
-<pre>  my $g = $color-&gt;g; # 255
-  $color-&gt;g(128);
+<pre> my $g = $color-&gt;g;
+ $color-&gt;g(128);
 
 </pre>
+<p>If passed a value, this method sets the green component of the color;
+if not, it returns the green component of the color.</p>
 
 </div>
 <h2 id="b">b</h2>
 <div id="b_CONTENT">
-<p>If passed a value, this method sets the blue component of the color;
-if not, it returns the blue component of the color:</p>
-<pre>  my $b = $color-&gt;b; # 255
-  $color-&gt;b(128);
+<pre> my $b = $color-&gt;b;
+ $color-&gt;b(128);
 
 </pre>
+<p>If passed a value, this method sets the blue component of the color;
+if not, it returns the blue component of the color.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

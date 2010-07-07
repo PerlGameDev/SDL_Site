@@ -45,7 +45,9 @@
 	use SDL::Event;
 	use OpenGL qw(:all);
 
-	my ($SDLAPP, $WIDTH, $HEIGHT, $SDLEVENT);
+</pre>
+<p>You can use OpenGL as needed here.</p>
+<pre>	my ($SDLAPP, $WIDTH, $HEIGHT, $SDLEVENT);
 
 	$| = 1;
 	$WIDTH = 1024;
@@ -53,19 +55,17 @@
 	$SDLAPP = SDLx::App-&gt;new(-title =&gt; &quot;Opengl App&quot;, -width =&gt; $WIDTH, -height =&gt; $HEIGHT, -gl =&gt; 1);
 	$SDLEVENT = SDL::Event-&gt;new;
 
-
-
-
-	glEnable(GL_DEPTH_TEST);
+</pre>
+<p>SDLx::App can start an OpenGL application with the parameter -gl =&gt; 1.</p>
+<pre>	glEnable(GL_DEPTH_TEST);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity;
 	gluPerspective(60, $WIDTH / $HEIGHT, 1, 1000);
 	glTranslatef(0, 0, -20);
 
-
-
-
-	while (1) {
+</pre>
+<p>Above we enable GL and set the correct prespective</p>
+<pre>	while (1) {
 	  &amp;handlepolls;
 	  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	  glRotatef(.1, 1, 1, 1);
@@ -73,13 +73,9 @@
 	  $SDLAPP-&gt;sync;
 	}
 
-
-
-
-
-
-
-	sub drawscene {
+</pre>
+<p>For SDLx::App sync handles the GL buffer clean.</p>
+<pre>	sub drawscene {
 	  my ($color, $x, $y, $z);
 
 	  for (-2 .. 2) {
@@ -92,15 +88,6 @@
 
 	  return &quot;&quot;;
 	}
-
-
-
-
-
-
-
-
-
 
 
 
@@ -131,16 +118,9 @@
 	  return &quot;&quot;;
 	}
 
-
-
-
-
-
-
-
-
-
-	sub handlepolls {
+</pre>
+<p>Below we can use SDL::Events as normal:</p>
+<pre>	sub handlepolls {
 	  my ($type, $key);
 
 	  SDL::Events::pump_events();
@@ -168,7 +148,7 @@
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
-<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="http://search.cpan.org/perldoc?SDLx::App">SDLx::App</a> <a href="http://search.cpan.org/perldoc?OpenGL">OpenGL</a></p>
+<p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="http://search.cpan.org/perldoc?SDLx::App">SDLx::App</a> <a href="http://search.cpan.org/perldoc?OpenGL">OpenGL</a> </p>
 
 </div>
 </div>
