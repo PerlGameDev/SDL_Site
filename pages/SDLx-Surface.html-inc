@@ -1,0 +1,148 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#new">new</a></li>
+<li><a href="#surface">surface</a></li>
+<li><a href="#get_display">get_display</a></li>
+</ul>
+</li>
+<li><a href="#EXTENSIONS">EXTENSIONS</a>
+<ul><li><a href="#blit">blit </a></li>
+<li><a href="#flip">flip</a></li>
+<li><a href="#update">update</a></li>
+</ul>
+</li>
+<li><a href="#AUTHOR">AUTHOR</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDLx::Surface - Graphic surface matrix extension</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>Extension</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre> use SDL;
+ use SDL::Video;
+ use SDLx::Surface;
+
+ # Create the main surface (display)
+ SDL::init(SDL_INIT_VIDEO);
+ my $display = SDL::Video::set_video_mode(640, 480, 16, SDL_SWSURFACE);
+
+ my $surf_matrix = SDLx::Surface-&gt;new( surface =&gt; $display);
+
+ $surf__matrix-&gt;[10][10] = 0xFFFF; #for 16bpp write white at x = 10 and y=10
+
+ $surf_matrix-&gt;surface( $new_surface );
+
+ my $orig_surface = $surf_matrix-&gt;surface();
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p>An <code>SDLx::Surface</code> allows matrix read and write to a surface, safely. </p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="new">new</h2>
+<div id="new_CONTENT">
+<p>Takes a SDL::Surface in hash format.</p>
+<p>If a surface is passed to 'surface =&gt;' that is loaded. Otherwise you can define at least a width and a height. </p>
+<pre>	SDLx::Surface-&gt;new(  surface =&gt; $surface) # The $surface is loaded
+
+	SDLx::Surface-&gt;new( width=&gt; 400, height=&gt;200) 
+		# A SDL::Surface-&gt;new( SDL_ANYFORMAT, 400, 200, 32) is loaded
+
+	SDLx::Surface-&gt;new( width=&gt; 400, height=&gt;200, flags=&gt; SDL_SWSURFACE, depth=&gt;24 ) 
+	  	# A SDL::Surface-&gt;new( SDL_SWSURFACE, 400, 200, 24) is loaded 
+
+	SDLx::Surface-&gt;new( width=&gt; 400, height=&gt;200, flags=&gt; SDL_SWSURFACE, depth=&gt;32, greenmask=&gt;0xFF000000 )
+		# A SDL::Surface-&gt;new( SDL_ANYFORMAT, 400, 200, 32, 0, 0xFF000000,0, 0, 0 ) is loaded
+
+</pre>
+
+</div>
+<h2 id="surface">surface</h2>
+<div id="surface_CONTENT">
+<p>If a SDL::Surface is passed it is attached to the matrix. Returns the SDL::Surface that is currently attached to this SDLx::Surface</p>
+
+</div>
+<h2 id="get_display">get_display</h2>
+<div id="get_display_CONTENT">
+<p>If <a href="http://search.cpan.org/perldoc?SDLx::App::new">SDLx::App::new</a> or <a href="/SDL-Video.html#get_video_mode">SDL::Video::get_video_mode</a> called before then:</p>
+<pre> my $appx = SDLx::Surface::get_display(); 
+
+</pre>
+<p>gets the display if it is already made. Passed options are ignored. Otherwise you can quickly make the display with :</p>
+<pre> SDLx::Surface::get_display( width =&gt; 20, height =&gt; 20) #depth =&gt; 32 and SDL_ANYFORMAT used
+
+</pre>
+<p>or you can also pass flags and depth. </p>
+<pre> SDLx::Surface::get_display( width =&gt; 20, height =&gt; 20, flags=&gt; SDL_HWSURFACE, depth=&gt;24) 
+
+</pre>
+<p>Get or create the main display surface and attach to a SDLx::Surface.</p>
+
+</div>
+<h1 id="EXTENSIONS">EXTENSIONS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="EXTENSIONS_CONTENT">
+
+</div>
+<h2 id="blit">blit </h2>
+<div id="blit_CONTENT">
+<pre> $sdlx_surface-&gt;blit( $dest, $src_rect, $dest_rect );
+
+</pre>
+<p>Blits SDLx::Surface onto $dest surface. 
+$src_rect or $dest_rect are optional. $src_rect or $dest_rect can be array refs or SDL::Rect. $dest can be SDLx::Surface or SDL::Surface. </p>
+<p>Returns $self</p>
+
+</div>
+<h2 id="flip">flip</h2>
+<div id="flip_CONTENT">
+<p>Applies <a href="/SDL-Video.html#flip">SDL::Video::flip</a> to the Surface, with error checking.</p>
+<p>Returns $self</p>
+
+</div>
+<h2 id="update">update</h2>
+<div id="update_CONTENT">
+<pre> $sdlx_surface-&gt;update(); # whole surface is updated
+ $sdlx_surface-&gt;update([0,0,1,1]); # only that area (0,0,1,1) is updated
+
+ $sdlx_surface-&gt;update( [ SDL::Rect-&gt;new(0,0,1,2) ... ]); # defined rects are updated
+
+</pre>
+<p>Applies <a href="/SDL-Video.html#update_rect">SDL::Video::update_rect</a> for no rect or 1 array ref. Applies <a href="/SDL-Video.html#update_rects">SDL::Video::update_rects</a> for array of <a href="SDL-Rect.html">SDL::Rect</a>s. </p>
+<p>Returns $self</p>
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<pre> kthakore 
+
+
+
+
+</pre>
+
+</div>
+</div>

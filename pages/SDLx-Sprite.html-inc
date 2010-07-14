@@ -1,0 +1,343 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#WARNING_VOLATILE_CODE_AHEAD">WARNING! VOLATILE CODE AHEAD</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#new">new</a></li>
+<li><a href="#new_options">new( %options )</a></li>
+<li><a href="#load_filename">load( $filename )</a></li>
+<li><a href="#surface">surface()</a></li>
+<li><a href="#surface_SDL_Surface">surface( SDL::Surface )</a></li>
+<li><a href="#rect">rect()</a></li>
+<li><a href="#rect_SDL_Rect">rect( SDL::Rect )</a></li>
+<li><a href="#clip">clip()</a></li>
+<li><a href="#clip_SDL_Rect">clip( SDL::Rect )</a></li>
+<li><a href="#x">x()</a></li>
+<li><a href="#x_int">x( $int )</a></li>
+<li><a href="#y">y()</a></li>
+<li><a href="#y_int">y( $int )</a></li>
+<li><a href="#w">w()</a></li>
+<li><a href="#h">h()</a></li>
+<li><a href="#draw_SDL_Surface">draw( SDL::Surface )</a></li>
+</ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDLx::Sprite - interact with images quick and easily in SDL</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>Extension</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>    use SDLx::Sprite;
+
+    my $sprite = SDLx::Sprite-&gt;new;
+
+    # loads image file into a SDL::Surface and
+    # automatically sets a SDL::Rect inside with
+    # that image's dimensions.
+    $sprite-&gt;load('hero.png');
+
+    # set sprite image transparency
+    $sprite-&gt;alpha_key( $color );
+    $sprite-&gt;alpha(0.5);
+
+    # you can set and check the sprite position anytime
+    say $sprite-&gt;x;   # rect-&gt;x shortcut accessor
+    $sprite-&gt;y(30);   # rect-&gt;y shortcut accessor
+
+    # read-only surface dimensions
+    $sprite-&gt;w;   # width
+    $sprite-&gt;h;   # height
+
+    # you can also fetch the full rect
+    # (think destination coordinates for -&gt;draw)
+    my $rect = $sprite-&gt;rect;
+
+    # you can get the surface object too if you need it
+    my $surface = $sprite-&gt;surface;
+
+    # rotation() 
+
+    # if your SDL has gfx, rotation is also straightforward:
+    $sprite-&gt;rotation( $degrees );
+    $sprite-&gt;rotation( $degrees, $smooth );
+
+
+
+
+    # add() / remove() NOT YET IMPLEMENTED
+    # you can also attach other sprites to it
+    $sprite-&gt;add( armor =&gt; $other_sprite );
+    $sprite-&gt;remove('armor');
+
+    # blits $sprite (and attached sprites) into $screen,
+    # in the (x,y) coordinates of the sprite
+    $sprite-&gt;draw($screen);
+
+    # if you need to clip the original image/surface
+    # before drawing it
+    $sprite-&gt;clip-&gt;x(10);
+    $sprite-&gt;clip-&gt;y(3);
+    $sprite-&gt;clip-&gt;w(5);
+    $sprite-&gt;clip-&gt;h(5);
+
+    # ...or all at once:
+    $sprite-&gt;clip($x,$y,$w,$h);
+
+    # spawning can include almost all of the above:
+    my $sprite = SDLx::Sprite-&gt;new(
+              image   =&gt; 'hero.png',   # or surface =&gt; SDL::Surface
+              rect    =&gt; SDL::Rect,    # or x =&gt; $x, y =&gt; $y
+              clip    =&gt; SDL::Rect,
+              alpha_key =&gt; SDL::Color, # or [$r, $g, $b]
+              alpha     =&gt; 1,
+              rotation  =&gt; 45, # degrees
+         );
+
+
+
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p>SDLx::Sprite is a SDL::Surface on steroids! It let's you quickly
+load, setup and interact with images in your SDL application, abstracting
+all the drudge code and letting you concentrate on your app's logic instead.</p>
+<p>This module automatically creates and holds SDL::Rect objects for the source
+and destination surfaces, and provides several surface manipulation options
+like alpha blending and rotation.</p>
+
+</div>
+<h1 id="WARNING_VOLATILE_CODE_AHEAD">WARNING! VOLATILE CODE AHEAD</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="WARNING_VOLATILE_CODE_AHEAD_CONTENT">
+<p>This is a new module and the API is subject to change without notice.
+If you care, please join the discussion on the #sdl IRC channel in
+<i>irc.perl.org</i>. All thoughts on further improving the API are welcome.</p>
+<p>You have been warned :)</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="new">new</h2>
+<div id="new_CONTENT">
+
+</div>
+<h2 id="new_options">new( %options )</h2>
+<div id="new_options_CONTENT">
+<p>Creates a new SDLx::Sprite object. No option is mandatory.
+Available options are:</p>
+<dl>
+	<dt>* image =&gt; $filename</dt>
+	<dd>
+		<p>Uses $filename as source image for the Sprite's surface. See suported
+formats in <a href="SDL-Image.html">SDL::Image</a>. This option <strong>cannot</strong> be used together
+with the 'surface' option (see below).</p>
+	</dd>
+	<dt>* surface =&gt; SDL::Surface</dt>
+	<dd>
+		<p>Uses the provided <a href="SDL-Surface.html">SDL::Surface</a> object as source surface for this
+sprite, instead of creating one automatically. This option <strong>cannot</strong> be
+used together with the 'image' option (see above).</p>
+	</dd>
+	<dt>* clip =&gt; SDL::Rect</dt>
+	<dd>
+		<p>Uses the provided <a href="SDL-Rect.html">SDL::Rect</a> object as clipping rect for the source
+surface. This means the object will only blit that particular area from
+the surface.</p>
+	</dd>
+	<dt>* rect =&gt; SDL::Rect</dt>
+	<dd>
+		<p>Uses the provided <a href="SDL-Rect.html">SDL::Rect</a> object as destination coordinates to
+whatever surface you call draw() on. You <strong>cannot</strong> use this option together
+with 'x' and 'y' (see below)</p>
+	</dd>
+	<dt>* x =&gt; $x</dt>
+	<dd>
+		<p>Uses $x as the x-axis (left-to-right, 0 being leftmost) positioning of
+the Sprite into the destination you call draw() upon. This option <strong>cannot</strong>
+be used together with 'rect' (see above).</p>
+	</dd>
+	<dt>* y =&gt; $y</dt>
+	<dd>
+		<p>Uses $y as the y-axis (top-to-bottom, 0 being topmost) positioning of
+the Sprite into the destination you call draw() upon. This option <strong>cannot</strong>
+be used together with 'rect' (see above).</p>
+	</dd>
+	<dt>* draw_xy =&gt; $surface, $x, $y</dt>
+	<dd>
+		<p>A shortcut to draw at coordinates quickly. Calles x() , y() and draw()</p>
+	</dd>
+	<dt>* rotation =&gt; $degrees, [$smooth]</dt>
+	<dd>
+		<p>Uses $degrees as the angle to rotate the surface to, in degrees
+(0..360, remember? :). This option is only available if your compiled SDL
+library has support for GFX (see <a href="http://search.cpan.org/perldoc?Alien::SDL">Alien::SDL</a> for details).</p>
+		<p>if $smooth is set the spirte is antialiased. This may mess with your alpha_key.</p>
+	</dd>
+	<dt>* alpha_key =&gt; SDL::Color</dt>
+	<dd>
+		<p>MUST CALL <a href="/SDL-Video.html#get_video_mode">SDL::Video::get_video_mode</a> prior to this. </p>
+		<p>Uses the provided <a href="SDL-Color.html">SDL::Color</a> object (or an array reference with red,
+green and blue values) as the color to be turned into transparent
+(see 'alpha' below).</p>
+	</dd>
+	<dt>* alpha =&gt; $percentage or $integer</dt>
+	<dd>
+
+
+
+
+		<p>Uses $percentage (0 &lt;-&gt; 1 ) or $integer ( 0x01 - 0xff) as how much transparency to add to the surface. If you use
+this, it is mandatory that you also provide the alpha_key (see above).</p>
+	</dd>
+</dl>
+
+</div>
+<h2 id="load_filename">load( $filename )</h2>
+<div id="load_filename_CONTENT">
+<p>Loads the given image file into the object's internal surface. A new surface
+is <strong>always</strong> created, so whatever you had on the previous surface will be
+lost. Croaks on errors such as no support built for the image or a file
+reading error (the error message is SDL::get_error and should give more
+details).</p>
+<p>Returns the own Sprite object, to allow method chaining.</p>
+
+</div>
+<h2 id="surface">surface()</h2>
+<div id="surface_CONTENT">
+
+</div>
+<h2 id="surface_SDL_Surface">surface( SDL::Surface )</h2>
+<div id="surface_SDL_Surface_CONTENT">
+<p>Returns the object's internal surface, or undef if there is none.</p>
+<p>If you pass a SDL::Surface to it, it will overwrite the original surface
+with it, while returning the <strong>old</strong> (previous) surface. Note that, as such,
+it will return <code>undef</code> if you use it without having previously loaded
+either an image or a previous surface. It will croak if you pass anything
+that's not an SDL::Surface object (or SDL::Surface subclassed objects).</p>
+
+</div>
+<h2 id="rect">rect()</h2>
+<div id="rect_CONTENT">
+
+</div>
+<h2 id="rect_SDL_Rect">rect( SDL::Rect )</h2>
+<div id="rect_SDL_Rect_CONTENT">
+<p>Returns the destination <a href="SDL-Rect.html">SDL::Rect</a> object used when you call draw().</p>
+<p>If you haven't explicitly set it, it will be a SDL::Rect with the same
+dimensions as the object's internal surface. If no surface was set yet,
+it will be an empty SDL::Rect (dimensions 0,0,0,0).</p>
+<p>If you pass it a <a href="SDL-Rect.html">SDL::Rect</a> object, it will set rect() to that object
+before returning, but it will <strong>overwrite</strong> any width and height values, as
+those are read only and set to the size of the underlying surface.</p>
+<p>If you want to clip the source surface, set clip() instead.</p>
+
+</div>
+<h2 id="clip">clip()</h2>
+<div id="clip_CONTENT">
+
+</div>
+<h2 id="clip_SDL_Rect">clip( SDL::Rect )</h2>
+<div id="clip_SDL_Rect_CONTENT">
+<p>Returns the source <a href="SDL-Rect.html">SDL::Rect</a> object used when you call draw().</p>
+<p>You can use this method to choose only a small subset of the object's
+internal surface to be used on calls to draw().</p>
+<p>If you haven't explicitly set it, it will be a SDL::Rect with the same
+dimensions as the object's internal surface. If no surface was set yet,
+it will be an empty SDL::Rect (dimensions 0,0,0,0).</p>
+<p>If you pass it a <a href="SDL-Rect.html">SDL::Rect</a> object, it will set clip() to that object
+before returning.</p>
+
+</div>
+<h2 id="x">x()</h2>
+<div id="x_CONTENT">
+
+</div>
+<h2 id="x_int">x( $int )</h2>
+<div id="x_int_CONTENT">
+<p>Gets/sets the x-axis (left-to-right, 0 being leftmost) positioning of
+the Sprite into the destination you call draw() upon.</p>
+<p>It is a shortcut to <code>$sprite-&gt;rect-&gt;x</code>.</p>
+
+
+
+
+
+</div>
+<h2 id="y">y()</h2>
+<div id="y_CONTENT">
+
+</div>
+<h2 id="y_int">y( $int )</h2>
+<div id="y_int_CONTENT">
+<p>Gets/sets the y-axis (top-to-bottom, 0 being topmost) positioning of
+the Sprite into the destination you call draw() upon.</p>
+<p>It is a shortcut to <code>$sprite-&gt;rect-&gt;y</code>.</p>
+
+
+
+
+
+</div>
+<h2 id="w">w()</h2>
+<div id="w_CONTENT">
+<p>Returns the Sprite surface's width. This method is read-only.</p>
+<p>It is a shortcut to <code>$sprite-&gt;surface-&gt;w</code>.</p>
+
+
+
+
+
+</div>
+<h2 id="h">h()</h2>
+<div id="h_CONTENT">
+<p>Returns the Sprite surface's height. This method is read-only.</p>
+<p>It is a shortcut to <code>$sprite-&gt;surface-&gt;h</code>.</p>
+
+
+
+
+
+</div>
+<h2 id="draw_SDL_Surface">draw( SDL::Surface )</h2>
+<div id="draw_SDL_Surface_CONTENT">
+<p>Draws the Sprite on the provided SDL::Surface object - usually the screen -
+using the blit_surface SDL function, using the source rect from clip() and the
+destination rect (position) from rect().</p>
+<p>Returns the own Sprite object, to allow method chaining.</p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>Dustin Mays, <code>&lt;dork.fish.wat@gmail.com&gt;</code></p>
+<p>Breno G. de Oliveira, <code>&lt;garu at cpan.org&gt;</code></p>
+<p>Kartik thakore <code>&lt;kthakore at cpan.org&gt;</code></p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><a href="SDL-Surface.html">SDL::Surface</a>, <a href="SDL.html">SDL</a>
+</p>
+
+</div>
+</div>

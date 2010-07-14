@@ -1,0 +1,47 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#RELEASES">RELEASES</a>
+<ul><li><a href="#2_500">2.500</a>
+</li>
+</ul>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::Deprecated - Log of Deprecated items per release</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>Core</p>
+
+</div>
+<h1 id="RELEASES">RELEASES</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="RELEASES_CONTENT">
+
+</div>
+<h2 id="2_500">2.500</h2>
+<div id="2_500_CONTENT">
+
+
+
+
+<dl>
+	<dt>SDL::App </dt>
+	<dd>
+		<p>SDL::App has migrated to SDLx::App namespace. The reason for this is because it is an extenstion and not a 1:1 XS/Constant Module to the c library.</p>
+	</dd>
+	<dt>SDL::Game::Rect </dt>
+	<dd>
+		<p>SDL::Game::Rect has migrated to SDLx::Rect namespace. Same reasoning as above.</p>
+	</dd>
+</dl>
+
+</div>
+</div>

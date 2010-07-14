@@ -1,0 +1,316 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a>
+<ul><li><a href="#ATTRIBUTES">ATTRIBUTES</a></li>
+<li><a href="#METHODS">METHODS </a>
+<ul><li><a href="#new_left_top_width_height">new ($left, $top, $width, $height)</a></li>
+<li><a href="#copy">copy</a></li>
+<li><a href="#duplicate">duplicate</a></li>
+<li><a href="#move_x_y">move(x, y)</a></li>
+<li><a href="#move_ip_x_y">move_ip(x, y)</a></li>
+<li><a href="#inflate_x_y">inflate(x, y)</a></li>
+<li><a href="#inflate_ip_x_y">inflate_ip(x, y)</a></li>
+<li><a href="#clamp_rect">clamp($rect)</a></li>
+<li><a href="#clamp_ip_rect">clamp_ip($rect)</a></li>
+<li><a href="#clip_rect">clip($rect)</a></li>
+<li><a href="#clip_ip_rect">clip_ip($rect)</a></li>
+<li><a href="#union_rect">union($rect)</a></li>
+<li><a href="#union_ip_rect">union_ip($rect)</a></li>
+<li><a href="#unionall_rect1_rect2">unionall( [$rect1, $rect2, ...] )</a></li>
+<li><a href="#unionall_ip_rect1_rect2">unionall_ip( [$rect1, $rect2, ...] )</a></li>
+<li><a href="#fit_rect">fit($rect)</a></li>
+<li><a href="#fit_ip_rect">fit_ip($rect)</a></li>
+<li><a href="#normalize">normalize</a></li>
+<li><a href="#contains_rect">contains($rect)</a></li>
+<li><a href="#collidepoint_x_y">collidepoint(x, y)</a></li>
+<li><a href="#colliderect_rect">colliderect($rect)</a></li>
+<li><a href="#collidelist_rect1_rect2">collidelist( [$rect1, $rect2, ...] )</a></li>
+<li><a href="#collidelistall_rect1_rect2">collidelistall( [$rect1, $rect2, ...] )</a></li>
+<li><a href="#collidehash_key1_gt_rect1_key2_gt_re">collidehash( {key1 =&gt; $rect1, key2 =&gt; $rect2, ...} )</a></li>
+<li><a href="#collidehashall_key1_gt_rect1_key2_gt">collidehashall( {key1 =&gt; $rect1, key2 =&gt; $rect2, ...} )</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#BUGS">BUGS</a></li>
+<li><a href="#SUPPORT">SUPPORT</a></li>
+<li><a href="#ACKNOWLEDGEMENTS">ACKNOWLEDGEMENTS</a></li>
+<li><a href="#COPYRIGHT_amp_LICENSE">COPYRIGHT &amp; LICENSE</a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDLx::Rect - SDL extension for storing and manipulating rectangular coordinates</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>Extension</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<p>SDLx::Rect works as a SDL::Rect in the lower layer (SDL::*) but provides more methods to users.</p>
+<pre>	use SDLx::Rect; #instead of SDL::Rect
+
+	my $rect = SDLx::Rect-&gt;new( $x, $y, $w, $h); #same as SDL::Rect
+
+	...
+
+	SDL::Video::fill_rect( .. , $rect, ...); # use like SDL::Rect
+
+
+
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p><code>SDLx::Rect</code> object are used to store and manipulate rectangular areas. Rect objects are created from a combination of left (or x), top (or y), width (or w) and height (or h) values, just like raw <code>SDL::Rect objects</code>.</p>
+<p>All <code>SDLx::Rect</code> methods that change either position or size of a Rect return <strong>a new copy</strong> of the Rect with the affected changes. The original Rect is <strong>not</strong> modified. If you wish to modify the current Rect object, you can use the equivalent &quot;in-place&quot; methods that do not return but instead affects the original Rect. These &quot;in-place&quot; methods are denoted with the &quot;ip&quot; suffix. Note that changing a Rect's attribute is <i>always</i> an in-place operation.</p>
+
+
+
+
+
+</div>
+<h2 id="ATTRIBUTES">ATTRIBUTES</h2>
+<div id="ATTRIBUTES_CONTENT">
+<p>All Rect attributes are acessors, meaning you can get them by name, and set them by passing a value:</p>
+<pre>   $rect-&gt;left(15);
+   $rect-&gt;left;       # 15
+
+</pre>
+<p>The Rect object has several attributes which can be used to resize, move and align the Rect.</p>
+
+
+
+
+<dl>
+	<dt>* width, w - gets/sets object's width</dt>
+	<dt>* height, h - gets/sets object's height</dt>
+	<dt>* left, x - moves the object left position to match the given coordinate</dt>
+	<dt>* top, y  - moves the object top position to match the given coordinate</dt>
+	<dt>* bottom - moves the object bottom position to match the given coordinate</dt>
+	<dt>* right - moves the object right position to match the given coordinate</dt>
+	<dt>* centerx - moves the object's horizontal center to match the given coordinate</dt>
+	<dt>* centery - moves the object's vertical center to match the given coordinate</dt>
+</dl>
+<p>Some of the attributes above can be fetched or set in pairs:</p>
+<pre>  $rect-&gt;topleft(10, 15);   # top is now 10, left is now 15
+
+  my ($width, $height) = $rect-&gt;size;
+
+
+
+
+</pre>
+<dl>
+	<dt>* size - gets/sets object's size (width, height)</dt>
+	<dt>* topleft - gets/sets object's top and left positions</dt>
+	<dt>* midleft - gets/sets object's vertical center and left positions</dt>
+	<dt>* bottomleft - gets/sets object's bottom and left positions</dt>
+	<dt>* center - gets/sets object's center (horizontal(x), vertical(y))</dt>
+	<dt>* topright - gets/sets object's top and right positions</dt>
+	<dt>* midright - gets/sets object's vertical center and right positions</dt>
+	<dt>* bottomright - gets/sets object's bottom and right positions</dt>
+	<dt>* midtop - gets/sets object's horizontal center and top positions</dt>
+	<dt>* midbottom - gets/sets object's horizontal center and bottom positions</dt>
+</dl>
+
+
+
+
+
+</div>
+<h2 id="METHODS">METHODS </h2>
+<div id="METHODS_CONTENT">
+<p>Methods denoted as receiving Rect objects can receive either <code>&lt;SDLx::Rect</code>&gt; or raw <code>&lt;SDL::Rect</code>&gt; objects.</p>
+
+</div>
+<h3 id="new_left_top_width_height">new ($left, $top, $width, $height)</h3>
+<div id="new_left_top_width_height_CONTENT">
+<p>Returns a new Rect object with the given coordinates. If any value is omitted (by passing undef), 0 is used instead.</p>
+
+</div>
+<h3 id="copy">copy</h3>
+<div id="copy_CONTENT">
+
+</div>
+<h3 id="duplicate">duplicate</h3>
+<div id="duplicate_CONTENT">
+<p>Returns a new Rect object having the same position and size as the original</p>
+
+</div>
+<h3 id="move_x_y">move(x, y)</h3>
+<div id="move_x_y_CONTENT">
+<p>Returns a new Rect that is moved by the given offset. The x and y arguments can be any integer value, positive or negative.</p>
+
+</div>
+<h3 id="move_ip_x_y">move_ip(x, y)</h3>
+<div id="move_ip_x_y_CONTENT">
+<p>Same as <code>&lt;move</code>&gt; above, but moves the current Rect in place and returns nothing.</p>
+
+</div>
+<h3 id="inflate_x_y">inflate(x, y)</h3>
+<div id="inflate_x_y_CONTENT">
+<p>Grows or shrinks the rectangle. Returns a new Rect with the size changed by the given offset. The rectangle remains centered around its current center. Negative values will return a shrinked rectangle instead.</p>
+
+</div>
+<h3 id="inflate_ip_x_y">inflate_ip(x, y)</h3>
+<div id="inflate_ip_x_y_CONTENT">
+<p>Same as <code>&lt;inflate</code>&gt; above, but grows/shrinks the current Rect in place and returns nothing.</p>
+
+</div>
+<h3 id="clamp_rect">clamp($rect)</h3>
+<div id="clamp_rect_CONTENT">
+<p>Returns a new Rect moved to be completely inside the Rect object passed as an argument. If the current Rect is too large to fit inside the passed Rect, it is centered inside it, but its size is not changed.</p>
+
+</div>
+<h3 id="clamp_ip_rect">clamp_ip($rect)</h3>
+<div id="clamp_ip_rect_CONTENT">
+<p>Same as <code>&lt;clamp</code>&gt; above, but moves the current Rect in place and returns nothing.</p>
+
+</div>
+<h3 id="clip_rect">clip($rect)</h3>
+<div id="clip_rect_CONTENT">
+<p>Returns a new Rect with the intersection between the two Rect objects, that is, returns a new Rect cropped to be completely inside the Rect object passed as an argument. If the two rectangles do not overlap to begin with, a Rect with 0 size is returned, in the original Rect's (x,y) coordinates.</p>
+
+</div>
+<h3 id="clip_ip_rect">clip_ip($rect)</h3>
+<div id="clip_ip_rect_CONTENT">
+<p>Same as <code>&lt;clip</code>&gt; above, but crops the current Rect in place and returns nothing. As the original method, the Rect becomes zero-sized if the two rectangles do not overlap to begin with, retaining its (x, y) coordinates.</p>
+
+</div>
+<h3 id="union_rect">union($rect)</h3>
+<div id="union_rect_CONTENT">
+<p>Returns a new rectangle that completely covers the area of the current Rect and the one passed as an argument. There may be area inside the new Rect that is not covered by the originals.</p>
+
+</div>
+<h3 id="union_ip_rect">union_ip($rect)</h3>
+<div id="union_ip_rect_CONTENT">
+<p>Same as <code>&lt;union</code>&gt; above, but resizes the current Rect in place and returns nothing.</p>
+
+</div>
+<h3 id="unionall_rect1_rect2">unionall( [$rect1, $rect2, ...] )</h3>
+<div id="unionall_rect1_rect2_CONTENT">
+<p>Returns the union of one rectangle with a sequence of many rectangles, passed as an ARRAY REF.</p>
+
+</div>
+<h3 id="unionall_ip_rect1_rect2">unionall_ip( [$rect1, $rect2, ...] )</h3>
+<div id="unionall_ip_rect1_rect2_CONTENT">
+<p>Same as <code>&lt;unionall</code>&gt; above, but resizes the current Rect in place and returns nothing.</p>
+
+</div>
+<h3 id="fit_rect">fit($rect)</h3>
+<div id="fit_rect_CONTENT">
+<p>Returns a new Rect moved and resized to fit the Rect object passed as an argument. The aspect ratio of the original Rect is preserved, so the new rectangle may be smaller than the target in either width or height. </p>
+
+</div>
+<h3 id="fit_ip_rect">fit_ip($rect)</h3>
+<div id="fit_ip_rect_CONTENT">
+<p>Same as <code>&lt;fit</code>&gt; above, but moves/resizes the current Rect in place and returns nothing.</p>
+
+</div>
+<h3 id="normalize">normalize</h3>
+<div id="normalize_CONTENT">
+<p>Corrects negative sizes, flipping width/height of the Rect if they have a negative size. No repositioning is made so the rectangle will remain in the same place, but the negative sides will be swapped. This method returns nothing.</p>
+
+</div>
+<h3 id="contains_rect">contains($rect)</h3>
+<div id="contains_rect_CONTENT">
+<p>Returns true (non-zero) when the argument is completely inside the Rect. Otherwise returns undef.</p>
+
+</div>
+<h3 id="collidepoint_x_y">collidepoint(x, y)</h3>
+<div id="collidepoint_x_y_CONTENT">
+<p>Returns true (non-zero) if the given point is inside the Rect, otherwise returns undef. A point along the right or bottom edge is not considered to be inside the rectangle.</p>
+
+</div>
+<h3 id="colliderect_rect">colliderect($rect)</h3>
+<div id="colliderect_rect_CONTENT">
+<p>Returns true (non-zero) if any portion of either rectangles overlap (except for the top+bottom or left+right edges).</p>
+
+</div>
+<h3 id="collidelist_rect1_rect2">collidelist( [$rect1, $rect2, ...] )</h3>
+<div id="collidelist_rect1_rect2_CONTENT">
+<p>Test whether the rectangle collides with any in a sequence of rectangles, passed as an ARRAY REF. The index of the first collision found is returned. Returns undef if no collisions are found.</p>
+
+</div>
+<h3 id="collidelistall_rect1_rect2">collidelistall( [$rect1, $rect2, ...] )</h3>
+<div id="collidelistall_rect1_rect2_CONTENT">
+<p>Returns an ARRAY REF of all the indices that contain rectangles that collide with the Rect. If no intersecting rectangles are found, an empty list ref is returned. </p>
+
+</div>
+<h3 id="collidehash_key1_gt_rect1_key2_gt_re">collidehash( {key1 =&gt; $rect1, key2 =&gt; $rect2, ...} )</h3>
+<div id="collidehash_key1_gt_rect1_key2_gt_re-2">
+<p>Receives a HASH REF and returns the a (key, value) list with the key and value of the first hash item that collides with the Rect. If no collisions are found, returns (undef, undef).</p>
+
+</div>
+<h3 id="collidehashall_key1_gt_rect1_key2_gt">collidehashall( {key1 =&gt; $rect1, key2 =&gt; $rect2, ...} )</h3>
+<div id="collidehashall_key1_gt_rect1_key2_gt-2">
+<p>Returns a HASH REF of all the key and value pairs that intersect with the Rect. If no collisions are found an empty hash ref is returned. </p>
+
+
+
+
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>Breno G. de Oliveira, <code>&lt;garu at cpan.org&gt;</code></p>
+
+</div>
+<h1 id="BUGS">BUGS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="BUGS_CONTENT">
+<p>Please report any bugs or feature requests to the bug tracker. I will be notified, and then you'll automatically be notified of progress on your bug as we make changes.</p>
+
+
+
+
+
+</div>
+<h1 id="SUPPORT">SUPPORT</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SUPPORT_CONTENT">
+<p>You can find documentation for this module with the perldoc command.</p>
+<pre>    perldoc SDLx::Rect
+
+
+
+
+</pre>
+
+</div>
+<h1 id="ACKNOWLEDGEMENTS">ACKNOWLEDGEMENTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="ACKNOWLEDGEMENTS_CONTENT">
+<p>Many thanks to all SDL_Perl contributors, and to the authors of pygame.rect, in which this particular module is heavily based.</p>
+
+</div>
+<h1 id="COPYRIGHT_amp_LICENSE">COPYRIGHT &amp; LICENSE</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="COPYRIGHT_amp_LICENSE_CONTENT">
+<p>Copyright 2009 Breno G. de Oliveira, all rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.</p>
+
+
+
+
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p>perl, <a href="SDL.html">SDL</a>, <a href="SDL-Rect.html">SDL::Rect</a>, <a href="SDL-Game.html">SDL::Game</a>
+</p>
+
+</div>
+</div>
