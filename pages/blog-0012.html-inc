@@ -1,14 +1,31 @@
 <div class="blog">
 <h1 id="NAME">
-SDL_perl 2.3_5 is out!
+Quick Game for Toronto Perl Mongers
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>We keep on rolling,<br />
-rolling,<br />
-waiting on the world to turn.</i><br />
-</div><br />
-So a new alpha is out on <a href="http://search.cpan.org/~kthakore/SDL-2.3_5/">CPAN</a>, after a bit of a break. We are trying to pick up our speed again. Hopefully we can get back to the weekly updates. This week I am going to try to get Mixer and TTF bindings test, redesigned and doc'd. Hopefully soon we can start working on Frozen Bubble, as things are starting to come together. This alpha release has finally given us a good implementation of SDL Timers. Also <a href="http://daniel.ruoso.com/categoria/perl/games-perl-1">Daniel Ruoso</a> has also started a series blog posts of making games with SDL Perl. Hopefully this can get more people in SDL, cause we can sure use the help!<br />
+<i><br />
+<div style="text-align: right;">Beep ... Boop<br />
+</div></i><br />
 <br />
-<i>More to come --yapgh</i><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-896792692004201189?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/0/da"><img src="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/1/da"><img src="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/EOF919S-yGg" height="1" width="1"/></div></div>
+So I am preparing a presentation of the new SDL perl for February's Toronto Perl Mongers meeting. What better way to so off SDL perl then with a game? <br />
+<br />
+I started hacking a small point an click game a few days back. I really didn't have a idea in mind, but I did have a goal. I wanted to make a game that shows the basics of a game in SDL. Drawing to screen, game loops, physics and so on. I think I have accomplished it so far. <br />
+<br />
+Take a look at it <a alt="Click the balls to win" href="http://gist.github.com/301949">here</a>. Download that and call it<a alt="Click the balls to win" href="http://gist.github.com/301949">[Shooter.pl]</a>. To win click the balls.<br />
+<br />
+To play this game you need the following:<br />
+<br />
+<ul><li> <b>Only for Linux)</b> sudo apt-get install libsdl-dev libsdl_gfx-dev </li>
+<li> cpan Alien::SDL </li>
+<li> Click Download Source http://github.com/kthakore/SDL_perl/tree/redesign </li>
+<li> Extract it </li>
+<li> perl Build.PL; perl Build; perl Build install </li>
+<li> perl Shooter.pl </li>
+</ul><br />
+I will put up binaries soon-ish.<br />
+<br />
+It is a playable (albeit hard) game right now. All 7 seven levels of it. The purpose of the game is simple click the balls to win. Sounds easy but it isn't. You also get a time in milliseconds after each level. Share your scores on here! I will leave it up to you guys to be honest. <br />
+<br />
+I do have to tidy it up and right documentation for it. This way I will be able to present it clearly to my fellow mongers. I am also still looking for ideas to make this a more polished game. FROGGS recommend I make it a classic NES duck hunt game. I thought since I am using gravity I could do a UFO game out of it where you shoot the UFOs. I am open to your ideas.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-1585061047069454098?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/xSNM-fJPtTMLn88P3vJeOy3aoV4/0/da"><img src="http://feedads.g.doubleclick.net/~a/xSNM-fJPtTMLn88P3vJeOy3aoV4/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/xSNM-fJPtTMLn88P3vJeOy3aoV4/1/da"><img src="http://feedads.g.doubleclick.net/~a/xSNM-fJPtTMLn88P3vJeOy3aoV4/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/oR6t0trX8yM" height="1" width="1"/></div></div>

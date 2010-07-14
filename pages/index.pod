@@ -48,11 +48,11 @@ To begin testing read L<this| http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testin
 
 =head1 Latest News
 
-=head2 July 01 2010
+=head2 July 13 2010
 
 =head3 CPAN Release
 	
-L<SDL 2.5|http://search.cpan.org/~kthakore> RC is on CPAN! The new API has many changes and much more improvements. So check it out ;o)
+L<SDL 2.5|http://search.cpan.org/~kthakore> is on CPAN! The new API has many changes and much more improvements. So check it out ;o)
 
 SDL Perl at v2.2.6 on CPAN is the last of it's kind which will have the old API.
 

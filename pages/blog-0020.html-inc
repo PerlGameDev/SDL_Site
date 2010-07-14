@@ -1,19 +1,36 @@
 <div class="blog">
 <h1 id="NAME">
-Development Update
+Hello Mouse? An Example of the New Event Code
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>Short and Sweet</i><br />
+<div style="text-align: right;"><i>Any code that is not marketed is dead code <br />
+--mst</i><br />
 </div><br />
-Had an exam on the weekend so I am a bit late. Here is the progress so far. <br />
-<ul><li> SDL::Video at 97% </li>
-<li> SDL::Events at 25% </li>
-<li> ~1000 tests cases passing on Windows and Linux </li>
-</ul><br />
-<a href="http://sdlperl.ath.cx:8080/app/public_graphs/start/1"><img alt="SDL Smoke tests" src="http://sdlperl.ath.cx:8080/app/public_graphs/image/1" /> </a><br />
+You need the new code from the <b> <a href="http://http://github.com/kthakore/SDL_Perl/tree/redesign">redesign branch</a></b> to use this . <br />
 <br />
-The major release maybe coming quicker than we thought. FROGGS++ for helping a lot out on this. However we need <b>more testers!!</b> Please contact us on <a href="http://widget.mibbit.com/?settings=89f140215d60860684cee2f6a917607f&amp;server=irc.perl.org&amp;channel=%23sdl">#sdl</a> and we will set you up with an account on <a href="http://sdlperl.ath.cx:8080/">Smolder</a>.<br />
-<br />
-[Edit] Please read http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testing on how to get started in test!<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4856093544888768121?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/0/da"><img src="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/1/da"><img src="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/Oj7yQkxCPjs" height="1" width="1"/></div></div>
+<pre class="fake-gist" id="fake-gist-231987">#!/usr/bin/env perl
+
+use SDL;
+use SDL::Events;
+use SDL::Event;
+use SDL::Video; 
+
+SDL::init(SDL_INIT_VIDEO);
+
+my $display = SDL::Video::set_video_mode(640,480,32, SDL_SWSURFACE );
+my $event   = SDL::Event-&gt;new(); 
+
+while(1)
+{   
+ SDL::Events::pump_events();  
+
+ if(SDL::Events::poll_event($event) &amp;&amp; $event-&gt;type == SDL_ACTIVEEVENT)
+ {
+  print "Hello Mouse!!!\n" if ($event-&gt;active_gain  &amp;&amp; ($event-&gt;active_state == SDL_APPMOUSEFOCUS) );
+  print "Bye Mouse!!!\n"   if (!$event-&gt;active_gain &amp;&amp; ($event-&gt;active_state == SDL_APPMOUSEFOCUS) );
+ }   
+ 
+ exit if($event-&gt;type == SDL_QUIT);
+}</pre><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4268622242266513664?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/VcCMh0XKi92JWmYoQnOB3cQLHtY/0/da"><img src="http://feedads.g.doubleclick.net/~a/VcCMh0XKi92JWmYoQnOB3cQLHtY/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/VcCMh0XKi92JWmYoQnOB3cQLHtY/1/da"><img src="http://feedads.g.doubleclick.net/~a/VcCMh0XKi92JWmYoQnOB3cQLHtY/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/xhzWiodiKJI" height="1" width="1"/></div></div>

@@ -1,26 +1,29 @@
 <div class="blog">
 <h1 id="NAME">
-The Future and Beyond!
+Development Update
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>I do not think about awesomeness...<br />
-I just am awesomeness<br />
-n.n<br />
---<a href="http://irclog.perlgeek.de/sdl/2009-10-20#i_1620287">KatrinaTheLamia</a></i><br />
+<div style="text-align: right;"><i><br />
+A stoic stone will sit idle, <br />
+but will some effort,<br />
+A rolling rock will run!<br />
+</i><br />
 </div><br />
-<h3>Updates</h3>Since the last post SDL Perl has seen an increase of interest to both use and contribute to SDL Perl. Before I dig into the updates, I would like to acknowledge them.<br />
-<h3>Core Development</h3><b>Acme (<a href="http://use.perl.org/%7Eacme/journal/">Leon Brocard</a>):</b> Has started to work on the Redesign Effort with me. The help is much appreciated! Enjoy your vacation. <br />
-<br />
-<h3>Website and Windows Testing</h3><b>FROGGS (Tobias Leich):</b> Came in as a new user to SDL Perl. And after breaking the redesigned SDL Perl in as many ways possible he has decided to help out on the new site. <br />
+In the past week the SDL Perl team has been busy! This is what we have accomplished<br />
 <br />
 <br />
-<h3>Last Legacy Release</h3><br />
-Ok! Now this weekend hopefully we will release our last legacy release, after this we move on! This release will focus on showing of SDL + Perl possibilities.<br />
-<h3>Pong + SDL::Game::Rect</h3><a href="http://onionstand.blogspot.com/">garu</a> has been working on making SDL object extensions that provide a more perly way to use and play with the SDL bindings. To demonstrate the benefits of this SDL::Tutorial::Pong is done and being polished up. SDL::Game::Rect is a peek in to the design and vision we have for SDL down the road.<br />
-<h3>Design</h3>The design we have settled on for future release for SDL Perl can be broken in to two layers, SDL::* and SDL::Game::*. Previously the SDL Perl library tried to provide C bindings and provide Perl Idiomatic access. This was messy in regards to the single responsibility principle (do one thing and do it well).<br />
+<h3>Commitment to Testing!</h3>In an effort to focus on continuing our focus on testing we have setup a <a href="http://sdlperl.ath.cx:8080/app/public_projects/smoke_reports/1">Smolder</a> site for the SDL redesign process. Currently we have two platforms (linux, windows32) regularly tested on here. If there are more people following the redesign process and would like to share their test results; contact us at sdl-devel@perl.org and we will provide access to you.<br />
 <br />
-We have decided to separate these two focuses into the two name spaces SDL::* and SDL::Game::*. SDL::* will provide straight access to SDL's C API, nothing less and nothing more. SDL::Game::* will extend and make pretty unicorns for Perl. <br />
+<h3>SDL::Video</h3>For the core development most of the focus has been on redesigning around the Video category of the SDL perl API. As of now we are <a href="http://bit.ly/2ar7bK">50% done</a>. 19 functions out of 38 functions have been implemented and tested. <br />
 <br />
-This design has already begin to pay of. One major benefit been in the XS <a href="http://github.com/kthakore/SDL_perl/commit/20f544ea4f3e7b34c68445aba89ed9c69d411ddf">readability</a>. Moreover since structs are treated as objects, Perl manages their destruction, and deliver less memory leaks.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4327446497206876141?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/SxZJQYdkG8_YzEHzsEro4b9mCZ8/0/da"><img src="http://feedads.g.doubleclick.net/~a/SxZJQYdkG8_YzEHzsEro4b9mCZ8/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/SxZJQYdkG8_YzEHzsEro4b9mCZ8/1/da"><img src="http://feedads.g.doubleclick.net/~a/SxZJQYdkG8_YzEHzsEro4b9mCZ8/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/JNZlGzpmYZQ" height="1" width="1"/></div></div>
+<br />
+<h3>Site Redesign + Migration</h3>On the end of the spectrum, Froggs has been hard at work on the <a href="http://froggs.de/sdlperl/">graphical design </a>of the site. More over with mst's help we will soon be migrating to http://sdl.perl.org. <br />
+<br />
+<br />
+<br />
+<h3>Documentation</h3>Moreover this week we have seen an increase effort from magnet on the <a href="http://github.com/kthakore/SDL_perl/commits/redesign">SDL docs</a>. Kudos!<br />
+<br />
+<br />
+<h3>SWIG Experimentation</h3>Finally <a href="http://github.com/kthakore/SDL_perl/commits/swig">Katrina</a> has begun looking into SWIG as alternative for SDL in the future.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-5353247044730007101?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/AJN8bYfVRRvf2r11XrVe85gGcF4/0/da"><img src="http://feedads.g.doubleclick.net/~a/AJN8bYfVRRvf2r11XrVe85gGcF4/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/AJN8bYfVRRvf2r11XrVe85gGcF4/1/da"><img src="http://feedads.g.doubleclick.net/~a/AJN8bYfVRRvf2r11XrVe85gGcF4/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/hJ7NPW5Bawg" height="1" width="1"/></div></div>
