@@ -1,0 +1,337 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#WARNING_VOLATILE_CODE_AHEAD">WARNING! VOLATILE CODE AHEAD</a></li>
+<li><a href="#ATTRIBUTES_AND_METHODS">ATTRIBUTES AND METHODS</a>
+<ul><li><a href="#new">new</a></li>
+<li><a href="#new_options">new( %options )</a></li>
+<li><a href="#step_x">step_x()</a></li>
+<li><a href="#step_x_integer">step_x( $integer )</a></li>
+<li><a href="#step_y">step_y()</a></li>
+<li><a href="#step_y_integer">step_y( $integer )</a></li>
+<li><a href="#max_loops">max_loops()</a></li>
+<li><a href="#max_loops_integer">max_loops( $integer )</a></li>
+<li><a href="#ticks_per_frame">ticks_per_frame()</a></li>
+<li><a href="#ticks_per_frame_integer">ticks_per_frame( $integer )</a></li>
+<li><a href="#type">type()</a></li>
+<li><a href="#type_string">type( $string )</a></li>
+<li><a href="#next">next()</a></li>
+<li><a href="#previous">previous()</a></li>
+<li><a href="#reset">reset()</a></li>
+<li><a href="#current_frame">current_frame()</a></li>
+<li><a href="#current_loop">current_loop()</a></li>
+</ul>
+</li>
+<li><a href="#start">start()</a></li>
+<li><a href="#stop">stop()</a></li>
+<li><a href="#AUTHORS">AUTHORS</a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDLx::Sprite::Animated - create animated SDL sprites easily!</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>Extension</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>  use SDLx::Sprite::Animated;
+
+  # simplest possible form, where 'hero.png' is an image containing
+  # fixed-length sprites in sequence. It doesn't matter if they are
+  # placed vertically or horizontally, as long as the the widest
+  # side is a multiple of the (narrowest) other. The widget will
+  # automatically divide it in the proper frames, provided there is
+  # no slack space between each frame.
+
+  my $animation = SDLx::Sprite::Animated-&gt;new-&gt;load('hero.png');
+
+  # that's it! Defaults are sane enough to DWIM in simple cases,
+  # so you just have to call draw() on the right place. If you
+  # need to setup your animation or have more control over it,
+  # feel free to use the attributes and methods below.
+
+  # these are the most useful methods to use in your game loop
+  # (or wherever you want to manipulate the animation):
+  $animation-&gt;next;
+  $animation-&gt;previous;
+  $animation-&gt;reset;
+
+  $animation-&gt;current_frame;   # current frame number
+  $animation-&gt;current_loop;    # current loop number
+
+  # you can control positioning just like a regular SDLx::Sprite:
+  $animation-&gt;rect
+  $animation-&gt;x;
+  $animation-&gt;y;
+
+  # just like a regular Sprite, we fetch our source rect from -&gt;clip,
+  # updating it on each call to -&gt;next (or -&gt;previous, or -&gt;reset).
+  # If source rects for your animation are further appart (or less)
+  # than the rect's width and height, you can adjust the animation
+  # x/y offsets:
+  $animation-&gt;step_x(15);
+  $animation-&gt;step_y(30);
+
+  $animation-&gt;draw($screen); # remember to do this! :)
+
+  # we can also call -&gt;next() automatically after each draw():
+  $animation-&gt;start;
+  $animation-&gt;stop;
+
+  # default is to go to the next frame at each draw(). If this is
+  # too fast for you, change the attribute below:
+  $animation-&gt;ticks_per_frame(10);
+
+  # select type of animation loop when it reaches the last frame:
+  $animation-&gt;type('circular'); # restarts loop at the beginning
+  $animation-&gt;type('reverse');  # goes backwards
+
+  $animation-&gt;max_loops(3); 0 or undef for infinite looping
+
+
+
+
+  # as usual, you can setup most of the above during object spawning
+  my $animation = SDLx::Sprite::Animated-&gt;new(
+                       image  =&gt; 'hero.png',
+                       rect   =&gt; SDL::Rect-&gt;new(...),
+                       step_x =&gt; 20,
+                       step_y =&gt; 0,
+                       ...
+                  );
+
+
+
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p>An animation is a series of frames that are played in order. Frames are
+loaded from an image, usually referred to as a Sprite Sheet or Sprite Strip.</p>
+<p>This module let's you interact with such strips and create sprite animations
+just as easily as you would manipulate a regular SDLx::Sprite object.</p>
+
+</div>
+<h1 id="WARNING_VOLATILE_CODE_AHEAD">WARNING! VOLATILE CODE AHEAD</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="WARNING_VOLATILE_CODE_AHEAD_CONTENT">
+<p>This is a new module and the API is subject to change without notice.
+If you care, please join the discussion on the #sdl IRC channel in
+<i>irc.perl.org</i>. All thoughts on further improving the API are welcome.</p>
+<p>You have been warned :)</p>
+
+</div>
+<h1 id="ATTRIBUTES_AND_METHODS">ATTRIBUTES AND METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="ATTRIBUTES_AND_METHODS_CONTENT">
+<p>SDLx::Sprite::Animated is a <strong>subclass</strong> of <a href="http://search.cpan.org/perldoc?SDLx::Sprite">SDLx::Sprite</a>, inheriting
+all its attributes and methods. Please refer to that module's documentation
+for information on those.</p>
+<p>The one difference in behavior is that, while a standard SDLx::Sprite uses
+<code>-&gt;clip()</code> to select the part of the surface to display,
+SDLx::Sprite::Animated treats <code>-&gt;clip()</code> as the <strong>initial</strong> rect, from
+which to start the animation.</p>
+<p>The following attributes and methods are available:</p>
+
+</div>
+<h2 id="new">new</h2>
+<div id="new_CONTENT">
+
+</div>
+<h2 id="new_options">new( %options )</h2>
+<div id="new_options_CONTENT">
+<p>Creates a new SDLx::Sprite::Animated object. No option is mandatory. It
+accepts all the options from a regular SDLx::Sprite object plus these:</p>
+<dl>
+	<dt>* step_x =&gt; $integer</dt>
+	<dd>
+		<p>Uses $integer as the number of pixels to move on the x-axis (left-to-right,
+0 being no dislocation whatsoever, when the strip goes from top to bottom)
+to reach the next frame.</p>
+	</dd>
+	<dt>* step_y =&gt; $integer</dt>
+	<dd>
+		<p>Uses $integer as the number of pixels to move on the y-axis (top-to-bottom,
+0 being no dislocation whatsoever, when the strip goes from left to right)
+to reach the next frame.</p>
+	</dd>
+	<dt>* max_loops =&gt; $integer</dt>
+	<dd>
+		<p>Uses $integer as the number of times to loop the animation (when it reaches
+the end of the strip).</p>
+	</dd>
+	<dt>* ticks_per_frame =&gt; $integer</dt>
+	<dd>
+		<p>Uses $integer to set how many calls to draw() must be issued before we go to
+the next frame during autoplay (i.e. between calls to start() and stop()).</p>
+	</dd>
+	<dt>* type =&gt; $string</dt>
+	<dd>
+		<p>Uses $string to set the type of animation loop when it reaches the last
+frame in the strip. See the type() method below for information on
+available looping types.</p>
+	</dd>
+</dl>
+
+</div>
+<h2 id="step_x">step_x()</h2>
+<div id="step_x_CONTENT">
+
+</div>
+<h2 id="step_x_integer">step_x( $integer )</h2>
+<div id="step_x_integer_CONTENT">
+<p>Uses $integer as the number of pixels to move on the x-axis (left-to-right,
+0 being no dislocation whatsoever, when the strip goes from top to bottom)
+to reach the next frame.</p>
+<p>Defaults to the same width as the clip() rect.</p>
+
+</div>
+<h2 id="step_y">step_y()</h2>
+<div id="step_y_CONTENT">
+
+</div>
+<h2 id="step_y_integer">step_y( $integer )</h2>
+<div id="step_y_integer_CONTENT">
+<p>Uses $integer as the number of pixels to move on the y-axis (top-to-bottom,
+0 being no dislocation whatsoever, when the strip goes from left to right)
+to reach the next frame.</p>
+<p>Defaults to the same height as the clip() rect.</p>
+
+</div>
+<h2 id="max_loops">max_loops()</h2>
+<div id="max_loops_CONTENT">
+
+</div>
+<h2 id="max_loops_integer">max_loops( $integer )</h2>
+<div id="max_loops_integer_CONTENT">
+<p>Uses $integer as the number of times to loop the animation (when it reaches
+the end of the strip). After that <strong>all calls to previous() or next() will be no-ops</strong>.</p>
+<p>Set it to <code>0</code> or <code>undef</code> to allow infinite loops. Default is 0 (infinite).</p>
+
+</div>
+<h2 id="ticks_per_frame">ticks_per_frame()</h2>
+<div id="ticks_per_frame_CONTENT">
+
+</div>
+<h2 id="ticks_per_frame_integer">ticks_per_frame( $integer )</h2>
+<div id="ticks_per_frame_integer_CONTENT">
+<p>Uses $integer to set how many calls to draw() must be issued before we go to
+the next frame during autoplay (i.e. between calls to start() and stop()).</p>
+<p>Default is just 1 tick per frame, so you might want to change this if it's too fast.</p>
+
+</div>
+<h2 id="type">type()</h2>
+<div id="type_CONTENT">
+
+</div>
+<h2 id="type_string">type( $string )</h2>
+<div id="type_string_CONTENT">
+<p>Uses $string to set the type of animation loop when it reaches the last
+frame in the strip. Available looping types are:</p>
+<dl>
+	<dt>* 'circular'</dt>
+	<dd>
+		<p>Restarts loop at the beginning of the strip. If you have 4 frames, the flow
+will be 1-2-3-4-1-2-3-4-1-2-3-4-1-2-... up until the number of loops you
+set in the max_loops() attribute.</p>
+	</dd>
+	<dt>* 'reverse'</dt>
+	<dd>
+		<p>Loops back and forth on the strip. If you have 4 frames, the flow will be
+1-2-3-4-3-2-1-2-3-4-3-2-... up until the number of loops you set in the
+max_loops() attribute.</p>
+	</dd>
+</dl>
+<p>Case is irrelevant for type(), so for example 'Circular', 'CIRCULAR' and
+'CiRcUlAr' are all accepted as 'circular'. The return value is guaranteed
+to be lowercase.</p>
+<p>Default value is 'circular'.</p>
+
+</div>
+<h2 id="next">next()</h2>
+<div id="next_CONTENT">
+<p>Goes to the next frame in the strip. Calling this method will also reset
+the tick counter used by ticks_per_frame().</p>
+<p>If max_loops() has reached its limit, this will be a no-op.</p>
+<p>Returns the object, allowing method chaining.</p>
+
+</div>
+<h2 id="previous">previous()</h2>
+<div id="previous_CONTENT">
+<p>Goes to the previous frame in the strip. Calling this method will also reset
+the tick counter used by ticks_per_frame().</p>
+<p>If max_loops() has reached its limit, this will be a no-op.</p>
+<p>Returns the object, allowing method chaining.</p>
+
+</div>
+<h2 id="reset">reset()</h2>
+<div id="reset_CONTENT">
+<p>Goes to the first frame in the strip, meaning whatever clip is set to.</p>
+<p>If max_loops() has reached its limit, this will be a no-op.</p>
+<p>Returns the object, allowing method chaining.</p>
+
+</div>
+<h2 id="current_frame">current_frame()</h2>
+<div id="current_frame_CONTENT">
+<p>Returns the current frame number. Note that this is 1-based (first frame
+is 1, second is 2, etc).</p>
+
+</div>
+<h2 id="current_loop">current_loop()</h2>
+<div id="current_loop_CONTENT">
+<p>Returns the loop counter, i.e. which run number is it at. This is also
+1-based (first time is 1, second time is 2, etc). Note that we only
+keep track of the counter if max_loops() is set to a finite number. Otherwise,
+this will be a no-op.</p>
+
+</div>
+<h1 id="start">start()</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="start_CONTENT">
+<p>After you call this method, the object will issue a call to <code>-&gt;next()</code>
+automatically for you every time <code>-&gt;draw()</code> is called
+<code>ticks_per_frame()</code> times.</p>
+<p>If you want to stop autoplay, see <code>stop()</code> below.</p>
+<p>Default is off (no autoplay).</p>
+
+</div>
+<h1 id="stop">stop()</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="stop_CONTENT">
+<p>Stops autoplay. After you call this, the object will need you to call
+<code>-&gt;previous()</code> and <code>-&gt;next()</code> explicitly to change frames.</p>
+<p>To resume autoplay from wherever you are, use <code>start()</code>.</p>
+<p>If you want to restart autoplay from the initial frame, just do:</p>
+<pre>  $sprite-&gt;reset-&gt;start;
+
+
+
+
+</pre>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>Jeffrey T. Palmer <code>&lt;jeffrey.t.palmer at gmail.com&gt;</code></p>
+<p>Dustin Mays, <code>&lt;dork.fish.wat@gmail.com&gt;</code></p>
+<p>Breno G. de Oliveira, <code>&lt;garu at cpan.org&gt;</code></p>
+<p>Kartik thakore <code>&lt;kthakore at cpan.org&gt;</code></p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><a href="SDL-Surface.html">SDL::Surface</a>, <a href="SDL.html">SDL</a></p>
+
+</div>
+</div>
