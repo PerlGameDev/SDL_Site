@@ -2,8 +2,12 @@
 <!-- INDEX START -->
 <h3 id="TOP">Index</h3>
 
-<ul>
-<li>
+<ul><li><a href="#NAME">NAME</a>
+<ul><li><a href="#CATEGORY">CATEGORY</a></li>
+</ul>
+</li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#ANIMATING_A_RECTANGLE">ANIMATING A RECTANGLE</a>
 <ul><li><a href="#Redrawing_the_Screen">Redrawing the Screen</a></li>
 <li><a href="#Undrawing_the_Updated_Rectangle">Undrawing the Updated Rectangle</a></li>
 </ul>
@@ -16,6 +20,41 @@
 </ul><hr />
 <!-- INDEX END --><a href="assets/Animation.jpg" target="_blank"><img src="assets/Animation.jpg" style="height: 160px" alt="Animation.jpg"/></a><hr />
 
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDL::Tutorial::Animation</p>
+
+</div>
+<h2 id="CATEGORY">CATEGORY</h2>
+<div id="CATEGORY_CONTENT">
+<p>Tutorials</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>	# to read this tutorial
+	$ perldoc SDL::Tutorial::Animation
+
+	# to create a demo animation program based on this tutorial
+	$ perl -MSDL::Tutorial::Animation=sdl_anim.pl -e 1
+
+</pre>
+
+</div>
+<h1 id="ANIMATING_A_RECTANGLE">ANIMATING A RECTANGLE</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="ANIMATING_A_RECTANGLE_CONTENT">
+<p>Now that you can display a rectangle on the screen, the next step is to animate
+that rectangle.  As with movies, there's no actual motion.  Computer animations are just very very fast slideshows.  The hard work is creating nearly identical images in every slide (or frame, in graphics terms).</p>
+<p>Okay, it's not that difficult.</p>
+<p>There is one small difficulty to address, however.  Once you blit one surface
+onto another, the destination is changed permanently.  There's no concept of
+layers here unless you write it yourself.  If you fail to take this into
+account (and just about everyone does at first), you'll end up with blurry
+graphics moving around on the screen.</p>
+<p>There are two approaches to solve this problem, redrawing the screen on every
+frame and saving and restoring the background for every object drawn.</p>
+
+</div>
 <h2 id="Redrawing_the_Screen">Redrawing the Screen</h2>
 <div id="Redrawing_the_Screen_CONTENT">
 <p>Since you have to draw the screen in the right order once to start with it's
