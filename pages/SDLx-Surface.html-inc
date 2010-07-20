@@ -6,16 +6,24 @@
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
-<li><a href="#METHODS">METHODS</a>
+<li><a href="#CONSTRUCTOR">CONSTRUCTOR </a>
 <ul><li><a href="#new">new</a></li>
-<li><a href="#surface">surface</a></li>
-<li><a href="#get_display">get_display</a></li>
+<li><a href="#display">display</a></li>
+<li><a href="#duplicate">duplicate</a></li>
+</ul>
+</li>
+<li><a href="#ATTRIBUTES">ATTRIBUTES</a>
+<ul><li><a href="#surface">surface</a></li>
+<li><a href="#w_h_format_pitch_flags">w, h, format, pitch, flags</a></li>
+<li><a href="#clip_rect">clip_rect</a></li>
 </ul>
 </li>
 <li><a href="#EXTENSIONS">EXTENSIONS</a>
 <ul><li><a href="#blit">blit </a></li>
 <li><a href="#flip">flip</a></li>
 <li><a href="#update">update</a></li>
+<li><a href="#draw_rect">draw_rect</a></li>
+<li><a href="#draw_line">draw_line</a></li>
 </ul>
 </li>
 <li><a href="#AUTHOR">AUTHOR</a>
@@ -45,7 +53,7 @@
 
  my $surf_matrix = SDLx::Surface-&gt;new( surface =&gt; $display);
 
- $surf__matrix-&gt;[10][10] = 0xFFFF; #for 16bpp write white at x = 10 and y=10
+ $surf_matrix-&gt;[10][10] = 0xFFFF; #for 16bpp write white at x = 10 and y=10
 
  $surf_matrix-&gt;surface( $new_surface );
 
@@ -59,8 +67,8 @@
 <p>An <code>SDLx::Surface</code> allows matrix read and write to a surface, safely. </p>
 
 </div>
-<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="METHODS_CONTENT">
+<h1 id="CONSTRUCTOR">CONSTRUCTOR </h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CONSTRUCTOR_CONTENT">
 
 </div>
 <h2 id="new">new</h2>
@@ -78,7 +86,36 @@
 	SDLx::Surface-&gt;new( width=&gt; 400, height=&gt;200, flags=&gt; SDL_SWSURFACE, depth=&gt;32, greenmask=&gt;0xFF000000 )
 		# A SDL::Surface-&gt;new( SDL_ANYFORMAT, 400, 200, 32, 0, 0xFF000000,0, 0, 0 ) is loaded
 
+
+
+
 </pre>
+
+</div>
+<h2 id="display">display</h2>
+<div id="display_CONTENT">
+<p>If <a href="http://search.cpan.org/perldoc?SDLx::App::new">SDLx::App::new</a> or <a href="/SDL-Video.html#get_video_mode">SDL::Video::get_video_mode</a> called before then:</p>
+<pre> my $appx = SDLx::Surface::display(); 
+
+</pre>
+<p>gets the display if it is already made. Passed options are ignored. Otherwise you can quickly make the display with :</p>
+<pre> SDLx::Surface::display( width =&gt; 20, height =&gt; 20) #depth =&gt; 32 and SDL_ANYFORMAT used
+
+</pre>
+<p>or you can also pass flags and depth. </p>
+<pre> SDLx::Surface::display( width =&gt; 20, height =&gt; 20, flags=&gt; SDL_HWSURFACE, depth=&gt;24) 
+
+</pre>
+<p>Get or create the main display surface and attach to a SDLx::Surface.</p>
+
+</div>
+<h2 id="duplicate">duplicate</h2>
+<div id="duplicate_CONTENT">
+<p>Does a attributes only, no pixel, copy of another SDLx::Surface. </p>
+
+</div>
+<h1 id="ATTRIBUTES">ATTRIBUTES</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="ATTRIBUTES_CONTENT">
 
 </div>
 <h2 id="surface">surface</h2>
@@ -86,21 +123,14 @@
 <p>If a SDL::Surface is passed it is attached to the matrix. Returns the SDL::Surface that is currently attached to this SDLx::Surface</p>
 
 </div>
-<h2 id="get_display">get_display</h2>
-<div id="get_display_CONTENT">
-<p>If <a href="http://search.cpan.org/perldoc?SDLx::App::new">SDLx::App::new</a> or <a href="/SDL-Video.html#get_video_mode">SDL::Video::get_video_mode</a> called before then:</p>
-<pre> my $appx = SDLx::Surface::get_display(); 
+<h2 id="w_h_format_pitch_flags">w, h, format, pitch, flags</h2>
+<div id="w_h_format_pitch_flags_CONTENT">
+<p>Returns the inner SDL::Surface's respective attribute. See <code>SDL::Surface</code>.</p>
 
-</pre>
-<p>gets the display if it is already made. Passed options are ignored. Otherwise you can quickly make the display with :</p>
-<pre> SDLx::Surface::get_display( width =&gt; 20, height =&gt; 20) #depth =&gt; 32 and SDL_ANYFORMAT used
-
-</pre>
-<p>or you can also pass flags and depth. </p>
-<pre> SDLx::Surface::get_display( width =&gt; 20, height =&gt; 20, flags=&gt; SDL_HWSURFACE, depth=&gt;24) 
-
-</pre>
-<p>Get or create the main display surface and attach to a SDLx::Surface.</p>
+</div>
+<h2 id="clip_rect">clip_rect</h2>
+<div id="clip_rect_CONTENT">
+<p>Sets the passed <code>SDL::Rect</code> as the new clip_rect for the surface. Returns the SDL::Surface's clip_rect. See <code>SDL::Video::get_clip_rect</code> and <code>SDL::Video::set_clip_rect</code>.</p>
 
 </div>
 <h1 id="EXTENSIONS">EXTENSIONS</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -134,13 +164,34 @@ $src_rect or $dest_rect are optional. $src_rect or $dest_rect can be array refs 
 <p>Applies <a href="/SDL-Video.html#update_rect">SDL::Video::update_rect</a> for no rect or 1 array ref. Applies <a href="/SDL-Video.html#update_rects">SDL::Video::update_rects</a> for array of <a href="SDL-Rect.html">SDL::Rect</a>s. </p>
 <p>Returns $self</p>
 
+
+
+
+
+</div>
+<h2 id="draw_rect">draw_rect</h2>
+<div id="draw_rect_CONTENT">
+<pre> $sdlx_surface-&gt;draw_rect( [$x,$y,$w,$h], 0xFFFF00FF );
+ $sdlx_surface-&gt;draw_rect( SDL::Rect-&gt;new($x,$y,$w,$h), 0xFFFF00FF );
+
+</pre>
+<p>Draws a rect on the surface with the given color. </p>
+<p>Returns $self</p>
+
+</div>
+<h2 id="draw_line">draw_line</h2>
+<div id="draw_line_CONTENT">
+<pre> $sdlx_surface-&gt;draw_line( [$x1, $y1], [$x2, $y2], $color, $antialias); # $color is a number
+ $sdlx_surface-&gt;draw_line( [$x1, $y1], [$x2, $y2], \@color, $antialias); # 
+
+</pre>
+<p>Draws a line on the surface. Antialias is turned on if $antialias is defined. </p>
+<p>Returns $self</p>
+
 </div>
 <h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHOR_CONTENT">
 <pre> kthakore 
-
-
-
 
 </pre>
 

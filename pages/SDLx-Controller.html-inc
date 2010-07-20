@@ -1,0 +1,217 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a>
+<ul><li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+</ul>
+</li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#new">new</a></li>
+<li><a href="#new_dt_gt_0_5">new( dt =&gt; 0.5 )</a></li>
+<li><a href="#run">run</a></li>
+<li><a href="#add_event_handler">add_event_handler</a></li>
+<li><a href="#add_move_handler">add_move_handler</a></li>
+<li><a href="#add_show_handler">add_show_handler</a></li>
+<li><a href="#quit">quit</a></li>
+<li><a href="#remove_move_handler_index">remove_move_handler( $index )</a></li>
+<li><a href="#remove_event_handler_index">remove_event_handler( $index )</a></li>
+<li><a href="#remove_show_handler_index">remove_show_handler( $index )</a></li>
+<li><a href="#remove_all_move_handlers">remove_all_move_handlers</a></li>
+<li><a href="#remove_all_event_handlers">remove_all_event_handlers</a></li>
+<li><a href="#remove_all_show_handlers">remove_all_show_handlers</a></li>
+<li><a href="#remove_all_handlers">remove_all_handlers</a></li>
+</ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
+<ul><li><a href="#ACKNOWLEGDEMENTS">ACKNOWLEGDEMENTS</a>
+</li>
+</ul>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDLx::Controller - Handles the loops for event, movement and rendering</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>  use SDLx::Controller
+
+  # create our controller object
+  my $app = SDLx::Controller-&gt;new;
+
+  # register some callbacks
+  $app-&gt;add_event_handler( \&amp;on_event );
+  $app-&gt;add_move_handler( \&amp;on_move );
+  $app-&gt;add_show_handler( \&amp;on_show );
+
+  # run our game loop
+  $app-&gt;run;
+
+
+
+
+</pre>
+
+</div>
+<h2 id="DESCRIPTION">DESCRIPTION</h2>
+<div id="DESCRIPTION_CONTENT">
+<p>The core of a SDL application/game is the main loop, where you handle events
+and display your elements on the screen until something signals the end of
+the program. This usually goes in the form of:</p>
+<pre>  while (1) {
+      ...
+  }
+
+</pre>
+<p>The problem most developers face, besides the repetitive work, is to ensure
+the screen update is independent of the frame rate. Otherwise, your game will
+run at different speeds on different machines and this is never good (old
+MS-DOS games, anyone?).</p>
+<p>One way to circumveint this is by capping the frame rate so it's the same no
+matter what, but this is not the right way to do it as it penalizes better
+hardware.</p>
+<p>This module provides an industry-proven standard for frame independent
+movement. It calls the movement handlers based on time (tick counts) rather
+than frame rate. You can add/remove handlers and control your main loop with
+ease.</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="new">new</h2>
+<div id="new_CONTENT">
+
+</div>
+<h2 id="new_dt_gt_0_5">new( dt =&gt; 0.5 )</h2>
+<div id="new_dt_gt_0_5_CONTENT">
+<p>Controller construction. Optional <code>dt</code> parameter indicates delta t times
+in which to call the movement handlers, and defaults to 0.1.</p>
+<p>Returns the new object.</p>
+
+</div>
+<h2 id="run">run</h2>
+<div id="run_CONTENT">
+<p>After creating and setting up your handlers (see below), call this method to
+activate the main loop. The main loop will run until an event handler returns
+undef.</p>
+<p>All hooked functions will be called during the main loop, in this order:</p>
+<dl>
+	<dt>1. Events</dt>
+	<dt>2. Movements</dt>
+	<dt>3. Displaying</dt>
+</dl>
+<p>Please refer to each handler below for information on received arguments.</p>
+
+</div>
+<h2 id="add_event_handler">add_event_handler</h2>
+<div id="add_event_handler_CONTENT">
+<p>Register a callback to handle events. You can add as many subs as you need.
+Whenever a SDL::Event occurs, all registered callbacks will be triggered in
+order. Returns the order queue number of the added callback.</p>
+<p>The first (and only) argument passed to registered callbacks is the
+<a href="SDL-Event.html">SDL::Event</a> object itself, so you can test for <code>$event-&gt;type</code>, etc.</p>
+<p>Each event handler is <strong>required</strong> to return a defined value for the main loop
+to continue. To exit the main loop (see &quot;run&quot; above), return <code>undef</code> or
+nothing at all.</p>
+
+
+
+
+
+</div>
+<h2 id="add_move_handler">add_move_handler</h2>
+<div id="add_move_handler_CONTENT">
+<p>Register a callback to update your objects. You can add as many subs as
+you need. Returns the order queue number of the added callback.</p>
+<p>All registered callbacks will be triggered in order for as many
+<code>dt</code> as have happened between calls. You should use these handlers to update
+your in-game objects, check collisions, etc.</p>
+<p>The first (and only) argument passed is a reference to the dt value itself,
+so you can check and/or update it as necessary.</p>
+<p>Any returned values are ignored.</p>
+
+
+
+
+
+</div>
+<h2 id="add_show_handler">add_show_handler</h2>
+<div id="add_show_handler_CONTENT">
+<p>Register a callback to render objects. You can add as many subs as you need.
+Returns the order queue number of the added callback.</p>
+<p>All registered callbacks will be triggered in order, once per run of the main
+loop. The first (and only) argument passed is the number of ticks since
+the previous round.</p>
+
+</div>
+<h2 id="quit">quit</h2>
+<div id="quit_CONTENT">
+<p>Exits the main loop. Calling this method will cause <code>run</code> to return.</p>
+
+</div>
+<h2 id="remove_move_handler_index">remove_move_handler( $index )</h2>
+<div id="remove_move_handler_index_CONTENT">
+
+</div>
+<h2 id="remove_event_handler_index">remove_event_handler( $index )</h2>
+<div id="remove_event_handler_index_CONTENT">
+
+</div>
+<h2 id="remove_show_handler_index">remove_show_handler( $index )</h2>
+<div id="remove_show_handler_index_CONTENT">
+<p>Removes the handler with the given index from the respective calling queue.</p>
+<p>Returns the removed handler.</p>
+
+</div>
+<h2 id="remove_all_move_handlers">remove_all_move_handlers</h2>
+<div id="remove_all_move_handlers_CONTENT">
+
+</div>
+<h2 id="remove_all_event_handlers">remove_all_event_handlers</h2>
+<div id="remove_all_event_handlers_CONTENT">
+
+</div>
+<h2 id="remove_all_show_handlers">remove_all_show_handlers</h2>
+<div id="remove_all_show_handlers_CONTENT">
+<p>Removes all handlers from the respective calling queue.</p>
+
+</div>
+<h2 id="remove_all_handlers">remove_all_handlers</h2>
+<div id="remove_all_handlers_CONTENT">
+<p>Quick access to removing all handlers at once.</p>
+
+
+
+
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>Kartik Thakore</p>
+<p>Breno G. de Oliveira</p>
+
+</div>
+<h2 id="ACKNOWLEGDEMENTS">ACKNOWLEGDEMENTS</h2>
+<div id="ACKNOWLEGDEMENTS_CONTENT">
+<p>The idea and base for this module comes from Lazy Foo's <a href="http://www.lazyfoo.net/SDL_tutorials/lesson32/index.php">Frame Independent Movement</a> tutorial,
+and Glenn Fiedler's <a href="http://gafferongames.com/game-physics/fix-your-timestep/">Fix Your Timestep</a> article on timing.</p>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
