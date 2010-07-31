@@ -11,8 +11,7 @@ Perl+SDL 3D Rendering
 <br />
 Below are some screen shots of this little toy in action. If you'd like to try it yourself, you can download the entire project <a href="http://sdlperl.ath.cx/releases/texmap.tgz">here</a>. You can rotate the objects with the mouse, or keyboard arrows. Also press shift to toggle shading and space to switch objects.<br />
 <br />
-NOTE: the project is compressed in the .tgz format, if you are a windows user, you may need<br />
-a tool like 7zip to extract the contents.<br />
+NOTE: the project is compressed in the .tgz format, if you are a windows user, you may need a tool like 7zip to extract the contents.<br />
 <br />
 <hr /><div>Standard Cube:<br />
 <div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TFSAt5QUmgI/AAAAAAAAALQ/Yf9XBOYhA7w/s1600/cube.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TFSAt5QUmgI/AAAAAAAAALQ/Yf9XBOYhA7w/s320/cube.png" /></a></div><br />
@@ -35,5 +34,5 @@ a tool like 7zip to extract the contents.<br />
 <br />
 <div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/_NnqjAQEn1Xo/TFSBEFUB9HI/AAAAAAAAAMA/uLPUugpgspg/s1600/texturedcubeshade.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/_NnqjAQEn1Xo/TFSBEFUB9HI/AAAAAAAAAMA/uLPUugpgspg/s320/texturedcubeshade.png" /></a></div><br />
 </div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-6534662499260158364?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/kPia0N5Yur3ce5NX96m1E-EB9KU/0/da"><img src="http://feedads.g.doubleclick.net/~a/kPia0N5Yur3ce5NX96m1E-EB9KU/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/kPia0N5Yur3ce5NX96m1E-EB9KU/1/da"><img src="http://feedads.g.doubleclick.net/~a/kPia0N5Yur3ce5NX96m1E-EB9KU/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/nBAuxy51chg" height="1" width="1"/></div></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/9OeYlfWcu240PezvaIgNkaxLy_Q/0/da"><img src="http://feedads.g.doubleclick.net/~a/9OeYlfWcu240PezvaIgNkaxLy_Q/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/9OeYlfWcu240PezvaIgNkaxLy_Q/1/da"><img src="http://feedads.g.doubleclick.net/~a/9OeYlfWcu240PezvaIgNkaxLy_Q/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/nBAuxy51chg" height="1" width="1"/></div></div>
