@@ -1,17 +1,23 @@
 <div class="blog">
 <h1 id="NAME">
-SDL Perl Documentation: Reviewers need
+Threaded XS callback finally gets solved.
 </h1>
 <div class="CONTENT">
 <div style="text-align: right;"><i><br />
-The written word, <br />
-survives; <br />
-the tests of Time,<br />
-the fires of Hades,<br />
-and wrath of Pluto.<br />
+Dragged down from the lofty isles,<br />
+into the guts and gore of the monster,<br />
+a welcoming cringe in the gut approaches. <br />
 </i><br />
 </div><br />
-<h1>Documentation </h1><p>In an effort to learn from past versions of SDL Perl and improve. We have been writing lots of documentation for our users. Of course since this is the first time we have been providing documentation we need your help. Please review our docs, at <a href="http://sdl.perl.org/documentation.html">sdl.perl.org</a> and give us some feed back. Send us the feeback at sdl-devel@mail.org or join us at #sdl irc.perl.org</p><br />
-<i>--yapgh</i><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-1574568821593098925?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/VvEuEQbih1n042j8cAGxEVAiawg/0/da"><img src="http://feedads.g.doubleclick.net/~a/VvEuEQbih1n042j8cAGxEVAiawg/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/VvEuEQbih1n042j8cAGxEVAiawg/1/da"><img src="http://feedads.g.doubleclick.net/~a/VvEuEQbih1n042j8cAGxEVAiawg/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/PAyq7Lab9no" height="1" width="1"/></div></div>
+<br />
+So I was planning staying silent until an exam I had was done. But new developers on IRC (j_king, felix and ruoso) pull me back in. Which is a good thing ... I suppose ... because we finally have threaded callbacks for timer and audiospec to work. ruoso++ for this major contribution. If you remember this was the <a href="http://stackoverflow.com/questions/1791114/creating-threaded-callbacks-in-xs">problem</a> we were having. <br />
+<br />
+The new callbacks capability in audiospec allow you to procedurally generate sound now. If you would like a simple example take a look at <a href="http://github.com/kthakore/SDL_perl/blob/redesign/t/core_audiospec.t"> t/core_audiospec.t</a>. However a more fun example may be ruoso++'s <a href="http://github.com/ruoso/tecla">tecla</a> (a game for toddlers).  Myself and Garu think it is a work of art but that is only because we are toddlers. <br />
+<br />
+On a side note some tickets on RT have also received some love ( after 3 or 4 years ... but nonetheless). TonyC++ sorry for the long time in response. <br />
+<br />
+More information on the <a href="http://github.com/kthakore/SDL_perl/blob/redesign/CHANGELOG">CHANGELOG</a>. <br />
+<br />
+Also a shout out to FROGGS for his new SON!!!.  Congrats buddy!<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-6642671796628033537?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/tCttmYltlTls5VMK61L-TEYAkA4/0/da"><img src="http://feedads.g.doubleclick.net/~a/tCttmYltlTls5VMK61L-TEYAkA4/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/tCttmYltlTls5VMK61L-TEYAkA4/1/da"><img src="http://feedads.g.doubleclick.net/~a/tCttmYltlTls5VMK61L-TEYAkA4/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/AQmkpsuSquI" height="1" width="1"/></div></div>

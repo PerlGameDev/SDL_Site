@@ -1,26 +1,39 @@
 <div class="blog">
 <h1 id="NAME">
-The Build Process of SDL Perl
+Perl+SDL 3D Rendering
 </h1>
 <div class="CONTENT">
-<p>A while ago I had a long chat with mst on why SDL uses Module::Build rather then Make. I told him it is a simple matter of code inertia.  The existing Module::Build system has worked well for us so far. Never the less, he convinced me that switching to Make will improve debugging the Build system. But to be able to switch we will need to completely replace the Build system. I am not prepared to do that so I will just present the requirements so mst or someone else can at least attempt to switch.</p><br />
+<i>Recently we have done a lot of work on the next release of SDL Perl. But it all pays off when I see users do cool things as one of the users has done below. Talon^++! This project is a great example for people wanting to learn 3D from scratch. </i><br />
 <br />
-<h3>The Build Process </h3><br />
-<b> Alien::SDL </b><br />
+<i>--yapgh</i><br />
 <br />
-<p>SDL Perl depends on a few C libraries for a complete install. This is handled by Alien::SDL. First we look for existing SDL libraries and dependencies by doing a <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L581">File::Find</a> for headers. If these headers are found we  present and option for the user to use those. We then store these locations in Alien::SDL->config options 'cflags', 'prefix' and 'libs'. If we do not have libraries available even for a minimum SDL installed ( SDL.h is not found). We provide several platform specific options. </p><br />
-<p>For windows we have a simpler process. We download<a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L7"> prebuilt </a>binaries ( and checksum ) based on the user's selection and just copy them in to the right location. Again the 'prefix', 'cflags', and 'libs' is saved in Alien::SDL->config. </p><br />
-<p>For *nix/MacOSX we download sources and attempt to compile them. To be able to do this we download several other dependencies like libpng, jpeg and pango. You can see how we do this using hashes <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L404">here</a>. During the compile process we also apply patches as needed for the <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L430">sources</a>. Once this is done we can head to SDL Build.PL </p><br />
-<b> SDL Perl dependency resolution </b><br />
+<hr />This was a project to test how well Perl+SDL performs and does not use OpenGL at all. This is all perl and SDL, with the help of libsdl_gfx for SDL::GFX::Primitives. Texture mapping doesn't use SDL::GFX::Primitives because textured_polygon just takes a surface, tiles it, and clips out the polygon, which doesn't look 3D at all.<br />
 <br />
-SDL's Build is responsible for linking the right libraries to the correct XS. If libraries are missing it will disable the component (not put it in SDL->config). <br />
+Below are some screen shots of this little toy in action. If you'd like to try it yourself, you can download the entire project <a href="http://sdlperl.ath.cx/releases/texmap.tgz">here</a>. You can rotate the objects with the mouse, or keyboard arrows. Also press shift to toggle shading and space to switch objects.<br />
 <br />
-<p>For example to build <a href="http://github.com/kthakore/SDL_perl/blob/master/Build.PL#L342">Image.xs</a> we require libsdl, libsdl_image and lib[jpg|png|tiff]. So we would check for these headers in the prefix provided by Alien::SDL->config. If they are not provided we will disable the SDL::Image module. </p><br />
-<p>More over the availability of each library is specified as a -DMACRO to the gcc compiler. This way we can prevent XS failures due to missing libraries using #DEFINES. Here the SDL_image macro is <a href="http://github.com/kthakore/SDL_perl/blob/master/Build.PL#L422">defined</a> and <a href="http://github.com/kthakore/SDL_perl/blob/master/src/Image.xs#L13">used</a>. The availability of the module is then available from <a href="http://github.com/kthakore/SDL_perl/blob/master/t/image.t#L20">SDL::Config->has()</a> <br />
+NOTE: the project is compressed in the .tgz format, if you are a windows user, you may need<br />
+a tool like 7zip to extract the contents.<br />
 <br />
+<hr /><div>Standard Cube:<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TFSAt5QUmgI/AAAAAAAAALQ/Yf9XBOYhA7w/s1600/cube.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TFSAt5QUmgI/AAAAAAAAALQ/Yf9XBOYhA7w/s320/cube.png" /></a></div><br />
+</div><hr /><div>Standard Cube with Pseudo Shading:<br />
 <br />
-<b> Conclusion </b> <br />
-<p>This is a high level overview of our Build process, because frankly I hate traumatizing my brain with this again. Credits have to go to FROGGS and kmx for helping with this Build scheme. Hopefully my post have helped people at the very least appreciate the problem scope of this Build system. That said I believe a fresh written build system, with these requirements in mind, will be more then welcome.<br />
-</p><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4514794130108689562?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/0/da"><img src="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/1/da"><img src="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/fTwVmM222rA" height="1" width="1"/></div></div>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TFSAxNHzBEI/AAAAAAAAALY/TMc-Dwzvz7k/s1600/cubeshade.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TFSAxNHzBEI/AAAAAAAAALY/TMc-Dwzvz7k/s320/cubeshade.png" /></a></div><br />
+</div><hr /><div>Standard Diamond:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/_NnqjAQEn1Xo/TFSA0YnNSYI/AAAAAAAAALg/Ym6OD5JVjrs/s1600/diamond.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/_NnqjAQEn1Xo/TFSA0YnNSYI/AAAAAAAAALg/Ym6OD5JVjrs/s320/diamond.png" /></a></div><br />
+</div><hr /><div>Standard Diamond with Pseudo Shading:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TFSA39MwDSI/AAAAAAAAALo/WV5wzDtCyo8/s1600/diamondshade.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TFSA39MwDSI/AAAAAAAAALo/WV5wzDtCyo8/s320/diamondshade.png" /></a></div><br />
+</div><hr /><div>Textured Cube:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/_NnqjAQEn1Xo/TFSA_RVjHtI/AAAAAAAAALw/nwEjFLv8XvE/s1600/texturedcube.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/_NnqjAQEn1Xo/TFSA_RVjHtI/AAAAAAAAALw/nwEjFLv8XvE/s320/texturedcube.png" /></a></div><br />
+</div><hr /><div>Perspectively Correct Textured Cube:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/_NnqjAQEn1Xo/TFSBCIUu4iI/AAAAAAAAAL4/_lgY1_mE4ow/s1600/texturedcorrectcube.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/_NnqjAQEn1Xo/TFSBCIUu4iI/AAAAAAAAAL4/_lgY1_mE4ow/s320/texturedcorrectcube.png" /></a></div><br />
+</div><hr /><div>Perspectively Correct Textured Cube with shading:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/_NnqjAQEn1Xo/TFSBEFUB9HI/AAAAAAAAAMA/uLPUugpgspg/s1600/texturedcubeshade.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/_NnqjAQEn1Xo/TFSBEFUB9HI/AAAAAAAAAMA/uLPUugpgspg/s320/texturedcubeshade.png" /></a></div><br />
+</div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-6534662499260158364?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/kPia0N5Yur3ce5NX96m1E-EB9KU/0/da"><img src="http://feedads.g.doubleclick.net/~a/kPia0N5Yur3ce5NX96m1E-EB9KU/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/kPia0N5Yur3ce5NX96m1E-EB9KU/1/da"><img src="http://feedads.g.doubleclick.net/~a/kPia0N5Yur3ce5NX96m1E-EB9KU/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/nBAuxy51chg" height="1" width="1"/></div></div>

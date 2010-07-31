@@ -1,81 +1,23 @@
 <div class="blog">
 <h1 id="NAME">
-Providing direct memory access to SDL_Surface's pixels
+Huge World Maps in less then 100 lines
 </h1>
 <div class="CONTENT">
-<p>In an attempt to make pixel access easier on SDL_Surface pixels. I have started work on <a href="http://github.com/kthakore/SDL_perl/commit/7ee1a1a7f162080a6fa5274e95b80961486e21e5">SDLx::Surface</a>. So far I have only start on the 32 bpp surfaces.</p><br />
-<p>The general idea is to make Pointer Values (PV) of each pixel in the surface and place them into a 2D matrix. First I make pointer values like this: </p><br />
-<pre style='color:#d1d1d1;background:#000000;'>SV <span style='color:#d2cd86; '>*</span> get_pixel32 <span style='color:#d2cd86; '>(</span>SDL_Surface <span style='color:#d2cd86; '>*</span>surface<span style='color:#d2cd86; '>,</span> <span style='color:#e66170; font-weight:bold; '>int</span> x<span style='color:#d2cd86; '>,</span> <span style='color:#e66170; font-weight:bold; '>int</span> y<span style='color:#d2cd86; '>)</span>
-<span style='color:#b060b0; '>{</span>
- <span style='color:#9999a9; '>//Convert the pixels to 32 bit </span>
- Uint32 <span style='color:#d2cd86; '>*</span>pixels <span style='color:#d2cd86; '>=</span> <span style='color:#d2cd86; '>(</span>Uint32 <span style='color:#d2cd86; '>*</span><span style='color:#d2cd86; '>)</span>surface<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>pixels<span style='color:#b060b0; '>;</span> 
-
- <span style='color:#9999a9; '>//Get the requested pixel  </span>
- Uint32<span style='color:#d2cd86; '>*</span> u_ptr <span style='color:#d2cd86; '>=</span>  pixels <span style='color:#d2cd86; '>+</span> <span style='color:#d2cd86; '>(</span> y <span style='color:#d2cd86; '>*</span> surface<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>w <span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>+</span> x <span style='color:#b060b0; '>;</span> 
-
-        SV<span style='color:#d2cd86; '>*</span> sv <span style='color:#d2cd86; '>=</span> newSVpv<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>a</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//Make a temp SV* value on the go</span>
-        SvCUR_set<span style='color:#d2cd86; '>(</span>sv<span style='color:#d2cd86; '>,</span> <span style='color:#e66170; font-weight:bold; '>sizeof</span><span style='color:#d2cd86; '>(</span>Uint32<span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//Specify the new CUR length</span>
- SvLEN_set<span style='color:#d2cd86; '>(</span>sv<span style='color:#d2cd86; '>,</span> <span style='color:#e66170; font-weight:bold; '>sizeof</span><span style='color:#d2cd86; '>(</span>Uint32<span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//Specify the LEN length</span>
-        SvPV_set<span style='color:#d2cd86; '>(</span>sv<span style='color:#d2cd86; '>,</span><span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>char</span><span style='color:#d2cd86; '>*</span><span style='color:#d2cd86; '>)</span>u_ptr<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>// set the actual pixel's pointer as the memory space to use</span>
-
- <span style='color:#e66170; font-weight:bold; '>return</span> sv<span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//make a modifiable reference using u_ptr's place as the memory :)</span>
-
-<span style='color:#b060b0; '>}</span>
-</pre><br />
-<p>Next I loop through all the pixels and put them in a 2D array format, shown below: </p><pre style='color:#d1d1d1;background:#000000;'>AV <span style='color:#d2cd86; '>*</span> construct_p_matrix <span style='color:#d2cd86; '>(</span> SDL_Surface <span style='color:#d2cd86; '>*</span>surface <span style='color:#d2cd86; '>)</span>
-<span style='color:#b060b0; '>{</span>
-    AV <span style='color:#d2cd86; '>*</span> matrix <span style='color:#d2cd86; '>=</span> newAV<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-     <span style='color:#e66170; font-weight:bold; '>int</span> i<span style='color:#d2cd86; '>,</span> j<span style='color:#b060b0; '>;</span>
-     <span style='color:#e66170; font-weight:bold; '>for</span><span style='color:#d2cd86; '>(</span>  i <span style='color:#d2cd86; '>=</span><span style='color:#008c00; '>0</span> <span style='color:#b060b0; '>;</span> i <span style='color:#d2cd86; '>&lt;</span> surface<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>w<span style='color:#b060b0; '>;</span> i<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>)</span>
-      <span style='color:#b060b0; '>{</span>
-        AV <span style='color:#d2cd86; '>*</span> matrix_row <span style='color:#d2cd86; '>=</span> newAV<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-        <span style='color:#e66170; font-weight:bold; '>for</span><span style='color:#d2cd86; '>(</span> j <span style='color:#d2cd86; '>=</span><span style='color:#008c00; '>0</span> <span style='color:#b060b0; '>;</span> j <span style='color:#d2cd86; '>&lt;</span> surface<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>h<span style='color:#b060b0; '>;</span> j<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>)</span>
-        <span style='color:#b060b0; '>{</span>
-           av_push<span style='color:#d2cd86; '>(</span>matrix_row<span style='color:#d2cd86; '>,</span> get_pixel32<span style='color:#d2cd86; '>(</span>surface<span style='color:#d2cd86; '>,</span> i<span style='color:#d2cd86; '>,</span>j<span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-        <span style='color:#b060b0; '>}</span>
-        av_push<span style='color:#d2cd86; '>(</span>matrix<span style='color:#d2cd86; '>,</span> newRV_noinc<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>(</span>SV<span style='color:#d2cd86; '>*</span><span style='color:#d2cd86; '>)</span> matrix_row<span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-      <span style='color:#b060b0; '>}</span>
-
- <span style='color:#e66170; font-weight:bold; '>return</span> matrix<span style='color:#b060b0; '>;</span>
-<span style='color:#b060b0; '>}</span>
-</pre><br />
-<p>You can see the complete <a href="http://github.com/kthakore/SDL_perl/blob/7ee1a1a7f162080a6fa5274e95b80961486e21e5/src/SDLx/Surface.xs">here</a>.</p><br />
-<p>In Perl I can do a get access on this pixel using: </p><br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TEBxQGLPevI/AAAAAAAAALI/3k4lruLMbZ0/s1600/foo.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TEBxQGLPevI/AAAAAAAAALI/3k4lruLMbZ0/s320/foo.bmp" /></a></div><br />
+Hello folks,<br />
 <br />
-<pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>my</span> $surf32_matrix <span style='color:#d2cd86; '>=</span> <span style='color:#904050; '>SDLx</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Surface</span><span style='color:#d2cd86; '>:</span><span style='color:#d2cd86; '>:</span>pixel_array<span style='color:#d2cd86; '>(</span>$screen_surface<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-   <span style='color:#e66170; font-weight:bold; '>print</span> <span style='color:#e66170; font-weight:bold; '>unpack</span> <span style='color:#00c4c4; '>'b*'</span><span style='color:#d2cd86; '>,</span> $surf32_matrix<span style='color:#d2cd86; '>-></span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '># pixel value at x = 0 and y =0</span>
-<span style='color:#9999a9; '>#OUTPUT:</span>
-<span style='color:#9999a9; '># 11111111000000000000000000000000</span>
-</pre><br />
-<p>The structure of the PV is using Devel::Peek is : </p><br />
-<pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>print</span> Dump $surf32_matrix<span style='color:#d2cd86; '>-></span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
-<span style='color:#9999a9; '>#OUTPUT:</span>
-<span style='color:#9999a9; '>#SV = PV(0xed0dbc) at 0xeb5344</span>
-<span style='color:#9999a9; '>#  REFCNT = 1</span>
-<span style='color:#9999a9; '>#  FLAGS = (POK,pPOK)</span>
-<span style='color:#9999a9; '>#  PV = 0x9e04ac "\0\0\377\0"</span>
-<span style='color:#9999a9; '>#  CUR = 4</span>
-<span style='color:#9999a9; '>#  LEN = 4</span>
-</pre><br />
-<p>The problem is in setting the value of this pointer value. I have tried the following things with no success:</p><br />
-<pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span> <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Video</span><span style='color:#d2cd86; '>:</span><span style='color:#d2cd86; '>:</span>MUSTLOCK<span style='color:#d2cd86; '>(</span>$screen_surface<span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
-    <span style='color:#e66170; font-weight:bold; '>return</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span> <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Video</span><span style='color:#d2cd86; '>:</span><span style='color:#d2cd86; '>:</span>lock_surface<span style='color:#d2cd86; '>(</span>$screen_surface<span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>&lt;</span> <span style='color:#00a800; '>0</span> <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>#required for pixel operations</span>
-<span style='color:#b060b0; '>}</span>
-
-<span style='color:#9999a9; '>#USING pack</span>
-
-<span style='color:#e66170; font-weight:bold; '>my</span> $green <span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>pack</span> <span style='color:#00c4c4; '>'b*'</span><span style='color:#d2cd86; '>,</span> <span style='color:#00c4c4; '>'11111111000000000000000000000000'</span><span style='color:#b060b0; '>;</span>
-<span style='color:#e66170; font-weight:bold; '>substr</span><span style='color:#d2cd86; '>(</span> $surf32_matrix<span style='color:#d2cd86; '>-></span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>8</span> <span style='color:#d2cd86; '>*</span> <span style='color:#00a800; '>4</span><span style='color:#d2cd86; '>,</span> $green<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>#no change</span>
-<span style='color:#9999a9; '>#substr( $surf32_matrix->[0][0], 0, 8 * 4, 0xFF000000); segfault</span>
-<span style='color:#e66170; font-weight:bold; '>substr</span><span style='color:#d2cd86; '>(</span> ${$surf32_matrix<span style='color:#d2cd86; '>-></span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span>}<span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>8</span> <span style='color:#d2cd86; '>*</span> <span style='color:#00a800; '>4</span><span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>0xFF000000</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>#no change</span>
-<span style='color:#9999a9; '>#$surf32_matrix->[0][0] = $green; SEGFAULT's cannot write to memory</span>
-${$surf32_matrix<span style='color:#d2cd86; '>-></span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span>} <span style='color:#d2cd86; '>=</span> $green<span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>#no change</span>
-
-
-<span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Video</span><span style='color:#d2cd86; '>:</span><span style='color:#d2cd86; '>:</span>unlock_surface<span style='color:#d2cd86; '>(</span>$screen_surface<span style='color:#d2cd86; '>)</span>
-  <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span> <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Video</span><span style='color:#d2cd86; '>:</span><span style='color:#d2cd86; '>:</span>MUSTLOCK<span style='color:#d2cd86; '>(</span>$screen_surface<span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-</pre><br />
-<p>You can see an example <a href="http://paste.scsys.co.uk/45111">here</a>.</p><br />
-<p>Any help will be greatly appreciated. </p><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-1929043568015240773?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/1Rx7lBLzyC2ksXyZwl9Q_nlI6iE/0/da"><img src="http://feedads.g.doubleclick.net/~a/1Rx7lBLzyC2ksXyZwl9Q_nlI6iE/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/1Rx7lBLzyC2ksXyZwl9Q_nlI6iE/1/da"><img src="http://feedads.g.doubleclick.net/~a/1Rx7lBLzyC2ksXyZwl9Q_nlI6iE/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/q5F5dgfg5Fg" height="1" width="1"/></div></div>
+Recently we have been <a href="http://github.com/kthakore/SDL_perl/commits/master">working</a> on making the Perl&nbsp;syntax&nbsp;sugar for SDL in the form of SDLx. So far we have got the SDLx::Surface and SDLx::Sprite (garu++) done. So the first thing we did was throw together a quick Zelda map walker. As you can see above. &nbsp;The code is at&nbsp;<a href="http://gist.github.com/478440">http://gist.github.com/478440</a>. The SDL code that this depends on will be SDL 2.503 soonish . We are in the process of cleaning up some more SDLx and Alien::SDL bugs. After that SDLx::App will be overhauled to make this sort of thing even easier. Finally living up to our goal of &nbsp;'<span class="Apple-style-span" style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif; font-size: 13px;">Simple Games Easy. Complex Games Possible.'&nbsp;</span><br />
+<br />
+<br />
+<span class="Apple-style-span" style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif; font-size: 13px;"><span style="font-family: inherit;"><b>UPDATE: with some help, and newcomer jtpalmer'<span style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif;">s help we have added Link</span></b></span></span><br />
+<span class="Apple-style-span" style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif; font-size: 13px;"><span style="font-family: inherit;"><b><span style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif;">&nbsp; </span></b></span></span><br />
+<br />
+<br /><br />
+<br />
+<object width="267" height="220"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=13423319&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=59a5d1&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=13423319&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=59a5d1&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="267" height="220"></embed></object><br />
+<br />
+<br /><br />
+<br />
+--caio&nbsp;yapgh<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4587488240162102295?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/c0ScjYCjwVOpMfey5qcm_RKKLBs/0/da"><img src="http://feedads.g.doubleclick.net/~a/c0ScjYCjwVOpMfey5qcm_RKKLBs/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/c0ScjYCjwVOpMfey5qcm_RKKLBs/1/da"><img src="http://feedads.g.doubleclick.net/~a/c0ScjYCjwVOpMfey5qcm_RKKLBs/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/ONip91qsKjQ" height="1" width="1"/></div></div>

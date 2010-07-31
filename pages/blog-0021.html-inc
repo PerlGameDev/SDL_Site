@@ -1,19 +1,35 @@
 <div class="blog">
 <h1 id="NAME">
-Development Update
+Migrating Sol's Tutorial of SDL to SDL_Perl
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>Short and Sweet</i><br />
+<div style="text-align: right;"><i>If I have seen further it is only by standing on the shoulders of giants. --Newton</i><br />
 </div><br />
-Had an exam on the weekend so I am a bit late. Here is the progress so far. <br />
-<ul><li> SDL::Video at 97% </li>
-<li> SDL::Events at 25% </li>
-<li> ~1000 tests cases passing on Windows and Linux </li>
-</ul><br />
-<a href="http://sdlperl.ath.cx:8080/app/public_graphs/start/1"><img alt="SDL Smoke tests" src="http://sdlperl.ath.cx:8080/app/public_graphs/image/1" /> </a><br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/_NnqjAQEn1Xo/SwBpohYidDI/AAAAAAAAAB4/51y9QJh5osI/s1600-h/solsch2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/_NnqjAQEn1Xo/SwBpohYidDI/AAAAAAAAAB4/51y9QJh5osI/s320/solsch2.png" /></a><br />
+</div><br />
+<h1><a href="http://sol.gfxile.net/gp/index.html">Sol's Tutorials</a> </h1><br />
+<p>When I was struggling with SDL C a while ago, someone recommended <a href="http://sol.gfxile.net/gp/index.html">Sol's Tutorial</a> to me. It had not only help me understand video in SDL, but I believe my code has improved using Sol's code style. I would like to pass these along to fellow SDL_Perl users too. So here is the <a href="http://github.com/kthakore/SDL_perl/blob/redesign/examples/sols/ch02.pl">Ch 02</a> code of Sol's Tutorial in SDL_Perl. It will be getting more and more Perly as our team hacks on it.  There is more to come!<br />
+</p><br />
+<p>To use this code you need the new Redesigned SDL_Perl Library </p><br />
+<h1>Getting SDL Dependencies </h1><br />
+Only If you are on Linux (debian/ubuntu) you need the following dependencies:<br />
 <br />
-The major release maybe coming quicker than we thought. FROGGS++ for helping a lot out on this. However we need <b>more testers!!</b> Please contact us on <a href="http://widget.mibbit.com/?settings=89f140215d60860684cee2f6a917607f&amp;server=irc.perl.org&amp;channel=%23sdl">#sdl</a> and we will set you up with an account on <a href="http://sdlperl.ath.cx:8080/">Smolder</a>.<br />
+<pre>$ sudo apt-get install libsdl-net1.2-dev libsdl-mixer1.2-dev libsmpeg-dev libsdl1.2-dev libsdl-image1.2-dev libsdl-ttf2.0-dev </pre><br />
+On Windows we recommend using <a href="http://strawberryperl.com/">Strawberry Perl</a>. It comes with SDL-1.2.13 header files and libs included.<br />
 <br />
-[Edit] Please read http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testing on how to get started in test!<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4856093544888768121?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/0/da"><img src="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/1/da"><img src="http://feedads.g.doubleclick.net/~a/iNba2gA-YLXS0fRXF6LjIFAx2RY/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/Oj7yQkxCPjs" height="1" width="1"/></div></div>
+Both Windows and Linux needs to install Alien::SDL<br />
+<br />
+<pre>$ cpan Alien::SDL</pre>** Add sudo to this for Linux<br />
+<br />
+<h1>Getting Bleeding SDL </h1><br />
+The bleeding SDL is on github.  Click download on this <a href="http://github.com/kthakore/SDL_perl/tree/redesign"> site </a>.<br />
+<br />
+Extract it and cd into the folder run <br />
+<pre>$ cpan . </pre>** The dot is needed <br />
+** in Linux you may need to do sudo<br />
+<br />
+Then you can run this script by doing<br />
+<br />
+<pre>$ perl examples/sols/ch02.pl </pre><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-3277380868908060119?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/bxmknqf-sayqUSokbyBxn8sn0KU/0/da"><img src="http://feedads.g.doubleclick.net/~a/bxmknqf-sayqUSokbyBxn8sn0KU/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/bxmknqf-sayqUSokbyBxn8sn0KU/1/da"><img src="http://feedads.g.doubleclick.net/~a/bxmknqf-sayqUSokbyBxn8sn0KU/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/P3w_zMpGuB8" height="1" width="1"/></div></div>

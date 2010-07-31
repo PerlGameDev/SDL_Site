@@ -1,26 +1,36 @@
 <div class="blog">
 <h1 id="NAME">
-The Future and Beyond!
+Hello Mouse? An Example of the New Event Code
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>I do not think about awesomeness...<br />
-I just am awesomeness<br />
-n.n<br />
---<a href="http://irclog.perlgeek.de/sdl/2009-10-20#i_1620287">KatrinaTheLamia</a></i><br />
+<div style="text-align: right;"><i>Any code that is not marketed is dead code <br />
+--mst</i><br />
 </div><br />
-<h3>Updates</h3>Since the last post SDL Perl has seen an increase of interest to both use and contribute to SDL Perl. Before I dig into the updates, I would like to acknowledge them.<br />
-<h3>Core Development</h3><b>Acme (<a href="http://use.perl.org/%7Eacme/journal/">Leon Brocard</a>):</b> Has started to work on the Redesign Effort with me. The help is much appreciated! Enjoy your vacation. <br />
+You need the new code from the <b> <a href="http://http://github.com/kthakore/SDL_Perl/tree/redesign">redesign branch</a></b> to use this . <br />
 <br />
-<h3>Website and Windows Testing</h3><b>FROGGS (Tobias Leich):</b> Came in as a new user to SDL Perl. And after breaking the redesigned SDL Perl in as many ways possible he has decided to help out on the new site. <br />
-<br />
-<br />
-<h3>Last Legacy Release</h3><br />
-Ok! Now this weekend hopefully we will release our last legacy release, after this we move on! This release will focus on showing of SDL + Perl possibilities.<br />
-<h3>Pong + SDL::Game::Rect</h3><a href="http://onionstand.blogspot.com/">garu</a> has been working on making SDL object extensions that provide a more perly way to use and play with the SDL bindings. To demonstrate the benefits of this SDL::Tutorial::Pong is done and being polished up. SDL::Game::Rect is a peek in to the design and vision we have for SDL down the road.<br />
-<h3>Design</h3>The design we have settled on for future release for SDL Perl can be broken in to two layers, SDL::* and SDL::Game::*. Previously the SDL Perl library tried to provide C bindings and provide Perl Idiomatic access. This was messy in regards to the single responsibility principle (do one thing and do it well).<br />
-<br />
-We have decided to separate these two focuses into the two name spaces SDL::* and SDL::Game::*. SDL::* will provide straight access to SDL's C API, nothing less and nothing more. SDL::Game::* will extend and make pretty unicorns for Perl. <br />
-<br />
-This design has already begin to pay of. One major benefit been in the XS <a href="http://github.com/kthakore/SDL_perl/commit/20f544ea4f3e7b34c68445aba89ed9c69d411ddf">readability</a>. Moreover since structs are treated as objects, Perl manages their destruction, and deliver less memory leaks.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4327446497206876141?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/SxZJQYdkG8_YzEHzsEro4b9mCZ8/0/da"><img src="http://feedads.g.doubleclick.net/~a/SxZJQYdkG8_YzEHzsEro4b9mCZ8/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/SxZJQYdkG8_YzEHzsEro4b9mCZ8/1/da"><img src="http://feedads.g.doubleclick.net/~a/SxZJQYdkG8_YzEHzsEro4b9mCZ8/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/JNZlGzpmYZQ" height="1" width="1"/></div></div>
+<pre class="fake-gist" id="fake-gist-231987">#!/usr/bin/env perl
+
+use SDL;
+use SDL::Events;
+use SDL::Event;
+use SDL::Video; 
+
+SDL::init(SDL_INIT_VIDEO);
+
+my $display = SDL::Video::set_video_mode(640,480,32, SDL_SWSURFACE );
+my $event   = SDL::Event-&gt;new(); 
+
+while(1)
+{   
+ SDL::Events::pump_events();  
+
+ if(SDL::Events::poll_event($event) &amp;&amp; $event-&gt;type == SDL_ACTIVEEVENT)
+ {
+  print "Hello Mouse!!!\n" if ($event-&gt;active_gain  &amp;&amp; ($event-&gt;active_state == SDL_APPMOUSEFOCUS) );
+  print "Bye Mouse!!!\n"   if (!$event-&gt;active_gain &amp;&amp; ($event-&gt;active_state == SDL_APPMOUSEFOCUS) );
+ }   
+ 
+ exit if($event-&gt;type == SDL_QUIT);
+}</pre><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4268622242266513664?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/VcCMh0XKi92JWmYoQnOB3cQLHtY/0/da"><img src="http://feedads.g.doubleclick.net/~a/VcCMh0XKi92JWmYoQnOB3cQLHtY/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/VcCMh0XKi92JWmYoQnOB3cQLHtY/1/da"><img src="http://feedads.g.doubleclick.net/~a/VcCMh0XKi92JWmYoQnOB3cQLHtY/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/xhzWiodiKJI" height="1" width="1"/></div></div>

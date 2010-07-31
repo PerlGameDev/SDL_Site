@@ -1,40 +1,77 @@
 <div class="blog">
 <h1 id="NAME">
-Getting people to use SDL Perl: Docs, API, and Distribution
+SDL RC 2.5 decides to play with PDL
 </h1>
 <div class="CONTENT">
-<h4><i>The road so far</i></h4><br />
-Things have been busy but fruitful. Our two core modules are getting to be a bit more stable. <a href="http://matrix.cpantesters.org/?dist=Alien-SDL+1.403">Alien::SDL 1.405</a> is behaving well. This foundational stability will start to show results in <a href="http://matrix.cpantesters.org/?dist=SDL+2.405">SDL</a> too I believe. Most excitingly the main developer of frozen-bubble is reviewing our <a href="http://search.cpan.org/~kthakore/Games-FrozenBubble-2.202/lib/Games/FrozenBubble.pm">Games::FrozenBubble</a> port to CPAN. All good and well, but to keep this project going we need to improve.<br />
+<i>PDL provides great number crunching capabilities to Perl and SDL provides game-developer quality real-time bitmapping and sound.<br />
+You can use PDL and SDL together to create real-time,<br />
+responsive animations and simulations.<br />
+In this section we will go through the pleasures and pitfalls of working with both powerhouse libraries.</i> <b>-- David Mertnes</b><br />
 <br />
-<h4><i>Getting people to use SDL Perl</i></h4><br />
-After a long chat with a new SDL user on #sdl today, I realize we still have some way to go. Currently it seems we are lacking in a few areas. We can definitely use some feedback and help in these areas. <br />
 <br />
-<ul><li>Tutorials/Documentation<br />
-</li>
-
-<ul><li>We have more docs now on http://sdl.perl.org but they suck</li>
-<li>What type of tutorials do you think will be good for beginners?</li>
-
-<ul><li>A project start to finish?</li>
-<li>Individual tutorials for various topics?</li>
-<li>What needs to go in SDL::CookBook?</li>
-</ul></ul>
-<li>API sweetness</li>
-
-<ul><li>SDL Perl depends on distinct C libraries</li>
-
-<ul><li>This makes naming conventions, data formats different the SDL:: namespaces</li>
-<li>How do people design this stuff?</li>
-
-<ul><li>We are hackers and we just go do stuff but I think this needs some prior thought</li>
-<li>Any takers?</li>
-</ul></ul></ul>
-<li>Distribution</li>
-
-<ul><li>If SDL scripts can be packaged up simply for game developers to distribute their games it will be a big plus</li>
-
-<ul><li>One way is a Wx::Perl::Packer clone</li>
-<li>Another is a CPAN/Steam clone that game devs can upload games too and people can point and click download games?&nbsp;</li>
-</ul></ul></ul><div>If anyone wants to help in these areas please talk to us on sdl-devel@perl.org.&nbsp;</div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-7164362190686365958?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/9LDtns437JWMVWJoUGIR6gCE1W0/0/da"><img src="http://feedads.g.doubleclick.net/~a/9LDtns437JWMVWJoUGIR6gCE1W0/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/9LDtns437JWMVWJoUGIR6gCE1W0/1/da"><img src="http://feedads.g.doubleclick.net/~a/9LDtns437JWMVWJoUGIR6gCE1W0/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/EXlozhjfhdo" height="1" width="1"/></div></div>
+<h1>Creating a SDL Surface piddle</h1><br />
+PDL's core type is a piddle.<br />
+Once a piddle is provided to PDL it can go do a numerous amounts of things.<br />
+Please see the example in '<a href="http://github.com/kthakore/SDL_perl/blob/master/examples/cookbook/pdl.pl">examples/cookbook/pdl.pl</a>' in github.<br />
+<br />
+<h3>Creating a simple piddle</h3><br />
+First lets get the right modules.<br />
+<br />
+<pre style='color:#d1d1d1;background:#000000;'>  <span style='color:#e66170; font-weight:bold; '>use</span> <span style='color:#b060b0; '>PDL;</span>
+  <span style='color:#e66170; font-weight:bold; '>use</span> <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Rect</span><span style='color:#b060b0; '>;</span>
+  <span style='color:#e66170; font-weight:bold; '>use</span> <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Video</span><span style='color:#b060b0; '>;</span>
+  <span style='color:#e66170; font-weight:bold; '>use</span> <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Surface</span><span style='color:#b060b0; '>;</span>
+  <span style='color:#e66170; font-weight:bold; '>use</span> <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>PixelFormat</span><span style='color:#b060b0; '>;</span>
+</pre><br />
+Suppose you want a surface of size (200,400) and 32 bit (RGBA).<br />
+<br />
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>my</span> <span style='color:#d2cd86; '>(</span> $bytes_per_pixel<span style='color:#d2cd86; '>,</span> $width<span style='color:#d2cd86; '>,</span> $height <span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>=</span> <span style='color:#d2cd86; '>(</span> <span style='color:#00a800; '>4</span><span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>200</span><span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>400</span> <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre><br />
+Define the <b>$width</b>, <b>$height</b> and <b>$bytes_per_pixel</b>. Your <b>$bytes_per_pixel</b> is the number of bits (in this case 32) divided by 8 bits per byte. Therefore for our 32 bpp we have 4 Bpp;<br />
+<br />
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>my</span> $piddle  <span style='color:#d2cd86; '>=</span> zeros<span style='color:#d2cd86; '>(</span> byte<span style='color:#d2cd86; '>,</span> $bytes_per_pixel<span style='color:#d2cd86; '>,</span> $width<span style='color:#d2cd86; '>,</span> $height <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre><br />
+Create a normal $piddle with zeros, byte format and the Bpp x width x height dimensions.<br />
+<br />
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>my</span> $pointer <span style='color:#d2cd86; '>=</span> $piddle<span style='color:#d2cd86; '>-></span>get_dataref<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre><br />
+Here is where we get the acutal data the piddle is pointing to. We will have SDL create a new surface from this function.<br />
+<br />
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>my</span> $surface <span style='color:#d2cd86; '>=</span> <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Surface</span><span style='color:#d2cd86; '>-></span>new_from<span style='color:#d2cd86; '>(</span> $pointer<span style='color:#d2cd86; '>,</span> $width<span style='color:#d2cd86; '>,</span> $height<span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>32</span><span style='color:#d2cd86; '>,</span>
+        $width <span style='color:#d2cd86; '>*</span> $bytes_per_pixel <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre><br />
+Using the same dimensions we create the surface using <b>SDL::Surface->new_form()</b>. The <b>$width * $Bpp</b> is the scanline (pitch) of the surface in bytes.<br />
+<br />
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>warn</span> <span style='color:#00c4c4; '>"Made surface of </span><span style='color:#00c4c4; '>$width</span><span style='color:#00c4c4; '>, </span><span style='color:#00c4c4; '>$height</span><span style='color:#00c4c4; '> and "</span><span style='color:#d2cd86; '>.</span> $surface<span style='color:#d2cd86; '>-></span>format<span style='color:#d2cd86; '>-></span>BytesPerPixel<span style='color:#b060b0; '>;</span>
+   <span style='color:#e66170; font-weight:bold; '>return</span> <span style='color:#d2cd86; '>(</span> $piddle<span style='color:#d2cd86; '>,</span> $surface <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre><br />
+Finally make sure that the surface acutally has the correct dimensions we gave.<br />
+<br />
+<b>NOTE:</b> <b>$surface->format->BytesPerPixel</b> must return 1,2,3,4. !!<br />
+<br />
+Now you can blit and use the surface as needed; and do PDL operations as required.<br />
+<br />
+<h3>Operating on the Surface safely</h3><br />
+To make sure SDL is in sync with the data. You must call SDL::Video::lock <b>before</b> doing PDL operations on the piddle.<br />
+<br />
+<pre><pre style='color:#d1d1d1;background:#000000;'><span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Video</span><span style='color:#d2cd86; '>:</span><span style='color:#d2cd86; '>:</span>lock_surface<span style='color:#d2cd86; '>(</span>$surface<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+ 
+    $piddle <span style='color:#d2cd86; '>(</span> <span style='color:#d2cd86; '>:</span><span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>0</span> <span style='color:#d2cd86; '>:</span> <span style='color:#e66170; font-weight:bold; '>rand</span><span style='color:#d2cd86; '>(</span><span style='color:#00a800; '>400</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>0</span> <span style='color:#d2cd86; '>:</span> <span style='color:#e66170; font-weight:bold; '>rand</span><span style='color:#d2cd86; '>(</span><span style='color:#00a800; '>200</span><span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>.</span><span style='color:#d2cd86; '>=</span>   pdl<span style='color:#d2cd86; '>(</span> <span style='color:#e66170; font-weight:bold; '>rand</span><span style='color:#d2cd86; '>(</span><span style='color:#00a800; '>225</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>,</span> <span style='color:#e66170; font-weight:bold; '>rand</span><span style='color:#d2cd86; '>(</span><span style='color:#00a800; '>225</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>,</span> <span style='color:#e66170; font-weight:bold; '>rand</span><span style='color:#d2cd86; '>(</span><span style='color:#00a800; '>255</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>255</span> <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre></pre><br />
+After that you can unlock the surface to blit.<br />
+<br />
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Video</span><span style='color:#d2cd86; '>:</span><span style='color:#d2cd86; '>:</span>unlock_surface<span style='color:#d2cd86; '>(</span>$surface<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre><br />
+<h3>Errors due to BPP at blitting</h3><br />
+When blitting the new surface check for the return value to see if there has been a problem.<br />
+<br />
+<pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>my</span> $b <span style='color:#d2cd86; '>=</span> <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Video</span><span style='color:#d2cd86; '>:</span><span style='color:#d2cd86; '>:</span>blit_surface<span style='color:#d2cd86; '>(</span>
+        $surface<span style='color:#d2cd86; '>,</span>  <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Rect</span><span style='color:#d2cd86; '>-></span>new<span style='color:#d2cd86; '>(</span> <span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>,</span> $surface<span style='color:#d2cd86; '>-></span>w<span style='color:#d2cd86; '>,</span> $surface<span style='color:#d2cd86; '>-></span>h <span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>,</span>
+        $app<span style='color:#d2cd86; '>,</span> <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Rect</span><span style='color:#d2cd86; '>-></span>new<span style='color:#d2cd86; '>(</span>  <span style='color:#d2cd86; '>(</span> $app<span style='color:#d2cd86; '>-></span>w <span style='color:#d2cd86; '>-</span> $surface<span style='color:#d2cd86; '>-></span>w <span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>/</span> <span style='color:#00a800; '>2</span><span style='color:#d2cd86; '>,</span> <span style='color:#d2cd86; '>(</span> $app<span style='color:#d2cd86; '>-></span>h <span style='color:#d2cd86; '>-</span> $surface<span style='color:#d2cd86; '>-></span>h <span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>/</span> <span style='color:#00a800; '>2</span><span style='color:#d2cd86; '>,</span> $app<span style='color:#d2cd86; '>-></span>w<span style='color:#d2cd86; '>,</span> $app<span style='color:#d2cd86; '>-></span>h <span style='color:#d2cd86; '>)</span>
+       <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+ 
+    <span style='color:#e66170; font-weight:bold; '>die</span> <span style='color:#00c4c4; '>"Could not blit: "</span> <span style='color:#d2cd86; '>.</span> <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>get_error</span><span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span> $b <span style='color:#d2cd86; '>=</span><span style='color:#d2cd86; '>=</span> <span style='color:#d2cd86; '>-</span><span style='color:#00a800; '>1</span> <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre><br />
+If the error message is 'Blit combination not supported' that means that the BPP is incorrect or incosistent with the dimensions. After that a simple update_rect will so your new surface on the screen.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-3580429408870545769?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/HRpCokqdJ-wzrP1ZXUvgwcUNL_s/0/da"><img src="http://feedads.g.doubleclick.net/~a/HRpCokqdJ-wzrP1ZXUvgwcUNL_s/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/HRpCokqdJ-wzrP1ZXUvgwcUNL_s/1/da"><img src="http://feedads.g.doubleclick.net/~a/HRpCokqdJ-wzrP1ZXUvgwcUNL_s/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/KBG0kvzZCFo" height="1" width="1"/></div></div>
