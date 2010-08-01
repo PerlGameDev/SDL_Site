@@ -14,11 +14,11 @@ He breaks things and does web stuff.
 
 Likes doing docs for some reason. 
 
-=head2 Blazing Sands of Fury ( L<Blaizer | http://github.com/Balizer > )
+=head2 Blazing Sands of Fury ( L<Blaizer | http://github.com/Blaizer > )
 
 He is from Australia. 
 
-=head2 Western Zen ( L<JTPalmer | http://somewhere.com > )
+=head2 Western Zen ( L<JTPalmer | http://github.com/jtpalmer > )
 
 One cool dood.
 
