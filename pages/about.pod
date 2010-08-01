@@ -14,6 +14,14 @@ He breaks things and does web stuff.
 
 Likes doing docs for some reason. 
 
+=head2 Blazing Sands of Fury ( L<Blaizer | http://github.com/Balizer > )
+
+He is from Australia. 
+
+=head2 Western Zen ( L<JTPalmer | http://somewhere.com > )
+
+One cool dood.
+
 =head2 Bellowing Brazilian ( L<garu | http://onionstand.blogspot.com/> )
 
 Oddly enough he sells onions. 
