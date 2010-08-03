@@ -14,7 +14,7 @@ SDL Perl is an active and exciting project with many facets. Explore this websit
 
 =head3 Getting Started
 
-To begin using SDL Perl read the tutorials and documentation. 
+A new SDL::Manual is being prepared for new users. In the mean time take a look at the documentation, ask for help on the mailing lists or irc channel, and see the examples in the source code.
 
 =head3 Contribute
 
@@ -48,7 +48,7 @@ To begin testing read L<this| http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testin
 
 =head1 Latest News
 
-=head2 July 13 2010
+=head2 August 03 2010
 
 =head3 CPAN Release
 	
@@ -58,20 +58,6 @@ SDL Perl at v2.2.6 on CPAN is the last of it's kind which will have the old API.
 
 =head3 Active Development
 
-SDL Perl is being actively developed to v3.0. The process is as below:
-
-=head3 TODO
-
-=over 4
-
-=item *
-
-Make SDL work with Frozen Bubble
-
-Frozen Bubble is being reviewed as we speak! Until then
-
-  cpan Games::FrozenBubble
-
-=back
+SDL Perl is being actively developed to v3.0. We are adding many new SDLx::* modules to provide a more Perly interface to SDL. Please review, request or even hack the code. Talk to us on the irc channel or mailing lists.
 
 =cut 

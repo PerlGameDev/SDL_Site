@@ -11,10 +11,9 @@
 </ul>
 </li>
 <li><a href="#Latest_News">Latest News</a>
-<ul><li><a href="#July_01_2010">July 01 2010</a>
+<ul><li><a href="#August_03_2010">August 03 2010</a>
 <ul><li><a href="#CPAN_Release">CPAN Release</a></li>
-<li><a href="#Active_Development">Active Development</a></li>
-<li><a href="#TODO">TODO</a>
+<li><a href="#Active_Development">Active Development</a>
 </li>
 </ul>
 </li>
@@ -38,7 +37,7 @@ award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>ww
 </div>
 <h3 id="Getting_Started">Getting Started</h3>
 <div id="Getting_Started_CONTENT">
-<p>To begin using SDL Perl read the tutorials and documentation. </p>
+<p>A new SDL::Manual is being prepared for new users. In the mean time take a look at the documentation, ask for help on the mailing lists or irc channel, and see the examples in the source code.</p>
 
 </div>
 <h3 id="Contribute">Contribute</h3>
@@ -69,31 +68,19 @@ award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>ww
 <div id="Latest_News_CONTENT">
 
 </div>
-<h2 id="July_01_2010">July 01 2010</h2>
-<div id="July_01_2010_CONTENT">
+<h2 id="August_03_2010">August 03 2010</h2>
+<div id="August_03_2010_CONTENT">
 
 </div>
 <h3 id="CPAN_Release">CPAN Release</h3>
 <div id="CPAN_Release_CONTENT">
-<p><a href="http://search.cpan.org/~kthakore">SDL 2.5</a> RC is on CPAN! The new API has many changes and much more improvements. So check it out ;o)</p>
+<p><a href="http://search.cpan.org/~kthakore">SDL 2.5</a> is on CPAN! The new API has many changes and much more improvements. So check it out ;o)</p>
 <p>SDL Perl at v2.2.6 on CPAN is the last of it's kind which will have the old API.</p>
 
 </div>
 <h3 id="Active_Development">Active Development</h3>
 <div id="Active_Development_CONTENT">
-<p>SDL Perl is being actively developed to v3.0. The process is as below:</p>
-
-</div>
-<h3 id="TODO">TODO</h3>
-<div id="TODO_CONTENT">
-<ul>
-		<li>Make SDL work with Frozen Bubble
-<br /><br />Frozen Bubble is being reviewed as we speak! Until then
-<br /><br /><pre>  cpan Games::FrozenBubble
-
-</pre></li>
-</ul>
-
+<p>SDL Perl is being actively developed to v3.0. We are adding many new SDLx::* modules to provide a more Perly interface to SDL. Please review, request or even hack the code. Talk to us on the irc channel or mailing lists.</p>
 
 </div>
 </div>
