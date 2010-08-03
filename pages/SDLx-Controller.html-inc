@@ -167,6 +167,8 @@ the previous round.</p>
 <h2 id="remove_show_handler_index">remove_show_handler( $index )</h2>
 <div id="remove_show_handler_index_CONTENT">
 <p>Removes the handler with the given index from the respective calling queue.</p>
+<p>You can also pass a coderef.
+The first coderef in the handler list that this matches will be removed.</p>
 <p>Returns the removed handler.</p>
 
 </div>

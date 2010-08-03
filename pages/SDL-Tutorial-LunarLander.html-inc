@@ -321,10 +321,10 @@ this tutorial; Save these images in a subdirectory called &quot;images&quot;:
 
 
     my $app = SDLx::App-&gt;new(
-        -title  =&gt; &quot;Lunar Lander&quot;,
-        -width  =&gt; 800,
-        -height =&gt; 600,
-        -depth  =&gt; 32,
+        title  =&gt; &quot;Lunar Lander&quot;,
+        width  =&gt; 800,
+        height =&gt; 600,
+        depth  =&gt; 32,
     );
 
 

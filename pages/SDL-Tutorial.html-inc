@@ -68,27 +68,27 @@ ask for a windowed surface with 640x480x16 resolution:</p>
 <pre>	use SDLx::App;
 
 	my $app = SDLx::App-&gt;new(
-		-width  =&gt; 640,
-		-height =&gt; 480,
-		-depth  =&gt; 16,
+		width  =&gt; 640,
+		height =&gt; 480,
+		depth  =&gt; 16,
 	);
 
 </pre>
-<p>You can get more creative, especially if you use the <code>-title</code> and <code>-icon</code>
+<p>You can get more creative, especially if you use the <code>title</code> and <code>icon</code>
 attributes in a windowed application.  Here's how to set the window title of
 the application to <code>My SDL Program</code>:</p>
 <pre>	use SDLx::App;
 
 	my $app = SDLx::App-&gt;new(
-		-height =&gt; 640,
-		-width  =&gt; 480,
-		-depth  =&gt; 16,
-		-title  =&gt; 'My SDL Program',
+		height =&gt; 640,
+		width  =&gt; 480,
+		depth  =&gt; 16,
+		title  =&gt; 'My SDL Program',
 	);
 
 </pre>
 <p>Setting an icon is a little more involved -- you have to load an image onto a
-surface.  That's a bit more complicated, but see the <code>-name</code> parameter to
+surface.  That's a bit more complicated, but see the <code>name</code> parameter to
 <code>SDL::Surface-</code>new()&gt; if you want to skip ahead.</p>
 
 </div>

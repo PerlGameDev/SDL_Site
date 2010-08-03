@@ -33,7 +33,7 @@
 
    #Make a surface
    #Select a font
-   my $d = SDLx::App-&gt;new( -title =&gt; 'app', -width =&gt; 200, -height =&gt; 200, -depth =&gt; 32 );
+   my $d = SDLx::App-&gt;new( title =&gt; 'app', width =&gt; 200, height =&gt; 200, depth =&gt; 32 );
 
    my $font = SDLx::SFont-&gt;new('t/font.png');
 

@@ -82,7 +82,8 @@
 <p>To make sure SDL is in sync with the data. You must call SDL::Video::lock <strong>before</strong> doing PDL operations on the piddle.</p>
 <pre>    SDL::Video::lock_surface($surface);
 
-    $piddle ( :, 0 : rand(400), 0 : rand(200) ) .=   pdl( rand(225), rand(225), rand(255), 255 );
+    $piddle-&gt;mslice( 'X', [ rand(400), rand(400), 1 ], [ rand(200), rand(200), 1 ] )
+        .= pdl( rand(225), rand(225), rand(255), 255 );
 
 </pre>
 <p>After that you can unlock the surface to blit.</p>

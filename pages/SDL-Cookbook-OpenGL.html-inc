@@ -52,11 +52,11 @@
 	$| = 1;
 	$WIDTH = 1024;
 	$HEIGHT = 768;
-	$SDLAPP = SDLx::App-&gt;new(-title =&gt; &quot;Opengl App&quot;, -width =&gt; $WIDTH, -height =&gt; $HEIGHT, -gl =&gt; 1);
+	$SDLAPP = SDLx::App-&gt;new(title =&gt; &quot;Opengl App&quot;, width =&gt; $WIDTH, height =&gt; $HEIGHT, gl =&gt; 1);
 	$SDLEVENT = SDL::Event-&gt;new;
 
 </pre>
-<p>SDLx::App can start an OpenGL application with the parameter -gl =&gt; 1.</p>
+<p>SDLx::App can start an OpenGL application with the parameter gl =&gt; 1.</p>
 <pre>	glEnable(GL_DEPTH_TEST);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity;

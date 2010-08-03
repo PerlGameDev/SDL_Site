@@ -45,10 +45,10 @@
     use SDL::Events; 
 
     my $app = SDLx::App-&gt;new( 
-        -title  =&gt; 'Application Title',
-        -width  =&gt; 640,
-        -height =&gt; 480,
-        -depth  =&gt; 32
+        title  =&gt; 'Application Title',
+        width  =&gt; 640,
+        height =&gt; 480,
+        depth  =&gt; 32
     ); 
 
 </pre>
@@ -84,14 +84,14 @@ manager oriented functions.</p>
 and initializes some of the window manager properties.
 <code>SDLx::App::new</code> takes a series of named parameters:</p>
 <ul>
-		<li>-title	</li>
-		<li>-icon_title	</li>
-		<li>-icon	</li>
-		<li>-width	</li>
-		<li>-height	</li>
-		<li>-depth	</li>
-		<li>-flags	</li>
-		<li>-resizeable</li>
+		<li>title	</li>
+		<li>icon_title	</li>
+		<li>icon	</li>
+		<li>width	</li>
+		<li>height	</li>
+		<li>depth	</li>
+		<li>flags	</li>
+		<li>resizeable</li>
 </ul>
 
 
@@ -124,7 +124,7 @@ that many ms.</p>
 <h2 id="resize">resize</h2>
 <div id="resize_CONTENT">
 <p><code>SDLx::App::resize</code> takes a new height and width of the application
-if the application was originally created with the -resizable option.</p>
+if the application was originally created with the resizable option.</p>
 
 </div>
 <h2 id="fullscreen">fullscreen</h2>
@@ -159,10 +159,10 @@ as SDL_QUIT(), SDL_KEYDOWN(), and the like.  The event method recieves as its pa
 the event object used in the loop.</p>
 <p>Example:</p>
 <pre>    my $app = SDLx::App-&gt;new(
-        -title  =&gt; &quot;test.app&quot;, 
-        -width  =&gt; 800, 
-        -height =&gt; 600, 
-        -depth  =&gt; 32
+        title  =&gt; &quot;test.app&quot;, 
+        width  =&gt; 800, 
+        height =&gt; 600, 
+        depth  =&gt; 32
     );
 
     my %actions = (

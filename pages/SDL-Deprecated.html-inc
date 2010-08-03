@@ -5,7 +5,8 @@
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#RELEASES">RELEASES</a>
-<ul><li><a href="#2_500">2.500</a>
+<ul><li><a href="#2_502">2.502</a></li>
+<li><a href="#2_500">2.500</a>
 </li>
 </ul>
 </li>
@@ -26,12 +27,26 @@
 <div id="RELEASES_CONTENT">
 
 </div>
+<h2 id="2_502">2.502</h2>
+<div id="2_502_CONTENT">
+<dl>
+	<dt>SDLx::App</dt>
+	<dd>
+		<p>Now depends on <a href="http://search.cpan.org/perldoc?SDLx::Surface">SDLx::Surface</a>. To get the SDL::Surface, use <code> -</code>surface() &gt;. Alternatively <b>SDLx::Surface::display()</b> (<b>display</b> in <cite>SDLx::Surface</cite>).</p>
+	</dd>
+	<dt>SDLx::Surface</dt>
+	<dd>
+		<p><code> get_display </code> is now called <b>SDLx::Surface::display</b> (<b>display</b> in <cite>SDLx::Surface</cite>). </p>
+	</dd>
+	<dt>SDLx::Sprite::Animated</dt>
+	<dd>
+		<p>Has drastically changed, and is still volatile.</p>
+	</dd>
+</dl>
+
+</div>
 <h2 id="2_500">2.500</h2>
 <div id="2_500_CONTENT">
-
-
-
-
 <dl>
 	<dt>SDL::App </dt>
 	<dd>

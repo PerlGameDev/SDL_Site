@@ -20,6 +20,7 @@
 </li>
 <li><a href="#EXTENSIONS">EXTENSIONS</a>
 <ul><li><a href="#blit">blit </a></li>
+<li><a href="#blit_by">blit_by</a></li>
 <li><a href="#flip">flip</a></li>
 <li><a href="#update">update</a></li>
 <li><a href="#draw_rect">draw_rect</a></li>
@@ -85,9 +86,9 @@
 
 	SDLx::Surface-&gt;new( width=&gt; 400, height=&gt;200, flags=&gt; SDL_SWSURFACE, depth=&gt;32, greenmask=&gt;0xFF000000 )
 		# A SDL::Surface-&gt;new( SDL_ANYFORMAT, 400, 200, 32, 0, 0xFF000000,0, 0, 0 ) is loaded
-
-
-
+	SDLx::Surface-&gt;new( w =&gt; 1, h =&gt; 1, color =&gt; 0xFF0000FF )
+		# A SDL::Surface-&gt;new( SDL_ANYFORMAT, 1, 1, 32, 0, 0, 0, 0 ) is loaded
+		all pixels are colored with color (red)
 
 </pre>
 
@@ -106,6 +107,7 @@
 <pre> SDLx::Surface::display( width =&gt; 20, height =&gt; 20, flags=&gt; SDL_HWSURFACE, depth=&gt;24) 
 
 </pre>
+<p>You can also use the keys <code>w</code> and <code>h</code> in place of <code>width</code> and <code>height</code>, as with <code>new</code>.</p>
 <p>Get or create the main display surface and attach to a SDLx::Surface.</p>
 
 </div>
@@ -143,8 +145,17 @@
 
 </pre>
 <p>Blits SDLx::Surface onto $dest surface. 
-$src_rect or $dest_rect are optional. $src_rect or $dest_rect can be array refs or SDL::Rect. $dest can be SDLx::Surface or SDL::Surface. </p>
+$src_rect or $dest_rect are optional. If $src_rect is ommited, it will be the size of the entire surface. If $dest_rect is ommited, it will be blitted at <code>(0, 0)</code>. $src_rect or $dest_rect can be array refs or SDL::Rect. $dest can be SDLx::Surface or SDL::Surface.</p>
 <p>Returns $self</p>
+
+</div>
+<h2 id="blit_by">blit_by</h2>
+<div id="blit_by_CONTENT">
+<pre> $sdlx_surface-&gt;blit_by( $src, $src_rect, $dest_rect );
+
+</pre>
+<p>Does the same as <code>blit</code> but the <code>SDLx::Surface</code> is the one being blitted to.
+This is useful when the surface you have isn't an <code>SDLx::Surface</code>, but the surface it is being blitted to is.</p>
 
 </div>
 <h2 id="flip">flip</h2>
@@ -175,7 +186,7 @@ $src_rect or $dest_rect are optional. $src_rect or $dest_rect can be array refs 
  $sdlx_surface-&gt;draw_rect( SDL::Rect-&gt;new($x,$y,$w,$h), 0xFFFF00FF );
 
 </pre>
-<p>Draws a rect on the surface with the given color. </p>
+<p>Draws a rect on the surface with the given color. If the rect is ommited, the colored rect will be drawn to the entire surface.</p>
 <p>Returns $self</p>
 
 </div>
@@ -185,7 +196,7 @@ $src_rect or $dest_rect are optional. $src_rect or $dest_rect can be array refs 
  $sdlx_surface-&gt;draw_line( [$x1, $y1], [$x2, $y2], \@color, $antialias); # 
 
 </pre>
-<p>Draws a line on the surface. Antialias is turned on if $antialias is defined. </p>
+<p>Draws a line on the surface. Antialias is turned on if $antialias is true. </p>
 <p>Returns $self</p>
 
 </div>
