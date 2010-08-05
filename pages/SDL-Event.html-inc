@@ -96,17 +96,17 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<pre> use SDL::Event;                             # for the event object itself
- use SDL::Events qw(pump_events poll_event); # functions for event queue handling
+<pre> use SDL::Event;  # for the event object itself
+ use SDL::Events; # functions for event queue handling
 
  SDL::init(SDL_INIT_VIDEO);
  my $event = SDL::Event-&gt;new();
 
  while(1)
  {
-     pump_events();
+     SDL::Events::pump_events();
 
-     if(poll_event($event))
+     if(SDL::Events::poll_event($event))
      {
         if($event-&gt;type == SDL_MOUSEBUTTONDOWN)
         {

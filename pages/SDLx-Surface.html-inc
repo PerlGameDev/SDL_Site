@@ -19,7 +19,8 @@
 </ul>
 </li>
 <li><a href="#EXTENSIONS">EXTENSIONS</a>
-<ul><li><a href="#blit">blit </a></li>
+<ul><li><a href="#load">load</a></li>
+<li><a href="#blit">blit </a></li>
 <li><a href="#blit_by">blit_by</a></li>
 <li><a href="#flip">flip</a></li>
 <li><a href="#update">update</a></li>
@@ -137,6 +138,30 @@
 </div>
 <h1 id="EXTENSIONS">EXTENSIONS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="EXTENSIONS_CONTENT">
+
+</div>
+<h2 id="load">load</h2>
+<div id="load_CONTENT">
+<pre> my $surface = SDLx::Surface-&gt;load( 'hero.png' );
+ my $surface = SDLx::Surface-&gt;load( 'hero.dat', 'bmp' );
+
+</pre>
+<p>Loads the given image file into a <i>new</i> SDLx::Surface surface. A new
+surface is <strong>always</strong> created, even if you call it from an already crafted
+object. Croaks on errors such as no support built for that image extension
+or a file reading error (the error message is SDL::get_error and should
+give more details).</p>
+<p>Note that load() will automatically figure out the extension based on the
+filename you provide. If you wish to force an extension for whatever reason
+(like having a filename with a different extension or none at all), you can
+optionally pass the file type as a second parameter. Case is not relevant.</p>
+<p>If you don't have SDL_image in your build, only bitmap images will be
+supported.</p>
+<p>Returns the new Surface.</p>
+
+
+
+
 
 </div>
 <h2 id="blit">blit </h2>
