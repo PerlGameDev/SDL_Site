@@ -1,10 +1,18 @@
 <div class="blog">
 <h1 id="NAME">
-Games::FrozenBubble: It is a start!
+SDLpp.pl: Packaging SDL Scripts Alpha
 </h1>
 <div class="CONTENT">
-We released a playable (client) frozen bubble on <a href="http://search.cpan.org/%7Ekthakore/Games-FrozenBubble-0.001_1/lib/Games/FrozenBubble.pm">CPAN</a>. There is more work to be done but it is a great start! It currently works on Windows and Linux.<br />
+After a lot of patches and head scratching I have an alpha version of <a href="http://github.com/kthakore/SDL_perl/blob/eabffdcf5635fa1f78a9c87d7953a11215609630/scripts/SDLpp.pl">SDLpp.pl</a>. The purpose of SDLpp.pl is to allow SDL perl developers to package their game for end users. <br />
 <br />
-<div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/_NnqjAQEn1Xo/S8Ov0uLjD4I/AAAAAAAAAK8/_OhraQBd1iE/s1600/a.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/_NnqjAQEn1Xo/S8Ov0uLjD4I/AAAAAAAAAK8/_OhraQBd1iE/s320/a.png" /></a></div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4730357979252159221?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/28KepidbDodIEOBBaPgsiIFpD3o/0/da"><img src="http://feedads.g.doubleclick.net/~a/28KepidbDodIEOBBaPgsiIFpD3o/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/28KepidbDodIEOBBaPgsiIFpD3o/1/da"><img src="http://feedads.g.doubleclick.net/~a/28KepidbDodIEOBBaPgsiIFpD3o/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/gHnHwFtAvFE" height="1" width="1"/></div></div>
+Here is the <a href="http://gist.github.com/301949">shooter.pl</a> packaged up:<br />
+<a href="http://www.megaupload.com/?d=R6XKW0E0"></a><br />
+<ol><li><a href="http://www.megaupload.com/?d=R6XKW0E0"> win32/64</a></li>
+<li><a href="http://froggs.de/shooter">Linux 5.88</a></li>
+<li><a href="http://sdlperl.ath.cx/releases/shooter.run">Linux 5.10 </a></li>
+</ol><br />
+We are looking into testing this on a Mac Build server.<br />
+<br />
+Caio<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-9080175881992996183?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/7PgtzoGFjbc4fTJmAi1gqhRiY2M/0/da"><img src="http://feedads.g.doubleclick.net/~a/7PgtzoGFjbc4fTJmAi1gqhRiY2M/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/7PgtzoGFjbc4fTJmAi1gqhRiY2M/1/da"><img src="http://feedads.g.doubleclick.net/~a/7PgtzoGFjbc4fTJmAi1gqhRiY2M/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/PqOR4e2XhaE" height="1" width="1"/></div></div>

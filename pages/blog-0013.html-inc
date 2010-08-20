@@ -1,25 +1,21 @@
 <div class="blog">
 <h1 id="NAME">
-Eye Candy
+A summer of possibilities (SDL_perl and GSOC 2010 )
 </h1>
 <div class="CONTENT">
-<i style="text-align: right;"><br />
-<b>clang </b><br />
-With each imperfect hit <br />
-a legendary blade forms<br />
-</i><br />
+<h3>GSOC 2010 </h3><br />
+<p>As many of the readers must know The Perl Foundation has been accepted for the GSOC 2010 program. There are several SDL_perl mentors involved in it too. Right now we are accepting student applications. <p><br />
 <br />
+<b>Process to Apply</b><br />
+<ul><li>Sign in as a student here http://socghop.appspot.com/</li>
+<li>Submit a proposal before April 5th</li>
+<li>Usually it helps to discuss the idea with us on irc (#sdl irc.perl.org)</li>
+</ul><br />
 <br />
-In prep for the TPM meeting we have been working hard to release a new version of SDL Perl and Alien::SDL. After a lot of feed back from testers (Mike Stok, Stuart Watt, and Chas Owens), we where able to get a working version on 64bit and Mac. The releases will be out tomorrow but here <br />
-is some eye candy to tide you guys over.<br />
+<h3>Ideas </h3><br />
+<p><a href="http://sdlperl.ath.cx/projects/SDLPerl/wiki/gsoc2010">Here</a> are some ideas for SDL perl but we happily accepted student ideas.<br />
+ Make a student wiki page on this site of your ideas! We look forward to helping you guys with your  ideas :) </p><br />
 <br />
-<br />
-This is shooter.pl finally working in MacOSX and 64 bit.<br />
-<br />
-<div class="separator" style="clear: both; text-align: center;"><a href="http://i.imgur.com/NQ55t.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="200" src="http://i.imgur.com/NQ55t.png" width="320" /></a></div><br />
-<br />
-k23z_ mentioned I should get some more SDL_perl videos out to attract some devs. So here goes.  <br />
-<br />
-<a href="http://vimeo.com/9689482">Walking Guy</a> from <a href="http://vimeo.com/user3244181">SDLPerl</a> on <a href="http://vimeo.com/">Vimeo</a>.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-7753290048735163114?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/95lvKL6nWJpyXT29j0YtmTQdS9U/0/da"><img src="http://feedads.g.doubleclick.net/~a/95lvKL6nWJpyXT29j0YtmTQdS9U/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/95lvKL6nWJpyXT29j0YtmTQdS9U/1/da"><img src="http://feedads.g.doubleclick.net/~a/95lvKL6nWJpyXT29j0YtmTQdS9U/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/VTMRrJo4GkA" height="1" width="1"/></div></div>
+--yapgh<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-7079398614405091312?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/2W7bN95udcWNo9wYcwDL4eTQ9ok/0/da"><img src="http://feedads.g.doubleclick.net/~a/2W7bN95udcWNo9wYcwDL4eTQ9ok/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/2W7bN95udcWNo9wYcwDL4eTQ9ok/1/da"><img src="http://feedads.g.doubleclick.net/~a/2W7bN95udcWNo9wYcwDL4eTQ9ok/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/Az4zDMAjcdY" height="1" width="1"/></div></div>

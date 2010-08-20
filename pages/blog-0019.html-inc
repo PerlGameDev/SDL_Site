@@ -1,22 +1,23 @@
 <div class="blog">
 <h1 id="NAME">
-Developer Release of SDL 2.3_1
+Threaded XS callback finally gets solved.
 </h1>
 <div class="CONTENT">
 <div style="text-align: right;"><i><br />
-The city of Rome was built,<br />
-with the first brick.<br />
+Dragged down from the lofty isles,<br />
+into the guts and gore of the monster,<br />
+a welcoming cringe in the gut approaches. <br />
 </i><br />
 </div><br />
-<h1>Alpha Release of new API</h1>After a considerable amount of hacking and rewriting we have release the first development release of SDL perl on <a href="http://search.cpan.org/%7Ekthakore/SDL-2.3_1/">CPAN</a>. <br />
 <br />
-<h2>Overview of 2.3_1</h2>In this version our goal was to tackle the proper allocations and destruction of SDL resources. We have accomplished this for all SDL Core structures. Moreover we have also improved the test suite and documentation considerably. Please read the <a href="http://cpansearch.perl.org/src/KTHAKORE/SDL-2.3_1/CHANGELOG">CHANGELOG</a> for a more detailed look. <br />
+So I was planning staying silent until an exam I had was done. But new developers on IRC (j_king, felix and ruoso) pull me back in. Which is a good thing ... I suppose ... because we finally have threaded callbacks for timer and audiospec to work. ruoso++ for this major contribution. If you remember this was the <a href="http://stackoverflow.com/questions/1791114/creating-threaded-callbacks-in-xs">problem</a> we were having. <br />
 <br />
+The new callbacks capability in audiospec allow you to procedurally generate sound now. If you would like a simple example take a look at <a href="http://github.com/kthakore/SDL_perl/blob/redesign/t/core_audiospec.t"> t/core_audiospec.t</a>. However a more fun example may be ruoso++'s <a href="http://github.com/ruoso/tecla">tecla</a> (a game for toddlers).  Myself and Garu think it is a work of art but that is only because we are toddlers. <br />
 <br />
-<h2>Next steps</h2><ul><li>Complete bindings for Image, Mixer, ... so on</li>
-<li>Come up with a method to provide threading in callbacks</li>
-<li>Maintain and improve SDL Core as results for CPANTS come in </li>
-</ul><br />
---yapgh<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-1644800761128707914?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/LRp4Q1Vj8DGepQytm4_rIT1cLAA/0/da"><img src="http://feedads.g.doubleclick.net/~a/LRp4Q1Vj8DGepQytm4_rIT1cLAA/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/LRp4Q1Vj8DGepQytm4_rIT1cLAA/1/da"><img src="http://feedads.g.doubleclick.net/~a/LRp4Q1Vj8DGepQytm4_rIT1cLAA/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/u8y2RsV7aro" height="1" width="1"/></div></div>
+On a side note some tickets on RT have also received some love ( after 3 or 4 years ... but nonetheless). TonyC++ sorry for the long time in response. <br />
+<br />
+More information on the <a href="http://github.com/kthakore/SDL_perl/blob/redesign/CHANGELOG">CHANGELOG</a>. <br />
+<br />
+Also a shout out to FROGGS for his new SON!!!.  Congrats buddy!<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-6642671796628033537?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/tCttmYltlTls5VMK61L-TEYAkA4/0/da"><img src="http://feedads.g.doubleclick.net/~a/tCttmYltlTls5VMK61L-TEYAkA4/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/tCttmYltlTls5VMK61L-TEYAkA4/1/da"><img src="http://feedads.g.doubleclick.net/~a/tCttmYltlTls5VMK61L-TEYAkA4/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/AQmkpsuSquI" height="1" width="1"/></div></div>
