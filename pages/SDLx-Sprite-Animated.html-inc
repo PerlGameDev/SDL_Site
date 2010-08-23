@@ -20,6 +20,8 @@
 <li><a href="#ticks_per_frame_integer">ticks_per_frame( $integer )</a></li>
 <li><a href="#type">type()</a></li>
 <li><a href="#type_string">type( $string )</a></li>
+<li><a href="#set_sequences_string_gt_x1_y1_x2_y2">set_sequences( $string =&gt; [ [ $x1, $y1 ], [ $x2, $y2 ], ... ], ... )</a></li>
+<li><a href="#sequence_string">sequence( $string )</a></li>
 <li><a href="#next">next()</a></li>
 <li><a href="#previous">previous()</a></li>
 <li><a href="#reset">reset()</a></li>
@@ -184,6 +186,14 @@ the next frame during autoplay (i.e. between calls to start() and stop()).</p>
 frame in the strip. See the type() method below for information on
 available looping types.</p>
 	</dd>
+	<dt>* sequences =&gt; { $string =&gt; [ [ $x1, $y1 ], [ $x2, $y2 ], ... ], ... }</dt>
+	<dd>
+		<p>Uses the supplied hashref to define named sequences of frames.</p>
+	</dd>
+	<dt>* sequence =&gt; $string</dt>
+	<dd>
+		<p>Uses $string to set the current sequence.</p>
+	</dd>
 </dl>
 
 </div>
@@ -259,6 +269,18 @@ max_loops() attribute.</p>
 'CiRcUlAr' are all accepted as 'circular'. The return value is guaranteed
 to be lowercase.</p>
 <p>Default value is 'circular'.</p>
+
+</div>
+<h2 id="set_sequences_string_gt_x1_y1_x2_y2">set_sequences( $string =&gt; [ [ $x1, $y1 ], [ $x2, $y2 ], ... ], ... )</h2>
+<div id="set_sequences_string_gt_x1_y1_x2_y2_">
+<p>Uses the supplied hashref to define named sequences of frames. Replaces any
+previously defined sequences.</p>
+
+</div>
+<h2 id="sequence_string">sequence( $string )</h2>
+<div id="sequence_string_CONTENT">
+<p>Uses $string to set the current sequence. Goes to the first frame in the
+sequence and resets the loop counter.</p>
 
 </div>
 <h2 id="next">next()</h2>

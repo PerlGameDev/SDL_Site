@@ -1,0 +1,225 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#VERSION">VERSION</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#new">new</a></li>
+<li><a href="#load">load</a></li>
+<li><a href="#play">play</a></li>
+<li><a href="#loud">loud</a></li>
+<li><a href="#stop">stop</a></li>
+</ul>
+</li>
+<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#BUGS">BUGS</a></li>
+<li><a href="#SUPPORT">SUPPORT</a></li>
+<li><a href="#ACKNOWLEDGEMENTS">ACKNOWLEDGEMENTS</a></li>
+<li><a href="#LICENSE_AND_COPYRIGHT">LICENSE AND COPYRIGHT</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDLx::Sound</p>
+
+</div>
+<h1 id="VERSION">VERSION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="VERSION_CONTENT">
+<p>Version 0.01_01</p>
+
+
+
+
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>    use SDLx::Sound;
+
+    my $snd = SDLx::Sound-&gt;new();
+
+    # loads and plays a single sound now
+    $snd-&gt;play('myfile.wav');
+
+    # load a single file
+    $snd-&gt;load('theSound.aif');
+
+    # plays it or all loaded files
+    $snd-&gt;play();
+
+    # more sounds
+    my %files = (
+        chanell_01 =&gt; &quot;/my_sound1.wav&quot;,
+        chanell_02 =&gt; &quot;/my_sound2.ogg&quot;
+    );
+
+    # times sounds bangs
+    my %times = (
+        chanell_01 =&gt; 0,      # start
+        chanell_01 =&gt; 1256,   # miliseconds
+        chanell_02 =&gt; 2345
+    );
+
+    # Load files in channels for realtime play
+    $snd-&gt;load(%files);
+
+    # sets sound channel_01 loudness
+    $snd-&gt;loud('channel_01', 80);       # loud at 80%
+    $snd-&gt;play(%times);                 # play loaded files at times
+    $snd-&gt;play;                         # play again
+
+    # plays sound channel_01 at 578 miliseconds from now
+    $snd-&gt;play('channel_01', 578);
+
+    # fades sound 
+    $snd-&gt;fade('channel_02', 2345, 3456, -20);
+
+    # in a single act do the wole Sound
+    my $snd = SDLx::Sound-&gt;new(
+        files =&gt; (
+            chanell_01 =&gt; &quot;/my_sound1.wav&quot;,
+            chanell_02 =&gt; &quot;/my_sound2.ogg&quot;
+
+        ), 
+        loud  =&gt; (
+            channel_01 =&gt; 80,
+            channel_02 =&gt; 75
+        ),
+        times =&gt; (
+            chanell_01 =&gt; 0,      # start
+            chanell_01 =&gt; 1256,   # miliseconds
+            chanell_02 =&gt; 2345
+        ),
+        fade  =&gt; (
+            chanell_02 =&gt; [2345, 3456, -20]
+        )
+    )-&gt;play();
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+
+
+
+
+<p>You can think about the SDLx::Sound at 2 aproaches. </p>
+<dl>
+	<dt>* A simple sound or </dt>
+	<dt>* The sound of your game or app. </dt>
+</dl>
+<p>Your application will say what the best aproach.</p>
+<p>In a taste that resembles to perl and to SDL, our SDLx:Sound hooks at SDL::Audio and SDL::Mixer with a gracefull and simple interface that can offer to monks a modern perlish way to manage sounds.</p>
+<p>An SDLx::Sound object can load sounds from filesystem, play it, adjust this loudness level or stops the sound. </p>
+<p>Each sound will play in the next available channel, so it can be handled isolately.</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="new">new</h2>
+<div id="new_CONTENT">
+<p>Returns a new instance of SDLx::Sound</p>
+
+</div>
+<h2 id="load">load</h2>
+<div id="load_CONTENT">
+
+</div>
+<h2 id="play">play</h2>
+<div id="play_CONTENT">
+
+</div>
+<h2 id="loud">loud</h2>
+<div id="loud_CONTENT">
+
+</div>
+<h2 id="stop">stop</h2>
+<div id="stop_CONTENT">
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<p>Monsenhor, <code>&lt;ricardo.filipo at mitologica.com.br&gt;</code></p>
+
+</div>
+<h1 id="BUGS">BUGS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="BUGS_CONTENT">
+<p>Please report any bugs or feature requests to <code>bug-sdlx-sound at rt.cpan.org</code>, or through
+the web interface at <a href="http://rt.cpan.org/NoAuth/ReportBug.html?Queue=SDLx-Sound">http://rt.cpan.org/NoAuth/ReportBug.html?Queue=SDLx-Sound</a>.  I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.</p>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<h1 id="SUPPORT">SUPPORT</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SUPPORT_CONTENT">
+<p>You can find documentation for this module with the perldoc command.</p>
+<pre>    perldoc SDLx::Sound
+
+
+
+
+</pre>
+<p>You can also look for information at:</p>
+<dl>
+	<dt>* RT: CPAN's request tracker</dt>
+	<dd>
+		<p><a href="http://rt.cpan.org/NoAuth/Bugs.html?Dist=SDLx-Sound">http://rt.cpan.org/NoAuth/Bugs.html?Dist=SDLx-Sound</a></p>
+	</dd>
+	<dt>* AnnoCPAN: Annotated CPAN documentation</dt>
+	<dd>
+		<p><a href="http://annocpan.org/dist/SDLx-Sound">http://annocpan.org/dist/SDLx-Sound</a></p>
+	</dd>
+	<dt>* CPAN Ratings</dt>
+	<dd>
+		<p><a href="http://cpanratings.perl.org/d/SDLx-Sound">http://cpanratings.perl.org/d/SDLx-Sound</a></p>
+	</dd>
+	<dt>* Search CPAN</dt>
+	<dd>
+		<p><a href="http://search.cpan.org/dist/SDLx-Sound/">http://search.cpan.org/dist/SDLx-Sound/</a></p>
+	</dd>
+</dl>
+
+
+
+
+
+</div>
+<h1 id="ACKNOWLEDGEMENTS">ACKNOWLEDGEMENTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="ACKNOWLEDGEMENTS_CONTENT">
+
+
+
+
+
+</div>
+<h1 id="LICENSE_AND_COPYRIGHT">LICENSE AND COPYRIGHT</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="LICENSE_AND_COPYRIGHT_CONTENT">
+<p>Copyright 2010 Monsenhor.</p>
+<p>This program is free software; you can redistribute it and/or modify it
+under the terms of either: the GNU General Public License as published
+by the Free Software Foundation; or the Artistic License.</p>
+<p>See http://dev.perl.org/licenses/ for more information.</p>
+
+
+
+
+
+</div>
+</div>

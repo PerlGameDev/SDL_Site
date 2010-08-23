@@ -8,17 +8,20 @@
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#new">new</a></li>
-<li><a href="#title">title</a></li>
-<li><a href="#delay">delay</a></li>
+<li><a href="#title">title()</a></li>
+<li><a href="#title_new_title">title( $new_title )</a></li>
+<li><a href="#title_window_title_icon_title">title( $window_title, $icon_title )</a></li>
+<li><a href="#delay_ms">delay( $ms )</a></li>
 <li><a href="#ticks">ticks</a></li>
 <li><a href="#error">error</a></li>
-<li><a href="#resize">resize</a></li>
+<li><a href="#resize_width_height">resize( $width, $height )</a></li>
 <li><a href="#fullscreen">fullscreen</a></li>
 <li><a href="#iconify">iconify</a></li>
-<li><a href="#grab_input">grab_input</a></li>
-<li><a href="#loop">loop</a></li>
+<li><a href="#grab_input_CONSTANT">grab_input( $CONSTANT )</a></li>
+<li><a href="#loop_actions">loop( \%actions )</a></li>
 <li><a href="#sync">sync</a></li>
-<li><a href="#attribute_attr_value">attribute ( attr, [value] )</a></li>
+<li><a href="#attribute_attr">attribute( $attr )</a></li>
+<li><a href="#attribute_attr_value">attribute( $attr, $value )</a></li>
 </ul>
 </li>
 <li><a href="#AUTHOR">AUTHOR</a></li>
@@ -52,7 +55,7 @@
     ); 
 
 </pre>
-<p>This is the manual way of doing things	</p>
+<p>This is the manual way of doing things</p>
 <pre>    my $event = SDL::Event-&gt;new; # create a new event 
 
     SDL::Events::pump_events();
@@ -64,7 +67,7 @@
     }
 
 </pre>
-<p>An alternative to the manual Event processing is the <a href="http://search.cpan.org/perldoc?SDLx::App::loop">SDLx::App::loop</a> .</p>
+<p>An alternative to the manual Event processing is the <a href="http://search.cpan.org/perldoc?SDLx::App::loop">SDLx::App::loop</a>.</p>
 
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -83,30 +86,41 @@ manager oriented functions.</p>
 <p><code>SDLx::App::new</code> initializes the SDL, creates a new screen,
 and initializes some of the window manager properties.
 <code>SDLx::App::new</code> takes a series of named parameters:</p>
-<ul>
-		<li>title	</li>
-		<li>icon_title	</li>
-		<li>icon	</li>
-		<li>width	</li>
-		<li>height	</li>
-		<li>depth	</li>
-		<li>flags	</li>
-		<li>resizeable</li>
-</ul>
+<dl>
+	<dt>* title</dt>
+	<dt>* icon_title</dt>
+	<dt>* icon</dt>
+	<dt>* width</dt>
+	<dt>* height</dt>
+	<dt>* depth</dt>
+	<dt>* flags</dt>
+	<dt>* resizeable</dt>
+</dl>
+
+
+
 
 
 </div>
-<h2 id="title">title</h2>
+<h2 id="title">title()</h2>
 <div id="title_CONTENT">
-<p><code>SDLx::App::title</code> takes 0, 1, or 2  arguments.  It returns the current
-application window title.  If one parameter is passed, both the window
-title and icon title will be set to its value.  If two parameters are
-passed the window title will be set to the first, and the icon title
-to the second.</p>
 
 </div>
-<h2 id="delay">delay</h2>
-<div id="delay_CONTENT">
+<h2 id="title_new_title">title( $new_title )</h2>
+<div id="title_new_title_CONTENT">
+
+</div>
+<h2 id="title_window_title_icon_title">title( $window_title, $icon_title )</h2>
+<div id="title_window_title_icon_title_CONTEN">
+<p><code>SDLx::App::title</code> takes 0, 1, or 2 arguments. If no parameter is given,
+it returns the current application window title. If one parameter is
+passed, both the window title and icon title will be set to its value.
+If two parameters are passed the window title will be set to the first,
+and the icon title to the second.</p>
+
+</div>
+<h2 id="delay_ms">delay( $ms )</h2>
+<div id="delay_ms_CONTENT">
 <p><code>SDLx::App::delay</code> takes 1 argument, and will sleep the application for
 that many ms.</p>
 
@@ -121,10 +135,10 @@ that many ms.</p>
 <p><code>SDLx::App::error</code> returns the last error message set by the SDL.</p>
 
 </div>
-<h2 id="resize">resize</h2>
-<div id="resize_CONTENT">
-<p><code>SDLx::App::resize</code> takes a new height and width of the application
-if the application was originally created with the resizable option.</p>
+<h2 id="resize_width_height">resize( $width, $height )</h2>
+<div id="resize_width_height_CONTENT">
+<p><code>SDLx::App::resize</code> takes a new width and height of the application. Only
+works if the application was originally created with the resizable option.</p>
 
 </div>
 <h2 id="fullscreen">fullscreen</h2>
@@ -134,29 +148,26 @@ if the application was originally created with the resizable option.</p>
 </div>
 <h2 id="iconify">iconify</h2>
 <div id="iconify_CONTENT">
-<p><code>SDLx::App::iconify</code> iconifies the applicaiton window.</p>
+<p><code>SDLx::App::iconify</code> iconifies the application window.</p>
 
 </div>
-<h2 id="grab_input">grab_input</h2>
-<div id="grab_input_CONTENT">
+<h2 id="grab_input_CONSTANT">grab_input( $CONSTANT )</h2>
+<div id="grab_input_CONSTANT_CONTENT">
 <p><code>SDLx::App::grab_input</code> can be used to change the input focus behavior of
-the application.  It takes one argument, which should be one of the following:</p>
+the application. It takes one argument, which should be one of the following:</p>
 <dl>
-	<dt>*
-SDL_GRAB_QUERY</dt>
-	<dt>*
-SDL_GRAB_ON</dt>
-	<dt>*
-SDL_GRAB_OFF</dt>
+	<dt>* SDL_GRAB_QUERY</dt>
+	<dt>* SDL_GRAB_ON</dt>
+	<dt>* SDL_GRAB_OFF</dt>
 </dl>
 
 </div>
-<h2 id="loop">loop</h2>
-<div id="loop_CONTENT">
+<h2 id="loop_actions">loop( \%actions )</h2>
+<div id="loop_actions_CONTENT">
 <p><code>SDLx::App::loop</code> is a simple event loop method which takes a reference to a hash
-of event handler subroutines.  The keys of the hash must be SDL event types such
-as SDL_QUIT(), SDL_KEYDOWN(), and the like.  The event method recieves as its parameter 
-the event object used in the loop.</p>
+of event handler subroutines. The keys of the hash must be SDL event types such
+as SDL_QUIT(), SDL_KEYDOWN(), and the like. When called, the event method recieves
+as its parameter the event object used in the loop.</p>
 <p>Example:</p>
 <pre>    my $app = SDLx::App-&gt;new(
         title  =&gt; &quot;test.app&quot;, 
@@ -178,14 +189,18 @@ the event object used in the loop.</p>
 <h2 id="sync">sync</h2>
 <div id="sync_CONTENT">
 <p><code>SDLx::App::sync</code> encapsulates the various methods of syncronizing the screen with the
-current video buffer.  <code>SDLx::App::sync</code> will do a fullscreen update, using the double buffer
-or OpenGL buffer if applicable.  This is prefered to calling flip on the application window.</p>
+current video buffer. <code>SDLx::App::sync</code> will do a fullscreen update, using the double buffer
+or OpenGL buffer if applicable. This is prefered to calling flip on the application window.</p>
 
 </div>
-<h2 id="attribute_attr_value">attribute ( attr, [value] )</h2>
+<h2 id="attribute_attr">attribute( $attr )</h2>
+<div id="attribute_attr_CONTENT">
+
+</div>
+<h2 id="attribute_attr_value">attribute( $attr, $value )</h2>
 <div id="attribute_attr_value_CONTENT">
-<p><code>SDLx::App::attribute</code> allows one to set and get GL attributes.  By passing a value
-in addition to the attribute selector, the value will be set.  <code>SDL:::App::attribute</code>
+<p><code>SDLx::App::attribute</code> allows one to get and set GL attributes. By passing a value
+in addition to the attribute selector, the value will be set. <code>SDL:::App::attribute</code>
 always returns the current value of the given attribute, or croaks on failure.</p>
 
 </div>

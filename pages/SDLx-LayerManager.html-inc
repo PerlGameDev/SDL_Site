@@ -1,0 +1,174 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY </a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#new">new</a></li>
+<li><a href="#add">add</a></li>
+<li><a href="#layers">layers</a></li>
+<li><a href="#layer">layer</a></li>
+<li><a href="#length">length</a></li>
+<li><a href="#blit">blit</a></li>
+<li><a href="#by_position">by_position</a></li>
+<li><a href="#ahead">ahead</a></li>
+<li><a href="#behind">behind</a></li>
+<li><a href="#attach">attach</a></li>
+<li><a href="#detach_xy">detach_xy</a></li>
+<li><a href="#detach_back">detach_back</a></li>
+<li><a href="#foreground">foreground</a></li>
+</ul>
+</li>
+<li><a href="#BUGS">BUGS</a></li>
+<li><a href="#SUPPORT">SUPPORT</a></li>
+<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#COPYRIGHT">COPYRIGHT</a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDLx::LayerManager - Extension for managing layers in a 2D world</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY </h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>Extension</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>  use SDLx::Layer;
+  use SDLx::LayerManager;
+
+  use SDL::Image;
+  use SDL::Surface;
+  use SDL::Video;
+
+  # creating layers
+  my $layer1 = SDLx::Layer-&gt;new( SDL::Image::load('image1.png'), {userdata =&gt; '7'} );
+  my $layer2 = SDLx::Layer-&gt;new( SDL::Image::load('image2.png'), 100, 200, {userdata =&gt; '42'} );
+
+  # creating the manager that holds the layers
+  my $layermanager = SDLx::LayerManager-&gt;new();
+  $layermanager-&gt;add( $layer1 );
+  $layermanager-&gt;add( $layer2 );
+
+  my $display = # create your video surface here
+
+  $layermanager-&gt;blit( $display );
+
+  # accessing the layer at point(x,y)
+  print( $layermanager-&gt;by_position( 150, 200 )-&gt;data-&gt;{userdata} ); # should print '42'
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p>The LayerManager ...</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="new">new</h2>
+<div id="new_CONTENT">
+
+</div>
+<h2 id="add">add</h2>
+<div id="add_CONTENT">
+
+</div>
+<h2 id="layers">layers</h2>
+<div id="layers_CONTENT">
+
+</div>
+<h2 id="layer">layer</h2>
+<div id="layer_CONTENT">
+
+</div>
+<h2 id="length">length</h2>
+<div id="length_CONTENT">
+
+</div>
+<h2 id="blit">blit</h2>
+<div id="blit_CONTENT">
+
+</div>
+<h2 id="by_position">by_position</h2>
+<div id="by_position_CONTENT">
+<pre>  my $layer = $layermanager-&gt;by_position( $x, $y );
+
+</pre>
+
+</div>
+<h2 id="ahead">ahead</h2>
+<div id="ahead_CONTENT">
+
+</div>
+<h2 id="behind">behind</h2>
+<div id="behind_CONTENT">
+
+</div>
+<h2 id="attach">attach</h2>
+<div id="attach_CONTENT">
+
+</div>
+<h2 id="detach_xy">detach_xy</h2>
+<div id="detach_xy_CONTENT">
+
+</div>
+<h2 id="detach_back">detach_back</h2>
+<div id="detach_back_CONTENT">
+
+</div>
+<h2 id="foreground">foreground</h2>
+<div id="foreground_CONTENT">
+
+</div>
+<h1 id="BUGS">BUGS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="BUGS_CONTENT">
+<p>Report at sdlperl.ath.cx</p>
+
+</div>
+<h1 id="SUPPORT">SUPPORT</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SUPPORT_CONTENT">
+<p>#sdl irc.perl.org</p>
+
+</div>
+<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHOR_CONTENT">
+<pre>    Tobias Leich
+    CPAN ID: FROGGS
+    ---
+    froggs@cpan.org
+    http://sdl.perl.org
+
+</pre>
+
+</div>
+<h1 id="COPYRIGHT">COPYRIGHT</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="COPYRIGHT_CONTENT">
+<p>This program is free software; you can redistribute
+it and/or modify it under the same terms as Perl itself.</p>
+<p>The full text of the license can be found in the
+LICENSE file included with this module.</p>
+
+
+
+
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p>perl(1), SDL(2).</p>
+
+</div>
+</div>

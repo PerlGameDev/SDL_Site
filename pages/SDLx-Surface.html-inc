@@ -26,6 +26,7 @@
 <li><a href="#update">update</a></li>
 <li><a href="#draw_rect">draw_rect</a></li>
 <li><a href="#draw_line">draw_line</a></li>
+<li><a href="#draw_gfx_text">draw_gfx_text</a></li>
 </ul>
 </li>
 <li><a href="#AUTHOR">AUTHOR</a>
@@ -222,6 +223,27 @@ This is useful when the surface you have isn't an <code>SDLx::Surface</code>, bu
 
 </pre>
 <p>Draws a line on the surface. Antialias is turned on if $antialias is true. </p>
+<p>Returns $self</p>
+
+</div>
+<h2 id="draw_gfx_text">draw_gfx_text</h2>
+<div id="draw_gfx_text_CONTENT">
+<p>Draw text using gfx (not pretty but fast) at give vector, color.</p>
+<pre> $surf-&gt;draw_gfx_text( [0,0], 0xffffffff, &quot;fooo&quot;);
+ $surf-&gt;draw_gfx_text( [10,10], [20,20,20,20], &quot;fooo&quot;);
+
+</pre>
+<p>You can also set the gfx font but passing a hash reference as shown below.</p>
+<pre> my $f = '';
+ open( my $FH, '&lt;', 'test/data/5x7.fnt');
+ binmode ($FH);
+ read($FH, $f, 4096);
+ close ($FH);
+
+ my $font =  {data=&gt;$f, cw =&gt; 5, ch =&gt; 7};
+ $surf-&gt;draw_gfx_text( [0,0], 0xffffffff, &quot;fooo&quot;, $font );
+
+</pre>
 <p>Returns $self</p>
 
 </div>
