@@ -93,7 +93,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#AUTHORS">AUTHORS</a></li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
 </li>
 </ul><hr />
@@ -792,9 +792,9 @@ your display-surface.</p>
 <p><strong>Note</strong>: The unicode char has to be passed exactly like for <a href="/SDL-TTF.html#size_unicode">SDL::TTF::size_unicode</a>.</p>
 
 </div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
-<p>Tobias Leich [FROGGS]</p>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

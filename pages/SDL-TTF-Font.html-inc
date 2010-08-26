@@ -6,7 +6,7 @@
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#METHODS">METHODS</a></li>
 <li><a href="#CONSTRUCTOR">CONSTRUCTOR</a></li>
-<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#AUTHORS">AUTHORS</a></li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
 </li>
 </ul><hr />
@@ -44,9 +44,9 @@ You can specify the face index of a font file containing multiple faces.</p>
 </pre>
 
 </div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
-<p>Tobias Leich [FROGGS]</p>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

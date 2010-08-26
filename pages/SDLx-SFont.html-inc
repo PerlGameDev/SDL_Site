@@ -9,7 +9,7 @@
 <li><a href="#USAGE">USAGE</a></li>
 <li><a href="#BUGS">BUGS</a></li>
 <li><a href="#SUPPORT">SUPPORT</a></li>
-<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#AUTHORS">AUTHORS</a></li>
 <li><a href="#COPYRIGHT">COPYRIGHT</a></li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
 </li>
@@ -78,15 +78,9 @@
 <p>#sdl irc.perl.org</p>
 
 </div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
-<pre>    Kartik Thakore
-    CPAN ID: KTHAKORE
-    ---
-    kthakore@cpan.org
-    http://sdl.perl.org
-
-</pre>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 <h1 id="COPYRIGHT">COPYRIGHT</h1><p><a href="#TOP" class="toplink">Top</a></p>

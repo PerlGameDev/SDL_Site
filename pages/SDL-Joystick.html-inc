@@ -20,9 +20,10 @@
 <li><a href="#get_hat">get_hat</a></li>
 <li><a href="#get_button">get_button</a></li>
 <li><a href="#get_ball">get_ball</a></li>
-<li><a href="#close">close</a>
-</li>
+<li><a href="#close">close</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -269,6 +270,11 @@ it may be necessary to impose certain tolerances on these values to account for 
 <pre> SDL::Joystick::close($joystick) if SDL::Joystick::opened(0);
 
 </pre>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

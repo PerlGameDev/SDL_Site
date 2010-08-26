@@ -18,9 +18,10 @@
 <li><a href="#planes">planes</a></li>
 <li><a href="#pitches">pitches</a></li>
 <li><a href="#pixels">pixels</a></li>
-<li><a href="#hw_overlay">hw_overlay</a>
-</li>
+<li><a href="#hw_overlay">hw_overlay</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -128,9 +129,10 @@ SDL_YVYU_OVERLAY  0x55595659  /* Packed mode: Y0+V0+Y1+U0 */</dt>
 <div id="hw_overlay_CONTENT">
 <p>This will be set to 1 if the overlay is hardware accelerated.</p>
 
-
-
-
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

@@ -6,9 +6,10 @@
 <ul><li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#First_Steps">First Steps</a></li>
 <li><a href="#PDL_with_SDL">PDL with SDL</a></li>
-<li><a href="#POGL_with_SDL">POGL with SDL</a>
-</li>
+<li><a href="#POGL_with_SDL">POGL with SDL</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -37,6 +38,11 @@
 <div id="POGL_with_SDL_CONTENT">
 <p>Starting an OpenGL app with SDLx::App. <a href="SDL-Cookbook-OpenGL.html">SDL::Cookbook::OpenGL</a></p>
 <p>Sending textures to Perl OpenGL. <a href="SDL-Cookbook-POGL.html">SDL::Cookbook::POGL</a></p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

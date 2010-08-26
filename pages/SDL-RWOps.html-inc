@@ -16,9 +16,10 @@
 <li><a href="#rw_tell_ctx">rw_tell(ctx)</a></li>
 <li><a href="#rw_read_ctx_ptr_size_n">rw_read(ctx,ptr,size,n)</a></li>
 <li><a href="#rw_write_ctx_ptr_size_n">rw_write(ctx,ptr,size,n)</a></li>
-<li><a href="#rw_close_ctx">rw_close(ctx)</a>
-</li>
+<li><a href="#rw_close_ctx">rw_close(ctx)</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -200,8 +201,10 @@ If it couldn't write that exact number of blocks, or the write didn't work at al
 <p>SDL::rw_close calls the close function in an SDL::RWOps structure. It only takes one parameter, an  SDL::RWOps structure. 
 Returns 0 on success, -1 on error. </p>
 
-
-
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 
 

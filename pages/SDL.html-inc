@@ -22,7 +22,14 @@
 <li><a href="#delay">delay</a></li>
 </ul>
 </li>
-<li><a href="#AUTHOR">AUTHOR</a>
+<li><a href="#AUTHORS">AUTHORS</a>
+<ul><li><a href="#Project_Founder">Project Founder</a></li>
+<li><a href="#Current_Maintainers">Current Maintainers</a></li>
+<li><a href="#Core_Developers_and_Contributors">Core Developers and Contributors</a></li>
+</ul>
+</li>
+<li><a href="#COPYRIGHT_amp_LICENSE">COPYRIGHT &amp; LICENSE</a></li>
+<li><a href="#DISCLAIMER_OF_WARRANTY">DISCLAIMER OF WARRANTY</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -212,9 +219,91 @@ The actual delay may be longer than specified depending on the underlying OS.</p
 </pre>
 
 </div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
-<p>magnet, kthakore, Blaizer</p>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+
+</div>
+<h2 id="Project_Founder">Project Founder</h2>
+<div id="Project_Founder_CONTENT">
+<p>David J. Goehrig</p>
+
+</div>
+<h2 id="Current_Maintainers">Current Maintainers</h2>
+<div id="Current_Maintainers_CONTENT">
+<p>Kartik Thakore (kthakore)</p>
+<p>Tobias Leich (FROGGS)</p>
+
+</div>
+<h2 id="Core_Developers_and_Contributors">Core Developers and Contributors</h2>
+<div id="Core_Developers_and_Contributors_CON">
+<p>The following people have dedicated blood sweat and tears to making SDL Perl possible.</p>
+<p>See the <a href="http://github.com/kthakore/SDL_perl/graphs/impact">impact graph</a> on our github repository.</p>
+<p>Andy Bakun &lt;sdlperl@thwartedefforts.org&gt;</p>
+<p>Benedikt Meurer &lt;bmeurer@fwdn.de&gt;</p>
+<p>Blaise Roth (Blaizer) &lt;blaiseroth@gmail.com&gt;</p>
+<p>Breno G. de Oliveira (garu)</p>
+<p>Brian Cassidy (bricas)</p>
+<p>chromatic &lt;chromatic@wgz.org&gt;</p>
+<p>Daniel Mantovani &lt;daniel.oliveira.mantovani@gmail.com&gt;</p>
+<p>Daniel Ruoso http://daniel.ruoso.com/</p>
+<p>David J. Goehrig &lt;dgoehrig@cpan.org&gt;</p>
+<p>Dustin Mays (dorkfish) &lt;dork.fish.wat.@gmail.com&gt;</p>
+<p>Fedora</p>
+<p>Gabor Szabo (szabgab) &lt;szabgab@gmail.com&gt;</p>
+<p>Guillaue Cottenceau (gc) &lt;gc@mandrakesoft.com&gt;</p>
+<p>James King</p>
+<p>James Wright &lt;jwright@cpan.org&gt;</p>
+<p>Jeffrey T. Palmer (jtpalmer) &lt;jeffrey.t.palmer@gmail.com&gt;</p>
+<p>Kartik Thakore (kthakore) &lt;thakore.kartik@gmail.com&gt;</p>
+<p>KatrinaTheLamia</p>
+<p>kmx &lt;kmx@cpan.org&gt;</p>
+<p>Luke</p>
+<p>Michael Lamertz &lt;mike@perl-ronin.de&gt;</p>
+<p>morgoth.666</p>
+<p>Peter BARABAS &lt;z0d@artifact.hu&gt;</p>
+<p>Russell Valentine &lt;russ_allegro@yahoo.com&gt;</p>
+<p>Ryan Hanlon</p>
+<p>Stephane Desneux &lt;sdx@desneux.com&gt;</p>
+<p>Tels &lt;http://www.bloodgate.com&gt;</p>
+<p>Thomas Tongue</p>
+<p>Tobias Leich (FROGGS)</p>
+<p>Tony C</p>
+<p>Yuval Kogman (nothingmuch)</p>
+<p>Wayne Keenan &lt;wayne@metaverse.fsnet.co.uk&gt;</p>
+<p>If you would like to contribute to SDL Perl, please post a message on the mailing list:</p>
+<p>sdl-devel@perl.org</p>
+<p>And request access to the github repository. Or drop us a line on #sdl over at irc.perl.org</p>
+
+</div>
+<h1 id="COPYRIGHT_amp_LICENSE">COPYRIGHT &amp; LICENSE</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="COPYRIGHT_amp_LICENSE_CONTENT">
+<p>Copyright 2002-2010 SDL Authors as listed above, all rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.</p>
+
+</div>
+<h1 id="DISCLAIMER_OF_WARRANTY">DISCLAIMER OF WARRANTY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DISCLAIMER_OF_WARRANTY_CONTENT">
+<p>BECAUSE THIS SOFTWARE IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY
+FOR THE SOFTWARE, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN
+OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES
+PROVIDE THE SOFTWARE &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND, EITHER
+EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE
+ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE IS WITH
+YOU. SHOULD THE SOFTWARE PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL
+NECESSARY SERVICING, REPAIR, OR CORRECTION.</p>
+<p>IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR
+REDISTRIBUTE THE SOFTWARE AS PERMITTED BY THE ABOVE LICENCE, BE
+LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL,
+OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE
+THE SOFTWARE (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING
+RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A
+FAILURE OF THE SOFTWARE TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
+SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGES.
+</p>
 
 </div>
 </div>

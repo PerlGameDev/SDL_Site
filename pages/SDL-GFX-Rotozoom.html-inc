@@ -13,9 +13,10 @@
 <li><a href="#zoom_surface">zoom_surface</a></li>
 <li><a href="#zoom_surface_size">zoom_surface_size</a></li>
 <li><a href="#shrink_surface">shrink_surface</a></li>
-<li><a href="#rotate_surface_90_degrees">rotate_surface_90_degrees</a>
-</li>
+<li><a href="#rotate_surface_90_degrees">rotate_surface_90_degrees</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -186,8 +187,16 @@
  	OUTPUT:
  		RETVAL
 
-
 </pre>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+
+
+
+
 
 </div>
 </div>

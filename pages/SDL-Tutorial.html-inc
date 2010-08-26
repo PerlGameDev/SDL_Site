@@ -14,7 +14,7 @@
 </ul>
 </li>
 <li><a href="#SEE_ALSO">SEE ALSO</a></li>
-<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#AUTHORS">AUTHORS</a></li>
 <li><a href="#COPYRIGHT">COPYRIGHT</a>
 </li>
 </ul><hr />
@@ -117,12 +117,10 @@ them there, then <code>update</code> the <code>$app</code>.</p>
 </dl>
 
 </div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
 <p>chromatic, &lt;chromatic@wgz.org&gt;. </p>
-<p>nelson ferraz, &lt;nferraz@cpan.org&gt;. </p>
-<p>Updated by kthakore and garu.</p>
-<p>Written for and maintained by the Perl SDL project, <a href="http://sdl.perl.org/">http://sdl.perl.org/</a>.</p>
+<p>Written for and maintained by the Perl SDL project, <a href="http://sdl.perl.org/">http://sdl.perl.org/</a>. See <b>AUTHORS</b> in <cite>SDL</cite> for details.</p>
 
 </div>
 <h1 id="COPYRIGHT">COPYRIGHT</h1><p><a href="#TOP" class="toplink">Top</a></p>

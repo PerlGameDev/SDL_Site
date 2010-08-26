@@ -15,9 +15,10 @@
 <li><a href="#mix">mix</a></li>
 <li><a href="#lock">lock</a></li>
 <li><a href="#unlock">unlock</a></li>
-<li><a href="#close">close </a>
-</li>
+<li><a href="#close">close </a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -324,6 +325,11 @@ function is not running. Do not call this from the callback function or you will
 
 </pre>
 <p>Shuts down audio processing and closes the audio device.  </p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

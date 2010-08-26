@@ -24,7 +24,7 @@
 <li><a href="#attribute_attr_value">attribute( $attr, $value )</a></li>
 </ul>
 </li>
-<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#AUTHORS">AUTHORS</a></li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
 </li>
 </ul><hr />
@@ -87,14 +87,22 @@ manager oriented functions.</p>
 and initializes some of the window manager properties.
 <code>SDLx::App::new</code> takes a series of named parameters:</p>
 <dl>
-	<dt>* title</dt>
-	<dt>* icon_title</dt>
-	<dt>* icon</dt>
-	<dt>* width</dt>
-	<dt>* height</dt>
-	<dt>* depth</dt>
-	<dt>* flags</dt>
-	<dt>* resizeable</dt>
+	<dt>* title
+the window title. Defaults to the file name. Shorter alias: 't'</dt>
+	<dt>* icon_title
+the icon title. Defaults to file name. Shortcut: 'it'</dt>
+	<dt>* icon
+the icon itself. Defaults to none. Shortcut: 'i'</dt>
+	<dt>* width
+Window width, in pixels. Defaults to 800. Shortcut: 'w'</dt>
+	<dt>* height
+Window height, in pixels. Defaults to 600. Shortcut: 'h'</dt>
+	<dt>* depth
+Screen depth. Defaults to 16. Shortcut: 'd'.</dt>
+	<dt>* flags
+Any flags you want to pass to <a href="SDL-Video.html">SDL::Video</a> upon initialization. Defaults to SDL_ANYFORMAT. Flags should be <i>or'ed</i> together if you're passing more than one (flags =&gt; FOO|BAR). Shortcut: 'f'.</dt>
+	<dt>* resizeable
+Set this to a true value to make the window resizeable by the user. Default is off.</dt>
 </dl>
 
 
@@ -204,10 +212,9 @@ in addition to the attribute selector, the value will be set. <code>SDL:::App::a
 always returns the current value of the given attribute, or croaks on failure.</p>
 
 </div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
-<p>David J. Goehrig
-Kartik Thakore</p>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

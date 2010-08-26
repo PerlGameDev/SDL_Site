@@ -19,7 +19,7 @@
 <li><a href="#len_ratio">len_ratio</a></li>
 </ul>
 </li>
-<li><a href="#AUTHOR">AUTHOR</a>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -108,9 +108,9 @@ see <code>SDL::AudioSpec</code>.</p>
 <p>Final audio size is <code>len*len_ratio</code></p>
 
 </div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
-<p>Tobias Leich</p>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

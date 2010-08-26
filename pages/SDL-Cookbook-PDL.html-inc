@@ -9,9 +9,10 @@
 <li><a href="#Creating_a_SDL_Surface_piddle">Creating a SDL Surface piddle</a>
 <ul><li><a href="#Creating_a_simple_piddle">Creating a simple piddle</a></li>
 <li><a href="#Operating_on_the_Surface_safely">Operating on the Surface safely</a></li>
-<li><a href="#Error_due_to_BPP_at_blitting">Error due to BPP at blitting</a>
-</li>
+<li><a href="#Error_due_to_BPP_at_blitting">Error due to BPP at blitting</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -105,6 +106,15 @@
 </pre>
 <p>If the error message is 'Blit combination not supported' that means that the BPP is incorrect or incosistent with the dimensions.
 After that a simple update_rect will so your new surface on the screen.</p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+
+
+
+
 
 </div>
 </div>

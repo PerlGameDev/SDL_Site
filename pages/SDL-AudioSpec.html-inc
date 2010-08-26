@@ -11,9 +11,10 @@
 <li><a href="#format">format</a></li>
 <li><a href="#channels">channels</a></li>
 <li><a href="#samples">samples</a></li>
-<li><a href="#callback">callback</a>
-</li>
+<li><a href="#callback">callback</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -122,6 +123,15 @@ set to 4096.</p>
 <h2 id="callback">callback</h2>
 <div id="callback_CONTENT">
 <p>To be documented.</p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+
+
+
+
 
 </div>
 </div>

@@ -185,14 +185,14 @@ be used together with 'rect' (see above).</p>
 	</dd>
 	<dt>* draw_xy =&gt; $surface, $x, $y</dt>
 	<dd>
-		<p>A shortcut to draw at coordinates quickly. Calles x() , y() and draw()</p>
+		<p>A shortcut to draw at coordinates quickly. Calls x() , y() and draw()</p>
 	</dd>
 	<dt>* rotation =&gt; $degrees, [$smooth]</dt>
 	<dd>
 		<p>Uses $degrees as the angle to rotate the surface to, in degrees
 (0..360, remember? :). This option is only available if your compiled SDL
 library has support for GFX (see <a href="http://search.cpan.org/perldoc?Alien::SDL">Alien::SDL</a> for details).</p>
-		<p>if $smooth is set the spirte is antialiased. This may mess with your alpha_key.</p>
+		<p>if $smooth is set the sprite is antialiased. This may mess with your alpha_key.</p>
 	</dd>
 	<dt>* alpha_key =&gt; SDL::Color</dt>
 	<dd>
@@ -329,9 +329,7 @@ destination rect (position) from rect().</p>
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>Dustin Mays, <code>&lt;dork.fish.wat@gmail.com&gt;</code></p>
-<p>Breno G. de Oliveira, <code>&lt;garu at cpan.org&gt;</code></p>
-<p>Kartik thakore <code>&lt;kthakore at cpan.org&gt;</code></p>
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

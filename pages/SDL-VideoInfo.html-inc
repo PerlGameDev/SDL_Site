@@ -23,7 +23,8 @@
 <li><a href="#current_w_current_h">current_w, current_h</a></li>
 </ul>
 </li>
-<li><a href="#SEE_ALSO">SEE ALSO</a>
+<li><a href="#SEE_ALSO">SEE ALSO</a></li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -169,6 +170,11 @@
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
 <p><a href="SDL-Video.html">SDL::Video</a>, <a href="SDL-PixelFormat.html">SDL::PixelFormat</a></p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

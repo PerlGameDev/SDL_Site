@@ -10,7 +10,8 @@
 <li><a href="#name">name</a></li>
 </ul>
 </li>
-<li><a href="#See_Also">See Also</a>
+<li><a href="#See_Also">See Also</a></li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -71,6 +72,11 @@
 <h1 id="See_Also">See Also</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="See_Also_CONTENT">
 <p><a href="SDL-CD.html">SDL::CD</a>, <a href="SDL-CDTrack.html">SDL::CDTrack</a></p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

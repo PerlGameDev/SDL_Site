@@ -432,6 +432,7 @@ of the moon.</p>
 <h1 id="COPYRIGHT_amp_LICENSE">COPYRIGHT &amp; LICENSE</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="COPYRIGHT_amp_LICENSE_CONTENT">
 <p>Copyright 2009 Nelson Ferraz, all rights reserved.</p>
+<p>Updated and maintained by the SDL Perl project. See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 <p>This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.</p>
 
