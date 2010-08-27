@@ -160,18 +160,41 @@ Behind means that a layer has a lower z-index and is blitted before the given la
 </div>
 <h2 id="attach">attach</h2>
 <div id="attach_CONTENT">
+<pre>  $layermanager-&gt;attach( $layer,  $x, $y );
+  $layermanager-&gt;attach( @layers, $x, $y );
+
+</pre>
+<p>This function makes the given layer(s) sticky to the mouse. If you move the mouse the layer(s) will follow.
+The layermanager blits these layers at last, so they will appear on top of all layers.</p>
+<p><code>$x</code> and <code>$y</code> should be set to the coords of the mouse, e.g. the coords of the mouse click.
+If you omit <code>$x</code> and <code>$y</code> the layermanager obtains them via SDL::Events::get_mouse_state.</p>
+<p><strong>Note</strong>: The z-index is not changed for the given layers.</p>
 
 </div>
 <h2 id="detach_xy">detach_xy</h2>
 <div id="detach_xy_CONTENT">
+<pre>  $layermanager-&gt;detach_xy( $x, $y );
+
+</pre>
+<p><code>detach_xy</code> detaches the prevously attached layers to the given coords. The upper left corner of the backmost layer will be at <code>$x</code> and <code>$y</code>.
+The other layers are positioned relative to the backmost layer just like before.</p>
 
 </div>
 <h2 id="detach_back">detach_back</h2>
 <div id="detach_back_CONTENT">
+<pre>  $layermanager-&gt;detach_back( );
+
+</pre>
+<p><code>detach_back</code> detaches the prevously attached layers back to the position where they were attached.</p>
 
 </div>
 <h2 id="foreground">foreground</h2>
 <div id="foreground_CONTENT">
+<pre>  $layermanager-&gt;foreground( $layer );
+  $layermanager-&gt;foreground( @layers );
+
+</pre>
+<p>This method moves the given layer(s) to the foreground so that they are blittet on top of the other layers.</p>
 
 </div>
 <h1 id="BUGS">BUGS</h1><p><a href="#TOP" class="toplink">Top</a></p>
