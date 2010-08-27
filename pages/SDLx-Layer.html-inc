@@ -35,7 +35,7 @@
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDLx::Layer - Extension ...</p>
+<p>SDLx::Layer - Storage object for surface and position information</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY </h1><p><a href="#TOP" class="toplink">Top</a></p>
