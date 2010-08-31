@@ -23,7 +23,7 @@
 <li><a href="#playing_music">playing_music</a></li>
 </ul>
 </li>
-<li><a href="#AUTHOR">AUTHOR</a>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -265,9 +265,9 @@ Does not go in reverse... negative values do nothing. </p>
 <p>Returns <code>1</code> if the music is playing sound, otherwise <code>0</code>. It does'nt check if the music is paused.</p>
 
 </div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
-<p>Tobias Leich [FROGGS]</p>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

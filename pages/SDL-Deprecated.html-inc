@@ -6,9 +6,10 @@
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#RELEASES">RELEASES</a>
 <ul><li><a href="#2_502">2.502</a></li>
-<li><a href="#2_500">2.500</a>
-</li>
+<li><a href="#2_500">2.500</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -57,6 +58,11 @@
 		<p>SDL::Game::Rect has migrated to SDLx::Rect namespace. Same reasoning as above.</p>
 	</dd>
 </dl>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

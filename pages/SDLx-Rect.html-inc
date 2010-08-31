@@ -37,9 +37,9 @@
 </li>
 </ul>
 </li>
-<li><a href="#AUTHOR">AUTHOR</a></li>
 <li><a href="#BUGS">BUGS</a></li>
 <li><a href="#SUPPORT">SUPPORT</a></li>
+<li><a href="#AUTHORS">AUTHORS</a></li>
 <li><a href="#ACKNOWLEDGEMENTS">ACKNOWLEDGEMENTS</a></li>
 <li><a href="#COPYRIGHT_amp_LICENSE">COPYRIGHT &amp; LICENSE</a></li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
@@ -266,11 +266,6 @@
 
 
 </div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
-<p>Breno G. de Oliveira, <code>&lt;garu at cpan.org&gt;</code></p>
-
-</div>
 <h1 id="BUGS">BUGS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="BUGS_CONTENT">
 <p>Please report any bugs or feature requests to the bug tracker. I will be notified, and then you'll automatically be notified of progress on your bug as we make changes.</p>
@@ -285,20 +280,21 @@
 <p>You can find documentation for this module with the perldoc command.</p>
 <pre>    perldoc SDLx::Rect
 
-
-
-
 </pre>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 <h1 id="ACKNOWLEDGEMENTS">ACKNOWLEDGEMENTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="ACKNOWLEDGEMENTS_CONTENT">
-<p>Many thanks to all SDL_Perl contributors, and to the authors of pygame.rect, in which this particular module is heavily based.</p>
+<p>Many thanks to the authors of pygame.rect, in which this particular module is heavily based.</p>
 
 </div>
 <h1 id="COPYRIGHT_amp_LICENSE">COPYRIGHT &amp; LICENSE</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="COPYRIGHT_amp_LICENSE_CONTENT">
-<p>Copyright 2009 Breno G. de Oliveira, all rights reserved.</p>
 <p>This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.</p>
 

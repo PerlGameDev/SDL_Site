@@ -4,7 +4,8 @@
 
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
-<li><a href="#SYNOPSIS">SYNOPSIS</a>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -22,6 +23,11 @@
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
 <p>This structure is not directly usable. SDL Perl bindings handle the construction and destruction for you.</p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

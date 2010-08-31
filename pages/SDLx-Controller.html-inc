@@ -189,15 +189,10 @@ The first coderef in the handler list that this matches will be removed.</p>
 <div id="remove_all_handlers_CONTENT">
 <p>Quick access to removing all handlers at once.</p>
 
-
-
-
-
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>Kartik Thakore</p>
-<p>Breno G. de Oliveira</p>
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 <h2 id="ACKNOWLEGDEMENTS">ACKNOWLEGDEMENTS</h2>

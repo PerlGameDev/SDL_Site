@@ -7,9 +7,10 @@
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#add_timer">add_timer</a></li>
-<li><a href="#remove_timer">remove_timer</a>
-</li>
+<li><a href="#remove_timer">remove_timer</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -83,6 +84,11 @@ You may call SDL::push_event, however.</p>
 <p>The other way to cancel a timer is to use <code>SDL::Time::remove_timer</code> on the <code>$id</code> of a timer.
 This ID is the return value of the <code>SDL::Time::add_timer</code> function.</p>
 <p><code>SDL::Time::remove_timer</code> returns <code>0</code> on success or <code>-1</code> on error.</p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

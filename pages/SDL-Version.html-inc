@@ -9,9 +9,10 @@
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#major">major</a></li>
 <li><a href="#minor">minor</a></li>
-<li><a href="#patch">patch</a>
-</li>
+<li><a href="#patch">patch</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -69,6 +70,11 @@ The SDL_Perl version is in <code>$SDL::VERSION</code>.</p>
 <h2 id="patch">patch</h2>
 <div id="patch_CONTENT">
 <p>Returns the patch version number.</p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

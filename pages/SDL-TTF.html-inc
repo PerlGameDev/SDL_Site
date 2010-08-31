@@ -93,7 +93,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#AUTHORS">AUTHORS</a></li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
 </li>
 </ul><hr />
@@ -113,9 +113,6 @@
 <div id="CONSTANTS_CONTENT">
 <p>The constants are exported by default. You can avoid this by doing:</p>
 <pre> use SDL::TTF ();
-
-
-
 
 </pre>
 <p>and access them directly:</p>
@@ -627,22 +624,22 @@ is done to get the actual width. The height returned in h is the same as you can
 <p><strong>Note</strong>: <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=374062">See space-character bug</a>. You have to upgrade libfreetype2 to at least 
 version 2.3.5</p>
 <p>Example:</p>
-<pre>	use SDL;
-	use SDL::Rect;
-	use SDL::Video;
-	use SDL::Color;
-	use SDL::TTF;
-	use SDL::TTF::Font;
+<pre> use SDL;
+ use SDL::Rect;
+ use SDL::Video;
+ use SDL::Color;
+ use SDL::TTF;
+ use SDL::TTF::Font;
 
-	SDL::init(SDL_INIT_VIDEO);
-	SDL::TTF::init();
-	my $display = SDL::Video::set_video_mode(640, 480, 32, SDL_SWSURFACE);
-	my $font    = SDL::TTF::open_font('test/data/aircut3.ttf', '24');
-	die 'Coudnt make font '. SDL::get_error if !$font;
-	my $surface = SDL::TTF::render_text_solid($font, 'Hallo!', SDL::Color-&gt;new(0xFF,0xFF,0xFF));
-	SDL::Video::blit_surface($surface, SDL::Rect-&gt;new(0, 0, 640, 480), $display, SDL::Rect-&gt;new(10, 10, 640, 480));
-	SDL::Video::update_rect($display, 0, 0, 0, 0);
-	SDL::delay(5000);
+ SDL::init(SDL_INIT_VIDEO);
+ SDL::TTF::init();
+ my $display = SDL::Video::set_video_mode(640, 480, 32, SDL_SWSURFACE);
+ my $font    = SDL::TTF::open_font('test/data/aircut3.ttf', '24');
+ die 'Coudnt make font '. SDL::get_error if !$font;
+ my $surface = SDL::TTF::render_text_solid($font, 'Hallo!', SDL::Color-&gt;new(0xFF,0xFF,0xFF));
+ SDL::Video::blit_surface($surface, SDL::Rect-&gt;new(0, 0, 640, 480), $display, SDL::Rect-&gt;new(10, 10, 640, 480));
+ SDL::Video::update_rect($display, 0, 0, 0, 0);
+ SDL::delay(5000);
 
 </pre>
 
@@ -792,9 +789,9 @@ your display-surface.</p>
 <p><strong>Note</strong>: The unicode char has to be passed exactly like for <a href="/SDL-TTF.html#size_unicode">SDL::TTF::size_unicode</a>.</p>
 
 </div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
-<p>Tobias Leich [FROGGS]</p>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

@@ -13,9 +13,10 @@
 <li><a href="#group_oldest">group_oldest</a></li>
 <li><a href="#group_newer">group_newer</a></li>
 <li><a href="#fade_out_group">fade_out_group</a></li>
-<li><a href="#halt_group">halt_group</a>
-</li>
+<li><a href="#halt_group">halt_group</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -121,6 +122,11 @@ previously allocated (see <a href="/SDL-Mixer-Channels.html#allocate_channels">S
 </pre>
 <p>Halts the channels by the given group id.</p>
 <p>Retuns <code>0</code>.</p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

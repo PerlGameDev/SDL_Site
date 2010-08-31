@@ -23,7 +23,8 @@
 <li><a href="#MSF_TO_FRAMES">MSF_TO_FRAMES</a></li>
 </ul>
 </li>
-<li><a href="#SEE_ALSO">SEE ALSO</a>
+<li><a href="#SEE_ALSO">SEE ALSO</a></li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -224,6 +225,11 @@ beginning of the last track ($start_track+$ntracks), at which to end playing.</p
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
 <p><a href="SDL-CDROM.html">SDL::CDROM</a>, <a href="SDL-CDTrack.html">SDL::CDTrack</a></p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

@@ -8,7 +8,8 @@
 <ul><li><a href="#EXAMPLE">EXAMPLE</a></li>
 </ul>
 </li>
-<li><a href="#SEE_ALSO">SEE ALSO</a>
+<li><a href="#SEE_ALSO">SEE ALSO</a></li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -149,6 +150,15 @@
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SEE_ALSO_CONTENT">
 <p><a href="http://search.cpan.org/perldoc?perl">perl</a> <a href="http://search.cpan.org/perldoc?SDLx::App">SDLx::App</a> <a href="http://search.cpan.org/perldoc?OpenGL">OpenGL</a> </p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+
+
+
+
 
 </div>
 </div>

@@ -192,8 +192,8 @@ them soon.</p>
 <h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHOR_CONTENT">
 <p>chromatic, &lt;chromatic@wgz.org&gt;</p>
-<p>updated by kthakore, &lt;kthakore@cpan.org&gt;</p>
-<p>Written for and maintained by the Perl SDL project, <a href="http://sdl.perl.org/">http://sdl.perl.org/</a>.</p>
+<p>Written for and maintained by the Perl SDL project, <a href="http://sdl.perl.org/">http://sdl.perl.org/</a>.
+See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 <h1 id="BUGS">BUGS</h1><p><a href="#TOP" class="toplink">Top</a></p>

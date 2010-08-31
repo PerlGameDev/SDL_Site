@@ -12,9 +12,10 @@
 <li><a href="#set_distance">set_distance</a></li>
 <li><a href="#set_panning">set_panning</a></li>
 <li><a href="#set_position">set_position</a></li>
-<li><a href="#set_reverse_stereo">set_reverse_stereo</a>
-</li>
+<li><a href="#set_reverse_stereo">set_reverse_stereo</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -189,6 +190,11 @@ unless you use <a href="/SDL-Mixer-Effects.html#unregister_all">SDL::Mixer::Effe
 <p>If you pass <code>1</code> to <code>$flip</code> it simple reverse stereo, swaps left and right channel sound.</p>
 <p><strong>Note</strong>: Using a flip of <code>0</code>, will cause the effect to unregister itself from channel. You cannot unregister it any other way, unless you use 
 <a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a> on the channel. </p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

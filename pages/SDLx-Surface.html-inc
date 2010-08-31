@@ -26,10 +26,12 @@
 <li><a href="#update">update</a></li>
 <li><a href="#draw_rect">draw_rect</a></li>
 <li><a href="#draw_line">draw_line</a></li>
+<li><a href="#draw_circle">draw_circle</a></li>
+<li><a href="#draw_circle_filled">draw_circle_filled</a></li>
 <li><a href="#draw_gfx_text">draw_gfx_text</a></li>
 </ul>
 </li>
-<li><a href="#AUTHOR">AUTHOR</a>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -226,6 +228,31 @@ This is useful when the surface you have isn't an <code>SDLx::Surface</code>, bu
 <p>Returns $self</p>
 
 </div>
+<h2 id="draw_circle">draw_circle</h2>
+<div id="draw_circle_CONTENT">
+<pre> $sdlx_surface-&gt;draw_circle( [$x1, $y1], $radius, \@color ); 
+
+</pre>
+<p>Draws an unfilled circle at <code>($x1,$y1)</code> of size $radius and $color.</p>
+<p>Returns $self</p>
+
+</div>
+<h2 id="draw_circle_filled">draw_circle_filled</h2>
+<div id="draw_circle_filled_CONTENT">
+<pre> $sdlx_surface-&gt;draw_filled_circle( [$x1, $y1], $radius, \@color ); 
+
+</pre>
+<p>Draws an <strong>filled</strong> circle at <code>($x1,$y1)</code> of size $radius and $color.</p>
+<p>Returns $self</p>
+
+
+
+
+
+
+
+
+</div>
 <h2 id="draw_gfx_text">draw_gfx_text</h2>
 <div id="draw_gfx_text_CONTENT">
 <p>Draw text using gfx (not pretty but fast) at give vector, color.</p>
@@ -247,11 +274,9 @@ This is useful when the surface you have isn't an <code>SDLx::Surface</code>, bu
 <p>Returns $self</p>
 
 </div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
-<pre> kthakore 
-
-</pre>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

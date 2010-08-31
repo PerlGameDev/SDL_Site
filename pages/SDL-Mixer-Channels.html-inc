@@ -21,9 +21,10 @@
 <li><a href="#playing">playing</a></li>
 <li><a href="#paused">paused</a></li>
 <li><a href="#fading_channel">fading_channel</a></li>
-<li><a href="#get_chunk">get_chunk</a>
-</li>
+<li><a href="#get_chunk">get_chunk</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -230,6 +231,11 @@ the audio callback, or SDL_mixer will explicitly lock the audio before calling y
 </pre>
 <p><code>get_chunk</code> gets the most recent sample chunk played on channel. This chunk may be currently playing, or just the last used. </p>
 <p><strong>Note</strong>: Never pass <code>-1</code> to this function!</p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

@@ -14,8 +14,8 @@
 <li><a href="#w">w</a></li>
 <li><a href="#h">h</a></li>
 <li><a href="#surface">surface</a></li>
-<li><a href="#clip">clip</a></li>
 <li><a href="#pos">pos</a></li>
+<li><a href="#clip">clip</a></li>
 <li><a href="#data">data</a></li>
 <li><a href="#ahead">ahead</a></li>
 <li><a href="#behind">behind</a></li>
@@ -26,7 +26,7 @@
 </li>
 <li><a href="#BUGS">BUGS</a></li>
 <li><a href="#SUPPORT">SUPPORT</a></li>
-<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#AUTHORS">AUTHORS</a></li>
 <li><a href="#COPYRIGHT">COPYRIGHT</a></li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
 </li>
@@ -35,7 +35,7 @@
 
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
-<p>SDLx::Layer - Extension ...</p>
+<p>SDLx::Layer - Storage object for surface and position information</p>
 
 </div>
 <h1 id="CATEGORY">CATEGORY </h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -48,15 +48,30 @@
 <pre>  use SDLx::Layer;
   use SDLx::LayerManager;
 
+  use SDL::Image;
+  use SDL::Surface;
+  use SDL::Video;
+
+  # creating layers
+  my $layer1 = SDLx::Layer-&gt;new( SDL::Image::load('image1.png'), {userdata =&gt; '7'} );
+  my $layer2 = SDLx::Layer-&gt;new( SDL::Image::load('image2.png'), 100, 200, {userdata =&gt; '42'} );
+
+  # creating the manager that holds the layers
+  my $layermanager = SDLx::LayerManager-&gt;new();
+  $layermanager-&gt;add( $layer1 );
+  $layermanager-&gt;add( $layer2 );
+
+  my $display = # create your video surface here
+
+  $layer1-&gt;foreground;
+  printf( &quot;%s\n&quot;, $layer1-&gt;behind-&gt;[0]-&gt;data-&gt;{userdata} ); # prints 42
+
 </pre>
 
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-
-
-
-
+<p>A layer (see SDLx::Layer) is an SDL::Surface, the position of the surface on screen and some additional information, e.g. ingame states.</p>
 
 </div>
 <h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -65,62 +80,150 @@
 </div>
 <h2 id="new">new</h2>
 <div id="new_CONTENT">
+<pre>  my $layer = SDLx::Layer-&gt;new( $surface );
+  my $layer = SDLx::Layer-&gt;new( $surface,                                   %data );
+  my $layer = SDLx::Layer-&gt;new( $surface, $pos_x,                           %data );
+  my $layer = SDLx::Layer-&gt;new( $surface, $pos_x, $pos_y,                   %data );
+  my $layer = SDLx::Layer-&gt;new( $surface, $pos_x, $pos_y, $clip_w,          %data );
+  my $layer = SDLx::Layer-&gt;new( $surface, $pos_x, $pos_y, $clip_w, $clip_h, %data );
+
+</pre>
+<p>This constructs the layer object. See how you can omit the position and dimension of the layer. The hash <code>%data</code> is for your use only.
+The layer object just pass it through.</p>
 
 </div>
 <h2 id="index">index</h2>
 <div id="index_CONTENT">
+<pre>  my $index = $layer-&gt;index;
+
+</pre>
+<p>The method <code>index</code> represents the z-index ot this layer within its layermanager.</p>
 
 </div>
 <h2 id="x">x</h2>
 <div id="x_CONTENT">
+<pre>  my $x = $layer-&gt;x;
+
+</pre>
+<p>This is a shortcut for $layer-&gt;pos-&gt;x.</p>
 
 </div>
 <h2 id="y">y</h2>
 <div id="y_CONTENT">
+<pre>  my $y = $layer-&gt;y;
+
+</pre>
+<p>This is a shortcut for $layer-&gt;pos-&gt;y.</p>
 
 </div>
 <h2 id="w">w</h2>
 <div id="w_CONTENT">
+<pre>  my $w = $layer-&gt;w;
+
+</pre>
+<p>This is a shortcut for $layer-&gt;clip-&gt;w.</p>
 
 </div>
 <h2 id="h">h</h2>
 <div id="h_CONTENT">
+<pre>  my $h = $layer-&gt;h;
+
+</pre>
+<p>This is a shortcut for $layer-&gt;pos-&gt;h.</p>
 
 </div>
 <h2 id="surface">surface</h2>
 <div id="surface_CONTENT">
+<pre>  my $surface = $layer-&gt;surface;
+  my $surface = $layer-&gt;surface( $new_surface );
 
-</div>
-<h2 id="clip">clip</h2>
-<div id="clip_CONTENT">
+</pre>
+<p><strong>Example</strong>:</p>
+<pre>  SDL::Video::blit_surface( $layer-&gt;surface, $layer-&gt;clip, $destination_surface, $layer-&gt;pos );
+
+</pre>
+<p>This method let you retrive the current or set a new surface.</p>
 
 </div>
 <h2 id="pos">pos</h2>
 <div id="pos_CONTENT">
+<pre>  my $rect = $layer-&gt;pos;
+
+</pre>
+<p>The method <code>pos</code> returns an SDL::Rect object. The pos x and y are stored there.</p>
+<p><strong>Example</strong>:</p>
+<pre>  SDL::Video::blit_surface( $layer-&gt;surface, $layer-&gt;clip, $destination_surface, $layer-&gt;pos );
+
+</pre>
+
+</div>
+<h2 id="clip">clip</h2>
+<div id="clip_CONTENT">
+<pre>  my $rect = $layer-&gt;clip;
+
+</pre>
+<p>The method <code>clip</code> returns an SDL::Rect object. The clip width and height are stored there.</p>
+<p><strong>Example</strong>:</p>
+<pre>  SDL::Video::blit_surface( $layer-&gt;surface, $layer-&gt;clip, $destination_surface, $layer-&gt;pos );
+
+</pre>
 
 </div>
 <h2 id="data">data</h2>
 <div id="data_CONTENT">
+<pre>  my %data = %{ $layer-&gt;data };
+  my %data = %{ $layer-&gt;data( %new_data) };
+
+</pre>
+<p>This method returns the hash <code>%data</code>. You can set <code>%data</code> by passing a hash.</p>
 
 </div>
 <h2 id="ahead">ahead</h2>
 <div id="ahead_CONTENT">
+<pre>  my @layers = $layer-&gt;ahead;
+
+</pre>
+<p>This method returns all layers that are ahead of the given layer.
+Ahead means that a layer has a higher z-index and is blitted over the given layer.</p>
+<p><strong>Note</strong>: This method doesn't check for transparency. This will change in future versions.</p>
 
 </div>
 <h2 id="behind">behind</h2>
 <div id="behind_CONTENT">
+<pre>  my @layers = $layer-&gt;behind;
+
+</pre>
+<p>This method returns all layers that are behind of the given layer.
+Behind means that a layer has a lower z-index and is blitted over the given layer.</p>
+<p><strong>Note</strong>: This method doesn't check for transparency. This will change in future versions.</p>
 
 </div>
 <h2 id="attach">attach</h2>
 <div id="attach_CONTENT">
+<pre>  $layer-&gt;attach( $x, $y );
+
+</pre>
+<p>This function makes the given layer sticky to the mouse. If you move the mouse the layer will follow.
+The layermanager blits this layer at last, so they will appear on top of all layers.</p>
+<p><code>$x</code> and <code>$y</code> should be set to the coords of the mouse, e.g. the coords of the mouse click.
+If you omit <code>$x</code> and <code>$y</code> the layer obtains them via SDL::Events::get_mouse_state.</p>
+<p><strong>Note</strong>: The z-index is not changed for the given layer.</p>
 
 </div>
 <h2 id="detach_xy">detach_xy</h2>
 <div id="detach_xy_CONTENT">
+<pre>  $layer-&gt;detach_xy( $x, $y );
+
+</pre>
+<p><code>detach_xy</code> detaches the prevously attached layer to the given coords. The upper left corner of this layer will be at <code>$x</code> and <code>$y</code>.</p>
 
 </div>
 <h2 id="foreground">foreground</h2>
 <div id="foreground_CONTENT">
+<pre>  $layer-&gt;foreground;
+
+</pre>
+<p>This method moves the given layer to the foreground so that it is blittet on top of the other layers.</p>
 
 </div>
 <h1 id="BUGS">BUGS</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -133,15 +236,9 @@
 <p>#sdl irc.perl.org</p>
 
 </div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
-<pre>    Tobias Leich
-    CPAN ID: FROGGS
-    ---
-    froggs@cpan.org
-    http://sdl.perl.org
-
-</pre>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 <h1 id="COPYRIGHT">COPYRIGHT</h1><p><a href="#TOP" class="toplink">Top</a></p>

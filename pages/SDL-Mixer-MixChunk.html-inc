@@ -8,9 +8,10 @@
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#alen">alen</a></li>
-<li><a href="#volume">volume</a>
-</li>
+<li><a href="#volume">volume</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -56,6 +57,11 @@
 <h2 id="volume">volume</h2>
 <div id="volume_CONTENT">
 <p>Per-sample volume, 0-128 (normally <code>MIX_MAX_VOLUME</code> after loading)</p>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

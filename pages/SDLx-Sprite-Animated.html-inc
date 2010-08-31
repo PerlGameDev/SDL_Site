@@ -337,18 +337,12 @@ automatically for you every time <code>-&gt;draw()</code> is called
 <p>If you want to restart autoplay from the initial frame, just do:</p>
 <pre>  $sprite-&gt;reset-&gt;start;
 
-
-
-
 </pre>
 
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>Jeffrey T. Palmer <code>&lt;jeffrey.t.palmer at gmail.com&gt;</code></p>
-<p>Dustin Mays, <code>&lt;dork.fish.wat@gmail.com&gt;</code></p>
-<p>Breno G. de Oliveira, <code>&lt;garu at cpan.org&gt;</code></p>
-<p>Kartik thakore <code>&lt;kthakore at cpan.org&gt;</code></p>
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

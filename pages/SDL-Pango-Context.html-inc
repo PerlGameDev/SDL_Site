@@ -8,7 +8,7 @@
 <ul><li><a href="#new">new</a></li>
 </ul>
 </li>
-<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#AUTHORS">AUTHORS</a></li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
 </li>
 </ul><hr />
@@ -36,9 +36,9 @@
 <p>Creates a new SDL::Pango context object. See <a href="SDL-Pango.html">SDL::Pango</a>.</p>
 
 </div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
-<p>Tobias Leich [FROGGS]</p>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

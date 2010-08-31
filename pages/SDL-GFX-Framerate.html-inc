@@ -9,9 +9,10 @@
 <ul><li><a href="#init">init</a></li>
 <li><a href="#set">set</a></li>
 <li><a href="#get">get</a></li>
-<li><a href="#delay">delay</a>
-</li>
+<li><a href="#delay">delay</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -73,9 +74,10 @@
 <p>Generate a delay to accomodate currently set framerate. Call once in thegraphics/rendering loop. 
 If the computer cannot keep up with the rate (i.e.drawing too slow), the delay is zero and the delay interpolation is reset.</p>
 
-
-
-
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

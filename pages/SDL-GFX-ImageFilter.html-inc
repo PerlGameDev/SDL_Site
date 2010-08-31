@@ -46,9 +46,10 @@
 <li><a href="#sobel_x">sobel_x</a></li>
 <li><a href="#sobel_x_shift_right">sobel_x_shift_right</a></li>
 <li><a href="#align_stack">align_stack</a></li>
-<li><a href="#restore_stack">restore_stack</a>
-</li>
+<li><a href="#restore_stack">restore_stack</a></li>
 </ul>
+</li>
+<li><a href="#AUTHORS">AUTHORS</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -643,8 +644,16 @@ gfx_image_align_stack()
 <p>void
 gfx_image_restore_stack()
 	CODE:
-		SDL_imageFilterRestoreStack();
-</p>
+		SDL_imageFilterRestoreStack();</p>
+
+
+
+
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 </div>

@@ -76,7 +76,7 @@
 <li><a href="#wm_toggle_fullscreen">wm_toggle_fullscreen</a></li>
 </ul>
 </li>
-<li><a href="#AUTHOR">AUTHOR</a></li>
+<li><a href="#AUTHORS">AUTHORS</a></li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
 <ul><li><a href="#Category_Objects">Category Objects</a>
 </li>
@@ -1441,9 +1441,9 @@ the application will receive a <code>SDL_APPACTIVE</code> loss event (see Applic
 is experimental).</p>
 
 </div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
-<p>magnet, Tobias Leich (FROGGS)</p>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
