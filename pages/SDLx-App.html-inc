@@ -8,7 +8,10 @@
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#new">new</a></li>
-<li><a href="#title">title()</a></li>
+</ul>
+</li>
+<li><a href="#METHODS-2">METHODS</a>
+<ul><li><a href="#title">title()</a></li>
 <li><a href="#title_new_title">title( $new_title )</a></li>
 <li><a href="#title_window_title_icon_title">title( $window_title, $icon_title )</a></li>
 <li><a href="#delay_ms">delay( $ms )</a></li>
@@ -18,12 +21,12 @@
 <li><a href="#fullscreen">fullscreen</a></li>
 <li><a href="#iconify">iconify</a></li>
 <li><a href="#grab_input_CONSTANT">grab_input( $CONSTANT )</a></li>
-<li><a href="#loop_actions">loop( \%actions )</a></li>
 <li><a href="#sync">sync</a></li>
 <li><a href="#attribute_attr">attribute( $attr )</a></li>
 <li><a href="#attribute_attr_value">attribute( $attr, $value )</a></li>
 </ul>
 </li>
+<li><a href="#CALLBACKS">CALLBACKS</a></li>
 <li><a href="#AUTHORS">AUTHORS</a></li>
 <li><a href="#SEE_ALSO">SEE ALSO</a>
 </li>
@@ -105,9 +108,9 @@ Any flags you want to pass to <a href="SDL-Video.html">SDL::Video</a> upon initi
 Set this to a true value to make the window resizeable by the user. Default is off.</dt>
 </dl>
 
-
-
-
+</div>
+<h1 id="METHODS-2">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT-2">
 
 </div>
 <h2 id="title">title()</h2>
@@ -170,30 +173,6 @@ the application. It takes one argument, which should be one of the following:</p
 </dl>
 
 </div>
-<h2 id="loop_actions">loop( \%actions )</h2>
-<div id="loop_actions_CONTENT">
-<p><code>SDLx::App::loop</code> is a simple event loop method which takes a reference to a hash
-of event handler subroutines. The keys of the hash must be SDL event types such
-as SDL_QUIT(), SDL_KEYDOWN(), and the like. When called, the event method recieves
-as its parameter the event object used in the loop.</p>
-<p>Example:</p>
-<pre>    my $app = SDLx::App-&gt;new(
-        title  =&gt; &quot;test.app&quot;, 
-        width  =&gt; 800, 
-        height =&gt; 600, 
-        depth  =&gt; 32
-    );
-
-    my %actions = (
-        SDL_QUIT()    =&gt; sub { exit(0); },
-        SDL_KEYDOWN() =&gt; sub { print &quot;Key Pressed&quot; },
-    );
-
-    $app-&gt;loop( \%actions );
-
-</pre>
-
-</div>
 <h2 id="sync">sync</h2>
 <div id="sync_CONTENT">
 <p><code>SDLx::App::sync</code> encapsulates the various methods of syncronizing the screen with the
@@ -210,6 +189,31 @@ or OpenGL buffer if applicable. This is prefered to calling flip on the applicat
 <p><code>SDLx::App::attribute</code> allows one to get and set GL attributes. By passing a value
 in addition to the attribute selector, the value will be set. <code>SDL:::App::attribute</code>
 always returns the current value of the given attribute, or croaks on failure.</p>
+
+</div>
+<h1 id="CALLBACKS">CALLBACKS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CALLBACKS_CONTENT">
+<p><code>SDLx::App</code> is a <code>SDLx::Controller</code>. Use the event, show and handlers to run the app.</p>
+<pre>  use SDL;
+  use SDLx::App;
+
+  use SDL::Event; #Where ever the event call back is processed
+
+  my $app = SDLx::App-&gt;new( width =&gt; 200, height =&gt; 200);
+
+  $app-&gt;add_event_handler( sub{ return 0 if $_[0]-&gt;type == SDL_QUIT; return 1});
+
+  $app-&gt;add_show_handler( sub{ $app-&gt;update() } );
+
+  $app-&gt;add_move_handler( 
+  sub{ 
+  #calc your physics here 
+  } );
+
+  $app-&gt;run();
+
+</pre>
+<p>see <a href="http://search.cpan.org/perldoc?SDLx::Controller">SDLx::Controller</a> for more details.</p>
 
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
