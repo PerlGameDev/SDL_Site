@@ -1,20 +1,12 @@
 <div class="blog">
 <h1 id="NAME">
-SDL 2.511 + Using SDL for quick visualizations
+Introducing SDLx::Controller::Object, with our good friend Mario!
 </h1>
 <div class="CONTENT">
-SDL Perl 2.511 is showing great promises. The initial tests show a great deal of stability.&nbsp;<a href="http://search.cpan.org/~kthakore/SDL-2.511/">http://search.cpan.org/~kthakore/SDL-2.511/</a><br />
+<b> Hi Folks </b><br />
 <br />
-&nbsp;Moreover we are seeing more varied users of SDL Perl.<br />
+This past week I have been working on making interfacing physics with SDL rendering a lot easier. The idea was to provide the user a callback to describe the acceleration of their object in the X, Y axis and Rotation. Using this idea I have completed a preliminary work for SDLx::Controller::Object. The demo below shows an example that was made with it. The SDLx* code is available at <a href="http://github.com/kthakore/SDL_perl">http://github.com/kthakore/SDL_perl</a> and demo code is available at <a href="http://github.com/kthakore/scroller">http://github.com/kthakore/scroller</a>.<br />
 <br />
-John.O Writes:<br />
-<hr /><br />
-This is for a tool that we'll be providing our dealers... it measures cellular modem signal strengths out in the middle of nowhere, so dealers can evaluate if our products will work in customers' fields. And of course, I'm using Perl/SDL for the graphics... C gets on my nerves.<br />
-<br />
-Our company is <a href="http://smartfield.com/">http://smartfield.com</a>.<br />
-<br />
-John O.<br />
-<br />
-<div class="separator" style="clear: both; text-align: center;"><a href="http://sdlperl.ath.cx/screenshot2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="192" src="http://sdlperl.ath.cx/screenshot2.png" width="320" /></a></div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4625022127595563867?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/4ef14C7N9N6loLPCw2LnQe-salU/0/da"><img src="http://feedads.g.doubleclick.net/~a/4ef14C7N9N6loLPCw2LnQe-salU/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/4ef14C7N9N6loLPCw2LnQe-salU/1/da"><img src="http://feedads.g.doubleclick.net/~a/4ef14C7N9N6loLPCw2LnQe-salU/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/taMSrti4vNc" height="1" width="1"/></div></div>
+<div style="text-align: center;"><iframe frameborder="0" height="415" src="http://player.vimeo.com/video/14293061" width="400"></iframe></div><a href="http://vimeo.com/14293061">Mario Demo using SDL Perl</a> from <a href="http://vimeo.com/user3244181">SDLPerl</a> on <a href="http://vimeo.com/">Vimeo</a>.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-1925633776306501908?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/hjWPkxlQ9tD0qoH5bMWRzEH7c1g/0/da"><img src="http://feedads.g.doubleclick.net/~a/hjWPkxlQ9tD0qoH5bMWRzEH7c1g/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/hjWPkxlQ9tD0qoH5bMWRzEH7c1g/1/da"><img src="http://feedads.g.doubleclick.net/~a/hjWPkxlQ9tD0qoH5bMWRzEH7c1g/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/5WPvR2b7_Nk" height="1" width="1"/></div></div>

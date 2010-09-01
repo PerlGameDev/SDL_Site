@@ -11,7 +11,7 @@
 </ul>
 </li>
 <li><a href="#Latest_News">Latest News</a>
-<ul><li><a href="#August_03_2010">August 03 2010</a>
+<ul><li><a href="#August_31_2010">August 31 2010</a>
 <ul><li><a href="#CPAN_Release">CPAN Release</a></li>
 <li><a href="#Active_Development">Active Development</a>
 </li>
@@ -28,7 +28,7 @@
 </div>
 <h2 id="Welcome">Welcome</h2>
 <div id="Welcome_CONTENT">
-<p>SDL Perl are a set of bindings to the Simple DirectMedia Library (SDL).</p>
+<p>SDL Perl are a set of bindings to the Simple DirectMedia Layer (SDL).</p>
 <p>'Simple DirectMedia Layer is a cross-platform multimedia library designed to provide low level access to audio, keyboard, mouse, joystick, 
 3D hardware via OpenGL, and 2D video framebuffer. It is used by MPEG playback software, emulators, and many popular games, including the 
 award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>www.libsdl.org</cite></p>
@@ -68,8 +68,8 @@ award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>ww
 <div id="Latest_News_CONTENT">
 
 </div>
-<h2 id="August_03_2010">August 03 2010</h2>
-<div id="August_03_2010_CONTENT">
+<h2 id="August_31_2010">August 31 2010</h2>
+<div id="August_31_2010_CONTENT">
 
 </div>
 <h3 id="CPAN_Release">CPAN Release</h3>

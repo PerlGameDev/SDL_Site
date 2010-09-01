@@ -4,7 +4,7 @@
 
 =head2 Welcome
 
-SDL Perl are a set of bindings to the Simple DirectMedia Library (SDL).
+SDL Perl are a set of bindings to the Simple DirectMedia Layer (SDL).
 
 'Simple DirectMedia Layer is a cross-platform multimedia library designed to provide low level access to audio, keyboard, mouse, joystick, 
 3D hardware via OpenGL, and 2D video framebuffer. It is used by MPEG playback software, emulators, and many popular games, including the 
@@ -48,7 +48,7 @@ To begin testing read L<this| http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testin
 
 =head1 Latest News
 
-=head2 August 03 2010
+=head2 August 31 2010
 
 =head3 CPAN Release
 	

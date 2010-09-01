@@ -1,36 +1,21 @@
 <div class="blog">
 <h1 id="NAME">
-SDL Perl Showcase
+A summer of possibilities (SDL_perl and GSOC 2010 )
 </h1>
 <div class="CONTENT">
-<b><br />
-SDL_Mixer and Effects</b><br />
+<h3>GSOC 2010 </h3><br />
+<p>As many of the readers must know The Perl Foundation has been accepted for the GSOC 2010 program. There are several SDL_perl mentors involved in it too. Right now we are accepting student applications. <p><br />
 <br />
-<div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/_NnqjAQEn1Xo/S5mzzlA_BPI/AAAAAAAAAJ4/5n62-vSSKzs/s1600-h/playlist.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/_NnqjAQEn1Xo/S5mzzlA_BPI/AAAAAAAAAJ4/5n62-vSSKzs/s320/playlist.png" /></a></div><br />
-This demo shows the new work we have finished for SDL_Mixer support in <a href="http://github.com/kthakore/SDL_perl">SDL_perl</a> . (FROGGS++)<br />
-<br />
-<br />
-<ul><li>&nbsp;Plays ogg files in local directory</li>
-<li>&nbsp;Uses threads and SDL_Mixer effects to extract realtime stereo stream data</li>
-<li>&nbsp;Visulizes stream data as an&nbsp;oscilloscope</li>
+<b>Process to Apply</b><br />
+<ul><li>Sign in as a student here http://socghop.appspot.com/</li>
+<li>Submit a proposal before April 5th</li>
+<li>Usually it helps to discuss the idea with us on irc (#sdl irc.perl.org)</li>
 </ul><br />
 <br />
-Get it at: <a href="http://github.com/garu/Spinner/raw/master/data/music/playlist.pl">playlist.pl</a>, you need some<a href="http://github.com/garu/Spinner/tree/master/data/music/"> .ogg files</a> to play in the same directory. Use the down key to go through them.<br />
+<h3>Ideas </h3><br />
+<p><a href="http://sdlperl.ath.cx/projects/SDLPerl/wiki/gsoc2010">Here</a> are some ideas for SDL perl but we happily accepted student ideas.<br />
+ Make a student wiki page on this site of your ideas! We look forward to helping you guys with your  ideas :) </p><br />
 <br />
-<b><br />
-SDL_TTF support </b><br />
-<br />
-<br />
-<div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/_NnqjAQEn1Xo/S5mz8HnVpkI/AAAAAAAAAKQ/4TV0wJG_GNM/s1600-h/TTF.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/_NnqjAQEn1Xo/S5mz8HnVpkI/AAAAAAAAAKQ/4TV0wJG_GNM/s320/TTF.png" /></a></div><br />
-<br />
-This shows the current work on SDL_TTF support. UTF8 and Uncicode are supported. <br />
-<br />
-See the<a href="http://github.com/kthakore/SDL_perl/tree/redesign/t/ttf.t"> t/ttf.t </a>test in github SDL_perl.<br />
-<br />
-<br />
-<b id="Spinner"><br />
-Spinner (Destiny Swirl) Arcade Game</b><br />
-<div><br />
-</div><div>And finally as a proof of concept we have been working a simple arcade game to test our bugs, and scope out our high level bindings. You can get it at the <a href="http://github.com/garu/Spinner/">Spinner repo</a>. This <a href="http://sdlperl.ath.cx/projects/SDLPerl/wiki/TPMFeb2010">wiki page </a>will help you set up for your platforms.&nbsp;</div><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/_NnqjAQEn1Xo/S5mz1i9fuDI/AAAAAAAAAKA/nWCGR2U2k6I/s1600-h/spinner.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/_NnqjAQEn1Xo/S5mz1i9fuDI/AAAAAAAAAKA/nWCGR2U2k6I/s320/spinner.png" /></a></div><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_NnqjAQEn1Xo/S5mz7Cwi6RI/AAAAAAAAAKI/qV-UwiGaS6E/s1600-h/spinnerII.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_NnqjAQEn1Xo/S5mz7Cwi6RI/AAAAAAAAAKI/qV-UwiGaS6E/s320/spinnerII.png" /></a></div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-2785864569764497133?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/9mDUyjv9tbMACqoghT8ANOyl2tQ/0/da"><img src="http://feedads.g.doubleclick.net/~a/9mDUyjv9tbMACqoghT8ANOyl2tQ/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/9mDUyjv9tbMACqoghT8ANOyl2tQ/1/da"><img src="http://feedads.g.doubleclick.net/~a/9mDUyjv9tbMACqoghT8ANOyl2tQ/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/WYwrXTKlVjI" height="1" width="1"/></div></div>
+--yapgh<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-7079398614405091312?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/2W7bN95udcWNo9wYcwDL4eTQ9ok/0/da"><img src="http://feedads.g.doubleclick.net/~a/2W7bN95udcWNo9wYcwDL4eTQ9ok/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/2W7bN95udcWNo9wYcwDL4eTQ9ok/1/da"><img src="http://feedads.g.doubleclick.net/~a/2W7bN95udcWNo9wYcwDL4eTQ9ok/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/Az4zDMAjcdY" height="1" width="1"/></div></div>
