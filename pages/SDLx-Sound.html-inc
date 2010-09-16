@@ -3,22 +3,20 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
-<li><a href="#VERSION">VERSION</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#new">new</a></li>
 <li><a href="#load">load</a></li>
 <li><a href="#play">play</a></li>
-<li><a href="#loud">loud</a></li>
+<li><a href="#pause">pause</a></li>
+<li><a href="#resume">resume</a></li>
 <li><a href="#stop">stop</a></li>
 </ul>
 </li>
-<li><a href="#AUTHOR">AUTHOR</a></li>
-<li><a href="#BUGS">BUGS</a></li>
-<li><a href="#SUPPORT">SUPPORT</a></li>
-<li><a href="#ACKNOWLEDGEMENTS">ACKNOWLEDGEMENTS</a></li>
-<li><a href="#LICENSE_AND_COPYRIGHT">LICENSE AND COPYRIGHT</a>
+<li><a href="#AUTHORS">AUTHORS</a></li>
+<li><a href="#COPYRIGHT_amp_LICENSE">COPYRIGHT &amp; LICENSE</a>
 </li>
 </ul><hr />
 <!-- INDEX END -->
@@ -28,13 +26,9 @@
 <p>SDLx::Sound</p>
 
 </div>
-<h1 id="VERSION">VERSION</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="VERSION_CONTENT">
-<p>Version 0.01_01</p>
-
-
-
-
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>Extension</p>
 
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -132,90 +126,44 @@
 <h2 id="load">load</h2>
 <div id="load_CONTENT">
 
+
+
+
+
 </div>
 <h2 id="play">play</h2>
 <div id="play_CONTENT">
+<pre> $sdlx_sound-&gt;play('file.wav');
+
+</pre>
+<p>Play a file</p>
 
 </div>
-<h2 id="loud">loud</h2>
-<div id="loud_CONTENT">
+<h2 id="pause">pause</h2>
+<div id="pause_CONTENT">
+
+</div>
+<h2 id="resume">resume</h2>
+<div id="resume_CONTENT">
 
 </div>
 <h2 id="stop">stop</h2>
 <div id="stop_CONTENT">
 
-</div>
-<h1 id="AUTHOR">AUTHOR</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="AUTHOR_CONTENT">
-<p>Monsenhor, <code>&lt;ricardo.filipo at mitologica.com.br&gt;</code></p>
-
-</div>
-<h1 id="BUGS">BUGS</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="BUGS_CONTENT">
-<p>Please report any bugs or feature requests to <code>bug-sdlx-sound at rt.cpan.org</code>, or through
-the web interface at <a href="http://rt.cpan.org/NoAuth/ReportBug.html?Queue=SDLx-Sound">http://rt.cpan.org/NoAuth/ReportBug.html?Queue=SDLx-Sound</a>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.</p>
-
-
-
-
-
-
-
 
 
 
 
 </div>
-<h1 id="SUPPORT">SUPPORT</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="SUPPORT_CONTENT">
-<p>You can find documentation for this module with the perldoc command.</p>
-<pre>    perldoc SDLx::Sound
-
-
-
-
-</pre>
-<p>You can also look for information at:</p>
-<dl>
-	<dt>* RT: CPAN's request tracker</dt>
-	<dd>
-		<p><a href="http://rt.cpan.org/NoAuth/Bugs.html?Dist=SDLx-Sound">http://rt.cpan.org/NoAuth/Bugs.html?Dist=SDLx-Sound</a></p>
-	</dd>
-	<dt>* AnnoCPAN: Annotated CPAN documentation</dt>
-	<dd>
-		<p><a href="http://annocpan.org/dist/SDLx-Sound">http://annocpan.org/dist/SDLx-Sound</a></p>
-	</dd>
-	<dt>* CPAN Ratings</dt>
-	<dd>
-		<p><a href="http://cpanratings.perl.org/d/SDLx-Sound">http://cpanratings.perl.org/d/SDLx-Sound</a></p>
-	</dd>
-	<dt>* Search CPAN</dt>
-	<dd>
-		<p><a href="http://search.cpan.org/dist/SDLx-Sound/">http://search.cpan.org/dist/SDLx-Sound/</a></p>
-	</dd>
-</dl>
-
-
-
-
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
 
 </div>
-<h1 id="ACKNOWLEDGEMENTS">ACKNOWLEDGEMENTS</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="ACKNOWLEDGEMENTS_CONTENT">
-
-
-
-
-
-</div>
-<h1 id="LICENSE_AND_COPYRIGHT">LICENSE AND COPYRIGHT</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="LICENSE_AND_COPYRIGHT_CONTENT">
-<p>Copyright 2010 Monsenhor.</p>
+<h1 id="COPYRIGHT_amp_LICENSE">COPYRIGHT &amp; LICENSE</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="COPYRIGHT_amp_LICENSE_CONTENT">
 <p>This program is free software; you can redistribute it and/or modify it
-under the terms of either: the GNU General Public License as published
-by the Free Software Foundation; or the Artistic License.</p>
-<p>See http://dev.perl.org/licenses/ for more information.</p>
+under the same terms as Perl itself.</p>
 
 
 

@@ -233,7 +233,7 @@ details).</p>
 <p>If you pass a SDL::Surface to it, it will overwrite the original surface
 with it, while returning the <strong>old</strong> (previous) surface. Note that, as such,
 it will return <code>undef</code> if you use it without having previously loaded
-either an image or a previous surface. It will croak if you pass anything
+either an image or a previous surface. It will Carp::confess if you pass anything
 that's not an SDL::Surface object (or SDL::Surface subclassed objects).</p>
 
 </div>

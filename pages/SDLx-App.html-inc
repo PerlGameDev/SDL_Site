@@ -5,7 +5,6 @@
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
-<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#METHODS">METHODS</a>
 <ul><li><a href="#new">new</a></li>
 </ul>
@@ -70,11 +69,8 @@
     }
 
 </pre>
-<p>An alternative to the manual Event processing is the <a href="http://search.cpan.org/perldoc?SDLx::App::loop">SDLx::App::loop</a>.</p>
-
-</div>
-<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="DESCRIPTION_CONTENT">
+<p>An alternative to the manual Event processing is through the <a href="http://search.cpan.org/perldoc?SDLx::Controller">SDLx::Controller</a> module. <a href="http://search.cpan.org/perldoc?SDLx::App">SDLx::App</a> is a Controller so see the CALLBACKS section below.
+=head1 DESCRIPTION</p>
 <p><a href="http://search.cpan.org/perldoc?SDLx::App">SDLx::App</a> controls the root window of the of your SDL based application.
 It extends the <a href="SDL-Surface.html">SDL::Surface</a> class, and provides an interface to the window
 manager oriented functions.</p>
@@ -188,7 +184,7 @@ or OpenGL buffer if applicable. This is prefered to calling flip on the applicat
 <div id="attribute_attr_value_CONTENT">
 <p><code>SDLx::App::attribute</code> allows one to get and set GL attributes. By passing a value
 in addition to the attribute selector, the value will be set. <code>SDL:::App::attribute</code>
-always returns the current value of the given attribute, or croaks on failure.</p>
+always returns the current value of the given attribute, or Carp::confesss on failure.</p>
 
 </div>
 <h1 id="CALLBACKS">CALLBACKS</h1><p><a href="#TOP" class="toplink">Top</a></p>

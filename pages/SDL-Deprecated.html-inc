@@ -5,7 +5,8 @@
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#RELEASES">RELEASES</a>
-<ul><li><a href="#2_502">2.502</a></li>
+<ul><li><a href="#2_513">2.513</a></li>
+<li><a href="#2_502">2.502</a></li>
 <li><a href="#2_500">2.500</a></li>
 </ul>
 </li>
@@ -26,6 +27,16 @@
 </div>
 <h1 id="RELEASES">RELEASES</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="RELEASES_CONTENT">
+
+</div>
+<h2 id="2_513">2.513</h2>
+<div id="2_513_CONTENT">
+<dl>
+	<dt>SDLx::App</dt>
+	<dd>
+		<p><code>SDLx::App::loop()</code> is depreceated.</p>
+	</dd>
+</dl>
 
 </div>
 <h2 id="2_502">2.502</h2>
