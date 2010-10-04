@@ -3,6 +3,7 @@
 <h3 id="TOP">Index</h3>
 
 <ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#SYNOPSIS">SYNOPSIS</a>
 <ul><li><a href="#DESCRIPTION">DESCRIPTION</a></li>
 </ul>
@@ -38,6 +39,11 @@
 <h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="NAME_CONTENT">
 <p>SDLx::Controller - Handles the loops for events, movement and rendering</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>Extension, Controller</p>
 
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
