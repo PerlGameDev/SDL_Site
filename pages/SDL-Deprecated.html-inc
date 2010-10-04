@@ -5,7 +5,8 @@
 <ul><li><a href="#NAME">NAME</a></li>
 <li><a href="#CATEGORY">CATEGORY</a></li>
 <li><a href="#RELEASES">RELEASES</a>
-<ul><li><a href="#2_513">2.513</a></li>
+<ul><li><a href="#2_517">2.517</a></li>
+<li><a href="#2_513">2.513</a></li>
 <li><a href="#2_502">2.502</a></li>
 <li><a href="#2_500">2.500</a></li>
 </ul>
@@ -27,6 +28,15 @@
 </div>
 <h1 id="RELEASES">RELEASES</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="RELEASES_CONTENT">
+
+</div>
+<h2 id="2_517">2.517</h2>
+<div id="2_517_CONTENT">
+<p>Major changes to <code>SDLx::Controller</code>.</p>
+<p><code>quit</code> is now <code>stop</code>. Event handlers no longer end <code>run</code> on returning false. Call <code>stop</code> explicitly instead.</p>
+<p>The first argument to move handlers is the step portion instead of <code>dt</code>.
+The second argument to move handlers, the <code>t</code> value, is now the third argument.</p>
+<p><code>min_t</code> will limit apps to a framerate of 60 by default.</p>
 
 </div>
 <h2 id="2_513">2.513</h2>
