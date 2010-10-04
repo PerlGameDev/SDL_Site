@@ -1,12 +1,15 @@
 <div class="blog">
 <h1 id="NAME">
-Introducing SDLx::Controller::Object, with our good friend Mario!
+SDL Manual: Reviewers Needed
 </h1>
 <div class="CONTENT">
-<b> Hi Folks </b><br />
+Work has begun on the 4th chapter of the SDL Manual. The code is on <a href="http://github.com/PerlGameDev/SDL_Manual">github</a>, and I regularly update the <a href="http://sdlperl.ath.cx/releases/SDL_Manual.pdf">pdf</a> on our server. <br />
 <br />
-This past week I have been working on making interfacing physics with SDL rendering a lot easier. The idea was to provide the user a callback to describe the acceleration of their object in the X, Y axis and Rotation. Using this idea I have completed a preliminary work for SDLx::Controller::Object. The demo below shows an example that was made with it. The SDLx* code is available at <a href="http://github.com/kthakore/SDL_perl">http://github.com/kthakore/SDL_perl</a> and demo code is available at <a href="http://github.com/kthakore/scroller">http://github.com/kthakore/scroller</a>.<br />
+Writing manuals is not of my greatest skills, so I would love some review of my work. Any problems can be reported in the <a href="http://github.com/PerlGameDev/SDL_Manual/issues">issues</a>. <br />
 <br />
-<div style="text-align: center;"><iframe frameborder="0" height="415" src="http://player.vimeo.com/video/14293061" width="400"></iframe></div><a href="http://vimeo.com/14293061">Mario Demo using SDL Perl</a> from <a href="http://vimeo.com/user3244181">SDLPerl</a> on <a href="http://vimeo.com/">Vimeo</a>.<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-1925633776306501908?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/hjWPkxlQ9tD0qoH5bMWRzEH7c1g/0/da"><img src="http://feedads.g.doubleclick.net/~a/hjWPkxlQ9tD0qoH5bMWRzEH7c1g/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/hjWPkxlQ9tD0qoH5bMWRzEH7c1g/1/da"><img src="http://feedads.g.doubleclick.net/~a/hjWPkxlQ9tD0qoH5bMWRzEH7c1g/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/5WPvR2b7_Nk" height="1" width="1"/></div></div>
+If you want to help with writing the manual, please join me on #sdl irc.perl.org or email us at<br />
+sdl-devel@perl.org <br />
+<br />
+--yapgh<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-2581523167450303489?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/DAao0RvCeO4irIprn8XQdDhffyU/0/da"><img src="http://feedads.g.doubleclick.net/~a/DAao0RvCeO4irIprn8XQdDhffyU/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/DAao0RvCeO4irIprn8XQdDhffyU/1/da"><img src="http://feedads.g.doubleclick.net/~a/DAao0RvCeO4irIprn8XQdDhffyU/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/Z6lWhJbY0Nc" height="1" width="1"/></div></div>

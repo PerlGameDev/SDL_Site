@@ -1,14 +1,38 @@
 <div class="blog">
 <h1 id="NAME">
-SDL_perl 2.3_5 is out!
+New build system! Needs testing!
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>We keep on rolling,<br />
-rolling,<br />
-waiting on the world to turn.</i><br />
-</div><br />
-So a new alpha is out on <a href="http://search.cpan.org/~kthakore/SDL-2.3_5/">CPAN</a>, after a bit of a break. We are trying to pick up our speed again. Hopefully we can get back to the weekly updates. This week I am going to try to get Mixer and TTF bindings test, redesigned and doc'd. Hopefully soon we can start working on Frozen Bubble, as things are starting to come together. This alpha release has finally given us a good implementation of SDL Timers. Also <a href="http://daniel.ruoso.com/categoria/perl/games-perl-1">Daniel Ruoso</a> has also started a series blog posts of making games with SDL Perl. Hopefully this can get more people in SDL, cause we can sure use the help!<br />
+<i></i><br />
+<i></i><br />
+<i></i><br />
+<i></i><br />
+<div style="text-align: right;"><i><span class="Apple-style-span" style="font-style: normal;"><i>Rome was not built,</i></span></i><br />
+<i><span class="Apple-style-span" style="font-style: normal;"><i>in one day,</i></span></i></div><div style="text-align: right;"><i><span class="Apple-style-span" style="font-style: normal;"><i>&nbsp;feature creep,</i></span></i><br />
+<i><span class="Apple-style-span" style="font-style: normal;"><i>existed back then too.</i></span></i><br />
+<i><span class="Apple-style-span" style="font-style: normal;"><i><br />
+</i></span></i><br />
+<div style="text-align: left;"><i><span class="Apple-style-span" style="font-style: normal;"><a href="http://github.com/kmx">kmx</a>++ recently worked on a brand new Build system for Alien::SDL and SDL_perl. We have managed to test it in Windows and Linux environments. We would still appreciate testing on all&nbsp;environments. However none of us have a shiny Mac to try this on. So if you have a Mac please consider testing the following:</span></i></div><div style="text-align: left;"><i><span class="Apple-style-span" style="font-style: normal;"><br />
+</span></i></div><div style="text-align: left;"></div><ul><li style="text-align: left;"><i><span class="Apple-style-span" style="font-style: normal;">Download <a href="http://github.com/kthakore/Alien_SDL/tarball/master">Alien::SDL</a>&nbsp;</span></i></li>
+
+<ul><li style="text-align: left;"><i><span class="Apple-style-span" style="font-style: normal;">install it</span></i></li>
+<li style="text-align: left;"><i><span class="Apple-style-span" style="font-style: normal;">select build by source</span></i></li>
+</ul>
+<li style="text-align: left;"><i><span class="Apple-style-span" style="font-style: normal;">Download <a href="http://github.com/kthakore/SDL_perl/tarball/redesign">SDL::perl</a></span></i></li>
+
+<ul><li style="text-align: left;"><i><span class="Apple-style-span" style="font-style: normal;">Extract it</span></i></li>
+<li style="text-align: left;"><i><span class="Apple-style-span" style="font-style: normal;">perl Build.PL</span></i></li>
+<li style="text-align: left;"><i><span class="Apple-style-span" style="font-style: normal;">perl Build</span></i></li>
+<li style="text-align: left;"><i><span class="Apple-style-span" style="font-style: normal;">See if Bundling works ( Maybe Brian's <a href="http://blogs.perl.org/users/brian_d_foy/2010/02/i-almost-have-sdl-perl-working-on-snow-leopard.html">article</a>&nbsp;may help )</span></i></li>
+</ul></ul><div style="text-align: left;"><i><span class="Apple-style-span" style="font-style: normal;">Thank you very much!</span></i><br />
 <br />
-<i>More to come --yapgh</i><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-896792692004201189?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/0/da"><img src="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/1/da"><img src="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/EOF919S-yGg" height="1" width="1"/></div></div>
+<i><span class="Apple-style-span" style="font-style: normal;">EDIT:&nbsp;</span></i><br />
+<i><span class="Apple-style-span" style="font-style: normal;">&nbsp;After some&nbsp; reports back we have found out that SDL_gfx needs&nbsp;</span></i><br />
+<i><span class="Apple-style-span" style="font-style: normal;"><br />
+</span></i><br />
+<i><span class="Apple-style-span" style="font-style: normal;">http://cblfs.cross-lfs.org/index.php/SDL_gfx#64Bit</span></i><br />
+<i><span class="Apple-style-span" style="font-style: normal;"><br />
+</span></i><br />
+<i><span class="Apple-style-span" style="font-style: normal;">We are working to get this done.</span></i></div></div><i></i><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-7073479532507652908?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/uIjA30PbyIqckDT4NWKmdaHbLBc/0/da"><img src="http://feedads.g.doubleclick.net/~a/uIjA30PbyIqckDT4NWKmdaHbLBc/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/uIjA30PbyIqckDT4NWKmdaHbLBc/1/da"><img src="http://feedads.g.doubleclick.net/~a/uIjA30PbyIqckDT4NWKmdaHbLBc/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/ORaGexsmrNo" height="1" width="1"/></div></div>

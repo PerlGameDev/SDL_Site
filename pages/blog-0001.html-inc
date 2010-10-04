@@ -1,14 +1,18 @@
 <div class="blog">
 <h1 id="NAME">
-SDL 2.512 released - Layers Support added
+SDL 2.518 Released: Neverhood Clone
 </h1>
 <div class="CONTENT">
-The new release of SDL adds Layer support, which means that rendering surfaces by layers is a lot easier. SDL 2.512 has several other changes too. An experimental physics interface and minor fixes. Have a look at the CHANGELOG.<br />
+So Blaizer started a Neverhood clone and fixed a lot of the Controller code to make it work nicely. This has been released as SDL 2.518. It does break back compat a bit, but not too much.<br />
 <br />
+Have a look at <a href="http://sdl.perl.org/SDL-Deprecated.html#2_517">http://sdl.perl.org/SDL-Deprecated.html#2_517</a> to see the breakages. <br />
 <br />
-Here is an implementation of the new Layer stuff. <a href="http://github.com/froggs/Solitaire">Solitaire</a>.<br />
+The documentation for Controller has also been improved considerably. <br />
 <br />
+<a href="http://sdl.perl.org/SDLx-Controller.html">http://sdl.perl.org/SDLx-Controller.html</a><br />
 <br />
-<div class="separator" style="clear: both; text-align: center;"><a href="http://www5.pic-upload.de/31.08.10/22z8bjleljol.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="240" src="http://www5.pic-upload.de/31.08.10/22z8bjleljol.jpg" width="320" /></a></div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-362786930729278631?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/n-w1Gixc0G4Uub3ttCs01KdM_E4/0/da"><img src="http://feedads.g.doubleclick.net/~a/n-w1Gixc0G4Uub3ttCs01KdM_E4/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/n-w1Gixc0G4Uub3ttCs01KdM_E4/1/da"><img src="http://feedads.g.doubleclick.net/~a/n-w1Gixc0G4Uub3ttCs01KdM_E4/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/Q5bESE5CTdc" height="1" width="1"/></div></div>
+Finally here is a video of the neverhood clone so far<br />
+<br />
+<iframe frameborder="0" height="207" src="http://player.vimeo.com/video/15531777?portrait=0&amp;color=59a5d1" width="267"></iframe><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-2064504316940101601?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/0/da"><img src="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/1/da"><img src="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/6YG5estsLGE" height="1" width="1"/></div></div>
