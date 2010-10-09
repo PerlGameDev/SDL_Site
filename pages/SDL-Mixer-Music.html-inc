@@ -47,7 +47,7 @@
 <pre> my $music = SDL::Mixer::Music::load_MUS( $file );
 
 </pre>
-<p><code>load_MUS</code> loads a music file into a <code>SDL::Mixer::MixMusic</code> structure. This can be passed to <a href="/SDL-Mixer-Music.html#play_music">SDL::Mixer::Music::play_music</a>.</p>
+<p><code>load_MUS</code> loads a music file into a <code>SDL::Mixer::MixMusic</code> structure. This can be passed to <b>play_music</b> (<b>play_music</b> in <cite>SDL::Mixer::Music</cite>).</p>
 
 </div>
 <h2 id="hook_music">hook_music</h2>
@@ -62,7 +62,7 @@ The music player will then be called automatically when the mixer needs it. Musi
 All the music playing and stopping functions have no effect on music after this. Pause and resume will work. 
 Using a custom music player and the internal music player is not possible, the custom music player takes priority. </p>
 <p>To stop the custom music player call <code>hook_music()</code> without arguments.</p>
-<p><strong>Note</strong>: NEVER call <code>SDL::Mixer</code> functions, nor <a href="/SDL-Audio.html#lock">SDL::Audio::lock</a>, from a callback function.</p>
+<p><strong>Note</strong>: NEVER call <code>SDL::Mixer</code> functions, nor <b>SDL::Audio::lock</b> (<b>lock</b> in <cite>SDL::Audio</cite>), from a callback function.</p>
 <p><strong>Note</strong>: At program termination also call <code>SDL::Mixer::Music::hook_music()</code> to stop this callback.</p>
 <p>Example:</p>
 <pre> sub callback
