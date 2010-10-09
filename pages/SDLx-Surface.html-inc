@@ -99,7 +99,7 @@
 </div>
 <h2 id="display">display</h2>
 <div id="display_CONTENT">
-<p>If <a href="http://search.cpan.org/perldoc?SDLx::App::new">SDLx::App::new</a> or <a href="/SDL-Video.html#get_video_mode">SDL::Video::get_video_mode</a> called before then:</p>
+<p>If <a href="http://search.cpan.org/perldoc?SDLx::App::new">SDLx::App::new</a> or <a href="SDL-Video::get_video_mode.html">SDL::Video::get_video_mode</a> called before then:</p>
 <pre> my $appx = SDLx::Surface::display(); 
 
 </pre>
@@ -188,7 +188,7 @@ This is useful when the surface you have isn't an <code>SDLx::Surface</code>, bu
 </div>
 <h2 id="flip">flip</h2>
 <div id="flip_CONTENT">
-<p>Applies <a href="/SDL-Video.html#flip">SDL::Video::flip</a> to the Surface, with error checking.</p>
+<p>Applies <a href="SDL-Video::flip.html">SDL::Video::flip</a> to the Surface, with error checking.</p>
 <p>Returns $self</p>
 
 </div>
@@ -200,7 +200,7 @@ This is useful when the surface you have isn't an <code>SDLx::Surface</code>, bu
  $sdlx_surface-&gt;update( [ SDL::Rect-&gt;new(0,0,1,2) ... ]); # defined rects are updated
 
 </pre>
-<p>Applies <a href="/SDL-Video.html#update_rect">SDL::Video::update_rect</a> for no rect or 1 array ref. Applies <a href="/SDL-Video.html#update_rects">SDL::Video::update_rects</a> for array of <a href="SDL-Rect.html">SDL::Rect</a>s. </p>
+<p>Applies <a href="SDL-Video::update_rect.html">SDL::Video::update_rect</a> for no rect or 1 array ref. Applies <a href="SDL-Video::update_rects.html">SDL::Video::update_rects</a> for array of <a href="SDL-Rect.html">SDL::Rect</a>s. </p>
 <p>Returns $self</p>
 
 

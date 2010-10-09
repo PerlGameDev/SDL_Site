@@ -63,7 +63,7 @@ every frame.  Given a <a href="http://search.cpan.org/perldoc?SDLx::App">SDLx::A
 a <a href="SDL-Color.html">SDL::Color</a> <code>$color</code>, you only have to create a new SDL::Rect <code>$bg</code>,
 representing the whole of the background surface and a new mapped color 
 <code>$bg_color</code>, representing the background color.  The colors need to be mapped 
-to the format of the current display. This is done by <a href="/SDL-Video.html#map_RGB">SDL::Video::map_RGB</a>.</p>
+to the format of the current display. This is done by <a href="SDL-Video::map_RGB.html">SDL::Video::map_RGB</a>.</p>
 <p>&nbsp;</p>
 <p>my $color = SDL::Video::map_RGB (
 	 $app-&gt;format,

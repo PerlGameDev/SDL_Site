@@ -178,7 +178,7 @@ No prior initialization needs to be done before these function is called. </p>
 
 </pre>
 <p>Initialize the truetype font API.
-This must be called before using other functions in this library, except <a href="/SDL-TTF.html#was_init">SDL::TTF::was_init</a> and <a href="/SDL-TTF.html#linked_version">SDL::TTF::linked_version</a>.
+This must be called before using other functions in this library, except <a href="SDL-TTF::was_init.html">SDL::TTF::was_init</a> and <a href="SDL-TTF::linked_version.html">SDL::TTF::linked_version</a>.
 SDL does not have to be initialized before this call.</p>
 <p>Returns: <code>0</code> on success, <code>-1</code> on any error.</p>
 
@@ -189,8 +189,8 @@ SDL does not have to be initialized before this call.</p>
 
 </pre>
 <p>Query the initilization status of the truetype font API.
-You may, of course, use this before <a href="/SDL-TTF.html#init">SDL::TTF::init</a> to avoid initializing twice in a row. Or use this to determine if you need to call 
-<a href="/SDL-TTF.html#quit">SDL::TTF::quit</a>.</p>
+You may, of course, use this before <a href="SDL-TTF::init.html">SDL::TTF::init</a> to avoid initializing twice in a row. Or use this to determine if you need to call 
+<a href="SDL-TTF::quit.html">SDL::TTF::quit</a>.</p>
 
 </div>
 <h3 id="quit">quit</h3>
@@ -199,7 +199,7 @@ You may, of course, use this before <a href="/SDL-TTF.html#init">SDL::TTF::init<
 
 </pre>
 <p>Shutdown and cleanup the truetype font API.
-After calling this the SDL::TTF functions should not be used, excepting <a href="/SDL-TTF.html#was_init">SDL::TTF::was_init</a>. You may, of course, use <a href="/SDL-TTF.html#init">SDL::TTF::init</a> to 
+After calling this the SDL::TTF functions should not be used, excepting <a href="SDL-TTF::was_init.html">SDL::TTF::was_init</a>. You may, of course, use <a href="SDL-TTF::init.html">SDL::TTF::init</a> to 
 use the functionality again</p>
 
 </div>
@@ -228,7 +228,7 @@ use the functionality again</p>
 <pre> my $font = SDL::TTF::open_font($font_file, $point_size, $face_index);
 
 </pre>
-<p>This is the same as <a href="/SDL-TTF.html#open_font">SDL::TTF::open_font</a>, except you can specify the face index of a font file containing multiple faces. 
+<p>This is the same as <a href="SDL-TTF::open_font.html">SDL::TTF::open_font</a>, except you can specify the face index of a font file containing multiple faces. 
 This can load TTF and FON files. </p>
 
 </div>
@@ -237,7 +237,7 @@ This can load TTF and FON files. </p>
 <pre> my $font = SDL::TTF::open_font_RW($rwops_object, $free, $point_size);
 
 </pre>
-<p>This is the same as <a href="/SDL-TTF.html#open_font">SDL::TTF::open_font</a>, except you can pass an <a href="SDL-RWOps.html">SDL::RWOps</a>-object. If you pass true as <code>$free</code>, the <a href="SDL-RWOps.html">SDL::RWOps</a>-object
+<p>This is the same as <a href="SDL-TTF::open_font.html">SDL::TTF::open_font</a>, except you can pass an <a href="SDL-RWOps.html">SDL::RWOps</a>-object. If you pass true as <code>$free</code>, the <a href="SDL-RWOps.html">SDL::RWOps</a>-object
 will be freed by SDL_ttf library. Don't do this, perl will free this object for you.</p>
 <p>Example:</p>
 <pre> my $font = SDL::TTF::open_font_RW(SDL::RWOps-&gt;new_file($font_file, 'r'), 0, 24);
@@ -250,7 +250,7 @@ will be freed by SDL_ttf library. Don't do this, perl will free this object for 
 <pre> my $font = SDL::TTF::open_font_index_RW($rwops_object, $free, $point_size, $face_index);
 
 </pre>
-<p>This is the same as <a href="/SDL-TTF.html#open_font_index">SDL::TTF::open_font_index</a>, except you can pass an <a href="SDL-RWOps.html">SDL::RWOps</a>-object. If you pass true as <code>$free</code>, the 
+<p>This is the same as <a href="SDL-TTF::open_font_index.html">SDL::TTF::open_font_index</a>, except you can pass an <a href="SDL-RWOps.html">SDL::RWOps</a>-object. If you pass true as <code>$free</code>, the 
 <a href="SDL-RWOps.html">SDL::RWOps</a>-object will be freed by SDL_ttf library. Don't do this, perl will free this object for you.</p>
 
 </div>
@@ -405,7 +405,7 @@ overlapping glyphs or abnormal spacing within words.</p>
 </pre>
 <p>Get the maximum pixel height of all glyphs of the loaded font. You may use this height for rendering text as close together vertically as 
 possible, though adding at least one pixel height to it will space it so they can't touch. Remember that SDL_ttf doesn't handle multiline 
-printing, so you are responsible for line spacing, see the <a href="/SDL-TTF.html#font_line_skip">SDL::TTF::font_line_skip</a> as well.</p>
+printing, so you are responsible for line spacing, see the <a href="SDL-TTF::font_line_skip.html">SDL::TTF::font_line_skip</a> as well.</p>
 
 </div>
 <h4 id="font_ascent">font_ascent</h4>
@@ -447,7 +447,7 @@ of the rectangle used when blitting the glyph on the screen.</p>
 <pre> my $font_line_skip = SDL::TTF::font_line_skip($font);
 
 </pre>
-<p>Get the recommended pixel height of a rendered line of text of the loaded font. This is usually larger than the <a href="/SDL-TTF.html#font_height">SDL::TTF::font_height</a> of the 
+<p>Get the recommended pixel height of a rendered line of text of the loaded font. This is usually larger than the <a href="SDL-TTF::font_height.html">SDL::TTF::font_height</a> of the 
 font.</p>
 
 </div>
@@ -545,7 +545,7 @@ in the font is the same width, thus you can assume that a rendered string's widt
 
 </pre>
 <p>Calculate the resulting surface size of the LATIN1 encoded text rendered using <code>$font</code>. No actual rendering is done, however correct kerning 
-is done to get the actual width. The height returned is the same as you can get using <a href="/SDL-TTF.html#font_height">SDL::TTF::font_height</a>.</p>
+is done to get the actual width. The height returned is the same as you can get using <a href="SDL-TTF::font_height.html">SDL::TTF::font_height</a>.</p>
 
 </div>
 <h4 id="size_utf8">size_utf8</h4>
@@ -554,7 +554,7 @@ is done to get the actual width. The height returned is the same as you can get 
 
 </pre>
 <p>Calculate the resulting surface size of the UTF8 encoded text rendered using <code>$font</code>. No actual rendering is done, however correct kerning is 
-done to get the actual width. The height returned in h is the same as you can get using <a href="/SDL-TTF.html#font_height">SDL::TTF::font_height</a>.</p>
+done to get the actual width. The height returned in h is the same as you can get using <a href="SDL-TTF::font_height.html">SDL::TTF::font_height</a>.</p>
 <p>Note that the first example uses the same text as in the LATIN1 example, that is because plain ASCII is UTF8 compatible.</p>
 <p>Examples:</p>
 <pre> ($width, $height) = @{ SDL::TTF::size_utf8($font, 'Hallo World!') }; # plain text, if your script is in utf8 or ansi-format
@@ -578,7 +578,7 @@ done to get the actual width. The height returned in h is the same as you can ge
 
 </pre>
 <p>Calculate the resulting surface size of the UNICODE encoded text rendered using <code>$font</code>. No actual rendering is done, however correct kerning 
-is done to get the actual width. The height returned in h is the same as you can get using <a href="/SDL-TTF.html#font_height">SDL::TTF::font_height</a>.</p>
+is done to get the actual width. The height returned in h is the same as you can get using <a href="SDL-TTF::font_height.html">SDL::TTF::font_height</a>.</p>
 <p><code>$text</code> has to be:</p>
 <dl>
 	<dt>UTF16BE without BOM</dt>
@@ -611,7 +611,7 @@ is done to get the actual width. The height returned in h is the same as you can
 
 </pre>
 <p>Render the unicode encoded char onto a new surface, using the Solid mode. After that you can blit this surface to your display-surface.</p>
-<p><strong>Note</strong>: The unicode char has to be passed exactly like for <a href="/SDL-TTF.html#size_unicode">SDL::TTF::size_unicode</a>.</p>
+<p><strong>Note</strong>: The unicode char has to be passed exactly like for <a href="SDL-TTF::size_unicode.html">SDL::TTF::size_unicode</a>.</p>
 <p><strong>Note</strong>: <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=374062">See space-character bug</a>. You have to upgrade libfreetype2 to at least version 2.3.5</p>
 
 </div>
@@ -660,7 +660,7 @@ version 2.3.5</p>
 
 </pre>
 <p>Render the unicode encoded text onto a new surface, using the Solid mode. After that you can blit this surface to your display-surface.</p>
-<p><strong>Note</strong>: The unicode test has to be passed exactly like for <a href="/SDL-TTF.html#size_unicode">SDL::TTF::size_unicode</a>.</p>
+<p><strong>Note</strong>: The unicode test has to be passed exactly like for <a href="SDL-TTF::size_unicode.html">SDL::TTF::size_unicode</a>.</p>
 <p><strong>Note</strong>: <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=374062">See space-character bug</a>. You have to upgrade libfreetype2 to at least 
 version 2.3.5</p>
 
@@ -676,7 +676,7 @@ version 2.3.5</p>
 </pre>
 <p>Render the unicode encoded char onto a new surface. The surface is filled with <code>$background_color</code>. After that you can blit this surface to 
 your display-surface.</p>
-<p><strong>Note</strong>: The unicode char has to be passed exactly like for <a href="/SDL-TTF.html#size_unicode">SDL::TTF::size_unicode</a>.</p>
+<p><strong>Note</strong>: The unicode char has to be passed exactly like for <a href="SDL-TTF::size_unicode.html">SDL::TTF::size_unicode</a>.</p>
 
 </div>
 <h4 id="render_text_shaded">render_text_shaded</h4>
@@ -727,7 +727,7 @@ your display-surface.</p>
 </pre>
 <p>Render the unicode encoded text onto a new surface. The surface is filled with <code>$background_color</code>. After that you can blit this surface to 
 your display-surface.</p>
-<p><strong>Note</strong>: The unicode text has to be passed exactly like for <a href="/SDL-TTF.html#size_unicode">SDL::TTF::size_unicode</a>.</p>
+<p><strong>Note</strong>: The unicode text has to be passed exactly like for <a href="SDL-TTF::size_unicode.html">SDL::TTF::size_unicode</a>.</p>
 
 </div>
 <h3 id="Blended">Blended</h3>
@@ -740,7 +740,7 @@ your display-surface.</p>
 
 </pre>
 <p>Render the unicode encoded char onto a new surface. After that you can blit this surface to your display-surface.</p>
-<p><strong>Note</strong>: The unicode char has to be passed exactly like for <a href="/SDL-TTF.html#size_unicode">SDL::TTF::size_unicode</a>.</p>
+<p><strong>Note</strong>: The unicode char has to be passed exactly like for <a href="SDL-TTF::size_unicode.html">SDL::TTF::size_unicode</a>.</p>
 
 </div>
 <h4 id="render_text_blended">render_text_blended</h4>
@@ -786,7 +786,7 @@ your display-surface.</p>
 
 </pre>
 <p>Render the unicode encoded text onto a new surface. After that you can blit this surface to your display-surface.</p>
-<p><strong>Note</strong>: The unicode char has to be passed exactly like for <a href="/SDL-TTF.html#size_unicode">SDL::TTF::size_unicode</a>.</p>
+<p><strong>Note</strong>: The unicode char has to be passed exactly like for <a href="SDL-TTF::size_unicode.html">SDL::TTF::size_unicode</a>.</p>
 
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>

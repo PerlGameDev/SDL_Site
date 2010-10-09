@@ -122,7 +122,7 @@ SDL_YVYU_OVERLAY  0x55595659  /* Packed mode: Y0+V0+Y1+U0 */</dt>
 <div id="pixels_CONTENT">
 <p>As of release 2.3 direct right to overlay is disable. </p>
 <p>An array of pointers to the data of each plane. The overlay should be locked before these pointers are used.</p>
-<p>see <a href="/SDL-Video.html#lock_YUV_overlay">SDL::Video::lock_YUV_overlay</a>, <a href="/SDL-Video.html#unload_YUV_overlay">SDL::Video::unload_YUV_overlay</a></p>
+<p>see <a href="SDL-Video::lock_YUV_overlay.html">SDL::Video::lock_YUV_overlay</a>, <a href="SDL-Video::unload_YUV_overlay.html">SDL::Video::unload_YUV_overlay</a></p>
 
 </div>
 <h2 id="hw_overlay">hw_overlay</h2>

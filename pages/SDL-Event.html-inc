@@ -263,7 +263,7 @@ and when a key is pressed (<code>type=SDL_KEYDOWN</code> or <code>key_state=SDL_
 then an <code>SDL_RELEASED</code> when released and pressed again. For these keys <code>KEYUP</code> and <code>KEYDOWN</code> events are therefore 
 analogous to the state of the caps lock and num lock LEDs rather than the keys themselves. 
 These special cases are required for compatibility with Sun workstations.</p>
-<p><strong>Note:</strong> Repeating <code>SDL_KEYDOWN</code> events will occur if key repeat is enabled (see <b>enable_key_repeat</b> (<b>&amp;quot;enable_key_repeat&amp;quot;</b> in <cite>SDL::EVENTS</cite>)). </p>
+<p><strong>Note:</strong> Repeating <code>SDL_KEYDOWN</code> events will occur if key repeat is enabled (see <a href="/SDL-Events.html#enable_key_repeat">enable_key_repeat</a>). </p>
 
 </div>
 <h3 id="key_state">key_state</h3>
@@ -303,7 +303,7 @@ This field is very useful when you are checking for certain key presses, like so
 </div>
 <h3 id="key_unicode">key_unicode</h3>
 <div id="key_unicode_CONTENT">
-<p>The <code>unicode</code> field is only used when UNICODE translation is enabled with <b>enable_unicode</b> (<b>&amp;quot;enable_unicode&amp;quot;</b> in <cite>SDL::EVENTS</cite>). 
+<p>The <code>unicode</code> field is only used when UNICODE translation is enabled with <a href="/SDL-Events.html#enable_unicode">enable_unicode</a>. 
 If <code>unicode</code> is non-zero then this is the UNICODE character corresponding to the keypress. 
 If the high 9 bits of the character are 0, then this maps to the equivalent ASCII character:</p>
 <pre> my $char;
@@ -332,7 +332,7 @@ button states (<code>motion_state</code>).</p>
 </div>
 <h3 id="motion_state">motion_state</h3>
 <div id="motion_state_CONTENT">
-<p>The button state can be interpreted using the <code>SDL_BUTTON</code> macro (see <b>get_mouse_state</b> (<b>&amp;quot;get_mouse_state&amp;quot;</b> in <cite>SDL::EVENTS</cite>)). </p>
+<p>The button state can be interpreted using the <code>SDL_BUTTON</code> macro (see <a href="/SDL-Events.html#get_mouse_state">get_mouse_state</a>). </p>
 
 </div>
 <h3 id="motion_x_motion_y">motion_x, motion_y</h3>
@@ -554,7 +554,7 @@ screen updates will still report success even though the application will no lon
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

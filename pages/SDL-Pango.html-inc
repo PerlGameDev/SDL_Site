@@ -132,7 +132,7 @@
 <pre> SDL::Pango::init();
 
 </pre>
-<p>Initialize the Glib and Pango API. This must be called before using other functions in this library, excepting <a href="/SDL-Pango.html#was_init">SDL::Pango::was_init</a>. 
+<p>Initialize the Glib and Pango API. This must be called before using other functions in this library, excepting <a href="SDL-Pango::was_init.html">SDL::Pango::was_init</a>. 
 SDL does not have to be initialized before this call.</p>
 <p>Returns: always <code>0</code>. </p>
 
@@ -142,7 +142,7 @@ SDL does not have to be initialized before this call.</p>
 <pre> my $was_init = SDL::Pango::was_init();
 
 </pre>
-<p>Query the initilization status of the Glib and Pango API. You may, of course, use this before <a href="/SDL-Pango.html#init">SDL::Pango::init</a> to avoid initilizing twice 
+<p>Query the initilization status of the Glib and Pango API. You may, of course, use this before <a href="SDL-Pango::init.html">SDL::Pango::init</a> to avoid initilizing twice 
 in a row.</p>
 <p>Returns: Non-zero when already initialized. Zero when not initialized.</p>
 
@@ -250,7 +250,7 @@ background.</p>
 <pre> SDL::Pango::set_surface_create_args($context, $flags, $bits, $r_mask, $g_mask, $b_mask, $a_mask);
 
 </pre>
-<p>Sets the argumet that are used when creating a surface via <a href="/SDL-Pango.html#create_surface_draw">SDL::Pango::create_surface_draw</a>.</p>
+<p>Sets the argumet that are used when creating a surface via <a href="SDL-Pango::create_surface_draw.html">SDL::Pango::create_surface_draw</a>.</p>
 <p>Example:</p>
 <pre> SDL::Pango::set_surface_create_args(
      $context, 
@@ -270,7 +270,7 @@ background.</p>
 <pre> my $surface = SDL::Pango::create_surface_draw($context);
 
 </pre>
-<p>Creates a new surface and draws the text/markup. You can specify the attributes of the surfaces using <a href="/SDL-Pango.html#set_surface_create_args">SDL::Pango::set_surface_create_args</a>.</p>
+<p>Creates a new surface and draws the text/markup. You can specify the attributes of the surfaces using <a href="SDL-Pango::set_surface_create_args.html">SDL::Pango::set_surface_create_args</a>.</p>
 
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>

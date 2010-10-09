@@ -309,7 +309,7 @@ However, if you are not polling or waiting for events (e.g. you are filtering th
 <div id="poll_event_event_CONTENT">
 <p>Polls for currently pending events. </p>
 <p>If $event is not NULL, the next event is removed from the queue and stored in the <a href="SDL-Event.html">SDL::Event</a> structure pointed to by $event.</p>
-<p>As this function implicitly calls pump_events, you can only call this function in the thread that set the video mode with <a href="/SDL-Video.html#set_video_mode">SDL::Video::set_video_mode</a>. </p>
+<p>As this function implicitly calls pump_events, you can only call this function in the thread that set the video mode with <a href="SDL-Video::set_video_mode.html">SDL::Video::set_video_mode</a>. </p>
 
 </div>
 <h3 id="RETURN-2">RETURN</h3>
@@ -335,7 +335,7 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 <div id="wait_event_event_CONTENT">
 <p>Waits indefinitely for the next available $event, returning 0 if there was an error while waiting for events, 1 otherwise.</p>
 <p>If $event is not NULL, the next event is removed from the queue and stored in $event.</p>
-<p>As this function implicitly calls SDL_PumpEvents, you can only call this function in the thread that  <a href="/SDL-Video.html#set_video_mode">SDL::Video::set_video_mode</a>.  </p>
+<p>As this function implicitly calls SDL_PumpEvents, you can only call this function in the thread that  <a href="SDL-Video::set_video_mode.html">SDL::Video::set_video_mode</a>.  </p>
 
 </div>
 <h3 id="RETURN-4">RETURN</h3>
@@ -361,7 +361,7 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 </pre>
 <p>to filter the event return a 0, to pass the filter return a 1. </p>
 <p>One <strong>Caveat</strong> is if you are filtering SDL_QUIT the event will be filtered if it is non-intterupt call ( Window closes normally ). If it is a interrupt SDL_QUIT it will be process on the next event poll. </p>
-<p>Events pushed onto to the queue with <a href="/SDL-Events.html#push_events">SDL::Events::push_events</a> or <a href="/SDL-Events.html#peep_events">SDL::Events::peep_events</a> do not get filtered.</p>
+<p>Events pushed onto to the queue with <a href="SDL-Events::push_events.html">SDL::Events::push_events</a> or <a href="SDL-Events::peep_events.html">SDL::Events::peep_events</a> do not get filtered.</p>
 <p>This callback may run in a different thread. </p>
 
 </div>
@@ -373,7 +373,7 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 	print $keys_ref-&gt;[SDLK_RETURN]; # 1 if pressed , 0 if not pressed
 
 </pre>
-<p>Use <a href="/SDL-Events.html#pump_events">SDL::Events::pump_events</a> to update the state array.</p>
+<p>Use <a href="SDL-Events::pump_events.html">SDL::Events::pump_events</a> to update the state array.</p>
 <p>This function gives you the current state after all events have been processed, so if a key or button has been pressed and released before you process events, then the pressed state will never show up in the get_key_state call.</p>
 <p>This function doesn't take into account whether shift has been pressed or not.</p>
 
@@ -437,12 +437,12 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 <h2 id="set_mod_state">set_mod_state</h2>
 <div id="set_mod_state_CONTENT">
 <p>Get the state of the modifier keys</p>
-<p>The inverse of <a href="/SDL-Events.html#get_mod_state">SDL::Events::get_mod_state</a> allows you to impose modifier key states on your application.</p>
+<p>The inverse of <a href="SDL-Events::get_mod_state.html">SDL::Events::get_mod_state</a> allows you to impose modifier key states on your application.</p>
 <p>Simply pass your desired modifier states into $modstate. This value can be a OR'd combination of any KMOD* constant.</p>
 <pre> my $modstate = KMOD_LMETA | KMOD_LSHIFT;
 
 </pre>
-<p>Any KMOD_* constant see <a href="/SDL-Events.html#get_mod_state">SDL::Events::get_mod_state</a> for constants.
+<p>Any KMOD_* constant see <a href="SDL-Events::get_mod_state.html">SDL::Events::get_mod_state</a> for constants.
  SDL::Events::set_mod_state( $modstate );</p>
 
 </div>
@@ -495,7 +495,7 @@ The event is copied into the queue, and the caller may dispose of the memory poi
      $previous_translation_mode = SDL::Events::enable_unicode( 0 ); #disables
 
 </pre>
-<p>To obtain the character codes corresponding to received keyboard events, Unicode translation must first be turned on using this function. The translation incurs a slight overhead for each keyboard event and is therefore disabled by default. For each subsequently recieved key down event, the unicode member of the <a href="/SDL-Event.html#key_sym">SDL::Event::key_sym</a> provided structure will be then contain the corresponding character code, or otherwise zero.</p>
+<p>To obtain the character codes corresponding to received keyboard events, Unicode translation must first be turned on using this function. The translation incurs a slight overhead for each keyboard event and is therefore disabled by default. For each subsequently recieved key down event, the unicode member of the <a href="SDL-Event::key_sym.html">SDL::Event::key_sym</a> provided structure will be then contain the corresponding character code, or otherwise zero.</p>
 <p>A value of 1 for enabling, 0 for disabling and -1 for unchanged. -1 is usefull for querying the current translation mode.</p>
 <p>Only key press events will be translated not release events.</p>
 <p>Returns the previous translation mode as (1,0).</p>

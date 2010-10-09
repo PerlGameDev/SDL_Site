@@ -148,10 +148,10 @@ HAM6, HAM8, and 24bit types are not supported. </p>
 
 </pre>
 <p>$file Image file name to load a surface from. </p>
-<p>Load file for use as an image in a new <a href="SDL-Surface.html">SDL::Surface</a>. This actually calls <code>IMG_LoadTyped_RW</code> the binded function to <a href="/SDL-Image.html#load_typed_rw">SDL::Image::load_typed_rw</a>, with the file extension used as the type string. This can load all supported image files, including TGA as long as the filename ends with &quot;.tga&quot;. It is best to call this outside of event loops, and rather keep the loaded images around until you are really done with them, as disk speed and image conversion to a surface is not that speedy.  
-Note: If the image format loader requires initialization, it will attempt to do that the first time it is needed if you have not already called <a href="/SDL-Image.html#init">SDL::Image::init</a> to load support for your image format.
+<p>Load file for use as an image in a new <a href="SDL-Surface.html">SDL::Surface</a>. This actually calls <code>IMG_LoadTyped_RW</code> the binded function to <a href="SDL-Image::load_typed_rw.html">SDL::Image::load_typed_rw</a>, with the file extension used as the type string. This can load all supported image files, including TGA as long as the filename ends with &quot;.tga&quot;. It is best to call this outside of event loops, and rather keep the loaded images around until you are really done with them, as disk speed and image conversion to a surface is not that speedy.  
+Note: If the image format loader requires initialization, it will attempt to do that the first time it is needed if you have not already called <a href="SDL-Image::init.html">SDL::Image::init</a> to load support for your image format.
 Note: If the image format supports a transparent pixel, <a href="SDL-Image.html">SDL::Image</a> will set the colorkey for the surface. You can enable RLE acceleration on the surface afterwards by calling:
-<a href="/SDL-Video.html#set_color_key">SDL::Video::set_color_key</a></p>
+<a href="SDL-Video::set_color_key.html">SDL::Video::set_color_key</a></p>
 <pre>  my $image = SDL::Image::load( $some_png_file );
   SDL::Video::set_color_key($image, SDL_RLEACCEL, $image-&gt;format-&gt;colorkey);
 
@@ -160,7 +160,7 @@ Note: If the image format supports a transparent pixel, <a href="SDL-Image.html"
 </div>
 <h3 id="Return">Return</h3>
 <div id="Return_CONTENT">
-<p>An image as a <a href="SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors, such as no support built for the image, or a file reading error. Use <a href="/SDL.html#get_error">SDL::get_error</a> to get cause of error.</p>
+<p>An image as a <a href="SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors, such as no support built for the image, or a file reading error. Use <a href="SDL::get_error.html">SDL::get_error</a> to get cause of error.</p>
 
 </div>
 <h2 id="load_typed_rw">load_typed_rw</h2>
@@ -202,9 +202,9 @@ Note: If the image format supports a transparent pixel, <a href="SDL-Image.html"
 	</dd>
 </dl>
 <p>Load src for use as a surface. This can load all supported image formats. This method does not guarantee that the format specified by type is the format of the loaded image, except in the case when TGA format is specified (or any other non-magicable format in the future). Using SDL_RWops is not covered here, but they enable you to load from almost any source.
-Note: If the image format loader requires initialization, it will attempt to do that the first time it is needed if you have not already called <a href="/SDL-Image.html#init">SDL::Image::init</a> to load support for your image format.
+Note: If the image format loader requires initialization, it will attempt to do that the first time it is needed if you have not already called <a href="SDL-Image::init.html">SDL::Image::init</a> to load support for your image format.
 Note: If the image format supports a transparent pixel, <a href="SDL-Image.html">SDL::Image</a> will set the colorkey for the surface. You can enable RLE acceleration on the surface afterwards by calling:
-<a href="/SDL-Video.html#set_color_key">SDL::Video::set_color_key</a></p>
+<a href="SDL-Video::set_color_key.html">SDL::Video::set_color_key</a></p>
 
 </div>
 <h3 id="Transparency">Transparency </h3>
@@ -425,7 +425,7 @@ Note: this function does not always set the error string, so do not depend on SD
 <h2 id="quit">quit</h2>
 <div id="quit_CONTENT">
 <p><strong>For version SDL_image 1.2.10 and up</strong></p>
-<p>This function cleans up all dynamically loaded library handles, freeing memory. If support is required again it will be initialized again, either by <a href="/SDL-Image.html#init">SDL::Image::init</a> or loading an image with dynamic support required. You may call this function when <a href="/SDL-Image.html#load">SDL::Image::load</a> functions are no longer needed for the JPG, PNG, and TIF image formats. You only need to call this function once, no matter how many times <a href="/SDL-Image.html#init">SDL::Image::init</a> was called. </p>
+<p>This function cleans up all dynamically loaded library handles, freeing memory. If support is required again it will be initialized again, either by <a href="SDL-Image::init.html">SDL::Image::init</a> or loading an image with dynamic support required. You may call this function when <a href="SDL-Image::load.html">SDL::Image::load</a> functions are no longer needed for the JPG, PNG, and TIF image formats. You only need to call this function once, no matter how many times <a href="SDL-Image::init.html">SDL::Image::init</a> was called. </p>
 
 </div>
 <h3 id="Example-6">Example</h3>
@@ -440,12 +440,12 @@ Note: this function does not always set the error string, so do not depend on SD
 </div>
 <h2 id="set_error">set_error</h2>
 <div id="set_error_CONTENT">
-<p>Same as <a href="/SDL.html#set_error">SDL::set_error</a></p>
+<p>Same as <a href="SDL::set_error.html">SDL::set_error</a></p>
 
 </div>
 <h2 id="get_error">get_error</h2>
 <div id="get_error_CONTENT">
-<p>Same as <a href="/SDL.html#get_error">SDL::get_error</a></p>
+<p>Same as <a href="SDL::get_error.html">SDL::get_error</a></p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

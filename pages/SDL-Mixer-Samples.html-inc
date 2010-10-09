@@ -54,7 +54,7 @@
 <pre> my $mix_chunk = SDL::Mixer::Samples::load_WAV( $file );
 
 </pre>
-<p><code>load_WAV</code> reads a file and passes it to <a href="/SDL-Mixer-Samples.html#load_WAV_RW">SDL::Mixer::Samples::load_WAV_RW</a>. SO this is a quick way to load a file into a chunk.</p>
+<p><code>load_WAV</code> reads a file and passes it to <a href="SDL-Mixer-Samples::load_WAV_RW.html">SDL::Mixer::Samples::load_WAV_RW</a>. SO this is a quick way to load a file into a chunk.</p>
 <p>Example:</p>
 <pre> my $chunk = SDL::Mixer::Samples::load_WAV('sample.wav');
 

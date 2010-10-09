@@ -109,7 +109,7 @@ space. When a processor is finished being used, any function passed into <code>$
 </pre>
 <p>Remove the registered effect function from the effect list for channel.
 If the channel is active the registered effect will have its <code>$done_callback</code> function called, if it was specified in 
-<a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a>.</p>
+<a href="SDL-Mixer-Effects::register.html">SDL::Mixer::Effects::register</a>.</p>
 <p>Returns: Zero on errors, such as invalid channel, or effect function not registered on channel. </p>
 <p><strong>Note</strong>: Do not use this on a threaded perl. This will crash.</p>
 
@@ -120,7 +120,7 @@ If the channel is active the registered effect will have its <code>$done_callbac
 
 </pre>
 <p>This removes all effects registered to <code>$channel</code>. If the channel is active all the registered effects will have their <code>$done_callback</code> 
-functions called, if they were specified in <a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a>.</p>
+functions called, if they were specified in <a href="SDL-Mixer-Effects::register.html">SDL::Mixer::Effects::register</a>.</p>
 <p>Returns: Zero on errors, such as channel not existing. </p>
 <p><strong>Note</strong>: Do not use this on a threaded perl. This will crash.</p>
 
@@ -132,8 +132,8 @@ functions called, if they were specified in <a href="/SDL-Mixer-Effects.html#reg
 </pre>
 <p>Hook a processor function to the postmix stream for post processing effects. You may just be reading the data and displaying it, or you may be 
 altering the stream to add an echo. This processor is never really finished, until you call it without arguments.
-There can only be one postmix function used at a time through this method. Use <a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a> with MIX_CHANNEL_POST to use multiple postmix processors.
-This postmix processor is run AFTER all the registered postmixers set up by <a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a>. </p>
+There can only be one postmix function used at a time through this method. Use <a href="SDL-Mixer-Effects::register.html">SDL::Mixer::Effects::register</a> with MIX_CHANNEL_POST to use multiple postmix processors.
+This postmix processor is run AFTER all the registered postmixers set up by <a href="SDL-Mixer-Effects::register.html">SDL::Mixer::Effects::register</a>. </p>
 <p><strong>Note</strong>: Do not use this on a threaded perl. This will crash.</p>
 
 </div>
@@ -144,7 +144,7 @@ This postmix processor is run AFTER all the registered postmixers set up by <a h
 </pre>
 <p>This effect simulates a simple attenuation of volume due to distance. The volume never quite reaches silence, even at max distance (<code>255</code>).</p>
 <p>NOTE: Using a distance of <code>0</code> will cause the effect to unregister itself from channel. You cannot unregister it any other way, unless you use 
-<a href="/SDL-Mixer-Effects.html#unregister_all">SDL::Mixer::Effects::unregister_all</a> on the channel.</p>
+<a href="SDL-Mixer-Effects::unregister_all.html">SDL::Mixer::Effects::unregister_all</a> on the channel.</p>
 <p>Returns: Zero on errors, such as an invalid channel, or if Mix_RegisterEffect failed. </p>
 
 </div>
@@ -153,11 +153,11 @@ This postmix processor is run AFTER all the registered postmixers set up by <a h
 <pre> SDL::Mixer::Effects::set_panning( $channel, $left, $right );
 
 </pre>
-<p>This effect will only work on stereo audio. Meaning you called <a href="/SDL-Mixer.html#open_audio">SDL::Mixer::open_audio</a> with 2 channels. </p>
+<p>This effect will only work on stereo audio. Meaning you called <a href="SDL-Mixer::open_audio.html">SDL::Mixer::open_audio</a> with 2 channels. </p>
 <p><strong>Note</strong>: Setting both left and right to 255 will unregister the effect from channel. You cannot unregister it any other way, unless you use 
-<a href="/SDL-Mixer-Effects.html#unregister_all">SDL::Mixer::Effects::unregister_all</a> on the channel.</p>
+<a href="SDL-Mixer-Effects::unregister_all.html">SDL::Mixer::Effects::unregister_all</a> on the channel.</p>
 <p><strong>Note</strong>: Using this function on a mono audio device will not register the effect, nor will it return an error status.</p>
-<p>Returns: Zero on errors, such as bad channel, or if <a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a> failed. </p>
+<p>Returns: Zero on errors, such as bad channel, or if <a href="SDL-Mixer-Effects::register.html">SDL::Mixer::Effects::register</a> failed. </p>
 
 </div>
 <h2 id="set_position">set_position</h2>
@@ -178,7 +178,7 @@ angle and distance from the camera's point of view, the effect pans and attenuat
 <p>So you can see it goes clockwise starting at directly in front.</p>
 <p><code>$distance</code> is <code>0</code>(close/loud) to <code>255</code>(far/quiet).</p>
 <p><strong>Note</strong>: Using angle and distance of <code>0</code>, will cause the effect to unregister itself from channel. You cannot unregister it any other way, 
-unless you use <a href="/SDL-Mixer-Effects.html#unregister_all">SDL::Mixer::Effects::unregister_all</a> on the channel.</p>
+unless you use <a href="SDL-Mixer-Effects::unregister_all.html">SDL::Mixer::Effects::unregister_all</a> on the channel.</p>
 <p>Returns: Zero on errors, such as an invalid channel, or if <code>SDL::Mixer::Effects::register</code> failed. </p>
 
 </div>
@@ -189,7 +189,7 @@ unless you use <a href="/SDL-Mixer-Effects.html#unregister_all">SDL::Mixer::Effe
 </pre>
 <p>If you pass <code>1</code> to <code>$flip</code> it simple reverse stereo, swaps left and right channel sound.</p>
 <p><strong>Note</strong>: Using a flip of <code>0</code>, will cause the effect to unregister itself from channel. You cannot unregister it any other way, unless you use 
-<a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a> on the channel. </p>
+<a href="SDL-Mixer-Effects::register.html">SDL::Mixer::Effects::register</a> on the channel. </p>
 
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
