@@ -166,21 +166,21 @@ which union member relates to which event <code>type</code>.</p>
 <p>Available type constants:</p>
 <ul>
 		<li><a href="#Application_visibility_events">SDL_ACTIVEEVENT</a> - Application visibility event structure 	</li>
-		<li><a href="#active">SDL_KEYDOWN</a> - Keyboard event structure 	</li>
-		<li><a href="#active">SDL_KEYUP</a> - Keyboard event structure 	</li>
-		<li><a href="#active">SDL_MOUSEMOTION</a> - Mouse motion event structure 	</li>
-		<li><a href="#active">SDL_MOUSEBUTTONDOWN</a> - Mouse button event structure 	</li>
-		<li><a href="#button">SDL_MOUSEBUTTONUP</a> - Mouse button event structure 	</li>
-		<li><a href="#active">SDL_JOYAXISMOTION</a> - Joystick axis motion event structure 	</li>
-		<li><a href="#active">SDL_JOYBALLMOTION</a> - Joystick trackball motion event structure 	</li>
-		<li><a href="#active">SDL_JOYHATMOTION</a> - Joystick hat position change event structure 	</li>
-		<li><a href="#active">SDL_JOYBUTTONDOWN</a> - Joystick button event structure 	</li>
-		<li><a href="#active">SDL_JOYBUTTONUP</a> - Joystick button event structure 	</li>
-		<li><a href="#active">SDL_VIDEORESIZE</a> - Window resize event structure 	</li>
-		<li><a href="#active">SDL_VIDEOEXPOSE</a> - Window expose event 	</li>
-		<li><a href="#active">SDL_QUIT</a> - Quit requested event 	</li>
-		<li><a href="#active">SDL_USEREVENT</a> - A user-defined event type 	</li>
-		<li><a href="#active">SDL_SYSWMEVENT</a> - Platform-dependent window manager event. </li>
+		<li><a href="#Keyboard_events">SDL_KEYDOWN</a> - Keyboard event structure 	</li>
+		<li><a href="#Keyboard_events">SDL_KEYUP</a> - Keyboard event structure 	</li>
+		<li><a href="#Mouse_motion_events">SDL_MOUSEMOTION</a> - Mouse motion event structure 	</li>
+		<li><a href="#Mouse_button_events">SDL_MOUSEBUTTONDOWN</a> - Mouse button event structure 	</li>
+		<li><a href="#Mouse_button_events">SDL_MOUSEBUTTONUP</a> - Mouse button event structure 	</li>
+		<li><a href="#Joystick_axis_events">SDL_JOYAXISMOTION</a> - Joystick axis motion event structure 	</li>
+		<li><a href="#Joystrick_trackball_events">SDL_JOYBALLMOTION</a> - Joystick trackball motion event structure 	</li>
+		<li><a href="#Joystick_hat_events">SDL_JOYHATMOTION</a> - Joystick hat position change event structure 	</li>
+		<li><a href="#Joystick_button_events">SDL_JOYBUTTONDOWN</a> - Joystick button event structure 	</li>
+		<li><a href="#Joystick_button_events">SDL_JOYBUTTONUP</a> - Joystick button event structure 	</li>
+		<li><a href="#Window_resize_events">SDL_VIDEORESIZE</a> - Window resize event structure 	</li>
+		<li><a href="#Window_expose_events">SDL_VIDEOEXPOSE</a> - Window expose event 	</li>
+		<li><a href="#Quit_event">SDL_QUIT</a> - Quit requested event 	</li>
+		<li><a href="#User_defined_events">SDL_USEREVENT</a> - A user-defined event type 	</li>
+		<li><a href="#System_window_manager_events">SDL_SYSWMEVENT</a> - Platform-dependent window manager event. </li>
 </ul>
 
 <p>Event types are grouped by masks. <code>SDL_EVENTMASK($type)</code> will return the proper mask for the given <code>type</code>.</p>
@@ -263,7 +263,7 @@ and when a key is pressed (<code>type=SDL_KEYDOWN</code> or <code>key_state=SDL_
 then an <code>SDL_RELEASED</code> when released and pressed again. For these keys <code>KEYUP</code> and <code>KEYDOWN</code> events are therefore 
 analogous to the state of the caps lock and num lock LEDs rather than the keys themselves. 
 These special cases are required for compatibility with Sun workstations.</p>
-<p><strong>Note:</strong> Repeating <code>SDL_KEYDOWN</code> events will occur if key repeat is enabled (see <code>SDL_EnableKeyRepeat</code>). </p>
+<p><strong>Note:</strong> Repeating <code>SDL_KEYDOWN</code> events will occur if key repeat is enabled (see <b>enable_key_repeat</b> (<b>enable_key_repeat</b> in <cite>SDL::EVENTS</cite>)). </p>
 
 </div>
 <h3 id="key_state">key_state</h3>
@@ -303,7 +303,7 @@ This field is very useful when you are checking for certain key presses, like so
 </div>
 <h3 id="key_unicode">key_unicode</h3>
 <div id="key_unicode_CONTENT">
-<p>The <code>unicode</code> field is only used when UNICODE translation is enabled with SDL_EnableUNICODE. 
+<p>The <code>unicode</code> field is only used when UNICODE translation is enabled with <b>enable_unicode</b> (<b>enable_unicode</b> in <cite>SDL::EVENTS</cite>). 
 If <code>unicode</code> is non-zero then this is the UNICODE character corresponding to the keypress. 
 If the high 9 bits of the character are 0, then this maps to the equivalent ASCII character:</p>
 <pre> my $char;
@@ -332,7 +332,7 @@ button states (<code>motion_state</code>).</p>
 </div>
 <h3 id="motion_state">motion_state</h3>
 <div id="motion_state_CONTENT">
-<p>The button state can be interpreted using the <code>SDL_BUTTON</code> macro (see SDL_GetMouseState). </p>
+<p>The button state can be interpreted using the <code>SDL_BUTTON</code> macro (see <b>get_mouse_state</b> (<b>get_mouse_state</b> in <cite>SDL::EVENTS</cite>)). </p>
 
 </div>
 <h3 id="motion_x_motion_y">motion_x, motion_y</h3>
@@ -350,9 +350,9 @@ This is currently only implemented on Windows and Linux/Unix-alikes.</p>
 </div>
 <h2 id="Mouse_button_events">Mouse button events</h2>
 <div id="Mouse_button_events_CONTENT">
-<p>When a mouse button press or release is detected the number of the button pressed (from 1 to 255, 
-with 1 usually being the left button and 2 the right) is placed into <code>button_button</code>, the position of the mouse 
-when this event occured is stored in the <code>button_x</code> and the <code>button_y</code> fields. Like SDL_KeyboardEvent, 
+<p>When a mouse button press or release is detected, the number of the button pressed (from 1 to 255, 
+with 1 usually being the left button and 2 the right) is placed into <code>button_button</code>. The position of the mouse 
+when this event occured is stored in the <code>button_x</code> and the <code>button_y</code> fields. Like a keyboard event,
 information on whether the event was a press or a release event is stored in both the <code>button_type</code> 
 and <code>button_state</code> fields, but this should be obvious.</p>
 <p>Mouse wheel events are reported as buttons 4 (up) and 5 (down). Two events are generated i.e. you get 
