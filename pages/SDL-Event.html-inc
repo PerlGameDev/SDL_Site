@@ -165,7 +165,7 @@ which union member relates to which event <code>type</code>.</p>
 </pre>
 <p>Available type constants:</p>
 <ul>
-		<li><a href="#active">SDL_ACTIVEEVENT</a> - Application visibility event structure 	</li>
+		<li><a href="#Application_visibility_events">SDL_ACTIVEEVENT</a> - Application visibility event structure 	</li>
 		<li><a href="#active">SDL_KEYDOWN</a> - Keyboard event structure 	</li>
 		<li><a href="#active">SDL_KEYUP</a> - Keyboard event structure 	</li>
 		<li><a href="#active">SDL_MOUSEMOTION</a> - Mouse motion event structure 	</li>
@@ -525,8 +525,8 @@ the event queue using <code>SDL::Events::push_event</code>. The contents of the 
 programmer, the only requirement is that type is a value from <code>SDL_USEREVENT</code> to <code>SDL_NUMEVENTS-1</code> (inclusive)</p>
 <pre> my $event = SDL::Event-&gt;new();
     $event-&gt;type ( SDL_USEREVENT + 3 );
-    $event-&gt;event_code(10);
-    $event-&gt;data1('hello event');
+    $event-&gt;user_code(10);
+    $event-&gt;user_data1('hello event');
 
  SDL::Events::push_event($event);
 
