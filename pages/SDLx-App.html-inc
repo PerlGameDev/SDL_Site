@@ -70,12 +70,12 @@
     }
 
 </pre>
-<p>An alternative to the manual Event processing is through the <a href="http://search.cpan.org/perldoc?SDLx::Controller">SDLx::Controller</a> module. <a href="http://search.cpan.org/perldoc?SDLx::App">SDLx::App</a> is a Controller so see the CALLBACKS section below.</p>
+<p>An alternative to the manual Event processing is through the <a href="SDLx-Controller.html">SDLx::Controller</a> module. <a href="SDLx-App.html">SDLx::App</a> is a Controller so see the CALLBACKS section below.</p>
 
 </div>
 <h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="DESCRIPTION_CONTENT">
-<p><a href="http://search.cpan.org/perldoc?SDLx::App">SDLx::App</a> controls the root window of the of your SDL based application.
+<p><a href="SDLx-App.html">SDLx::App</a> controls the root window of the of your SDL based application.
 It extends the <a href="SDL-Surface.html">SDL::Surface</a> class, and provides an interface to the window
 manager oriented functions.</p>
 
@@ -213,12 +213,12 @@ always returns the current value of the given attribute, or Carp::confesss on fa
   $app-&gt;run();
 
 </pre>
-<p>see <a href="http://search.cpan.org/perldoc?SDLx::Controller">SDLx::Controller</a> for more details.</p>
+<p>see <a href="SDLx-Controller.html">SDLx::Controller</a> for more details.</p>
 
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

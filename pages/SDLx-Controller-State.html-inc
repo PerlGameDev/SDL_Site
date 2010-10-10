@@ -1,0 +1,117 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#new">new()</a></li>
+<li><a href="#new_x_y_v_x_v_y_rotation_ang_v">new( $x, $y, $v_x, $v_y, $rotation, $ang_v )</a></li>
+</ul>
+</li>
+<li><a href="#ACCESSORS">ACCESSORS</a>
+<ul><li><a href="#x">x</a></li>
+<li><a href="#y">y</a></li>
+<li><a href="#v_x">v_x</a></li>
+<li><a href="#v_y">v_y</a></li>
+<li><a href="#rotation">rotation</a></li>
+<li><a href="#ang_v">ang_v</a></li>
+<li><a href="#AUTHORS">AUTHORS</a>
+</li>
+</ul>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDLx::Controller::State - the state of a SDLx::Controller::Interface</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>Extension, Controller</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>  # you'll most likely get a State object from a SDLx::Controller::Interface
+  # object. Just in case, here's how you would construct one by hand:
+  my $state1 = SDLx::Controller::State-&gt;new;
+  my $state2 = SDLx::Controller::State-&gt;new( $x, $y, $v_x, $v_y, $rotation, $ang_v );
+
+  # attributes are just simple accessors:
+  $state-&gt;x(10);
+  $state-&gt;x;      # 10
+
+  # same goes for the rest:
+  $state-&gt;y;
+  $state-&gt;ang_v;
+
+  # etc.
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p>A state object is a simple container for any given state inside a running
+<a href="SDLx-Controller-Interface.html">SDLx::Controller::Interface</a> instance.</p>
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="new">new()</h2>
+<div id="new_CONTENT">
+
+</div>
+<h2 id="new_x_y_v_x_v_y_rotation_ang_v">new( $x, $y, $v_x, $v_y, $rotation, $ang_v )</h2>
+<div id="new_x_y_v_x_v_y_rotation_ang_v_CONTE">
+<p>Creates a new state container object. Can optionally set the initial value
+of all its attributes (see below).</p>
+
+</div>
+<h1 id="ACCESSORS">ACCESSORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="ACCESSORS_CONTENT">
+
+</div>
+<h2 id="x">x</h2>
+<div id="x_CONTENT">
+<p>Accessor to get/set the x value, usually used to position the item or check for collisions.</p>
+
+</div>
+<h2 id="y">y</h2>
+<div id="y_CONTENT">
+<p>Accessor to get/set the y value, usually used to position the item or check for collisions.</p>
+
+</div>
+<h2 id="v_x">v_x</h2>
+<div id="v_x_CONTENT">
+<p>Accessor to get/set the x velocity of the instance, for moving objects dynamically.</p>
+
+</div>
+<h2 id="v_y">v_y</h2>
+<div id="v_y_CONTENT">
+<p>Accessor to get/set the y velocity of the instance, for moving objects dynamically.</p>
+
+</div>
+<h2 id="rotation">rotation</h2>
+<div id="rotation_CONTENT">
+<p>Accessor to get/set the rotation of the object, in degrees (0..360).</p>
+
+</div>
+<h2 id="ang_v">ang_v</h2>
+<div id="ang_v_CONTENT">
+<p>Accessor to get/set the angular velocity, for rotating objects dynamically.</p>
+
+</div>
+<h2 id="AUTHORS">AUTHORS</h2>
+<div id="AUTHORS_CONTENT">
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a></p>
+
+</div>
+</div>

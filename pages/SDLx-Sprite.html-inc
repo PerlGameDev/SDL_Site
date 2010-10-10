@@ -196,7 +196,7 @@ library has support for GFX (see <a href="http://search.cpan.org/perldoc?Alien::
 	</dd>
 	<dt>* alpha_key =&gt; SDL::Color</dt>
 	<dd>
-		<p>MUST CALL <a href="SDL-Video::get_video_mode.html">SDL::Video::get_video_mode</a> prior to this. </p>
+		<p>MUST CALL <a href="/SDL-Video.html#get_video_mode">SDL::Video::get_video_mode</a> prior to this. </p>
 		<p>Uses the provided <a href="SDL-Color.html">SDL::Color</a> object (or an array reference with red,
 green and blue values) as the color to be turned into transparent
 (see 'alpha' below).</p>
@@ -329,7 +329,7 @@ destination rect (position) from rect().</p>
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

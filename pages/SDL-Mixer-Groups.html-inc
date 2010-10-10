@@ -46,14 +46,14 @@ The channels are reserved starting from channel <code>0</code> to <code>$num-1</
 without any channels reserved.</p>
 <p>The following functions are affected by this setting: </p>
 <ul>
-		<li><a href="SDL-Mixer-Channels::play_channel.html">SDL::Mixer::Channels::play_channel</a>	</li>
-		<li><a href="SDL-Mixer-Channels::play_channel_timed.html">SDL::Mixer::Channels::play_channel_timed</a>	</li>
-		<li><a href="SDL-Mixer-Channels::fade_in_channel.html">SDL::Mixer::Channels::fade_in_channel</a>	</li>
-		<li><a href="SDL-Mixer-Channels::fade_in_channel_timed.html">SDL::Mixer::Channels::fade_in_channel_timed</a></li>
+		<li><a href="/SDL-Mixer-Channels.html#play_channel">SDL::Mixer::Channels::play_channel</a>	</li>
+		<li><a href="/SDL-Mixer-Channels.html#play_channel_timed">SDL::Mixer::Channels::play_channel_timed</a>	</li>
+		<li><a href="/SDL-Mixer-Channels.html#fade_in_channel">SDL::Mixer::Channels::fade_in_channel</a>	</li>
+		<li><a href="/SDL-Mixer-Channels.html#fade_in_channel_timed">SDL::Mixer::Channels::fade_in_channel_timed</a></li>
 </ul>
 
 <p>Returns: The number of channels reserved. Never fails, but may return less channels than you ask for, depending on the number of channels 
-previously allocated (see <a href="SDL-Mixer-Channels::allocate_channels.html">SDL::Mixer::Channels::allocate_channels</a>).</p>
+previously allocated (see <a href="/SDL-Mixer-Channels.html#allocate_channels">SDL::Mixer::Channels::allocate_channels</a>).</p>
 
 </div>
 <h2 id="group_channel">group_channel</h2>
@@ -126,7 +126,7 @@ previously allocated (see <a href="SDL-Mixer-Channels::allocate_channels.html">S
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 </div>

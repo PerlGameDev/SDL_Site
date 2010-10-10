@@ -132,7 +132,7 @@ SDL_YVYU_OVERLAY  0x55595659  /* Packed mode: Y0+V0+Y1+U0 */</dt>
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 </div>

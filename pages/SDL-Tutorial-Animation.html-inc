@@ -59,7 +59,7 @@ frame and saving and restoring the background for every object drawn.</p>
 <div id="Redrawing_the_Screen_CONTENT">
 <p>Since you have to draw the screen in the right order once to start with it's
 pretty easy to make this into a loop and redraw things in the right order for
-every frame.  Given a <a href="http://search.cpan.org/perldoc?SDLx::App">SDLx::App</a> object <code>$app</code>, a <a href="SDL-Rect.html">SDL::Rect</a> <code>$rect</code>, and
+every frame.  Given a <a href="SDLx-App.html">SDLx::App</a> object <code>$app</code>, a <a href="SDL-Rect.html">SDL::Rect</a> <code>$rect</code>, and
 a <a href="SDL-Color.html">SDL::Color</a> <code>$color</code>, you only have to create a new SDL::Rect <code>$bg</code>,
 representing the whole of the background surface and a new mapped color 
 <code>$bg_color</code>, representing the background color.  The colors need to be mapped 
@@ -193,7 +193,7 @@ them soon.</p>
 <div id="AUTHOR_CONTENT">
 <p>chromatic, &lt;chromatic@wgz.org&gt;</p>
 <p>Written for and maintained by the Perl SDL project, <a href="http://sdl.perl.org/">http://sdl.perl.org/</a>.
-See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 <h1 id="BUGS">BUGS</h1><p><a href="#TOP" class="toplink">Top</a></p>

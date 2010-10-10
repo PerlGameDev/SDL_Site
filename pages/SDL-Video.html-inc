@@ -615,7 +615,7 @@ filled.</p>
 <p>If you call this on the video surface (ie: the value of <a href="#get_video_surface">SDL::Video::get_video_surface</a>) you may have to update the video 
 surface to see the result. This can happen if you are using a shadowed surface that is not double buffered in Windows XP using build 1.2.9. </p>
 <p><code>SDL::Video::fill_rect</code> returns <code>0</code> on success or <code>-1</code> on error.</p>
-<p>for an example see <a href="#SYNOPSIS">SYNOPSIS</a>.</p>
+<p>for an example see <a href="http://search.cpan.org/perldoc?">http://search.cpan.org/perldoc?</a>.</p>
 
 </div>
 <h1 id="Surface_Locking_and_Unlocking">Surface Locking and Unlocking</h1><p><a href="#TOP" class="toplink">Top</a></p>
@@ -1443,7 +1443,7 @@ is experimental).</p>
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

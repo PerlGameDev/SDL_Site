@@ -47,7 +47,7 @@
 <pre> my $music = SDL::Mixer::Music::load_MUS( $file );
 
 </pre>
-<p><code>load_MUS</code> loads a music file into a <code>SDL::Mixer::MixMusic</code> structure. This can be passed to <b>play_music</b> (<b>play_music</b> in <cite>SDL::Mixer::Music</cite>).</p>
+<p><code>load_MUS</code> loads a music file into a <code>SDL::Mixer::MixMusic</code> structure. This can be passed to <a href="/SDL-Mixer-Music.html#play_music">play_music</a>.</p>
 
 </div>
 <h2 id="hook_music">hook_music</h2>
@@ -62,7 +62,7 @@ The music player will then be called automatically when the mixer needs it. Musi
 All the music playing and stopping functions have no effect on music after this. Pause and resume will work. 
 Using a custom music player and the internal music player is not possible, the custom music player takes priority. </p>
 <p>To stop the custom music player call <code>hook_music()</code> without arguments.</p>
-<p><strong>Note</strong>: NEVER call <code>SDL::Mixer</code> functions, nor <b>SDL::Audio::lock</b> (<b>lock</b> in <cite>SDL::Audio</cite>), from a callback function.</p>
+<p><strong>Note</strong>: NEVER call <code>SDL::Mixer</code> functions, nor <a href="/SDL-Audio.html#lock">SDL::Audio::lock</a>, from a callback function.</p>
 <p><strong>Note</strong>: At program termination also call <code>SDL::Mixer::Music::hook_music()</code> to stop this callback.</p>
 <p>Example:</p>
 <pre> sub callback
@@ -91,9 +91,10 @@ Using a custom music player and the internal music player is not possible, the c
 <pre> SDL::Mixer::Music::hook_music_finished( 'main::callback' );
 
 </pre>
-<p>This callback is called when music called by e.g. <a href="SDL-Mixer-Music::play_music.html">SDL::Mixer::Music::play_music</a> or <a href="SDL-Mixer-Music::fade_in_music.html">SDL::Mixer::Music::fade_in_music</a> stops naturally. 
+<p>This callback is called when music called by e.g. <a href="/SDL-Mixer-Music.html#play_music">SDL::Mixer::Music::play_music</a> or 
+<a href="/SDL-Mixer-Music.html#fade_in_music">SDL::Mixer::Music::fade_in_music</a> stops naturally. 
 This happens when the music is over or is fading out.</p>
-<p><strong>Note</strong>: If you play music via <a href="SDL-Mixer-Music::hook_music.html">SDL::Mixer::Music::hook_music</a>, this callback will never be called.</p>
+<p><strong>Note</strong>: If you play music via <a href="/SDL-Mixer-Music.html#hook_music">SDL::Mixer::Music::hook_music</a>, this callback will never be called.</p>
 <p>Example:</p>
 <pre> my $music_is_playing = 0;
  my @music            = qw(first.mp3 next.mp3 other.mp3 last.mp3);
@@ -122,7 +123,7 @@ This happens when the music is over or is fading out.</p>
 <pre> my $position = SDL::Mixer::Music::get_music_hook_data();
 
 </pre>
-<p>Returns the <code>position</code> (first) parameter that will be passed to <a href="SDL-Mixer-Music::hook_music.html">SDL::Mixer::Music::hook_music</a>'s callback.</p>
+<p>Returns the <code>position</code> (first) parameter that will be passed to <a href="/SDL-Mixer-Music.html#hook_music">SDL::Mixer::Music::hook_music</a>'s callback.</p>
 
 </div>
 <h2 id="play_music">play_music</h2>
@@ -148,7 +149,7 @@ Passing -1 to <code>$loops</code> will loop the music infinitely. </p>
 <pre> my $music = SDL::Mixer::Music::fade_in_music( $mix_music, $loops, $ms );
 
 </pre>
-<p>Same as <a href="SDL-Mixer-Music::play_music.html">SDL::Mixer::Music::play_music</a> but you can specify the fade-in time by <code>$ms</code>.</p>
+<p>Same as <a href="/SDL-Mixer-Music.html#play_music">SDL::Mixer::Music::play_music</a> but you can specify the fade-in time by <code>$ms</code>.</p>
 
 </div>
 <h2 id="fade_out_music">fade_out_music</h2>
@@ -242,7 +243,7 @@ Passing zero is similar to rewinding the song. </p>
 	<dt>MP3</dt>
 	<dd>
 		<p>Jumps to position seconds from the current position in the stream.
-So you may want to call <a href="SDL-Mixer-Music::rewind_music.html">SDL::Mixer::Music::rewind_music</a> before this.
+So you may want to call <a href="/SDL-Mixer-Music.html#rewind_music">SDL::Mixer::Music::rewind_music</a> before this.
 Does not go in reverse... negative values do nothing. </p>
 	</dd>
 </dl>
@@ -267,7 +268,7 @@ Does not go in reverse... negative values do nothing. </p>
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 </div>
