@@ -48,28 +48,29 @@
 </div>
 <h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="SYNOPSIS_CONTENT">
-<pre>  use SDLx::Controller;
+<pre> use SDLx::Controller;
 
-  # create our controller object
-  my $app = SDLx::Controller-&gt;new;
+ # create our controller object
+ my $app = SDLx::Controller-&gt;new;
 
-  # register some callbacks
-  $app-&gt;add_event_handler( \&amp;on_event );
-  $app-&gt;add_move_handler( \&amp;on_move );
-  $app-&gt;add_show_handler( \&amp;on_show );
+ # we could also do:
+ my $app = SDLx::App-&gt;new;
+ # because App is also a controller
 
-  # run our game loop
-  $app-&gt;run;
+ # register some callbacks
+ $app-&gt;add_event_handler( \&amp;on_event );
+ $app-&gt;add_move_handler( \&amp;on_move );
+ $app-&gt;add_show_handler( \&amp;on_show );
 
-
-
+ # run our game loop
+ $app-&gt;run;
 
 </pre>
 
 </div>
 <h2 id="DESCRIPTION">DESCRIPTION</h2>
 <div id="DESCRIPTION_CONTENT">
-<p>The core of a SDL application/game is the main loop, where you handle events
+<p>The core of an SDL application/game is the main loop, where you handle events
 and display your elements on the screen until something signals the end of
 the program. This usually goes in the form of:</p>
 <pre>  while (1) {
@@ -109,10 +110,10 @@ It is only when you change the <code>dt</code> without changing all the things i
 If you lower the <code>dt</code>, everything will move faster than it did with it set higher, and vice-versa.
 This is useful to add slo-mo and fast-forward features to the game, all you would have to do is change the <code>dt</code>.</p>
 <p><code>min_t</code> specifies the minimum time, in seconds, that has to accumulate before any move or show handlers are called, and defaults to 1 / 60.
-Having the <code>min_t</code> to 1 / 60 ensures that the controller can update the screen at a maximum of 60 times per second.
+Having the <code>min_t</code> at 1 / 60 ensures that the controller can update the screen at a maximum of 60 times per second.
 A &quot;V-Sync&quot; such as this is necessary to prevent video &quot;tear&quot;, which occurs when the app is updating faster than the monitor can display.
-Setting it to 0, as in the example, will let the app run as fast as it possibly can.</p>
-<p><code>event</code> is a SDL::Event object that events going to the event callbacks are polled in to. Defaults to <code>SDL::Event-&gt;new()</code>.</p>
+Setting it to 0, as seen above, will let the app run as fast as it possibly can.</p>
+<p><code>event</code> is a SDL::Event object that events going to the event callbacks are polled in to. It defaults to <code>SDL::Event-&gt;new()</code>.</p>
 <p>All parameters are optional.</p>
 <p>Returns the new object.</p>
 
@@ -142,17 +143,22 @@ Note that the second argument every callback recieves is the <code>SDLx::Control
 <p>Takes 1 argument which is a callback. The application waits for the next event with <code>wait_event</code>.
 When one is recieved, it is passed to the callback as the first argument, along with the <code>SDLx::Controller</code> object as the second argument.
 If the callback then returns a true value, <code>pause</code> will return.
-If the callback returns a false value, <code>pause</code> will indefinitely wait for more events, repeating the process, until the callback returns true.</p>
+If the callback returns a false value, <code>pause</code> will repeat the process.</p>
 <p>This can be used to easily implement a pause when the app loses focus:</p>
-<pre> sub focus {
-     my ($e, $controller) = @_;
-     if($e-&gt;type == SDL_ACTIVEEVENT) {
+<pre> sub window {
+     my ($e, $app) = @_;
+     if($e-&gt;type == SDL_QUIT) {
+		 $app-&gt;stop;
+         # quit handling is here so that the app
+         # can be stopped while paused
+     }
+     elsif($e-&gt;type == SDL_ACTIVEEVENT) {
          if($e-&gt;active_state &amp; SDL_APPINPUTFOCUS) {
              if($e-&gt;active_gain) {
                  return 1;
              }
              else {
-                 $controller-&gt;pause(\&amp;focus);
+                 $app-&gt;pause(\&amp;window);
                  # recursive, but only once since the window
                  # can't lose focus again without gaining is first
              }
@@ -178,10 +184,10 @@ The second is the <code>SDLx::Controller</code> object.</p>
 <pre> sub stop {
     my ($event, $app) = @_;
     if($event-&gt;type == SDL_QUIT) {
-        $controller-&gt;stop;
+        $app-&gt;stop;
     }
  }
- $controller-&gt;add_event_handler(\&amp;stop);
+ $app-&gt;add_event_handler(\&amp;stop);
 
 </pre>
 
@@ -195,7 +201,7 @@ and once more for any remaining time less than <code>dt</code>.
 The first argument passed to the callbacks is the portion of the step, which will be 1 for a full step, and less than 1 for a partial step.
 Movement values should be multiplied by this value.
 The full steps correspond to the amount of <code>dt</code> passed between calls, and the partial step corresponds to the call with the remaining time less than <code>dt</code>.
-The argument can be 0 if no time has passed since the last cycle. Set a <code>min_t</code> if you need to protect against this.</p>
+The argument can be 0 if no time has passed since the last cycle. If you need to protect against this, set a <code>min_t</code>, or put a <code>return unless $_[0]</code> at the start of every move handler.</p>
 <p>The second argument passed to the callbacks is the <code>SDLx::Controller</code> object.
 The third is the total amount of time passed since the call of <code>run</code>.</p>
 <p>You should use these handlers to update your in-game objects, check collisions, etc.
@@ -214,7 +220,7 @@ so you can check and/or update it as necessary.</p>
 <p>Register a callback to render objects. You can add as many subs as you need.
 Returns the order queue number of the added callback.
 All registered callbacks will be triggered in order, once per run of the <code>run</code> loop.</p>
-<p>The first argument passed is the number of ticks since the previous call.
+<p>The first argument passed is the time, in seconds, since the previous call.
 The second is the <code>SDLx::Controller</code> object.</p>
 <pre> sub show_ball {
      my ($delta, $app) = @_;
