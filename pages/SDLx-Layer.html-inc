@@ -238,7 +238,7 @@ If you omit <code>$x</code> and <code>$y</code> the layer obtains them via SDL::
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 <h1 id="COPYRIGHT">COPYRIGHT</h1><p><a href="#TOP" class="toplink">Top</a></p>

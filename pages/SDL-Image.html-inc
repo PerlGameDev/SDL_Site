@@ -101,7 +101,8 @@ This is NOT the same as XBM(X11 Bitmap) format, which is for monocolor images. <
 	<dt>XCF</dt>
 	<dd>
 		<p>GIMP native (.xcf) (XCF = eXperimental Computing Facility?)
-This format is always changing, and since there's no library supplied by the GIMP project to load XCF, the loader may frequently fail to load much of any image from an XCF file. It's better to load this in GIMP and convert to a better supported image format. </p>
+This format is always changing, and since there's no library supplied by the GIMP project to load XCF, the loader may frequently fail to load much 
+of any image from an XCF file. It's better to load this in GIMP and convert to a better supported image format. </p>
 	</dd>
 	<dt>PCX</dt>
 	<dd>
@@ -121,8 +122,7 @@ This format is always changing, and since there's no library supplied by the GIM
 	</dd>
 	<dt>LBM</dt>
 	<dd>
-		<p>Interleaved Bitmap (.lbm or .iff) FORM : ILBM or PBM(packed bitmap)
-HAM6, HAM8, and 24bit types are not supported. </p>
+		<p>Interleaved Bitmap (.lbm or .iff) FORM : ILBM or PBM(packed bitmap), HAM6, HAM8, and 24bit types are not supported. </p>
 	</dd>
 	<dt>PNG</dt>
 	<dd>
@@ -148,10 +148,15 @@ HAM6, HAM8, and 24bit types are not supported. </p>
 
 </pre>
 <p>$file Image file name to load a surface from. </p>
-<p>Load file for use as an image in a new <a href="SDL-Surface.html">SDL::Surface</a>. This actually calls <code>IMG_LoadTyped_RW</code> the binded function to <a href="/SDL-Image.html#load_typed_rw">SDL::Image::load_typed_rw</a>, with the file extension used as the type string. This can load all supported image files, including TGA as long as the filename ends with &quot;.tga&quot;. It is best to call this outside of event loops, and rather keep the loaded images around until you are really done with them, as disk speed and image conversion to a surface is not that speedy.  
-Note: If the image format loader requires initialization, it will attempt to do that the first time it is needed if you have not already called <a href="/SDL-Image.html#init">SDL::Image::init</a> to load support for your image format.
-Note: If the image format supports a transparent pixel, <a href="SDL-Image.html">SDL::Image</a> will set the colorkey for the surface. You can enable RLE acceleration on the surface afterwards by calling:
-<a href="/SDL-Video.html#set_color_key">SDL::Video::set_color_key</a></p>
+<p>Load file for use as an image in a new <a href="SDL-Surface.html">SDL::Surface</a>. This actually calls <a href="/SDL-Image.html#load_typed_rw">SDL::Image::load_typed_rw</a>, with the 
+file extension used as the type string. This can load all supported image files, including TGA as long as the filename ends with &quot;.tga&quot;. It is 
+best to call this outside of event loops, and rather keep the loaded images around until you are really done with them, as disk speed and image 
+conversion to a surface is not that speedy.  </p>
+<p><strong>Note</strong>: If the image format loader requires initialization, it will attempt to do that the first time it is needed if you have not already called 
+<a href="/SDL-Image.html#init">SDL::Image::init</a> to load support for your image format.</p>
+<p><strong>Note</strong>: If the image format supports a transparent pixel, <a href="SDL-Image.html">SDL::Image</a> will set the colorkey for the surface. You can enable RLE acceleration on 
+the surface afterwards by calling:</p>
+<p><a href="/SDL-Video.html#set_color_key">SDL::Video::set_color_key</a></p>
 <pre>  my $image = SDL::Image::load( $some_png_file );
   SDL::Video::set_color_key($image, SDL_RLEACCEL, $image-&gt;format-&gt;colorkey);
 
@@ -160,7 +165,8 @@ Note: If the image format supports a transparent pixel, <a href="SDL-Image.html"
 </div>
 <h3 id="Return">Return</h3>
 <div id="Return_CONTENT">
-<p>An image as a <a href="SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors, such as no support built for the image, or a file reading error. Use <a href="/SDL.html#get_error">SDL::get_error</a> to get cause of error.</p>
+<p>An image as a <a href="SDL-Surface.html">SDL::Surface</a>. NULL is returned on errors, such as no support built for the image, or a file reading error. Use 
+<a href="/SDL.html#get_error">SDL::get_error</a> to get cause of error.</p>
 
 </div>
 <h2 id="load_typed_rw">load_typed_rw</h2>
@@ -175,7 +181,8 @@ Note: If the image format supports a transparent pixel, <a href="SDL-Image.html"
 	</dd>
 	<dt>freesrc</dt>
 	<dd>
-		<p>A non-zero value mean is will automatically close/free the src for you. Since SDL Perl cannot handle the memory inside this function you would most likely want 1 here.</p>
+		<p>A non-zero value mean is will automatically close/free the src for you. Since SDL Perl cannot handle the memory inside this function you would most 
+likely want 1 here.</p>
 	</dd>
 	<dt>type</dt>
 	<dd>
@@ -201,10 +208,13 @@ Note: If the image format supports a transparent pixel, <a href="SDL-Image.html"
 		</p>
 	</dd>
 </dl>
-<p>Load src for use as a surface. This can load all supported image formats. This method does not guarantee that the format specified by type is the format of the loaded image, except in the case when TGA format is specified (or any other non-magicable format in the future). Using SDL_RWops is not covered here, but they enable you to load from almost any source.
-Note: If the image format loader requires initialization, it will attempt to do that the first time it is needed if you have not already called <a href="/SDL-Image.html#init">SDL::Image::init</a> to load support for your image format.
-Note: If the image format supports a transparent pixel, <a href="SDL-Image.html">SDL::Image</a> will set the colorkey for the surface. You can enable RLE acceleration on the surface afterwards by calling:
-<a href="/SDL-Video.html#set_color_key">SDL::Video::set_color_key</a></p>
+<p>Load src for use as a surface. This can load all supported image formats. This method does not guarantee that the format specified by type is the 
+format of the loaded image, except in the case when TGA format is specified (or any other non-magicable format in the future). Using SDL_RWops is 
+not covered here, but they enable you to load from almost any source.</p>
+<p><strong>Note</strong>: If the image format loader requires initialization, it will attempt to do that the first time it is needed if you have not already called 
+<a href="/SDL-Image.html#init">SDL::Image::init</a> to load support for your image format.</p>
+<p><strong>Note</strong>: If the image format supports a transparent pixel, <a href="SDL-Image.html">SDL::Image</a> will set the colorkey for the surface. You can enable RLE acceleration on 
+the surface afterwards by calling: <a href="/SDL-Video.html#set_color_key">SDL::Video::set_color_key</a></p>
 
 </div>
 <h3 id="Transparency">Transparency </h3>
@@ -402,10 +412,13 @@ Note: If the image format supports a transparent pixel, <a href="SDL-Image.html"
 	<dt>IMG_INIT_PNG </dt>
 	<dt>IMG_INIT_TIF</dt>
 </dl>
-<p>Initialize by loading support as indicated by the flags, or at least return success if support is already loaded. You may call this multiple times, which will actually require you to call IMG_Quit just once to clean up. You may call this function with a 0 to retrieve whether support was built-in or not loaded yet.
-Note: to load JPG, PNG, and/or TIF images you can call IMG_Init with the right IMG_INIT_* flags OR'd together before you program gets busy, to prevent a later hiccup while it loads the library, and to check that you do have the support that you need before you try and use it.
-Note: No initialization is needed nor performed when using the SDL::Image::is_JPG, SDL::Image::is_PNG, and SDL::Image::is_TIF functions.
-Note: this function does not always set the error string, so do not depend on SDL::Image::get_error being meaningful all the time.  </p>
+<p>Initialize by loading support as indicated by the flags, or at least return success if support is already loaded. You may call this multiple times, 
+which will actually require you to call IMG_Quit just once to clean up. You may call this function with a 0 to retrieve whether support was built-in 
+or not loaded yet.</p>
+<p><strong>Note</strong>: to load JPG, PNG, and/or TIF images you can call IMG_Init with the right IMG_INIT_* flags OR'd together before you program gets busy, to 
+prevent a later hiccup while it loads the library, and to check that you do have the support that you need before you try and use it.</p>
+<p><strong>Note</strong>: No initialization is needed nor performed when using the SDL::Image::is_JPG, SDL::Image::is_PNG, and SDL::Image::is_TIF functions.</p>
+<p><strong>Note</strong>: this function does not always set the error string, so do not depend on SDL::Image::get_error being meaningful all the time.  </p>
 
 </div>
 <h3 id="Return-7">Return</h3>
@@ -425,7 +438,10 @@ Note: this function does not always set the error string, so do not depend on SD
 <h2 id="quit">quit</h2>
 <div id="quit_CONTENT">
 <p><strong>For version SDL_image 1.2.10 and up</strong></p>
-<p>This function cleans up all dynamically loaded library handles, freeing memory. If support is required again it will be initialized again, either by <a href="/SDL-Image.html#init">SDL::Image::init</a> or loading an image with dynamic support required. You may call this function when <a href="/SDL-Image.html#load">SDL::Image::load</a> functions are no longer needed for the JPG, PNG, and TIF image formats. You only need to call this function once, no matter how many times <a href="/SDL-Image.html#init">SDL::Image::init</a> was called. </p>
+<p>This function cleans up all dynamically loaded library handles, freeing memory. If support is required again it will be initialized again, either 
+by <a href="/SDL-Image.html#init">SDL::Image::init</a> or loading an image with dynamic support required. You may call this function when 
+<a href="/SDL-Image.html#load">SDL::Image::load</a> functions are no longer needed for the JPG, PNG, and TIF image formats. You only need to call this function 
+once, no matter how many times <a href="/SDL-Image.html#init">SDL::Image::init</a> was called. </p>
 
 </div>
 <h3 id="Example-6">Example</h3>
@@ -455,7 +471,7 @@ Note: this function does not always set the error string, so do not depend on SD
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 </div>

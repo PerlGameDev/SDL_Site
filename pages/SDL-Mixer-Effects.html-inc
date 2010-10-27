@@ -132,7 +132,8 @@ functions called, if they were specified in <a href="/SDL-Mixer-Effects.html#reg
 </pre>
 <p>Hook a processor function to the postmix stream for post processing effects. You may just be reading the data and displaying it, or you may be 
 altering the stream to add an echo. This processor is never really finished, until you call it without arguments.
-There can only be one postmix function used at a time through this method. Use <a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a> with MIX_CHANNEL_POST to use multiple postmix processors.
+There can only be one postmix function used at a time through this method. Use <a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a> 
+with MIX_CHANNEL_POST to use multiple postmix processors.
 This postmix processor is run AFTER all the registered postmixers set up by <a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a>. </p>
 <p><strong>Note</strong>: Do not use this on a threaded perl. This will crash.</p>
 
@@ -179,7 +180,7 @@ angle and distance from the camera's point of view, the effect pans and attenuat
 <p><code>$distance</code> is <code>0</code>(close/loud) to <code>255</code>(far/quiet).</p>
 <p><strong>Note</strong>: Using angle and distance of <code>0</code>, will cause the effect to unregister itself from channel. You cannot unregister it any other way, 
 unless you use <a href="/SDL-Mixer-Effects.html#unregister_all">SDL::Mixer::Effects::unregister_all</a> on the channel.</p>
-<p>Returns: Zero on errors, such as an invalid channel, or if <code>SDL::Mixer::Effects::register</code> failed. </p>
+<p>Returns: Zero on errors, such as an invalid channel, or if <a href="/SDL-Mixer-Effects.html#register">SDL::Mixer::Effects::register</a> failed. </p>
 
 </div>
 <h2 id="set_reverse_stereo">set_reverse_stereo</h2>
@@ -194,7 +195,7 @@ unless you use <a href="/SDL-Mixer-Effects.html#unregister_all">SDL::Mixer::Effe
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 </div>

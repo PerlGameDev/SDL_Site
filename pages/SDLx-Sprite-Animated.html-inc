@@ -139,7 +139,7 @@ If you care, please join the discussion on the #sdl IRC channel in
 </div>
 <h1 id="ATTRIBUTES_AND_METHODS">ATTRIBUTES AND METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="ATTRIBUTES_AND_METHODS_CONTENT">
-<p>SDLx::Sprite::Animated is a <strong>subclass</strong> of <a href="http://search.cpan.org/perldoc?SDLx::Sprite">SDLx::Sprite</a>, inheriting
+<p>SDLx::Sprite::Animated is a <strong>subclass</strong> of <a href="SDLx-Sprite.html">SDLx::Sprite</a>, inheriting
 all its attributes and methods. Please refer to that module's documentation
 for information on those.</p>
 <p>The one difference in behavior is that, while a standard SDLx::Sprite uses
@@ -342,7 +342,7 @@ automatically for you every time <code>-&gt;draw()</code> is called
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

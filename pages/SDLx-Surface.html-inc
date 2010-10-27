@@ -16,10 +16,7 @@
 <ul><li><a href="#surface">surface</a></li>
 <li><a href="#w_h_format_pitch_flags">w, h, format, pitch, flags</a></li>
 <li><a href="#clip_rect">clip_rect</a></li>
-</ul>
-</li>
-<li><a href="#EXTENSIONS">EXTENSIONS</a>
-<ul><li><a href="#load">load</a></li>
+<li><a href="#load">load</a></li>
 <li><a href="#blit">blit </a></li>
 <li><a href="#blit_by">blit_by</a></li>
 <li><a href="#flip">flip</a></li>
@@ -99,7 +96,7 @@
 </div>
 <h2 id="display">display</h2>
 <div id="display_CONTENT">
-<p>If <a href="http://search.cpan.org/perldoc?SDLx::App::new">SDLx::App::new</a> or <a href="/SDL-Video.html#get_video_mode">SDL::Video::get_video_mode</a> called before then:</p>
+<p>If <a href="/SDLx-App.html#new">SDLx::App::new</a> or <a href="/SDL-Video.html#get_video_mode">SDL::Video::get_video_mode</a> called before then:</p>
 <pre> my $appx = SDLx::Surface::display(); 
 
 </pre>
@@ -112,7 +109,7 @@
 
 </pre>
 <p>You can also use the keys <code>w</code> and <code>h</code> in place of <code>width</code> and <code>height</code>, as with <code>new</code>.</p>
-<p>Get or create the main display surface and attach to a SDLx::Surface.</p>
+<p>Get or create the main display surface and attach to a <code>SDLx::Surface</code>.</p>
 
 </div>
 <h2 id="duplicate">duplicate</h2>
@@ -136,11 +133,9 @@
 </div>
 <h2 id="clip_rect">clip_rect</h2>
 <div id="clip_rect_CONTENT">
-<p>Sets the passed <code>SDL::Rect</code> as the new clip_rect for the surface. Returns the SDL::Surface's clip_rect. See <code>SDL::Video::get_clip_rect</code> and <code>SDL::Video::set_clip_rect</code>.</p>
-
-</div>
-<h1 id="EXTENSIONS">EXTENSIONS</h1><p><a href="#TOP" class="toplink">Top</a></p>
-<div id="EXTENSIONS_CONTENT">
+<p>Sets the passed <code>SDL::Rect</code> as the new clip_rect for the surface. Returns the SDL::Surface's clip_rect. See 
+<a href="/SDL-Video.html#get_clip_rect">SDL::Video::get_clip_rect</a> and <a href="/SDL-Video.html#set_clip_rect">SDL::Video::set_clip_rect</a>.
+=head1 EXTENSIONS</p>
 
 </div>
 <h2 id="load">load</h2>
@@ -172,8 +167,9 @@ supported.</p>
 <pre> $sdlx_surface-&gt;blit( $dest, $src_rect, $dest_rect );
 
 </pre>
-<p>Blits SDLx::Surface onto $dest surface. 
-$src_rect or $dest_rect are optional. If $src_rect is ommited, it will be the size of the entire surface. If $dest_rect is ommited, it will be blitted at <code>(0, 0)</code>. $src_rect or $dest_rect can be array refs or SDL::Rect. $dest can be SDLx::Surface or SDL::Surface.</p>
+<p>Blits <code>SDLx::Surface</code> onto $dest surface. 
+$src_rect or $dest_rect are optional. If $src_rect is ommited, it will be the size of the entire surface. If $dest_rect is ommited, 
+it will be blitted at <code>(0, 0)</code>. $src_rect or $dest_rect can be array refs or <code>SDL::Rect</code>. $dest can be <code>SDLx::Surface</code> or <code>SDL::Surface</code>.</p>
 <p>Returns $self</p>
 
 </div>
@@ -200,7 +196,8 @@ This is useful when the surface you have isn't an <code>SDLx::Surface</code>, bu
  $sdlx_surface-&gt;update( [ SDL::Rect-&gt;new(0,0,1,2) ... ]); # defined rects are updated
 
 </pre>
-<p>Applies <a href="/SDL-Video.html#update_rect">SDL::Video::update_rect</a> for no rect or 1 array ref. Applies <a href="/SDL-Video.html#update_rects">SDL::Video::update_rects</a> for array of <a href="SDL-Rect.html">SDL::Rect</a>s. </p>
+<p>Applies <a href="/SDL-Video.html#update_rect">SDL::Video::update_rect</a> for no rect or 1 array ref. Applies 
+<a href="/SDL-Video.html#update_rects">SDL::Video::update_rects</a> for array of <a href="SDL-Rect.html">SDL::Rect</a>s. </p>
 <p>Returns $self</p>
 
 
@@ -276,7 +273,7 @@ This is useful when the surface you have isn't an <code>SDLx::Surface</code>, bu
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 </div>

@@ -79,15 +79,15 @@
   my $event = SDL::Event-&gt;new(); # notices 'Event' ne 'Events'
 
   while( 1 )
-	{
-          SDL::Events::pump_events(); 	 
-       	 while(  SDL::Events::poll_event($event) )
-	 {
- 		#check by event type
- 		on_active() if $event-&gt;type == SDL_ACTIVEEVENT; 
-		...
-	 }
-	}
+  {
+      SDL::Events::pump_events();
+      while(  SDL::Events::poll_event($event) )
+      {
+          #check by event type
+          on_active() if $event-&gt;type == SDL_ACTIVEEVENT; 
+          ...
+      }
+  }
 
 </pre>
 
@@ -269,8 +269,9 @@
 <pre>	pump_events();
 
 </pre>
-<p>pump_events gathers all the pending input information from devices and places it on the event queue. Without calls to pump_events no events would ever be placed on the queue. 
-Often the need for calls to pump_events is hidden from the user since <a href="http://search.cpan.org/perldoc?poll_event">poll_event</a> and <a href="http://search.cpan.org/perldoc?wait_event">wait_event</a> implicitly call pump_events. 
+<p>pump_events gathers all the pending input information from devices and places it on the event queue. Without calls to pump_events no events would 
+ever be placed on the queue. 
+Often the need for calls to pump_events is hidden from the user since <a href="http://search.cpan.org/perldoc?">http://search.cpan.org/perldoc?</a> and <a href="http://search.cpan.org/perldoc?">http://search.cpan.org/perldoc?</a> implicitly call pump_events. 
 However, if you are not polling or waiting for events (e.g. you are filtering them), then you must call pump_events to force an event queue update.</p>
 
 
@@ -285,8 +286,10 @@ However, if you are not polling or waiting for events (e.g. you are filtering th
 
 </pre>
 <p>If action is SDL_ADDEVENT, up to numevents events will be added to the back of the event queue.</p>
-<p>If action is SDL_PEEKEVENT, up to numevents events at the front of the event queue, matching mask, will be returned and will not be removed from the queue.</p>
-<p>If action is SDL_GETEVENT, up to numevents events at the front of the event queue, matching mask, will be returned and will be removed from the queue.</p>
+<p>If action is SDL_PEEKEVENT, up to numevents events at the front of the event queue, matching mask, will be returned and will not be removed from 
+the queue.</p>
+<p>If action is SDL_GETEVENT, up to numevents events at the front of the event queue, matching mask, will be returned and will be removed from the 
+queue.</p>
 <p>The mask parameter is a bitwise OR of SDL::Events::SDL_EVENTMASK(event_type), for all event types you are interested in</p>
 <p>This function is thread-safe.</p>
 <p>You may have to call pump_events before calling this function. Otherwise, the events may not be ready to be filtered when you call peep_events.</p>
@@ -309,7 +312,8 @@ However, if you are not polling or waiting for events (e.g. you are filtering th
 <div id="poll_event_event_CONTENT">
 <p>Polls for currently pending events. </p>
 <p>If $event is not NULL, the next event is removed from the queue and stored in the <a href="SDL-Event.html">SDL::Event</a> structure pointed to by $event.</p>
-<p>As this function implicitly calls pump_events, you can only call this function in the thread that set the video mode with <a href="/SDL-Video.html#set_video_mode">SDL::Video::set_video_mode</a>. </p>
+<p>As this function implicitly calls pump_events, you can only call this function in the thread that set the video mode with 
+<a href="/SDL-Video.html#set_video_mode">SDL::Video::set_video_mode</a>. </p>
 
 </div>
 <h3 id="RETURN-2">RETURN</h3>
@@ -320,7 +324,8 @@ However, if you are not polling or waiting for events (e.g. you are filtering th
 <h2 id="push_event_event">push_event($event)</h2>
 <div id="push_event_event_CONTENT">
 <p>Pushes an event onto the event queue </p>
-<p>The event queue can actually be used as a two way communication channel. Not only can events be read from the queue, but the user can also push their own events onto it. event is a pointer to the event structure you wish to push onto the queue. 
+<p>The event queue can actually be used as a two way communication channel. Not only can events be read from the queue, but the user can also push 
+their own events onto it. event is a pointer to the event structure you wish to push onto the queue. 
 The event is copied into the queue, and the caller may dispose of the memory pointed to after push_event returns.</p>
 <p>Note: Pushing device input events onto the queue doesn't modify the state of the device within SDL. </p>
 <p>This function is thread safe, and can be called from other threads safely.</p>
@@ -335,7 +340,8 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 <div id="wait_event_event_CONTENT">
 <p>Waits indefinitely for the next available $event, returning 0 if there was an error while waiting for events, 1 otherwise.</p>
 <p>If $event is not NULL, the next event is removed from the queue and stored in $event.</p>
-<p>As this function implicitly calls SDL_PumpEvents, you can only call this function in the thread that  <a href="/SDL-Video.html#set_video_mode">SDL::Video::set_video_mode</a>.  </p>
+<p>As this function implicitly calls SDL_PumpEvents, you can only call this function in the thread that 
+<a href="/SDL-Video.html#set_video_mode">SDL::Video::set_video_mode</a>.  </p>
 
 </div>
 <h3 id="RETURN-4">RETURN</h3>
@@ -360,8 +366,10 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 
 </pre>
 <p>to filter the event return a 0, to pass the filter return a 1. </p>
-<p>One <strong>Caveat</strong> is if you are filtering SDL_QUIT the event will be filtered if it is non-intterupt call ( Window closes normally ). If it is a interrupt SDL_QUIT it will be process on the next event poll. </p>
-<p>Events pushed onto to the queue with <a href="/SDL-Events.html#push_events">SDL::Events::push_events</a> or <a href="/SDL-Events.html#peep_events">SDL::Events::peep_events</a> do not get filtered.</p>
+<p>One <strong>Caveat</strong> is if you are filtering SDL_QUIT the event will be filtered if it is non-intterupt call ( Window closes normally ). If it is a 
+interrupt SDL_QUIT it will be process on the next event poll. </p>
+<p>Events pushed onto to the queue with <a href="/SDL-Events.html#push_events">SDL::Events::push_events</a> or <a href="/SDL-Events.html#peep_events">SDL::Events::peep_events</a> 
+do not get filtered.</p>
 <p>This callback may run in a different thread. </p>
 
 </div>
@@ -374,7 +382,8 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 
 </pre>
 <p>Use <a href="/SDL-Events.html#pump_events">SDL::Events::pump_events</a> to update the state array.</p>
-<p>This function gives you the current state after all events have been processed, so if a key or button has been pressed and released before you process events, then the pressed state will never show up in the get_key_state call.</p>
+<p>This function gives you the current state after all events have been processed, so if a key or button has been pressed and released before you 
+process events, then the pressed state will never show up in the get_key_state call.</p>
 <p>This function doesn't take into account whether shift has been pressed or not.</p>
 
 </div>
@@ -495,7 +504,10 @@ The event is copied into the queue, and the caller may dispose of the memory poi
      $previous_translation_mode = SDL::Events::enable_unicode( 0 ); #disables
 
 </pre>
-<p>To obtain the character codes corresponding to received keyboard events, Unicode translation must first be turned on using this function. The translation incurs a slight overhead for each keyboard event and is therefore disabled by default. For each subsequently recieved key down event, the unicode member of the <a href="/SDL-Event.html#key_sym">SDL::Event::key_sym</a> provided structure will be then contain the corresponding character code, or otherwise zero.</p>
+<p>To obtain the character codes corresponding to received keyboard events, Unicode translation must first be turned on using this function. The 
+translation incurs a slight overhead for each keyboard event and is therefore disabled by default. For each subsequently recieved key down event, 
+the unicode member of the <a href="/SDL-Event.html#key_sym">SDL::Event::key_sym</a> provided structure will be then contain the corresponding character code, or 
+otherwise zero.</p>
 <p>A value of 1 for enabling, 0 for disabling and -1 for unchanged. -1 is usefull for querying the current translation mode.</p>
 <p>Only key press events will be translated not release events.</p>
 <p>Returns the previous translation mode as (1,0).</p>
@@ -507,7 +519,8 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 <pre> my $success = SDL::Events::enable_key_repeat( $delay, $interval );
 
 </pre>
-<p>Enables or disables the keyboard repeat rate. $delay specifies how long the key must be pressed before it begins repeating, it then repleats at the speed specified by $interval. Both $delay and $interval are expressed in milliseconds.</p>
+<p>Enables or disables the keyboard repeat rate. $delay specifies how long the key must be pressed before it begins repeating, it then repleats at the 
+speed specified by $interval. Both $delay and $interval are expressed in milliseconds.</p>
 <p>Setting $delay to 0 disables key repeating completely. Good default values are SDL_DEFAULT_REPEAT_DELAY and SDL_DEFAULT_REPEAT_INTERVAL.</p>
 <p>Return 0 on success and -1 on fail.</p>
 
@@ -515,15 +528,15 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 <h2 id="get_mouse_state">get_mouse_state </h2>
 <div id="get_mouse_state_CONTENT">
 <p>Retrives the current state of the mouse</p>
-<pre>	my ($mask,$x,$y) = @{ SDL::Events::get_mouse_state( ) };
+<pre>  my ($mask,$x,$y) = @{ SDL::Events::get_mouse_state( ) };
 
-        print 'Button Left pressed' if ($mask &amp; SDL_BUTTON_LMASK);    
+  print 'Button Left pressed' if ($mask &amp; SDL_BUTTON_LMASK);    
 
-        print 'Button Right pressed' if ($mask &amp; SDL_BUTTON_RMASK);   
+  print 'Button Right pressed' if ($mask &amp; SDL_BUTTON_RMASK);   
 
-        print 'Button Middle pressed' if ($mask &amp; SDL_BUTTON_MMASK);  
+  print 'Button Middle pressed' if ($mask &amp; SDL_BUTTON_MMASK);  
 
-        print $x.','.$y;
+  print $x.','.$y;
 
 </pre>
 <p>The current button state is returned as a button $bitmask, which can be tested using the the above constants </p>
@@ -532,15 +545,15 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 <h2 id="get_relative_mouse_state">get_relative_mouse_state </h2>
 <div id="get_relative_mouse_state_CONTENT">
 <p>Retrives the current relative state of the mouse</p>
-<pre>	my ($mask,$x,$y) = @{ SDL::Events::get_mouse_state( ) };
+<pre>  my ($mask,$x,$y) = @{ SDL::Events::get_mouse_state( ) };
 
-        print 'Button Left pressed' if ($mask &amp; SDL_BUTTON_LMASK);    
+  print 'Button Left pressed' if ($mask &amp; SDL_BUTTON_LMASK);    
 
-        print 'Button Right pressed' if ($mask &amp; SDL_BUTTON_RMASK);   
+  print 'Button Right pressed' if ($mask &amp; SDL_BUTTON_RMASK);   
 
-        print 'Button Middle pressed' if ($mask &amp; SDL_BUTTON_MMASK);  
+  print 'Button Middle pressed' if ($mask &amp; SDL_BUTTON_MMASK);  
 
-        print $x.','.$y; # this is relative to the last postion of the mouse
+  print $x.','.$y; # this is relative to the last postion of the mouse
 
 </pre>
 <p>The current button state is returned as a button $bitmask, which can be tested using the the above constants </p>
@@ -591,7 +604,8 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 <pre>	my $status = SDL::Events::joystick_event_state( $state );
 
 </pre>
-<p>This function is used to enable or disable joystick event processing. With joystick event processing disabled you will have to update joystick states with SDL_JoystickUpdate and read the joystick information manually. $state can be:</p>
+<p>This function is used to enable or disable joystick event processing. With joystick event processing disabled you will have to update joystick 
+states with <a href="/SDL-Joystick.html#update">SDL::Joystick::update</a> and read the joystick information manually. $state can be:</p>
 <dl>
 	<dt>SDL_QUERY</dt>
 	<dt>SDL_ENABLE </dt>
@@ -611,7 +625,7 @@ The event is copied into the queue, and the caller may dispose of the memory poi
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 </div>

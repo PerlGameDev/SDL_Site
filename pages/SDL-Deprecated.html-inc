@@ -54,11 +54,11 @@ The second argument to move handlers, the <code>t</code> value, is now the third
 <dl>
 	<dt>SDLx::App</dt>
 	<dd>
-		<p>Now depends on <a href="http://search.cpan.org/perldoc?SDLx::Surface">SDLx::Surface</a>. To get the SDL::Surface, use <code> -</code>surface() &gt;. Alternatively <b>SDLx::Surface::display()</b> (<b>display</b> in <cite>SDLx::Surface</cite>).</p>
+		<p>Now depends on <a href="SDLx-Surface.html">SDLx::Surface</a>. To get the SDL::Surface, use <code> -</code>surface() &gt;. Alternatively <a href="/SDLx-Surface.html#display">SDLx::Surface::display()</a>.</p>
 	</dd>
 	<dt>SDLx::Surface</dt>
 	<dd>
-		<p><code> get_display </code> is now called <b>SDLx::Surface::display</b> (<b>display</b> in <cite>SDLx::Surface</cite>). </p>
+		<p><code> get_display </code> is now called <a href="/SDLx-Surface.html#display">SDLx::Surface::display</a>. </p>
 	</dd>
 	<dt>SDLx::Sprite::Animated</dt>
 	<dd>
@@ -83,7 +83,7 @@ The second argument to move handlers, the <code>t</code> value, is now the third
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 </div>

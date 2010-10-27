@@ -3,11 +3,12 @@
 use strict;
 use warnings;
 use Carp;
+use Data::Dumper;
 use Pod::Xhtml;
 use File::Copy;
 use File::Spec::Functions qw(rel2abs splitpath splitdir catpath catdir catfile canonpath);
 
-my $input_path      = 'D:/dev/SDL_perl/lib/pods';
+my $input_path      = 'D:/dev/SDL/lib/pods';
    $input_path   = $ARGV[0] if $ARGV[0];
 
 my ($volume, $dirs) = splitpath(rel2abs(__FILE__));
@@ -94,6 +95,7 @@ sub read_file
 		read_file($_) if(-d $_);
 		if($_ =~ /\.pod$/i)
 		{
+            print "Processing $_\n";
 			my $key         = '';
 			my $file_name   = $_;
 			   $file_name   =~ s/^$input_path\/*//;
@@ -174,21 +176,44 @@ sub new
 	return $self;
 }
 
+my $warn = 0;
 sub node
 {
 	my $self = shift;
+
 	if($self->SUPER::type() eq 'page')
 	{
 		my $page = $self->SUPER::page();
 		my $suff = '';
 		
-		if($page =~ /^SDL\b/)
+		if($page =~ /^SDL(x)?\b/)
 		{
 			$page =~ s/::([A-Z]+)/-$1/g;
-			$page =~ s/(.*)::(.*)/\/$1.html#$2/;
+			printf "%03d WARNING: " . $self->SUPER::page() . " better written as L<$2|$1/\"$2\">\n", ++$warn if $self->SUPER::page() =~ /(.*)::([a-z_]+)$/;
+            
+            $page =~ s/(.*)\/"(.*)"/\/$1.html#$2/;
 			$page .= '.html' unless $page =~ /\.html/;
 			
+            #print $self->SUPER::page() . " -> " . $page . "\n" if $page =~ /Event/;
 			return $page;
+		}
+		else
+		{
+			return "http://search.cpan.org/perldoc?$page";
+		}
+	}
+	elsif($self->SUPER::type() eq 'item')
+	{
+		my $page = $self->SUPER::page();
+		my $node = $self->SUPER::node();
+		my $suff = '';
+		
+		if($page =~ /^SDL(x)?\b/)
+		{
+			$page =~ s/::([A-Z]+)/-$1/g;
+            $node =~ s/&quot;//g;
+
+			return "/$page.html#$node";
 		}
 		else
 		{
@@ -208,7 +233,7 @@ sub text
 sub type
 {
 	my $self = shift;
-	return "hyperlink" if($self->SUPER::type() eq 'page');
+	return "hyperlink" if($self->SUPER::type() =~ /(page|item)/);
 	$self->SUPER::type(@_);
 }
 

@@ -240,7 +240,7 @@ The actual delay may be longer than specified depending on the underlying OS.</p
 <p>See the <a href="http://github.com/kthakore/SDL_perl/graphs/impact">impact graph</a> on our github repository.</p>
 <p>Andy Bakun &lt;sdlperl@thwartedefforts.org&gt;</p>
 <p>Benedikt Meurer &lt;bmeurer@fwdn.de&gt;</p>
-<p>Blaise Roth (Blaizer) &lt;blaiseroth@gmail.com&gt;</p>
+<p>Blaise Roth (Blaizer) &lt;blaizer@cpan.org&gt;</p>
 <p>Breno G. de Oliveira (garu)</p>
 <p>Brian Cassidy (bricas)</p>
 <p>chromatic &lt;chromatic@wgz.org&gt;</p>

@@ -189,8 +189,8 @@ SDL does not have to be initialized before this call.</p>
 
 </pre>
 <p>Query the initilization status of the truetype font API.
-You may, of course, use this before <a href="/SDL-TTF.html#init">SDL::TTF::init</a> to avoid initializing twice in a row. Or use this to determine if you need to call 
-<a href="/SDL-TTF.html#quit">SDL::TTF::quit</a>.</p>
+You may, of course, use this before <a href="/SDL-TTF.html#init">SDL::TTF::init</a> to avoid initializing twice in a row. Or use this to determine if you need to 
+call <a href="/SDL-TTF.html#quit">SDL::TTF::quit</a>.</p>
 
 </div>
 <h3 id="quit">quit</h3>
@@ -199,8 +199,8 @@ You may, of course, use this before <a href="/SDL-TTF.html#init">SDL::TTF::init<
 
 </pre>
 <p>Shutdown and cleanup the truetype font API.
-After calling this the SDL::TTF functions should not be used, excepting <a href="/SDL-TTF.html#was_init">SDL::TTF::was_init</a>. You may, of course, use <a href="/SDL-TTF.html#init">SDL::TTF::init</a> to 
-use the functionality again</p>
+After calling this the SDL::TTF functions should not be used, excepting <a href="/SDL-TTF.html#was_init">SDL::TTF::was_init</a>. You may, of course, use 
+<a href="/SDL-TTF.html#init">SDL::TTF::init</a> to use the functionality again</p>
 
 </div>
 <h2 id="Management_functions">Management functions</h2>
@@ -791,7 +791,7 @@ your display-surface.</p>
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 <h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>

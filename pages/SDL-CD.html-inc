@@ -126,7 +126,7 @@
 <p>Plays the given SDL::CD starting at track $start_track, for $ntracks tracks.  </p>
 <p>$start_frame is the frame offset, from the beginning of the $start_track, at which to start. $nframes is the frame offset, from the 
 beginning of the last track ($start_track+$ntracks), at which to end playing.</p>
-<p>play_tracks() should only be called after calling <a href="#status">status</a> to get information about the CD.</p>
+<p>play_tracks() should only be called after calling <a href="http://search.cpan.org/perldoc?">http://search.cpan.org/perldoc?</a> to get information about the CD.</p>
 <p><strong>Note: Data tracks are ignored.</strong></p>
 <p>Returns <code>0</code>, or <code>-1</code> if there was an error.  </p>
 
@@ -229,7 +229,7 @@ beginning of the last track ($start_track+$ntracks), at which to end playing.</p
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 </div>

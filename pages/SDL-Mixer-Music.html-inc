@@ -47,7 +47,7 @@
 <pre> my $music = SDL::Mixer::Music::load_MUS( $file );
 
 </pre>
-<p><code>load_MUS</code> loads a music file into a <code>SDL::Mixer::MixMusic</code> structure. This can be passed to <a href="/SDL-Mixer-Music.html#play_music">SDL::Mixer::Music::play_music</a>.</p>
+<p><code>load_MUS</code> loads a music file into a <code>SDL::Mixer::MixMusic</code> structure. This can be passed to <a href="/SDL-Mixer-Music.html#play_music">play_music</a>.</p>
 
 </div>
 <h2 id="hook_music">hook_music</h2>
@@ -91,7 +91,8 @@ Using a custom music player and the internal music player is not possible, the c
 <pre> SDL::Mixer::Music::hook_music_finished( 'main::callback' );
 
 </pre>
-<p>This callback is called when music called by e.g. <a href="/SDL-Mixer-Music.html#play_music">SDL::Mixer::Music::play_music</a> or <a href="/SDL-Mixer-Music.html#fade_in_music">SDL::Mixer::Music::fade_in_music</a> stops naturally. 
+<p>This callback is called when music called by e.g. <a href="/SDL-Mixer-Music.html#play_music">SDL::Mixer::Music::play_music</a> or 
+<a href="/SDL-Mixer-Music.html#fade_in_music">SDL::Mixer::Music::fade_in_music</a> stops naturally. 
 This happens when the music is over or is fading out.</p>
 <p><strong>Note</strong>: If you play music via <a href="/SDL-Mixer-Music.html#hook_music">SDL::Mixer::Music::hook_music</a>, this callback will never be called.</p>
 <p>Example:</p>
@@ -267,7 +268,7 @@ Does not go in reverse... negative values do nothing. </p>
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
 <div id="AUTHORS_CONTENT">
-<p>See <b>AUTHORS</b> in <cite>SDL</cite>.</p>
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
 
 </div>
 </div>
