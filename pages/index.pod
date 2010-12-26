@@ -42,7 +42,7 @@ To unsubscribe send an empty email to L< sdl-devel-unsubscribe@perl.org | mailto
 
 Join us on the trac L<site| http://sdlperl.ath.cx/projects/SDLPerl> to get started on making and grabbing tickets. 
 
-To begin testing read L<this| http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testing>.
+To begin testing read L<the wiki page on testing| http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testing>.
 
 =back
 
