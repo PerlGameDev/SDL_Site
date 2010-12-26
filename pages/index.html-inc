@@ -11,8 +11,9 @@
 </ul>
 </li>
 <li><a href="#Latest_News">Latest News</a>
-<ul><li><a href="#August_31_2010">August 31 2010</a>
-<ul><li><a href="#CPAN_Release">CPAN Release</a></li>
+<ul><li><a href="#December_26th_2010">December 26th 2010</a>
+<ul><li><a href="#CPAN_Release_SDL_2_524">CPAN Release SDL 2.524</a></li>
+<li><a href="#SDL_Manual_Writing_Games_with_SDL_Pe">SDL Manual: Writing Games with SDL Perl</a></li>
 <li><a href="#Active_Development">Active Development</a>
 </li>
 </ul>
@@ -58,7 +59,7 @@ award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>ww
 	</dd>
 	<dt>Testing and Development</dt>
 	<dd>
-		<p>Join us on the trac <a href="http://sdlperl.ath.cx/projects/SDLPerl">site</a> to get started on making and grabing tickets. </p>
+		<p>Join us on the trac <a href="http://sdlperl.ath.cx/projects/SDLPerl">site</a> to get started on making and grabbing tickets. </p>
 		<p>To begin testing read <a href="http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testing">this</a>.</p>
 	</dd>
 </dl>
@@ -68,14 +69,19 @@ award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>ww
 <div id="Latest_News_CONTENT">
 
 </div>
-<h2 id="August_31_2010">August 31 2010</h2>
-<div id="August_31_2010_CONTENT">
+<h2 id="December_26th_2010">December 26th 2010</h2>
+<div id="December_26th_2010_CONTENT">
 
 </div>
-<h3 id="CPAN_Release">CPAN Release</h3>
-<div id="CPAN_Release_CONTENT">
-<p><a href="http://search.cpan.org/~kthakore">SDL 2.5</a> is on CPAN! The new API has many changes and much more improvements. So check it out ;o)</p>
-<p>SDL Perl at v2.2.6 on CPAN is the last of it's kind which will have the old API.</p>
+<h3 id="CPAN_Release_SDL_2_524">CPAN Release SDL 2.524</h3>
+<div id="CPAN_Release_SDL_2_524_CONTENT">
+<p><a href="http://search.cpan.org/search?query=SDL&amp;mode=module">SDL 2.524</a> is on CPAN! The new API has many changes and much more improvements. So check it out.</p>
+<p>SDL Perl at v2.2.6 on CPAN is the last of its kind which will have the old API.</p>
+
+</div>
+<h3 id="SDL_Manual_Writing_Games_with_SDL_Pe">SDL Manual: Writing Games with SDL Perl</h3>
+<div id="SDL_Manual_Writing_Games_with_SDL_Pe-2">
+<p>The grant <a href="http://news.perlfoundation.org/2010/08/2010q3-grant-proposal-manual-f.html">proposal</a> has been accepted by <a href="http://news.perlfoundation.org/2010/08/accepted-grants-for-2010q3.html">The Perl Foundation</a>. SDL_Manual is being developed on <a href="http://github.com/PerlGameDev/SDL_Manual">github</a>, you can see the draft in <a href="http://sdlperl.ath.cx/releases/SDL_Manual.pdf">PDF</a> and <a href="http://sdlperl.ath.cx/releases/SDL_Manual.html">HTML</a>.</p>
 
 </div>
 <h3 id="Active_Development">Active Development</h3>
