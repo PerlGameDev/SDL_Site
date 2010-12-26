@@ -227,11 +227,12 @@ This is useful when the surface you have isn't an <code>SDLx::Surface</code>, bu
 </div>
 <h2 id="draw_circle">draw_circle</h2>
 <div id="draw_circle_CONTENT">
-<pre> $sdlx_surface-&gt;draw_circle( [$x1, $y1], $radius, \@color ); 
+<pre> $sdlx_surface-&gt;draw_circle( [$x1, $y1], $radius, \@color, $antialias ); 
 
 </pre>
-<p>Draws an unfilled circle at <code>($x1,$y1)</code> of size $radius and $color.</p>
-<p>Returns $self</p>
+<p>Draws an unfilled circle at <code>($x1,$y1)</code> of size $radius and $color.
+Antialias is turned on if $antialias is true. 
+Returns $self</p>
 
 </div>
 <h2 id="draw_circle_filled">draw_circle_filled</h2>
@@ -239,8 +240,9 @@ This is useful when the surface you have isn't an <code>SDLx::Surface</code>, bu
 <pre> $sdlx_surface-&gt;draw_filled_circle( [$x1, $y1], $radius, \@color ); 
 
 </pre>
-<p>Draws an <strong>filled</strong> circle at <code>($x1,$y1)</code> of size $radius and $color.</p>
-<p>Returns $self</p>
+<p>Draws an <strong>filled</strong> circle at <code>($x1,$y1)</code> of size $radius and $color.
+Antialias is turned on automatically. 
+Returns $self</p>
 
 
 

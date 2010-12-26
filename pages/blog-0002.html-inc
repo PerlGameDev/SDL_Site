@@ -1,15 +1,18 @@
 <div class="blog">
 <h1 id="NAME">
-SDL Manual: Reviewers Needed
+SDL 2.518 Released: Neverhood Clone
 </h1>
 <div class="CONTENT">
-Work has begun on the 4th chapter of the SDL Manual. The code is on <a href="http://github.com/PerlGameDev/SDL_Manual">github</a>, and I regularly update the <a href="http://sdlperl.ath.cx/releases/SDL_Manual.pdf">pdf</a> on our server. <br />
+So Blaizer started a Neverhood clone and fixed a lot of the Controller code to make it work nicely. This has been released as SDL 2.518. It does break back compat a bit, but not too much.<br />
 <br />
-Writing manuals is not of my greatest skills, so I would love some review of my work. Any problems can be reported in the <a href="http://github.com/PerlGameDev/SDL_Manual/issues">issues</a>. <br />
+Have a look at <a href="http://sdl.perl.org/SDL-Deprecated.html#2_517">http://sdl.perl.org/SDL-Deprecated.html#2_517</a> to see the breakages. <br />
 <br />
-If you want to help with writing the manual, please join me on #sdl irc.perl.org or email us at<br />
-sdl-devel@perl.org <br />
+The documentation for Controller has also been improved considerably. <br />
 <br />
---yapgh<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-2581523167450303489?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/DAao0RvCeO4irIprn8XQdDhffyU/0/da"><img src="http://feedads.g.doubleclick.net/~a/DAao0RvCeO4irIprn8XQdDhffyU/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/DAao0RvCeO4irIprn8XQdDhffyU/1/da"><img src="http://feedads.g.doubleclick.net/~a/DAao0RvCeO4irIprn8XQdDhffyU/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/Z6lWhJbY0Nc" height="1" width="1"/></div></div>
+<a href="http://sdl.perl.org/SDLx-Controller.html">http://sdl.perl.org/SDLx-Controller.html</a><br />
+<br />
+Finally here is a video of the neverhood clone so far<br />
+<br />
+<iframe frameborder="0" height="207" src="http://player.vimeo.com/video/15531777?portrait=0&amp;color=59a5d1" width="267"></iframe><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-2064504316940101601?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/0/da"><img src="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/1/da"><img src="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/6YG5estsLGE" height="1" width="1"/></div></div>
