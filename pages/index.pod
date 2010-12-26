@@ -40,7 +40,7 @@ To unsubscribe send an empty email to L< sdl-devel-unsubscribe@perl.org | mailto
 
 =item Testing and Development
 
-Join us on the trac L<site| http://sdlperl.ath.cx/projects/SDLPerl> to get started on making and grabing tickets. 
+Join us on the trac L<site| http://sdlperl.ath.cx/projects/SDLPerl> to get started on making and grabbing tickets. 
 
 To begin testing read L<this| http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testing>.
 
@@ -54,7 +54,7 @@ To begin testing read L<this| http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testin
 	
 L<SDL 2.5|http://search.cpan.org/~kthakore> is on CPAN! The new API has many changes and much more improvements. So check it out ;o)
 
-SDL Perl at v2.2.6 on CPAN is the last of it's kind which will have the old API.
+SDL Perl at v2.2.6 on CPAN is the last of its kind which will have the old API.
 
 =head3 Active Development
 
