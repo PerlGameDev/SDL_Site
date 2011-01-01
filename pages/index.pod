@@ -60,6 +60,8 @@ SDL Perl at v2.2.6 on CPAN is the last of its kind which will have the old API.
 
 The grant L<proposal| http://news.perlfoundation.org/2010/08/2010q3-grant-proposal-manual-f.html> has been accepted by L<The Perl Foundation|http://news.perlfoundation.org/2010/08/accepted-grants-for-2010q3.html>. SDL_Manual is being developed on L<github|http://github.com/PerlGameDev/SDL_Manual>, you can see the draft in L<PDF|http://sdlperl.ath.cx/releases/SDL_Manual.pdf> and L<HTML|http://sdlperl.ath.cx/releases/SDL_Manual.html>.
 
+More up to date versions of the books are also available in L<HTML| https://github.com/PerlGameDev/SDL_Manual/blob/master/dist/SDL_Manual.html> and L<PDF| https://github.com/PerlGameDev/SDL_Manual/blob/master/dist/SDL_Manual.pdf> formats. 
+
 =head3 Active Development
 
 SDL Perl is being actively developed to v3.0. We are adding many new SDLx::* modules to provide a more Perly interface to SDL. Please review, request or even hack the code. Talk to us on the irc channel or mailing lists.
