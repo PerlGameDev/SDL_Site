@@ -1,26 +1,23 @@
 <div class="blog">
 <h1 id="NAME">
-The Build Process of SDL Perl
+Huge World Maps in less then 100 lines
 </h1>
 <div class="CONTENT">
-<p>A while ago I had a long chat with mst on why SDL uses Module::Build rather then Make. I told him it is a simple matter of code inertia.  The existing Module::Build system has worked well for us so far. Never the less, he convinced me that switching to Make will improve debugging the Build system. But to be able to switch we will need to completely replace the Build system. I am not prepared to do that so I will just present the requirements so mst or someone else can at least attempt to switch.</p><br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TEBxQGLPevI/AAAAAAAAALI/3k4lruLMbZ0/s1600/foo.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TEBxQGLPevI/AAAAAAAAALI/3k4lruLMbZ0/s320/foo.bmp" /></a></div><br />
+Hello folks,<br />
 <br />
-<h3>The Build Process </h3><br />
-<b> Alien::SDL </b><br />
-<br />
-<p>SDL Perl depends on a few C libraries for a complete install. This is handled by Alien::SDL. First we look for existing SDL libraries and dependencies by doing a <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L581">File::Find</a> for headers. If these headers are found we  present and option for the user to use those. We then store these locations in Alien::SDL->config options 'cflags', 'prefix' and 'libs'. If we do not have libraries available even for a minimum SDL installed ( SDL.h is not found). We provide several platform specific options. </p><br />
-<p>For windows we have a simpler process. We download<a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L7"> prebuilt </a>binaries ( and checksum ) based on the user's selection and just copy them in to the right location. Again the 'prefix', 'cflags', and 'libs' is saved in Alien::SDL->config. </p><br />
-<p>For *nix/MacOSX we download sources and attempt to compile them. To be able to do this we download several other dependencies like libpng, jpeg and pango. You can see how we do this using hashes <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L404">here</a>. During the compile process we also apply patches as needed for the <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L430">sources</a>. Once this is done we can head to SDL Build.PL </p><br />
-<b> SDL Perl dependency resolution </b><br />
-<br />
-SDL's Build is responsible for linking the right libraries to the correct XS. If libraries are missing it will disable the component (not put it in SDL->config). <br />
-<br />
-<p>For example to build <a href="http://github.com/kthakore/SDL_perl/blob/master/Build.PL#L342">Image.xs</a> we require libsdl, libsdl_image and lib[jpg|png|tiff]. So we would check for these headers in the prefix provided by Alien::SDL->config. If they are not provided we will disable the SDL::Image module. </p><br />
-<p>More over the availability of each library is specified as a -DMACRO to the gcc compiler. This way we can prevent XS failures due to missing libraries using #DEFINES. Here the SDL_image macro is <a href="http://github.com/kthakore/SDL_perl/blob/master/Build.PL#L422">defined</a> and <a href="http://github.com/kthakore/SDL_perl/blob/master/src/Image.xs#L13">used</a>. The availability of the module is then available from <a href="http://github.com/kthakore/SDL_perl/blob/master/t/image.t#L20">SDL::Config->has()</a> <br />
+Recently we have been <a href="http://github.com/kthakore/SDL_perl/commits/master">working</a> on making the Perl&nbsp;syntax&nbsp;sugar for SDL in the form of SDLx. So far we have got the SDLx::Surface and SDLx::Sprite (garu++) done. So the first thing we did was throw together a quick Zelda map walker. As you can see above. &nbsp;The code is at&nbsp;<a href="http://gist.github.com/478440">http://gist.github.com/478440</a>. The SDL code that this depends on will be SDL 2.503 soonish . We are in the process of cleaning up some more SDLx and Alien::SDL bugs. After that SDLx::App will be overhauled to make this sort of thing even easier. Finally living up to our goal of &nbsp;'<span class="Apple-style-span" style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif; font-size: 13px;">Simple Games Easy. Complex Games Possible.'&nbsp;</span><br />
 <br />
 <br />
-<b> Conclusion </b> <br />
-<p>This is a high level overview of our Build process, because frankly I hate traumatizing my brain with this again. Credits have to go to FROGGS and kmx for helping with this Build scheme. Hopefully my post have helped people at the very least appreciate the problem scope of this Build system. That said I believe a fresh written build system, with these requirements in mind, will be more then welcome.<br />
-</p><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4514794130108689562?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/0/da"><img src="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/1/da"><img src="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/fTwVmM222rA" height="1" width="1"/></div></div>
+<span class="Apple-style-span" style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif; font-size: 13px;"><span style="font-family: inherit;"><b>UPDATE: with some help, and newcomer jtpalmer'<span style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif;">s help we have added Link</span></b></span></span><br />
+<span class="Apple-style-span" style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif; font-size: 13px;"><span style="font-family: inherit;"><b><span style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif;">&nbsp; </span></b></span></span><br />
+<br />
+<br /><br />
+<br />
+<object width="267" height="220"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=13423319&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=59a5d1&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=13423319&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=59a5d1&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="267" height="220"></embed></object><br />
+<br />
+<br /><br />
+<br />
+--caio&nbsp;yapgh<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4587488240162102295?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/c0ScjYCjwVOpMfey5qcm_RKKLBs/0/da"><img src="http://feedads.g.doubleclick.net/~a/c0ScjYCjwVOpMfey5qcm_RKKLBs/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/c0ScjYCjwVOpMfey5qcm_RKKLBs/1/da"><img src="http://feedads.g.doubleclick.net/~a/c0ScjYCjwVOpMfey5qcm_RKKLBs/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/ONip91qsKjQ" height="1" width="1"/></div></div>

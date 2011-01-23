@@ -1,13 +1,38 @@
 <div class="blog">
 <h1 id="NAME">
-SDL 2.503 Released!
+Perl+SDL 3D Rendering
 </h1>
 <div class="CONTENT">
-<p>SDL 2.503 has been released on to CPAN. The changes are mostly in the new features added to SDLx::* layer. However as our continuing attempt to improve cross platform support we have some low level fixes.</p><br />
-<p>Most interstingly we have begun work on SDLx::Sprite::Animated. Although, volatile, this addition will be highly anticipated. We look forward for more work on it soon. Additionally are the changes in SDLx::Surface. SDLx::Surface is an attempt to provide gfx, pixels, video and low level surface functions in a combined and simpler interface. </p><br />
-<p>Since SDLx::Sprite and SDLx::App depends on SDLx::Surface, new features will be propagated and the magic amplified! These are exciting times for SDL in Perl. So come join us for great justice on #sdl <a href="http://irc.perl.org">irc.perl.org</a> or <a href="mailto:sdl-devel@perl.org">sdl-devel@perl.org</a>. </p><br />
-The detailed <a href="http://cpansearch.perl.org/src/KTHAKORE/SDL-2.503/CHANGELOG">changelog</a> are provided at <a href="http://search.cpan.org/~kthakore/SDL-2.503/">CPAN</a>.<br />
+<i>Recently we have done a lot of work on the next release of SDL Perl. But it all pays off when I see users do cool things as one of the users has done below. Talon^++! This project is a great example for people wanting to learn 3D from scratch. </i><br />
 <br />
-Kartik Thakore<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-1568145111710985964?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/9AdAL018Ayt8_wTqSzfAgLJJIWo/0/da"><img src="http://feedads.g.doubleclick.net/~a/9AdAL018Ayt8_wTqSzfAgLJJIWo/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/9AdAL018Ayt8_wTqSzfAgLJJIWo/1/da"><img src="http://feedads.g.doubleclick.net/~a/9AdAL018Ayt8_wTqSzfAgLJJIWo/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/5YUqXD0sgZs" height="1" width="1"/></div></div>
+<i>--yapgh</i><br />
+<br />
+<hr />This was a project to test how well Perl+SDL performs and does not use OpenGL at all. This is all perl and SDL, with the help of libsdl_gfx for SDL::GFX::Primitives. Texture mapping doesn't use SDL::GFX::Primitives because textured_polygon just takes a surface, tiles it, and clips out the polygon, which doesn't look 3D at all.<br />
+<br />
+Below are some screen shots of this little toy in action. If you'd like to try it yourself, you can download the entire project <a href="http://sdlperl.ath.cx/releases/texmap.tgz">here</a>. You can rotate the objects with the mouse, or keyboard arrows. Also press shift to toggle shading and space to switch objects.<br />
+<br />
+NOTE: the project is compressed in the .tgz format, if you are a windows user, you may need a tool like 7zip to extract the contents.<br />
+<br />
+<hr /><div>Standard Cube:<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TFSAt5QUmgI/AAAAAAAAALQ/Yf9XBOYhA7w/s1600/cube.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TFSAt5QUmgI/AAAAAAAAALQ/Yf9XBOYhA7w/s320/cube.png" /></a></div><br />
+</div><hr /><div>Standard Cube with Pseudo Shading:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TFSAxNHzBEI/AAAAAAAAALY/TMc-Dwzvz7k/s1600/cubeshade.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TFSAxNHzBEI/AAAAAAAAALY/TMc-Dwzvz7k/s320/cubeshade.png" /></a></div><br />
+</div><hr /><div>Standard Diamond:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/_NnqjAQEn1Xo/TFSA0YnNSYI/AAAAAAAAALg/Ym6OD5JVjrs/s1600/diamond.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/_NnqjAQEn1Xo/TFSA0YnNSYI/AAAAAAAAALg/Ym6OD5JVjrs/s320/diamond.png" /></a></div><br />
+</div><hr /><div>Standard Diamond with Pseudo Shading:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TFSA39MwDSI/AAAAAAAAALo/WV5wzDtCyo8/s1600/diamondshade.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TFSA39MwDSI/AAAAAAAAALo/WV5wzDtCyo8/s320/diamondshade.png" /></a></div><br />
+</div><hr /><div>Textured Cube:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/_NnqjAQEn1Xo/TFSA_RVjHtI/AAAAAAAAALw/nwEjFLv8XvE/s1600/texturedcube.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/_NnqjAQEn1Xo/TFSA_RVjHtI/AAAAAAAAALw/nwEjFLv8XvE/s320/texturedcube.png" /></a></div><br />
+</div><hr /><div>Perspectively Correct Textured Cube:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/_NnqjAQEn1Xo/TFSBCIUu4iI/AAAAAAAAAL4/_lgY1_mE4ow/s1600/texturedcorrectcube.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/_NnqjAQEn1Xo/TFSBCIUu4iI/AAAAAAAAAL4/_lgY1_mE4ow/s320/texturedcorrectcube.png" /></a></div><br />
+</div><hr /><div>Perspectively Correct Textured Cube with shading:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/_NnqjAQEn1Xo/TFSBEFUB9HI/AAAAAAAAAMA/uLPUugpgspg/s1600/texturedcubeshade.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/_NnqjAQEn1Xo/TFSBEFUB9HI/AAAAAAAAAMA/uLPUugpgspg/s320/texturedcubeshade.png" /></a></div><br />
+</div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-6534662499260158364?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/9OeYlfWcu240PezvaIgNkaxLy_Q/0/da"><img src="http://feedads.g.doubleclick.net/~a/9OeYlfWcu240PezvaIgNkaxLy_Q/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/9OeYlfWcu240PezvaIgNkaxLy_Q/1/da"><img src="http://feedads.g.doubleclick.net/~a/9OeYlfWcu240PezvaIgNkaxLy_Q/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/nBAuxy51chg" height="1" width="1"/></div></div>
