@@ -19,9 +19,11 @@
 <li><a href="#version">version</a></li>
 <li><a href="#linked_version">linked_version</a></li>
 <li><a href="#get_ticks">get_ticks</a></li>
+<li><a href="#get_handle">get_handle</a></li>
 <li><a href="#delay">delay</a></li>
 </ul>
 </li>
+<li><a href="#SDL_Manual_Getting_Started">SDL Manual: Getting Started</a></li>
 <li><a href="#AUTHORS">AUTHORS</a>
 <ul><li><a href="#Project_Founder">Project Founder</a></li>
 <li><a href="#Current_Maintainers">Current Maintainers</a></li>
@@ -205,6 +207,14 @@ This is useful if the error has been handled by the program.</p>
 This value wraps around if the program runs for more than 49.7 days</p>
 
 </div>
+<h2 id="get_handle">get_handle</h2>
+<div id="get_handle_CONTENT">
+<pre> my $win32_handle = SDL::get_handle;
+
+</pre>
+<p>A video surface must be inited to get a handle. </p>
+
+</div>
 <h2 id="delay">delay</h2>
 <div id="delay_CONTENT">
 <pre> SDL::delay( $ms );
@@ -217,6 +227,15 @@ The actual delay may be longer than specified depending on the underlying OS.</p
  SDL::delay(500);
 
 </pre>
+
+</div>
+<h1 id="SDL_Manual_Getting_Started">SDL Manual: Getting Started</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SDL_Manual_Getting_Started_CONTENT">
+<p>A new book has been started to provide a complete tutorial for SDL. See <a href="http://search.cpan.org/perldoc?">http://search.cpan.org/perldoc?</a>.</p>
+
+
+
+
 
 </div>
 <h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
