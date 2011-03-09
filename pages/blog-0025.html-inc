@@ -1,18 +1,14 @@
 <div class="blog">
 <h1 id="NAME">
-SDL Alpha 2: A sneak preview
+SDL_perl 2.3_5 is out!
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>Pretty or Ugly,</i><br />
-</div><div style="text-align: right;"><i>Code is Code</i><br />
-</div><div style="text-align: right;"><i>New or Old,</i><br />
-</div><div style="text-align: right;"><i>Code is Code</i><br />
-</div><div style="text-align: right;"><i>Fast or Slow</i><br />
-</div><div style="text-align: right;"><i>Code is Code&nbsp;</i> <br />
+<div style="text-align: right;"><i>We keep on rolling,<br />
+rolling,<br />
+waiting on the world to turn.</i><br />
 </div><br />
-So over the past week we have been working hard to release the next Alpha for SDL-2.3. In this release we have ported SDL_Image completely, fixed false negatives in our testing suite, improved conditional building. Also we have also started to migrate the very pretty SDL_GFX library. Here is the test for it, enjoy.<br />
+So a new alpha is out on <a href="http://search.cpan.org/~kthakore/SDL-2.3_5/">CPAN</a>, after a bit of a break. We are trying to pick up our speed again. Hopefully we can get back to the weekly updates. This week I am going to try to get Mixer and TTF bindings test, redesigned and doc'd. Hopefully soon we can start working on Frozen Bubble, as things are starting to come together. This alpha release has finally given us a good implementation of SDL Timers. Also <a href="http://daniel.ruoso.com/categoria/perl/games-perl-1">Daniel Ruoso</a> has also started a series blog posts of making games with SDL Perl. Hopefully this can get more people in SDL, cause we can sure use the help!<br />
 <br />
-<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/_NnqjAQEn1Xo/Sxu4V-sXPrI/AAAAAAAAACI/dmbHSG7C6I0/s1600-h/gfx.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/_NnqjAQEn1Xo/Sxu4V-sXPrI/AAAAAAAAACI/dmbHSG7C6I0/s320/gfx.png" /></a><br />
-</div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-3790085004408370126?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/7xpyLL3rBugowwzdsQdjo-K8JDE/0/da"><img src="http://feedads.g.doubleclick.net/~a/7xpyLL3rBugowwzdsQdjo-K8JDE/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/7xpyLL3rBugowwzdsQdjo-K8JDE/1/da"><img src="http://feedads.g.doubleclick.net/~a/7xpyLL3rBugowwzdsQdjo-K8JDE/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/ex5qVwfaErc" height="1" width="1"/></div></div>
+<i>More to come --yapgh</i><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-896792692004201189?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/0/da"><img src="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/1/da"><img src="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/EOF919S-yGg" height="1" width="1"/></div></div>

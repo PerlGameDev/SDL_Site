@@ -1,81 +1,26 @@
 <div class="blog">
 <h1 id="NAME">
-Providing direct memory access to SDL_Surface's pixels
+The Build Process of SDL Perl
 </h1>
 <div class="CONTENT">
-<p>In an attempt to make pixel access easier on SDL_Surface pixels. I have started work on <a href="http://github.com/kthakore/SDL_perl/commit/7ee1a1a7f162080a6fa5274e95b80961486e21e5">SDLx::Surface</a>. So far I have only start on the 32 bpp surfaces.</p><br />
-<p>The general idea is to make Pointer Values (PV) of each pixel in the surface and place them into a 2D matrix. First I make pointer values like this: </p><br />
-<pre style='color:#d1d1d1;background:#000000;'>SV <span style='color:#d2cd86; '>*</span> get_pixel32 <span style='color:#d2cd86; '>(</span>SDL_Surface <span style='color:#d2cd86; '>*</span>surface<span style='color:#d2cd86; '>,</span> <span style='color:#e66170; font-weight:bold; '>int</span> x<span style='color:#d2cd86; '>,</span> <span style='color:#e66170; font-weight:bold; '>int</span> y<span style='color:#d2cd86; '>)</span>
-<span style='color:#b060b0; '>{</span>
- <span style='color:#9999a9; '>//Convert the pixels to 32 bit </span>
- Uint32 <span style='color:#d2cd86; '>*</span>pixels <span style='color:#d2cd86; '>=</span> <span style='color:#d2cd86; '>(</span>Uint32 <span style='color:#d2cd86; '>*</span><span style='color:#d2cd86; '>)</span>surface<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>pixels<span style='color:#b060b0; '>;</span> 
-
- <span style='color:#9999a9; '>//Get the requested pixel  </span>
- Uint32<span style='color:#d2cd86; '>*</span> u_ptr <span style='color:#d2cd86; '>=</span>  pixels <span style='color:#d2cd86; '>+</span> <span style='color:#d2cd86; '>(</span> y <span style='color:#d2cd86; '>*</span> surface<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>w <span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>+</span> x <span style='color:#b060b0; '>;</span> 
-
-        SV<span style='color:#d2cd86; '>*</span> sv <span style='color:#d2cd86; '>=</span> newSVpv<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>a</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span><span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//Make a temp SV* value on the go</span>
-        SvCUR_set<span style='color:#d2cd86; '>(</span>sv<span style='color:#d2cd86; '>,</span> <span style='color:#e66170; font-weight:bold; '>sizeof</span><span style='color:#d2cd86; '>(</span>Uint32<span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//Specify the new CUR length</span>
- SvLEN_set<span style='color:#d2cd86; '>(</span>sv<span style='color:#d2cd86; '>,</span> <span style='color:#e66170; font-weight:bold; '>sizeof</span><span style='color:#d2cd86; '>(</span>Uint32<span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//Specify the LEN length</span>
-        SvPV_set<span style='color:#d2cd86; '>(</span>sv<span style='color:#d2cd86; '>,</span><span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>char</span><span style='color:#d2cd86; '>*</span><span style='color:#d2cd86; '>)</span>u_ptr<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>// set the actual pixel's pointer as the memory space to use</span>
-
- <span style='color:#e66170; font-weight:bold; '>return</span> sv<span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//make a modifiable reference using u_ptr's place as the memory :)</span>
-
-<span style='color:#b060b0; '>}</span>
-</pre><br />
-<p>Next I loop through all the pixels and put them in a 2D array format, shown below: </p><pre style='color:#d1d1d1;background:#000000;'>AV <span style='color:#d2cd86; '>*</span> construct_p_matrix <span style='color:#d2cd86; '>(</span> SDL_Surface <span style='color:#d2cd86; '>*</span>surface <span style='color:#d2cd86; '>)</span>
-<span style='color:#b060b0; '>{</span>
-    AV <span style='color:#d2cd86; '>*</span> matrix <span style='color:#d2cd86; '>=</span> newAV<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-     <span style='color:#e66170; font-weight:bold; '>int</span> i<span style='color:#d2cd86; '>,</span> j<span style='color:#b060b0; '>;</span>
-     <span style='color:#e66170; font-weight:bold; '>for</span><span style='color:#d2cd86; '>(</span>  i <span style='color:#d2cd86; '>=</span><span style='color:#008c00; '>0</span> <span style='color:#b060b0; '>;</span> i <span style='color:#d2cd86; '>&lt;</span> surface<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>w<span style='color:#b060b0; '>;</span> i<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>)</span>
-      <span style='color:#b060b0; '>{</span>
-        AV <span style='color:#d2cd86; '>*</span> matrix_row <span style='color:#d2cd86; '>=</span> newAV<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-        <span style='color:#e66170; font-weight:bold; '>for</span><span style='color:#d2cd86; '>(</span> j <span style='color:#d2cd86; '>=</span><span style='color:#008c00; '>0</span> <span style='color:#b060b0; '>;</span> j <span style='color:#d2cd86; '>&lt;</span> surface<span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>></span>h<span style='color:#b060b0; '>;</span> j<span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>+</span><span style='color:#d2cd86; '>)</span>
-        <span style='color:#b060b0; '>{</span>
-           av_push<span style='color:#d2cd86; '>(</span>matrix_row<span style='color:#d2cd86; '>,</span> get_pixel32<span style='color:#d2cd86; '>(</span>surface<span style='color:#d2cd86; '>,</span> i<span style='color:#d2cd86; '>,</span>j<span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-        <span style='color:#b060b0; '>}</span>
-        av_push<span style='color:#d2cd86; '>(</span>matrix<span style='color:#d2cd86; '>,</span> newRV_noinc<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>(</span>SV<span style='color:#d2cd86; '>*</span><span style='color:#d2cd86; '>)</span> matrix_row<span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-      <span style='color:#b060b0; '>}</span>
-
- <span style='color:#e66170; font-weight:bold; '>return</span> matrix<span style='color:#b060b0; '>;</span>
-<span style='color:#b060b0; '>}</span>
-</pre><br />
-<p>You can see the complete <a href="http://github.com/kthakore/SDL_perl/blob/7ee1a1a7f162080a6fa5274e95b80961486e21e5/src/SDLx/Surface.xs">here</a>.</p><br />
-<p>In Perl I can do a get access on this pixel using: </p><br />
+<p>A while ago I had a long chat with mst on why SDL uses Module::Build rather then Make. I told him it is a simple matter of code inertia.  The existing Module::Build system has worked well for us so far. Never the less, he convinced me that switching to Make will improve debugging the Build system. But to be able to switch we will need to completely replace the Build system. I am not prepared to do that so I will just present the requirements so mst or someone else can at least attempt to switch.</p><br />
 <br />
-<pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>my</span> $surf32_matrix <span style='color:#d2cd86; '>=</span> <span style='color:#904050; '>SDLx</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Surface</span><span style='color:#d2cd86; '>:</span><span style='color:#d2cd86; '>:</span>pixel_array<span style='color:#d2cd86; '>(</span>$screen_surface<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-   <span style='color:#e66170; font-weight:bold; '>print</span> <span style='color:#e66170; font-weight:bold; '>unpack</span> <span style='color:#00c4c4; '>'b*'</span><span style='color:#d2cd86; '>,</span> $surf32_matrix<span style='color:#d2cd86; '>-></span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '># pixel value at x = 0 and y =0</span>
-<span style='color:#9999a9; '>#OUTPUT:</span>
-<span style='color:#9999a9; '># 11111111000000000000000000000000</span>
-</pre><br />
-<p>The structure of the PV is using Devel::Peek is : </p><br />
-<pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>print</span> Dump $surf32_matrix<span style='color:#d2cd86; '>-></span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#b060b0; '>;</span>
-<span style='color:#9999a9; '>#OUTPUT:</span>
-<span style='color:#9999a9; '>#SV = PV(0xed0dbc) at 0xeb5344</span>
-<span style='color:#9999a9; '>#  REFCNT = 1</span>
-<span style='color:#9999a9; '>#  FLAGS = (POK,pPOK)</span>
-<span style='color:#9999a9; '>#  PV = 0x9e04ac "\0\0\377\0"</span>
-<span style='color:#9999a9; '>#  CUR = 4</span>
-<span style='color:#9999a9; '>#  LEN = 4</span>
-</pre><br />
-<p>The problem is in setting the value of this pointer value. I have tried the following things with no success:</p><br />
-<pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span> <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Video</span><span style='color:#d2cd86; '>:</span><span style='color:#d2cd86; '>:</span>MUSTLOCK<span style='color:#d2cd86; '>(</span>$screen_surface<span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
-    <span style='color:#e66170; font-weight:bold; '>return</span> <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span> <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Video</span><span style='color:#d2cd86; '>:</span><span style='color:#d2cd86; '>:</span>lock_surface<span style='color:#d2cd86; '>(</span>$screen_surface<span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>&lt;</span> <span style='color:#00a800; '>0</span> <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>#required for pixel operations</span>
-<span style='color:#b060b0; '>}</span>
-
-<span style='color:#9999a9; '>#USING pack</span>
-
-<span style='color:#e66170; font-weight:bold; '>my</span> $green <span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>pack</span> <span style='color:#00c4c4; '>'b*'</span><span style='color:#d2cd86; '>,</span> <span style='color:#00c4c4; '>'11111111000000000000000000000000'</span><span style='color:#b060b0; '>;</span>
-<span style='color:#e66170; font-weight:bold; '>substr</span><span style='color:#d2cd86; '>(</span> $surf32_matrix<span style='color:#d2cd86; '>-></span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>8</span> <span style='color:#d2cd86; '>*</span> <span style='color:#00a800; '>4</span><span style='color:#d2cd86; '>,</span> $green<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>#no change</span>
-<span style='color:#9999a9; '>#substr( $surf32_matrix->[0][0], 0, 8 * 4, 0xFF000000); segfault</span>
-<span style='color:#e66170; font-weight:bold; '>substr</span><span style='color:#d2cd86; '>(</span> ${$surf32_matrix<span style='color:#d2cd86; '>-></span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span>}<span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>8</span> <span style='color:#d2cd86; '>*</span> <span style='color:#00a800; '>4</span><span style='color:#d2cd86; '>,</span> <span style='color:#00a800; '>0xFF000000</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>#no change</span>
-<span style='color:#9999a9; '>#$surf32_matrix->[0][0] = $green; SEGFAULT's cannot write to memory</span>
-${$surf32_matrix<span style='color:#d2cd86; '>-></span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>[</span><span style='color:#00a800; '>0</span><span style='color:#d2cd86; '>]</span>} <span style='color:#d2cd86; '>=</span> $green<span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>#no change</span>
-
-
-<span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Video</span><span style='color:#d2cd86; '>:</span><span style='color:#d2cd86; '>:</span>unlock_surface<span style='color:#d2cd86; '>(</span>$screen_surface<span style='color:#d2cd86; '>)</span>
-  <span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span> <span style='color:#904050; '>SDL</span><span style='color:#d2cd86; '>::</span><span style='color:#904050; '>Video</span><span style='color:#d2cd86; '>:</span><span style='color:#d2cd86; '>:</span>MUSTLOCK<span style='color:#d2cd86; '>(</span>$screen_surface<span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-</pre><br />
-<p>You can see an example <a href="http://paste.scsys.co.uk/45111">here</a>.</p><br />
-<p>Any help will be greatly appreciated. </p><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-1929043568015240773?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/1Rx7lBLzyC2ksXyZwl9Q_nlI6iE/0/da"><img src="http://feedads.g.doubleclick.net/~a/1Rx7lBLzyC2ksXyZwl9Q_nlI6iE/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/1Rx7lBLzyC2ksXyZwl9Q_nlI6iE/1/da"><img src="http://feedads.g.doubleclick.net/~a/1Rx7lBLzyC2ksXyZwl9Q_nlI6iE/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/q5F5dgfg5Fg" height="1" width="1"/></div></div>
+<h3>The Build Process </h3><br />
+<b> Alien::SDL </b><br />
+<br />
+<p>SDL Perl depends on a few C libraries for a complete install. This is handled by Alien::SDL. First we look for existing SDL libraries and dependencies by doing a <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L581">File::Find</a> for headers. If these headers are found we  present and option for the user to use those. We then store these locations in Alien::SDL->config options 'cflags', 'prefix' and 'libs'. If we do not have libraries available even for a minimum SDL installed ( SDL.h is not found). We provide several platform specific options. </p><br />
+<p>For windows we have a simpler process. We download<a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L7"> prebuilt </a>binaries ( and checksum ) based on the user's selection and just copy them in to the right location. Again the 'prefix', 'cflags', and 'libs' is saved in Alien::SDL->config. </p><br />
+<p>For *nix/MacOSX we download sources and attempt to compile them. To be able to do this we download several other dependencies like libpng, jpeg and pango. You can see how we do this using hashes <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L404">here</a>. During the compile process we also apply patches as needed for the <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L430">sources</a>. Once this is done we can head to SDL Build.PL </p><br />
+<b> SDL Perl dependency resolution </b><br />
+<br />
+SDL's Build is responsible for linking the right libraries to the correct XS. If libraries are missing it will disable the component (not put it in SDL->config). <br />
+<br />
+<p>For example to build <a href="http://github.com/kthakore/SDL_perl/blob/master/Build.PL#L342">Image.xs</a> we require libsdl, libsdl_image and lib[jpg|png|tiff]. So we would check for these headers in the prefix provided by Alien::SDL->config. If they are not provided we will disable the SDL::Image module. </p><br />
+<p>More over the availability of each library is specified as a -DMACRO to the gcc compiler. This way we can prevent XS failures due to missing libraries using #DEFINES. Here the SDL_image macro is <a href="http://github.com/kthakore/SDL_perl/blob/master/Build.PL#L422">defined</a> and <a href="http://github.com/kthakore/SDL_perl/blob/master/src/Image.xs#L13">used</a>. The availability of the module is then available from <a href="http://github.com/kthakore/SDL_perl/blob/master/t/image.t#L20">SDL::Config->has()</a> <br />
+<br />
+<br />
+<b> Conclusion </b> <br />
+<p>This is a high level overview of our Build process, because frankly I hate traumatizing my brain with this again. Credits have to go to FROGGS and kmx for helping with this Build scheme. Hopefully my post have helped people at the very least appreciate the problem scope of this Build system. That said I believe a fresh written build system, with these requirements in mind, will be more then welcome.<br />
+</p><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4514794130108689562?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/0/da"><img src="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/1/da"><img src="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/fTwVmM222rA" height="1" width="1"/></div></div>

@@ -1,18 +1,20 @@
 <div class="blog">
 <h1 id="NAME">
-SDL 2.518 Released: Neverhood Clone
+Closing the Grant
 </h1>
 <div class="CONTENT">
-So Blaizer started a Neverhood clone and fixed a lot of the Controller code to make it work nicely. This has been released as SDL 2.518. It does break back compat a bit, but not too much.<br />
+With the following <a href="https://github.com/PerlGameDev/SDL_Manual/commit/3acf7fada644a24b020fc1caf8338c2dd32b6985">commit</a> I am closing the grant.<br />
 <br />
-Have a look at <a href="http://sdl.perl.org/SDL-Deprecated.html#2_517">http://sdl.perl.org/SDL-Deprecated.html#2_517</a> to see the breakages. <br />
-<br />
-The documentation for Controller has also been improved considerably. <br />
-<br />
-<a href="http://sdl.perl.org/SDLx-Controller.html">http://sdl.perl.org/SDLx-Controller.html</a><br />
-<br />
-Finally here is a video of the neverhood clone so far<br />
-<br />
-<iframe frameborder="0" height="207" src="http://player.vimeo.com/video/15531777?portrait=0&amp;color=59a5d1" width="267"></iframe><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-2064504316940101601?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/0/da"><img src="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/1/da"><img src="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/6YG5estsLGE" height="1" width="1"/></div></div>
+This is what has been accomplished from each of the objectives:<br />
+<ul><li>Cleaner Code and a lot of memory and performance improvements ( SDL 2.527 released Jan 18th )</li>
+<li>10 out of 11 chapters completed:</li>
+<ul><li>The profiling chapter was dropped as there was not enough content to justify a chapter.</li>
+</ul><li>3 Extra chapters added.</li>
+<li>Deviation from a CPAN SDL::Manual release due to the nature of the Manual it is being released as a creative commons<a href="https://github.com/PerlGameDev/SDL_Manual/blob/master/dist/SDL_Manual.pdf"> book</a> instead.</li>
+</ul>Next Steps:<br />
+<ul><li>Get the book polished and edited with chromatic's help</li>
+<li>Fix build system of the html to make a real SDL::Manual release</li>
+<li>Constant update of the book with more releases of SDL and reviewer comments.</li>
+</ul><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-6952731709319833584?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/rj_K2nNds54Aw9cND4qkZa7Liio/0/da"><img src="http://feedads.g.doubleclick.net/~a/rj_K2nNds54Aw9cND4qkZa7Liio/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/rj_K2nNds54Aw9cND4qkZa7Liio/1/da"><img src="http://feedads.g.doubleclick.net/~a/rj_K2nNds54Aw9cND4qkZa7Liio/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/hwuC2dygN5w" height="1" width="1"/></div></div>
