@@ -33,8 +33,9 @@
  my $font = SDL::TTF::Font-&gt;new($font_file, $point_size, $face_index);
 
 </pre>
-<p>Load file for use as a font, at the given size. This can load TTF and FON files.
-You can specify the face index of a font file containing multiple faces.</p>
+<p>Load file for use as a font, at the given size. This can load TTF, OTF and
+FON files. You can specify the face index of a font file containing multiple
+faces.</p>
 <p>Returns: a <a href="SDL-TTF-Font.html">SDL::TTF::Font</a> object. <code>undef</code> is returned on errors.</p>
 <p>Example:</p>
 <pre> use SDL::TTF::Font;

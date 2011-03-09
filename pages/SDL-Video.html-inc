@@ -1130,7 +1130,7 @@ If the <a href="SDL-PixelFormat.html">SDL::PixelFormat</a>'s  bpp (color depth) 
 </div>
 <h2 id="map_RGBA">map_RGBA</h2>
 <div id="map_RGBA_CONTENT">
-<pre> $pixel = SDL::Video::map_RGB( $pixel_format, $r, $g, $b, $a );
+<pre> $pixel = SDL::Video::map_RGBA( $pixel_format, $r, $g, $b, $a );
 
 </pre>
 <p>Maps the RGBA color value to the specified <a href="SDL-PixelFormat.html">SDL::PixelFormat</a> and returns the pixel value as a 32-bit int.

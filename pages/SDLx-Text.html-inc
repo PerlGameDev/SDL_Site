@@ -1,0 +1,300 @@
+<div class="pod">
+<!-- INDEX START -->
+<h3 id="TOP">Index</h3>
+
+<ul><li><a href="#NAME">NAME</a></li>
+<li><a href="#CATEGORY">CATEGORY</a></li>
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#CONSTRUCTION">CONSTRUCTION</a>
+<ul><li><a href="#new">new</a></li>
+<li><a href="#new_attributes">new ( %attributes )</a></li>
+</ul>
+</li>
+<li><a href="#ACCESSORS">ACCESSORS</a>
+<ul><li><a href="#x">x</a></li>
+<li><a href="#y">y</a></li>
+<li><a href="#h_align">h_align</a></li>
+<li><a href="#color">color</a></li>
+<li><a href="#size">size</a></li>
+<li><a href="#font">font</a></li>
+</ul>
+</li>
+<li><a href="#METHODS">METHODS</a>
+<ul><li><a href="#text_some_text">text( $some_text )</a></li>
+<li><a href="#write_to_target_surface">write_to( $target_surface )</a></li>
+<li><a href="#write_to_target_surface_quot_text_to">write_to( $target_surface, &quot;text to write&quot; )</a></li>
+<li><a href="#write_xy_target_surface_x_y">write_xy( $target_surface, $x, $y )</a></li>
+<li><a href="#write_xy_target_surface_x_y_text">write_xy( $target_surface, $x, $y, $text )</a></li>
+</ul>
+</li>
+<li><a href="#READ_ONLY_ATTRIBUTES">READ-ONLY ATTRIBUTES</a>
+<ul><li><a href="#surface">surface</a></li>
+<li><a href="#w">w</a></li>
+<li><a href="#h">h</a></li>
+</ul>
+</li>
+<li><a href="#ERRORS_AND_DIAGNOSTICS">ERRORS AND DIAGNOSTICS</a></li>
+<li><a href="#BUGS">BUGS</a></li>
+<li><a href="#SUPPORT">SUPPORT</a></li>
+<li><a href="#AUTHORS">AUTHORS</a></li>
+<li><a href="#COPYRIGHT_amp_LICENSE">COPYRIGHT &amp; LICENSE</a></li>
+<li><a href="#SEE_ALSO">SEE ALSO</a>
+</li>
+</ul><hr />
+<!-- INDEX END -->
+
+<h1 id="NAME">NAME</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="NAME_CONTENT">
+<p>SDLx::Text - SDL extension for manipulating text</p>
+
+</div>
+<h1 id="CATEGORY">CATEGORY</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CATEGORY_CONTENT">
+<p>Extension</p>
+
+</div>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SYNOPSIS_CONTENT">
+<pre>    use SDL;
+    use SDLx::App; 
+    use SDLx::Text;
+
+    my $app = SDLx::App-&gt;new;
+
+    my $message = SDLx::Text-&gt;new;
+
+    $message-&gt;write_to( $app, &quot;Hello, World!&quot; );
+    $app-&gt;update;
+
+
+
+
+</pre>
+
+</div>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="DESCRIPTION_CONTENT">
+<p>The standard SDL API for handling fonts and rendering text is full of quirks
+and and low-level functions scattered all over the place. This is a sugar
+layer meant to let you easily handle text in your SDL apps.</p>
+
+</div>
+<h1 id="CONSTRUCTION">CONSTRUCTION</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="CONSTRUCTION_CONTENT">
+
+</div>
+<h2 id="new">new</h2>
+<div id="new_CONTENT">
+
+</div>
+<h2 id="new_attributes">new ( %attributes )</h2>
+<div id="new_attributes_CONTENT">
+<p>Instantiates a new SDLx::Text object. All attributes are optional:</p>
+<pre>    my $text = SDLx::Text-&gt;new(
+            font    =&gt; '/path/to/my/font.ttf',
+            color   =&gt; [255, 255, 255], # &quot;white&quot;
+            size    =&gt; 24,
+            x       =&gt; 0,
+            y       =&gt; 0,
+            h_align =&gt; 'left',
+            text    =&gt; 'All your base are belong to us.'
+    );
+
+</pre>
+<p>Please check the accessors below for more information on each attribute.
+All values shown above are the <strong>default values</strong>, except for &quot;text&quot;,
+which defaults to <code>undef</code>; and &quot;font&quot;, which if not provided will load
+the <code>Gentium Basic</code> free font (see &quot;<a href="http://search.cpan.org/perldoc?">http://search.cpan.org/perldoc?</a>&quot; for more
+information).</p>
+
+</div>
+<h1 id="ACCESSORS">ACCESSORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="ACCESSORS_CONTENT">
+<p>All accessors below can be used to get and set their respective attributes.
+For example:</p>
+<pre>   my $font_name = $self-&gt;font;     # gets the font filename
+   $self-&gt;font( 'somefont.ttf' );   # sets a new font
+
+</pre>
+<p>All accessors return their current value, after being set.</p>
+
+</div>
+<h2 id="x">x</h2>
+<div id="x_CONTENT">
+<p>Gets/sets the left (x) positioning of the text to be rendered, relative
+to whatever surface you are placing it into.</p>
+
+</div>
+<h2 id="y">y</h2>
+<div id="y_CONTENT">
+<p>Gets/sets the top (y) positioning of the text to be rendered, relative
+to whatever surface you are placing it into.</p>
+
+</div>
+<h2 id="h_align">h_align</h2>
+<div id="h_align_CONTENT">
+<p>Gets/sets the horizontal alignment of the text to be rendered relative to
+whatever surface you are placing it into. Available alignments are '<code>left</code>',
+'<code>right</code>' and '<code>center</code>'. Default is '<code>left</code>'.</p>
+
+</div>
+<h2 id="color">color</h2>
+<div id="color_CONTENT">
+<p>Gets/sets the text color. The color is an array reference in <code>[R, G, B]</code> or <code>[R, G, B, A]</code> format. See <a href="SDL-Color.html">SDL::Color</a> for more information on colors.</p>
+
+</div>
+<h2 id="size">size</h2>
+<div id="size_CONTENT">
+<p>Gets/sets the font size.</p>
+
+</div>
+<h2 id="font">font</h2>
+<div id="font_CONTENT">
+<p>Pass it a string containing the path to your desired font to use it. Fonts
+can be in TTF, OTF or FON formats. Generates an exception if the font
+cannot be loaded.</p>
+<p>Returns the <a href="SDL-TTF-Font.html">SDL::TTF::Font</a> object representing the font.</p>
+
+
+
+
+
+</div>
+<h1 id="METHODS">METHODS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="METHODS_CONTENT">
+
+</div>
+<h2 id="text_some_text">text( $some_text )</h2>
+<div id="text_some_text_CONTENT">
+<p>Sets the text to be displayed by the SDLx::Text object. Return the SDLx::Text object itself, so you can easily chain this method around.</p>
+<pre>    my $obj = SDLx::Text-&gt;new-&gt;text( &quot;Hello, Dave.&quot; );
+
+</pre>
+<p>Text will always be rendered as utf8, so you can pass any string containing
+regular ASCII or valid utf8 characters.</p>
+
+</div>
+<h2 id="write_to_target_surface">write_to( $target_surface )</h2>
+<div id="write_to_target_surface_CONTENT">
+
+</div>
+<h2 id="write_to_target_surface_quot_text_to">write_to( $target_surface, &quot;text to write&quot; )</h2>
+<div id="write_to_target_surface_quot_text_to-2">
+<p>Renders the text onto <code>$target_surface</code> (usually the app itself). The
+text string may be passed as a parameter, otherwise it will use whatever
+is already set (via the <code>new()</code> or <code>text()</code> methods.</p>
+
+</div>
+<h2 id="write_xy_target_surface_x_y">write_xy( $target_surface, $x, $y )</h2>
+<div id="write_xy_target_surface_x_y_CONTENT">
+
+</div>
+<h2 id="write_xy_target_surface_x_y_text">write_xy( $target_surface, $x, $y, $text )</h2>
+<div id="write_xy_target_surface_x_y_text_CON">
+<p>Same as <code>write_to()</code>, but will render the text using the given top (y) and
+left (x) coordinates.</p>
+
+
+
+
+
+</div>
+<h1 id="READ_ONLY_ATTRIBUTES">READ-ONLY ATTRIBUTES</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="READ_ONLY_ATTRIBUTES_CONTENT">
+<p>As you set or update your text, font or size, SDLx::Text updates the surface
+that represents it. You don't usually need to worry about this at all, and
+we strongly recommend you use the <a href="http://search.cpan.org/perldoc?">http://search.cpan.org/perldoc?</a> above to render your text.</p>
+<p>If however you need to know how tall or wide the rendered text will be
+(in pixels), or if you want to retrieve the surface so you can manipulate and
+render it yourself, you can use the following getters:</p>
+
+</div>
+<h2 id="surface">surface</h2>
+<div id="surface_CONTENT">
+<p>Returns the underlying surface representing the text itself. You probably don't need this, unless you're doing something really funky.</p>
+
+</div>
+<h2 id="w">w</h2>
+<div id="w_CONTENT">
+<p>Shortcut to see the width of the underlying surface representing the text.</p>
+
+</div>
+<h2 id="h">h</h2>
+<div id="h_CONTENT">
+<p>Shortcut to see the height of the underlying surface representing the text.</p>
+
+</div>
+<h1 id="ERRORS_AND_DIAGNOSTICS">ERRORS AND DIAGNOSTICS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="ERRORS_AND_DIAGNOSTICS_CONTENT">
+<dl>
+	<dt>* &quot;SDL_ttf support has not been compiled&quot;</dt>
+	<dd>
+		<p>In order to render text in SDL you must have enabled SDL_ttf while building <a href="http://search.cpan.org/perldoc?Alien::SDL">Alien::SDL</a>.</p>
+	</dd>
+	<dt>* &quot;Cannot init TTF: &lt;some error&gt;&quot;</dt>
+	<dd>
+		<p>In order to load fonts and render text, we need to initialize <a href="SDL-TTF.html">SDL::TTF</a>
+- that is, in case it hasn't been initialized already. The error above will
+appear in the rare event of any problem during initialization.</p>
+	</dd>
+	<dt>* &quot;Error opening font: &lt;some error&gt;&quot;</dt>
+	<dd>
+		<p>The font file you set either via <code>font( 'font.ttf' )</code> or during
+construction could not be loaded. The file may not exist in the given path,
+have wrong permissions, be corrupted, or of an unsupported format. Please
+refer the <code>&lt;some error&gt;</code> message in the message itself for further
+information.</p>
+	</dd>
+	<dt>* &quot;TTF rendering error: &lt;some error&gt;&quot;</dt>
+	<dd>
+		<p>When you call <code>text()</code>, it renders the provided string onto an internal
+<a href="SDL-Surface.html">SDL::Surface</a> object. If there was any problem rendering the text, this
+message will appear.</p>
+	</dd>
+</dl>
+
+</div>
+<h1 id="BUGS">BUGS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="BUGS_CONTENT">
+<p>Please report any bugs or feature requests to the bug tracker. We will be notified, and then you'll automatically be notified of progress on your bug as we make changes.</p>
+
+
+
+
+
+</div>
+<h1 id="SUPPORT">SUPPORT</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SUPPORT_CONTENT">
+<p>You can find documentation for this module with the perldoc command.</p>
+<pre>    perldoc SDLx::Text
+
+
+
+
+</pre>
+
+</div>
+<h1 id="AUTHORS">AUTHORS</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="AUTHORS_CONTENT">
+<p>See <a href="/SDL.html#AUTHORS">/SDL.html#AUTHORS</a>.</p>
+
+
+
+
+
+</div>
+<h1 id="COPYRIGHT_amp_LICENSE">COPYRIGHT &amp; LICENSE</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="COPYRIGHT_amp_LICENSE_CONTENT">
+<p>This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.</p>
+<p>This module ships with a default font, &quot;<i>Gentium Basic</i>&quot;, Copyright 2003-2008 SIL International (http://sil.org), released under the SIL Open Font License 1.1 (OFL). The font is available for use in free and commercial products, with some minor restrictions. Please read the <code>OFL.txt</code> and <code>OFL-FAQ.txt</code> for further information.</p>
+
+</div>
+<h1 id="SEE_ALSO">SEE ALSO</h1><p><a href="#TOP" class="toplink">Top</a></p>
+<div id="SEE_ALSO_CONTENT">
+<p><a href="SDL.html">SDL</a>, <a href="SDLx-App.html">SDLx::App</a>, <a href="SDL-TTF.html">SDL::TTF</a>
+</p>
+
+</div>
+</div>
