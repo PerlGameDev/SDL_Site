@@ -42,8 +42,6 @@ To unsubscribe send an empty email to L< sdl-devel-unsubscribe@perl.org | mailto
 
 Join us on L<GitHub|https://github.com/PerlGameDev/SDL/issues> to get started on making and grabbing issues.
 
-To begin testing read L<the wiki page on testing| http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testing>.
-
 =back
 
 =head1 Latest News
