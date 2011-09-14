@@ -81,7 +81,7 @@ award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>ww
 </div>
 <h3 id="SDL_Manual_Writing_Games_with_SDL_Pe">SDL Manual: Writing Games with SDL Perl</h3>
 <div id="SDL_Manual_Writing_Games_with_SDL_Pe-2">
-<p>The grant <a href="http://news.perlfoundation.org/2010/08/2010q3-grant-proposal-manual-f.html">proposal</a> has been accepted by <a href="http://news.perlfoundation.org/2010/08/accepted-grants-for-2010q3.html">The Perl Foundation</a>. SDL_Manual is being developed on <a href="http://github.com/PerlGameDev/SDL_Manual">github</a>, you can see the draft in <a href="http://sdlperl.ath.cx/releases/SDL_Manual.pdf">PDF</a> and <a href="http://sdlperl.ath.cx/releases/SDL_Manual.html">HTML</a>.</p>
+<p>The grant <a href="http://news.perlfoundation.org/2010/08/2010q3-grant-proposal-manual-f.html">proposal</a> has been accepted by <a href="http://news.perlfoundation.org/2010/08/accepted-grants-for-2010q3.html">The Perl Foundation</a>. SDL_Manual is in continous development on <a href="http://github.com/PerlGameDev/SDL_Manual">github</a>.</p>
 <p>More up to date versions of the books are also available in <a href="https://github.com/PerlGameDev/SDL_Manual/blob/master/dist/SDL_Manual.html">HTML</a> and <a href="https://github.com/PerlGameDev/SDL_Manual/blob/master/dist/SDL_Manual.pdf">PDF</a> formats. </p>
 
 </div>
