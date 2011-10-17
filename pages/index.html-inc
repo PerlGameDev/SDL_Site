@@ -59,7 +59,7 @@ award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>ww
 	</dd>
 	<dt>Testing and Development</dt>
 	<dd>
-		<p>Join us on the trac <a href="http://sdlperl.ath.cx/projects/SDLPerl">site</a> to get started on making and grabbing tickets. </p>
+		<p>Join us on the github <a href="http://github.com/PerlGameDev/SDL">site</a> to get started on making and grabbing tickets. </p>
 		<p>To begin testing read <a href="http://sdlperl.ath.cx/projects/SDLPerl/wiki/Testing">the wiki page on testing</a>.</p>
 	</dd>
 </dl>
