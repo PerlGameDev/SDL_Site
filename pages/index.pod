@@ -48,11 +48,11 @@ To get started on testing SDL see our L<Testing Wiki Page|https://github.com/Per
 
 =head1 Latest News
 
-=head2 December 26th 2010
+=head2 October 27th 2011
 
-=head3 CPAN Release SDL 2.524
+=head3 CPAN Release SDL 2.534
 	
-L<SDL 2.524|http://search.cpan.org/search?query=SDL&mode=module> is on CPAN! The new API has many changes and much more improvements. So check it out.
+L<SDL 2.534|http://search.cpan.org/search?query=SDL&mode=module> is on CPAN! The new API has many changes and much more improvements. So check it out.
 
 SDL Perl at v2.2.6 on CPAN is the last of its kind which will have the old API.
 

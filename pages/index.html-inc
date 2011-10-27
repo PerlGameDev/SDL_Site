@@ -11,8 +11,8 @@
 </ul>
 </li>
 <li><a href="#Latest_News">Latest News</a>
-<ul><li><a href="#December_26th_2010">December 26th 2010</a>
-<ul><li><a href="#CPAN_Release_SDL_2_524">CPAN Release SDL 2.524</a></li>
+<ul><li><a href="#October_27th_2011">October 27th 2011</a>
+<ul><li><a href="#CPAN_Release_SDL_2_534">CPAN Release SDL 2.534</a></li>
 <li><a href="#SDL_Manual_Writing_Games_with_SDL_Pe">SDL Manual: Writing Games with SDL Perl</a></li>
 <li><a href="#Active_Development">Active Development</a>
 </li>
@@ -69,13 +69,13 @@ award winning Linux port of &quot;Civilization: Call To Power.&quot;' --<cite>ww
 <div id="Latest_News_CONTENT">
 
 </div>
-<h2 id="December_26th_2010">December 26th 2010</h2>
-<div id="December_26th_2010_CONTENT">
+<h2 id="October_27th_2011">October 27th 2011</h2>
+<div id="October_27th_2011_CONTENT">
 
 </div>
-<h3 id="CPAN_Release_SDL_2_524">CPAN Release SDL 2.524</h3>
-<div id="CPAN_Release_SDL_2_524_CONTENT">
-<p><a href="http://search.cpan.org/search?query=SDL&amp;mode=module">SDL 2.524</a> is on CPAN! The new API has many changes and much more improvements. So check it out.</p>
+<h3 id="CPAN_Release_SDL_2_534">CPAN Release SDL 2.534</h3>
+<div id="CPAN_Release_SDL_2_534_CONTENT">
+<p><a href="http://search.cpan.org/search?query=SDL&amp;mode=module">SDL 2.534</a> is on CPAN! The new API has many changes and much more improvements. So check it out.</p>
 <p>SDL Perl at v2.2.6 on CPAN is the last of its kind which will have the old API.</p>
 
 </div>
