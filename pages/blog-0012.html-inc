@@ -1,23 +1,78 @@
 <div class="blog">
 <h1 id="NAME">
-Huge World Maps in less then 100 lines
+Grant Progess Reports 1-3: Sept - Nov
 </h1>
 <div class="CONTENT">
-<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TEBxQGLPevI/AAAAAAAAALI/3k4lruLMbZ0/s1600/foo.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_NnqjAQEn1Xo/TEBxQGLPevI/AAAAAAAAALI/3k4lruLMbZ0/s320/foo.bmp" /></a></div><br />
-Hello folks,<br />
+As you know I have received a TPF grant to write a SDL Perl Manual.<br />
+<a href="http://www.blogger.com/goog_716654272"><br />
+</a><br />
+<a href="http://news.perlfoundation.org/2010/08/2010q3-grant-proposal-manual-f.html">http://news.perlfoundation.org/2010/08/2010q3-grant-proposal-manual-f.html</a><br />
 <br />
-Recently we have been <a href="http://github.com/kthakore/SDL_perl/commits/master">working</a> on making the Perl&nbsp;syntax&nbsp;sugar for SDL in the form of SDLx. So far we have got the SDLx::Surface and SDLx::Sprite (garu++) done. So the first thing we did was throw together a quick Zelda map walker. As you can see above. &nbsp;The code is at&nbsp;<a href="http://gist.github.com/478440">http://gist.github.com/478440</a>. The SDL code that this depends on will be SDL 2.503 soonish . We are in the process of cleaning up some more SDLx and Alien::SDL bugs. After that SDLx::App will be overhauled to make this sort of thing even easier. Finally living up to our goal of &nbsp;'<span class="Apple-style-span" style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif; font-size: 13px;">Simple Games Easy. Complex Games Possible.'&nbsp;</span><br />
+<a href="http://news.perlfoundation.org/2010/08/accepted-grants-for-2010q3.html">http://news.perlfoundation.org/2010/08/accepted-grants-for-2010q3.html</a><br />
+<br />
+I have been a bit busy with that and not been able to update my blog. Anyway here are some of the back dated Grant Updates. These updates where also posted on <a href="http://news.perlfoundation.org/">http://news.perlfoundation.org/</a><br />
 <br />
 <br />
-<span class="Apple-style-span" style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif; font-size: 13px;"><span style="font-family: inherit;"><b>UPDATE: with some help, and newcomer jtpalmer'<span style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif;">s help we have added Link</span></b></span></span><br />
-<span class="Apple-style-span" style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif; font-size: 13px;"><span style="font-family: inherit;"><b><span style="font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif;">&nbsp; </span></b></span></span><br />
+<a name='more'></a><br />
 <br />
-<br /><br />
+<div style="text-align: center;">REPORT 1: Sept 2010</div><br />
+<ul><li>1st drafts  <ul><li>Preface </li>
+<li>Chapter 2: First SDL Application</li>
+</ul></li>
+<li>Started work on Chapter 3: Drawing</li>
+<li>Outlines for the first 7 chapters have been completed</li>
+<li>Book build framework has been setup</li>
+<li>Released SDL 2.514 (2.515 will be released on 16th of September) <ul><li>This code is the one that will be used in the book for chapter 02</li>
+</ul></li>
+<li>Got more of the Drawing chapter done (It will be done by the end of the week)       </li>
+<li>Added several more code examples for other chapters</li>
+</ul>Progress: 2.75 chapters / 11 chapters = approx 25%<br />
+Kartik's work can be followed at:<br />
+<ul><li><a href="http://github.com/PerlGameDev/SDL_Manual">http://github.com/PerlGameDev/SDL_Manual</a></li>
+<li><a href="http://sdlperl.ath.cx/releases/SDL_Manual.pdf">http://sdlperl.ath.cx/releases/SDL_Manual.pdf</a></li>
+</ul><br />
 <br />
-<object width="267" height="220"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=13423319&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=59a5d1&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=13423319&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=59a5d1&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="267" height="220"></embed></object><br />
+<div style="text-align: center;">REPORT 2: October 2010</div><div style="text-align: center;"><br />
+</div><div style="text-align: left;">Since last time:<br />
+<ul><li>We have released SDL 2.518 <ul><li>Game Loop support completed</li>
+</ul></li>
+</ul>Chapters:<br />
+<ul><li>2nd Drafts for: <ul><li>Preface to Game Loop ( Chapter 0 - Chapter 04)</li>
+</ul></li>
+<li>Chapters completed: 5/11 =&gt; 45%</li>
+</ul>Extra:<br />
+<ul><li>cfedde has made a script to extract code listings for readers to try examples with out having to retype them.</li>
+</ul>Coments:<br />
+<ul><li>I am receiving a lot more help from the community, most notable from cfedde for proofreading.</li>
+<li>I will be fleshing out the next 6 chapters shortly and work will begin on them soon</li>
+<li>I am pleased with the progress so far, and I feel the quality is improving due to the pacing.</li>
+</ul>Our work can be seen at:<br />
+<ul><li><a href="http://sdlperl.ath.cx/releases/SDL_Manual.pdf">http://sdlperl.ath.cx/releases/SDL_Manual.pdf</a></li>
+<li><a href="http://sdlperl.ath.cx/releases/SDL_Manual.html">http://sdlperl.ath.cx/releases/SDL_Manual.html</a></li>
+<li><a href="http://github.com/PerlGameDev/SDL_Manual">http://github.com/PerlGameDev/SDL_Manual</a></li>
+</ul></div><br />
+<div style="text-align: center;">REPORT 3: November 2010</div><div style="text-align: left;"><br />
+This is the progress so far:<br />
 <br />
-<br /><br />
+- SDL 2.523 Releases:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Adds stability and better memory management for the game loop<br />
 <br />
---caio&nbsp;yapgh<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4587488240162102295?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/c0ScjYCjwVOpMfey5qcm_RKKLBs/0/da"><img src="http://feedads.g.doubleclick.net/~a/c0ScjYCjwVOpMfey5qcm_RKKLBs/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/c0ScjYCjwVOpMfey5qcm_RKKLBs/1/da"><img src="http://feedads.g.doubleclick.net/~a/c0ScjYCjwVOpMfey5qcm_RKKLBs/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/ONip91qsKjQ" height="1" width="1"/></div></div>
+- 2 chapters have been completed <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Pong Chapter (Contributed by garu)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Additional Modules<br />
+- 1 extra chapter has been added<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Puzz(le) Chapter (Contributed by Blaizer)<br />
+<br />
+- 2 Chapters are in the Works<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Tetris Code has been mostly done (contributed by FROGGS)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Needs to be fixed <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Needs write up<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sound and Music Effects code is done<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Needs to be fixed<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Needs write up<br />
+<br />
+Our work can be seen at:</div><div style="text-align: left;"><a href="http://sdlperl.ath.cx/releases/SDL_Manual.pdf">http://sdlperl.ath.cx/releases/SDL_Manual.pdf</a></div><div style="text-align: left;"><a href="http://sdlperl.ath.cx/releases/SDL_Manual.html">http://sdlperl.ath.cx/releases/SDL_Manual.html</a></div><div style="text-align: left;"><a href="http://github.com/PerlGameDev/SDL_Manual">http://github.com/PerlGameDev/SDL_Manual</a></div><div style="text-align: left;"></div><div style="text-align: left;"></div><div style="text-align: left;"><br />
+Regards,<br />
+YAPGH</div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4413645254021668635?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/rCHqQ4GfQzQ_w9cl8yTT7oNQNJ8/0/da"><img src="http://feedads.g.doubleclick.net/~a/rCHqQ4GfQzQ_w9cl8yTT7oNQNJ8/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/rCHqQ4GfQzQ_w9cl8yTT7oNQNJ8/1/da"><img src="http://feedads.g.doubleclick.net/~a/rCHqQ4GfQzQ_w9cl8yTT7oNQNJ8/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/XruRd8WgjyQ" height="1" width="1"/></div></div>

@@ -1,36 +1,26 @@
 <div class="blog">
 <h1 id="NAME">
-SDL Perl Showcase
+The Build Process of SDL Perl
 </h1>
 <div class="CONTENT">
-<b><br />
-SDL_Mixer and Effects</b><br />
+<p>A while ago I had a long chat with mst on why SDL uses Module::Build rather then Make. I told him it is a simple matter of code inertia.  The existing Module::Build system has worked well for us so far. Never the less, he convinced me that switching to Make will improve debugging the Build system. But to be able to switch we will need to completely replace the Build system. I am not prepared to do that so I will just present the requirements so mst or someone else can at least attempt to switch.</p><br />
 <br />
-<div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/_NnqjAQEn1Xo/S5mzzlA_BPI/AAAAAAAAAJ4/5n62-vSSKzs/s1600-h/playlist.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/_NnqjAQEn1Xo/S5mzzlA_BPI/AAAAAAAAAJ4/5n62-vSSKzs/s320/playlist.png" /></a></div><br />
-This demo shows the new work we have finished for SDL_Mixer support in <a href="http://github.com/kthakore/SDL_perl">SDL_perl</a> . (FROGGS++)<br />
+<h3>The Build Process </h3><br />
+<b> Alien::SDL </b><br />
 <br />
+<p>SDL Perl depends on a few C libraries for a complete install. This is handled by Alien::SDL. First we look for existing SDL libraries and dependencies by doing a <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L581">File::Find</a> for headers. If these headers are found we  present and option for the user to use those. We then store these locations in Alien::SDL->config options 'cflags', 'prefix' and 'libs'. If we do not have libraries available even for a minimum SDL installed ( SDL.h is not found). We provide several platform specific options. </p><br />
+<p>For windows we have a simpler process. We download<a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L7"> prebuilt </a>binaries ( and checksum ) based on the user's selection and just copy them in to the right location. Again the 'prefix', 'cflags', and 'libs' is saved in Alien::SDL->config. </p><br />
+<p>For *nix/MacOSX we download sources and attempt to compile them. To be able to do this we download several other dependencies like libpng, jpeg and pango. You can see how we do this using hashes <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L404">here</a>. During the compile process we also apply patches as needed for the <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L430">sources</a>. Once this is done we can head to SDL Build.PL </p><br />
+<b> SDL Perl dependency resolution </b><br />
 <br />
-<ul><li>&nbsp;Plays ogg files in local directory</li>
-<li>&nbsp;Uses threads and SDL_Mixer effects to extract realtime stereo stream data</li>
-<li>&nbsp;Visulizes stream data as an&nbsp;oscilloscope</li>
-</ul><br />
+SDL's Build is responsible for linking the right libraries to the correct XS. If libraries are missing it will disable the component (not put it in SDL->config). <br />
 <br />
-Get it at: <a href="http://github.com/garu/Spinner/raw/master/data/music/playlist.pl">playlist.pl</a>, you need some<a href="http://github.com/garu/Spinner/tree/master/data/music/"> .ogg files</a> to play in the same directory. Use the down key to go through them.<br />
-<br />
-<b><br />
-SDL_TTF support </b><br />
+<p>For example to build <a href="http://github.com/kthakore/SDL_perl/blob/master/Build.PL#L342">Image.xs</a> we require libsdl, libsdl_image and lib[jpg|png|tiff]. So we would check for these headers in the prefix provided by Alien::SDL->config. If they are not provided we will disable the SDL::Image module. </p><br />
+<p>More over the availability of each library is specified as a -DMACRO to the gcc compiler. This way we can prevent XS failures due to missing libraries using #DEFINES. Here the SDL_image macro is <a href="http://github.com/kthakore/SDL_perl/blob/master/Build.PL#L422">defined</a> and <a href="http://github.com/kthakore/SDL_perl/blob/master/src/Image.xs#L13">used</a>. The availability of the module is then available from <a href="http://github.com/kthakore/SDL_perl/blob/master/t/image.t#L20">SDL::Config->has()</a> <br />
 <br />
 <br />
-<div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/_NnqjAQEn1Xo/S5mz8HnVpkI/AAAAAAAAAKQ/4TV0wJG_GNM/s1600-h/TTF.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/_NnqjAQEn1Xo/S5mz8HnVpkI/AAAAAAAAAKQ/4TV0wJG_GNM/s320/TTF.png" /></a></div><br />
-<br />
-This shows the current work on SDL_TTF support. UTF8 and Uncicode are supported. <br />
-<br />
-See the<a href="http://github.com/kthakore/SDL_perl/tree/redesign/t/ttf.t"> t/ttf.t </a>test in github SDL_perl.<br />
-<br />
-<br />
-<b id="Spinner"><br />
-Spinner (Destiny Swirl) Arcade Game</b><br />
-<div><br />
-</div><div>And finally as a proof of concept we have been working a simple arcade game to test our bugs, and scope out our high level bindings. You can get it at the <a href="http://github.com/garu/Spinner/">Spinner repo</a>. This <a href="http://sdlperl.ath.cx/projects/SDLPerl/wiki/TPMFeb2010">wiki page </a>will help you set up for your platforms.&nbsp;</div><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/_NnqjAQEn1Xo/S5mz1i9fuDI/AAAAAAAAAKA/nWCGR2U2k6I/s1600-h/spinner.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/_NnqjAQEn1Xo/S5mz1i9fuDI/AAAAAAAAAKA/nWCGR2U2k6I/s320/spinner.png" /></a></div><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_NnqjAQEn1Xo/S5mz7Cwi6RI/AAAAAAAAAKI/qV-UwiGaS6E/s1600-h/spinnerII.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_NnqjAQEn1Xo/S5mz7Cwi6RI/AAAAAAAAAKI/qV-UwiGaS6E/s320/spinnerII.png" /></a></div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-2785864569764497133?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/9mDUyjv9tbMACqoghT8ANOyl2tQ/0/da"><img src="http://feedads.g.doubleclick.net/~a/9mDUyjv9tbMACqoghT8ANOyl2tQ/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/9mDUyjv9tbMACqoghT8ANOyl2tQ/1/da"><img src="http://feedads.g.doubleclick.net/~a/9mDUyjv9tbMACqoghT8ANOyl2tQ/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/WYwrXTKlVjI" height="1" width="1"/></div></div>
+<b> Conclusion </b> <br />
+<p>This is a high level overview of our Build process, because frankly I hate traumatizing my brain with this again. Credits have to go to FROGGS and kmx for helping with this Build scheme. Hopefully my post have helped people at the very least appreciate the problem scope of this Build system. That said I believe a fresh written build system, with these requirements in mind, will be more then welcome.<br />
+</p><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4514794130108689562?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/0/da"><img src="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/1/da"><img src="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/fTwVmM222rA" height="1" width="1"/></div></div>

@@ -1,15 +1,13 @@
 <div class="blog">
 <h1 id="NAME">
-Release SDL 2.4: Frozen-Bubble begins to go to CPAN
+SDL 2.503 Released!
 </h1>
 <div class="CONTENT">
-<b><br />
-SDL 2.4 is released!</b><br />
+<p>SDL 2.503 has been released on to CPAN. The changes are mostly in the new features added to SDLx::* layer. However as our continuing attempt to improve cross platform support we have some low level fixes.</p><br />
+<p>Most interstingly we have begun work on SDLx::Sprite::Animated. Although, volatile, this addition will be highly anticipated. We look forward for more work on it soon. Additionally are the changes in SDLx::Surface. SDLx::Surface is an attempt to provide gfx, pixels, video and low level surface functions in a combined and simpler interface. </p><br />
+<p>Since SDLx::Sprite and SDLx::App depends on SDLx::Surface, new features will be propagated and the magic amplified! These are exciting times for SDL in Perl. So come join us for great justice on #sdl <a href="http://irc.perl.org">irc.perl.org</a> or <a href="mailto:sdl-devel@perl.org">sdl-devel@perl.org</a>. </p><br />
+The detailed <a href="http://cpansearch.perl.org/src/KTHAKORE/SDL-2.503/CHANGELOG">changelog</a> are provided at <a href="http://search.cpan.org/~kthakore/SDL-2.503/">CPAN</a>.<br />
 <br />
-After 8 months of work this picture begins to sum it up:<br />
-<br />
-<div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/_NnqjAQEn1Xo/S7uYJbPUFII/AAAAAAAAAK0/oPWO_KQbG80/s1600/fb2.bmp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/_NnqjAQEn1Xo/S7uYJbPUFII/AAAAAAAAAK0/oPWO_KQbG80/s320/fb2.bmp" /></a></div><br />
-<p>If you cannot wait then grab SDL 2.4 and Alien::SDL 1.2 (pick PANGO support) from CPAN and grab the toolchain branch from the <a href="http://github.com/kthakore/frozen-bubble/tree/toolchain">repo</a>. Disclaimer the branch will be volatile for a bit.</p><br />
---yapgh<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-3633977050184282742?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/fV3MgVztLTt8PLCBi6n4UJzeoEI/0/da"><img src="http://feedads.g.doubleclick.net/~a/fV3MgVztLTt8PLCBi6n4UJzeoEI/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/fV3MgVztLTt8PLCBi6n4UJzeoEI/1/da"><img src="http://feedads.g.doubleclick.net/~a/fV3MgVztLTt8PLCBi6n4UJzeoEI/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/AXNLaqCQt6g" height="1" width="1"/></div></div>
+Kartik Thakore<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-1568145111710985964?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/9AdAL018Ayt8_wTqSzfAgLJJIWo/0/da"><img src="http://feedads.g.doubleclick.net/~a/9AdAL018Ayt8_wTqSzfAgLJJIWo/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/9AdAL018Ayt8_wTqSzfAgLJJIWo/1/da"><img src="http://feedads.g.doubleclick.net/~a/9AdAL018Ayt8_wTqSzfAgLJJIWo/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/5YUqXD0sgZs" height="1" width="1"/></div></div>

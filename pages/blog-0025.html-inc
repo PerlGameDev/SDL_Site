@@ -1,14 +1,40 @@
 <div class="blog">
 <h1 id="NAME">
-SDL_perl 2.3_5 is out!
+Getting people to use SDL Perl: Docs, API, and Distribution
 </h1>
 <div class="CONTENT">
-<div style="text-align: right;"><i>We keep on rolling,<br />
-rolling,<br />
-waiting on the world to turn.</i><br />
-</div><br />
-So a new alpha is out on <a href="http://search.cpan.org/~kthakore/SDL-2.3_5/">CPAN</a>, after a bit of a break. We are trying to pick up our speed again. Hopefully we can get back to the weekly updates. This week I am going to try to get Mixer and TTF bindings test, redesigned and doc'd. Hopefully soon we can start working on Frozen Bubble, as things are starting to come together. This alpha release has finally given us a good implementation of SDL Timers. Also <a href="http://daniel.ruoso.com/categoria/perl/games-perl-1">Daniel Ruoso</a> has also started a series blog posts of making games with SDL Perl. Hopefully this can get more people in SDL, cause we can sure use the help!<br />
+<h4><i>The road so far</i></h4><br />
+Things have been busy but fruitful. Our two core modules are getting to be a bit more stable. <a href="http://matrix.cpantesters.org/?dist=Alien-SDL+1.403">Alien::SDL 1.405</a> is behaving well. This foundational stability will start to show results in <a href="http://matrix.cpantesters.org/?dist=SDL+2.405">SDL</a> too I believe. Most excitingly the main developer of frozen-bubble is reviewing our <a href="http://search.cpan.org/~kthakore/Games-FrozenBubble-2.202/lib/Games/FrozenBubble.pm">Games::FrozenBubble</a> port to CPAN. All good and well, but to keep this project going we need to improve.<br />
 <br />
-<i>More to come --yapgh</i><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-896792692004201189?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/0/da"><img src="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/1/da"><img src="http://feedads.g.doubleclick.net/~a/4quTwaND98TUWSbz_Ylz6gI9ET8/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/EOF919S-yGg" height="1" width="1"/></div></div>
+<h4><i>Getting people to use SDL Perl</i></h4><br />
+After a long chat with a new SDL user on #sdl today, I realize we still have some way to go. Currently it seems we are lacking in a few areas. We can definitely use some feedback and help in these areas. <br />
+<br />
+<ul><li>Tutorials/Documentation<br />
+</li>
+
+<ul><li>We have more docs now on http://sdl.perl.org but they suck</li>
+<li>What type of tutorials do you think will be good for beginners?</li>
+
+<ul><li>A project start to finish?</li>
+<li>Individual tutorials for various topics?</li>
+<li>What needs to go in SDL::CookBook?</li>
+</ul></ul>
+<li>API sweetness</li>
+
+<ul><li>SDL Perl depends on distinct C libraries</li>
+
+<ul><li>This makes naming conventions, data formats different the SDL:: namespaces</li>
+<li>How do people design this stuff?</li>
+
+<ul><li>We are hackers and we just go do stuff but I think this needs some prior thought</li>
+<li>Any takers?</li>
+</ul></ul></ul>
+<li>Distribution</li>
+
+<ul><li>If SDL scripts can be packaged up simply for game developers to distribute their games it will be a big plus</li>
+
+<ul><li>One way is a Wx::Perl::Packer clone</li>
+<li>Another is a CPAN/Steam clone that game devs can upload games too and people can point and click download games?&nbsp;</li>
+</ul></ul></ul><div>If anyone wants to help in these areas please talk to us on sdl-devel@perl.org.&nbsp;</div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-7164362190686365958?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/9LDtns437JWMVWJoUGIR6gCE1W0/0/da"><img src="http://feedads.g.doubleclick.net/~a/9LDtns437JWMVWJoUGIR6gCE1W0/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/9LDtns437JWMVWJoUGIR6gCE1W0/1/da"><img src="http://feedads.g.doubleclick.net/~a/9LDtns437JWMVWJoUGIR6gCE1W0/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/EXlozhjfhdo" height="1" width="1"/></div></div>

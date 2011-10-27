@@ -1,26 +1,18 @@
 <div class="blog">
 <h1 id="NAME">
-The Build Process of SDL Perl
+SDL 2.518 Released: Neverhood Clone
 </h1>
 <div class="CONTENT">
-<p>A while ago I had a long chat with mst on why SDL uses Module::Build rather then Make. I told him it is a simple matter of code inertia.  The existing Module::Build system has worked well for us so far. Never the less, he convinced me that switching to Make will improve debugging the Build system. But to be able to switch we will need to completely replace the Build system. I am not prepared to do that so I will just present the requirements so mst or someone else can at least attempt to switch.</p><br />
+So Blaizer started a Neverhood clone and fixed a lot of the Controller code to make it work nicely. This has been released as SDL 2.518. It does break back compat a bit, but not too much.<br />
 <br />
-<h3>The Build Process </h3><br />
-<b> Alien::SDL </b><br />
+Have a look at <a href="http://sdl.perl.org/SDL-Deprecated.html#2_517">http://sdl.perl.org/SDL-Deprecated.html#2_517</a> to see the breakages. <br />
 <br />
-<p>SDL Perl depends on a few C libraries for a complete install. This is handled by Alien::SDL. First we look for existing SDL libraries and dependencies by doing a <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L581">File::Find</a> for headers. If these headers are found we  present and option for the user to use those. We then store these locations in Alien::SDL->config options 'cflags', 'prefix' and 'libs'. If we do not have libraries available even for a minimum SDL installed ( SDL.h is not found). We provide several platform specific options. </p><br />
-<p>For windows we have a simpler process. We download<a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L7"> prebuilt </a>binaries ( and checksum ) based on the user's selection and just copy them in to the right location. Again the 'prefix', 'cflags', and 'libs' is saved in Alien::SDL->config. </p><br />
-<p>For *nix/MacOSX we download sources and attempt to compile them. To be able to do this we download several other dependencies like libpng, jpeg and pango. You can see how we do this using hashes <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L404">here</a>. During the compile process we also apply patches as needed for the <a href="http://github.com/kthakore/Alien_SDL/blob/master/inc/My/Utility.pm#L430">sources</a>. Once this is done we can head to SDL Build.PL </p><br />
-<b> SDL Perl dependency resolution </b><br />
+The documentation for Controller has also been improved considerably. <br />
 <br />
-SDL's Build is responsible for linking the right libraries to the correct XS. If libraries are missing it will disable the component (not put it in SDL->config). <br />
+<a href="http://sdl.perl.org/SDLx-Controller.html">http://sdl.perl.org/SDLx-Controller.html</a><br />
 <br />
-<p>For example to build <a href="http://github.com/kthakore/SDL_perl/blob/master/Build.PL#L342">Image.xs</a> we require libsdl, libsdl_image and lib[jpg|png|tiff]. So we would check for these headers in the prefix provided by Alien::SDL->config. If they are not provided we will disable the SDL::Image module. </p><br />
-<p>More over the availability of each library is specified as a -DMACRO to the gcc compiler. This way we can prevent XS failures due to missing libraries using #DEFINES. Here the SDL_image macro is <a href="http://github.com/kthakore/SDL_perl/blob/master/Build.PL#L422">defined</a> and <a href="http://github.com/kthakore/SDL_perl/blob/master/src/Image.xs#L13">used</a>. The availability of the module is then available from <a href="http://github.com/kthakore/SDL_perl/blob/master/t/image.t#L20">SDL::Config->has()</a> <br />
+Finally here is a video of the neverhood clone so far<br />
 <br />
-<br />
-<b> Conclusion </b> <br />
-<p>This is a high level overview of our Build process, because frankly I hate traumatizing my brain with this again. Credits have to go to FROGGS and kmx for helping with this Build scheme. Hopefully my post have helped people at the very least appreciate the problem scope of this Build system. That said I believe a fresh written build system, with these requirements in mind, will be more then welcome.<br />
-</p><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4514794130108689562?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/0/da"><img src="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/1/da"><img src="http://feedads.g.doubleclick.net/~a/SHI8waMCUMOT4LmhUSkV3-Y1cK8/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/fTwVmM222rA" height="1" width="1"/></div></div>
+<iframe frameborder="0" height="207" src="http://player.vimeo.com/video/15531777?portrait=0&amp;color=59a5d1" width="267"></iframe><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-2064504316940101601?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/0/da"><img src="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/1/da"><img src="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/6YG5estsLGE" height="1" width="1"/></div></div>

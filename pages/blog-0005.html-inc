@@ -1,18 +1,13 @@
 <div class="blog">
 <h1 id="NAME">
-SDL 2.518 Released: Neverhood Clone
+Introduction Box2D for Perl Games!
 </h1>
 <div class="CONTENT">
-So Blaizer started a Neverhood clone and fixed a lot of the Controller code to make it work nicely. This has been released as SDL 2.518. It does break back compat a bit, but not too much.<br />
+So over the last couple days I have started binding Box2D 2.1.0 to Perl.  <a href="http://www.box2d.org/">Box2D</a> is a 2D physics engine used in game such as the popular <a href="http://www.google.com/url?sa=t&amp;source=video&amp;cd=3&amp;sqi=2&amp;ved=0CF0QtwIwAg&amp;url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D2BqfjGDsHUs&amp;rct=j&amp;q=angry%20birds%20gameplay&amp;tbm=vid&amp;ei=eUO-TaXaKcSCtgf67Y21BQ&amp;usg=AFQjCNEs9L34n_0Q_Rc6eMqvfj8arpl6vg&amp;sig2=5G8hr533dr24sYJXWactMw&amp;cad=rja">Angry Birds</a>.&nbsp; Here is the repository:<br />
+<a href="https://github.com/PerlGameDev/Box2D-perl">https://github.com/PerlGameDev/Box2D-perl</a><br />
 <br />
-Have a look at <a href="http://sdl.perl.org/SDL-Deprecated.html#2_517">http://sdl.perl.org/SDL-Deprecated.html#2_517</a> to see the breakages. <br />
-<br />
-The documentation for Controller has also been improved considerably. <br />
-<br />
-<a href="http://sdl.perl.org/SDLx-Controller.html">http://sdl.perl.org/SDLx-Controller.html</a><br />
-<br />
-Finally here is a video of the neverhood clone so far<br />
-<br />
-<iframe frameborder="0" height="207" src="http://player.vimeo.com/video/15531777?portrait=0&amp;color=59a5d1" width="267"></iframe><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-2064504316940101601?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/0/da"><img src="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/1/da"><img src="http://feedads.g.doubleclick.net/~a/HU7JcI30aNNXGX7FuQOFKHIFKQM/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/6YG5estsLGE" height="1" width="1"/></div></div>
+Also here is the helloWorld Box2D <a href="https://github.com/PerlGameDev/Box2D-perl/blob/master/examples/helloWorld.pl">example</a> in pure Perl and rendered with SDL Perl. You can<br />
+see the video on  <a href="http://vimeo.com/23140451">Box2D Hello World and SDL</a>  on <a href="http://vimeo.com">Vimeo</a>.</p><br />
+To run this example you will need to install Box2D 2.1.0 .<div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-4564257794842221147?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/aKPSS5zxIO0BXVAEGw_ui48caU0/0/da"><img src="http://feedads.g.doubleclick.net/~a/aKPSS5zxIO0BXVAEGw_ui48caU0/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/aKPSS5zxIO0BXVAEGw_ui48caU0/1/da"><img src="http://feedads.g.doubleclick.net/~a/aKPSS5zxIO0BXVAEGw_ui48caU0/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/ZX19dxuxMKQ" height="1" width="1"/></div></div>

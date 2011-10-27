@@ -1,20 +1,30 @@
 <div class="blog">
 <h1 id="NAME">
-Closing the Grant
+YAPC::NA Links and Presentation of the TALK
 </h1>
 <div class="CONTENT">
-With the following <a href="https://github.com/PerlGameDev/SDL_Manual/commit/3acf7fada644a24b020fc1caf8338c2dd32b6985">commit</a> I am closing the grant.<br />
-<br />
-This is what has been accomplished from each of the objectives:<br />
-<ul><li>Cleaner Code and a lot of memory and performance improvements ( SDL 2.527 released Jan 18th )</li>
-<li>10 out of 11 chapters completed:</li>
-<ul><li>The profiling chapter was dropped as there was not enough content to justify a chapter.</li>
-</ul><li>3 Extra chapters added.</li>
-<li>Deviation from a CPAN SDL::Manual release due to the nature of the Manual it is being released as a creative commons<a href="https://github.com/PerlGameDev/SDL_Manual/blob/master/dist/SDL_Manual.pdf"> book</a> instead.</li>
-</ul>Next Steps:<br />
-<ul><li>Get the book polished and edited with chromatic's help</li>
-<li>Fix build system of the html to make a real SDL::Manual release</li>
-<li>Constant update of the book with more releases of SDL and reviewer comments.</li>
-</ul><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-6952731709319833584?l=yapgh.blogspot.com' alt='' /></div>
-<p><a href="http://feedads.g.doubleclick.net/~a/rj_K2nNds54Aw9cND4qkZa7Liio/0/da"><img src="http://feedads.g.doubleclick.net/~a/rj_K2nNds54Aw9cND4qkZa7Liio/0/di" border="0" ismap="true"></img></a><br/>
-<a href="http://feedads.g.doubleclick.net/~a/rj_K2nNds54Aw9cND4qkZa7Liio/1/da"><img src="http://feedads.g.doubleclick.net/~a/rj_K2nNds54Aw9cND4qkZa7Liio/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/hwuC2dygN5w" height="1" width="1"/></div></div>
+<h1>Presentation</h1><br />
+<div class="prezi-player"><style media="screen" type="text/css">
+.prezi-player { width: 550px; } .prezi-player-links { text-align: center; }
+</style><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" height="400" id="prezi_9dm0pzuf3jfx" name="prezi_9dm0pzuf3jfx" width="550"><param name="movie" value="http://prezi.com/bin/preziloader.swf"/><param name="allowfullscreen" value="true"/><param name="allowscriptaccess" value="always"/><param name="bgcolor" value="#ffffff"/><param name="flashvars" value="prezi_id=9dm0pzuf3jfx&amp;lock_to_path=0&amp;color=ffffff&amp;autoplay=no&amp;autohide_ctrls=0"/><embed id="preziEmbed_9dm0pzuf3jfx" name="preziEmbed_9dm0pzuf3jfx" src="http://prezi.com/bin/preziloader.swf" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="550" height="400" bgcolor="#ffffff" flashvars="prezi_id=9dm0pzuf3jfx&amp;lock_to_path=0&amp;color=ffffff&amp;autoplay=no&amp;autohide_ctrls=0"></embed></object><br />
+<div class="prezi-player-links"><a href="http://prezi.com/9dm0pzuf3jfx/game-development-in-perl/" title="Presentation for YAPC::NA 2011">Game Development in Perl</a> on <a href="http://prezi.com/">Prezi</a></div></div><br />
+<h2>Notes </h2><div><br />
+</div><div><div><br />
+</div><div><br />
+</div><div>Links to modules I discussed: <a href="http://search.cpan.org/~kthakore/">http://search.cpan.org/~kthakore/</a></div><div><br />
+</div><div><a href="https://github.com/PerlGameDev/Avenger">https://github.com/PerlGameDev/Avenger</a> ( We had to fix some stuff )</div><div><br />
+</div><div><a href="http://github.com/PerlGameDev">http://github.com/PerlGameDev</a> in general has all the cake</div><div><br />
+</div><div><b>SDL Game Contest:</b></div><div><br />
+</div><div><a href="http://yapgh.blogspot.com/2011/04/sdl-perl-game-contest-week-4-roundup.html">http://yapgh.blogspot.com/2011/04/sdl-perl-game-contest-week-4-roundup.html</a></div><div><br />
+</div><div><a href="http://yapgh.blogspot.com/2011/03/sdl-perl-game-contest-week-3-roundup.html">http://yapgh.blogspot.com/2011/03/sdl-perl-game-contest-week-3-roundup.html</a></div><div><br />
+</div><div><a href="http://yapgh.blogspot.com/2011/03/sdl-perl-game-contest-week-2-roundup.html">http://yapgh.blogspot.com/2011/03/sdl-perl-game-contest-week-2-roundup.html</a></div><div><br />
+</div><div><a href="http://yapgh.blogspot.com/2011/03/sdl-perl-game-contest-week-1-roundup.html">http://yapgh.blogspot.com/2011/03/sdl-perl-game-contest-week-1-roundup.html</a></div><div><br />
+</div><div><a href="http://yapgh.blogspot.com/2011/02/sdl-perl-game-contest.html">http://yapgh.blogspot.com/2011/02/sdl-perl-game-contest.html</a></div><div><br />
+</div><div>Other stuff I do do (hehe):</div><div><a href="https://github.com/kthakore">https://github.com/kthakore</a></div><div><br />
+</div><div>Lacuna Expanse:&nbsp;<a href="http://www.lacunaexpanse.com/">http://www.lacunaexpanse.com</a></div><div><br />
+</div><div>Construder: <a href="http://ue.o---o.eu/">http://ue.o---o.eu/</a>and see SDLperl wiki link up some place</div><div><br />
+</div><div><br />
+</div><div><br />
+</div></div><div class="blogger-post-footer"><img width='1' height='1' src='https://blogger.googleusercontent.com/tracker/3102167581424744259-383558267418319245?l=yapgh.blogspot.com' alt='' /></div>
+<p><a href="http://feedads.g.doubleclick.net/~a/VZ45zZUjx_iezmwxiHF32kgIKvE/0/da"><img src="http://feedads.g.doubleclick.net/~a/VZ45zZUjx_iezmwxiHF32kgIKvE/0/di" border="0" ismap="true"></img></a><br/>
+<a href="http://feedads.g.doubleclick.net/~a/VZ45zZUjx_iezmwxiHF32kgIKvE/1/da"><img src="http://feedads.g.doubleclick.net/~a/VZ45zZUjx_iezmwxiHF32kgIKvE/1/di" border="0" ismap="true"></img></a></p><img src="http://feeds.feedburner.com/~r/YetAnotherPerlGameHackeryapgh/~4/0Zui5fDOBng" height="1" width="1"/></div></div>
